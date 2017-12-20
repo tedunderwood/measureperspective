@@ -1,4 +1,4 @@
-How to Measure Historical Perspective
+A Measured Perspective
 ======================================
 
 Early stage. Currently gathering data.
