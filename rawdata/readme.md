@@ -1,4 +1,4 @@
-raw data sources for "How to Measure Historical Perspective"
+raw data sources for "A Measured Perspective"
 ============================================================
 
 The workflow here began with two different categories of metadata.
@@ -21,3 +21,7 @@ winnowing and deduplicating
 I created initial lists of fantasy and science fiction by running **../getdata/select_sf.py** and **../getdata/select_fantasy.py** These scripts create lists of Hathi vols that were either explicitly tagged sf/fantasy or that match the oclc (either through oclc id or through title/auth fuzzy matching).
 
 The next stage is to deduplicate those lists, retaining only the earliest copy of each title. This was done by **../mungedata/dedup2earliest.py** The same script can run on both genres. Note that, in deduplicating, we retain info about the original reason(s) for inclusion of all examples of a title, so a title that was both tagged SF in Hathi and included in the OCLC list will retain tags for both "reasons."
+
+Manual editing transformed the *deduped* files into the *edited* files. Mainly I was trying to identify date of first publication, to get a sense of how many vols per decade I had in the early going. I also removed some duplicates that slipped through the screen.
+
+Once I knew how dense the data was before 1950, I ran **../mungedata/sample_recent.py** to downsample the post-1950 part of the dataset to a roughly equal, manageable size. This produced **chosen_fantasy.csv** and **chosen_sf.csv**.
