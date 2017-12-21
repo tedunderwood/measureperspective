@@ -10,15 +10,10 @@ Models will be trained that are 0% mainstream, 10% mainstream, etc. all the way 
 This will create 30 models. For each of those models, we'll then measure the distance from 6 reference points:
 
 * 40 vols, 0% mainstream
-
 * 40 vols, 50% mainstream
-
 * 40 vols, 100% mainstream
-
 * 120 vols, 0% mainstream
-
 * 120 vols, 50% mainstream
-
 * 120 vols, 100% mainstream
 
 In each case, distance will be measured by applying the test model to the same data used in the reference model, and vice-versa.  For each comparison, we'll record
