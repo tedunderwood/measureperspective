@@ -25,3 +25,10 @@ The next stage is to deduplicate those lists, retaining only the earliest copy o
 Manual editing transformed the *deduped* files into the *edited* files. Mainly I was trying to identify date of first publication, to get a sense of how many vols per decade I had in the early going. I also removed some duplicates that slipped through the screen.
 
 Once I knew how dense the data was before 1950, I ran **../mungedata/sample_recent.py** to downsample the post-1950 part of the dataset to a roughly equal, manageable size. This produced **chosen_fantasy.csv** and **chosen_sf.csv**.
+
+bibliographies and critical sources
+------------------------------------
+
+I could rarely get all the works mentioned by a source. But I tried to get works (and especially authors) who are mentioned frequently or prominently.
+
+**supernatural.csv** is drawn from [Dorothy Scarborough, *The Supernatural in Modern English Fiction* (1917).](https://catalog.hathitrust.org/Record/011213105) Scarborough's categories interestingly cut across genres we might separate out as fantasy, horror, and science fiction. She includes a chapter on "Supernatural Science," for instance, and sees H G Wells as an example. But Dunsany's style of fantasy and ghost stories are also included.
