@@ -1,7 +1,7 @@
 code for scraping and munging data
 ==================================
 
-**OCLC Classify Scrape** was used to get lists of volumes from OCLC's experimental classification webservice](http://classify.oclc.org/classify2/). This notebook was originally developed in a project where Scott B. Weingart, Rikk Mulligan, Dan Evans, Matt Lavin, and Jessica Otis were the chief collaborators; I didn't write it.
+**OCLC Classify Scrape** was used to get lists of volumes from [OCLC's experimental classification webservice](http://classify.oclc.org/classify2/). This notebook was originally developed in a project where Scott B. Weingart, Rikk Mulligan, Dan Evans, Matt Lavin, and Jessica Otis were the chief collaborators; I didn't write it.
 
 **select_fantasy** and **select_sf** generate lists of volumes in those genres, partly by selecting volumes [from my HathiTrust fiction list](https://github.com/tedunderwood/noveltmmeta) that bear genre tags assigned by librarians, and partly by intersecting the HathiTrust list with an OCLC list of (mostly recent) volumes in those genres -- obtained from the **Classify Scrape** script above.
 
@@ -16,7 +16,7 @@ So this section of documentation is actually more for my benefit than the user's
 
 Once I've created metadata tables, I pass them to **generate_path_list**, which will harvest HathiTrust volume IDs from the metadata, in order to create simple summaries that I can use to download extracted-feature files from HTRC.
 
-Then I run
+For instance, a command might be:
 
 > python3 generate_path_list.py edited_random_fiction.csv merged_sff.csv supernatural.csv
 
