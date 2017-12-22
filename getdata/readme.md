@@ -6,3 +6,16 @@ code for scraping and munging data
 **select_fantasy** and **select_sf** generate lists of volumes in those genres, partly by selecting volumes [from my HathiTrust fiction list](https://github.com/tedunderwood/noveltmmeta) that bear genre tags assigned by librarians, and partly by intersecting the HathiTrust list with an OCLC list of (mostly recent) volumes in those genres -- obtained from the **Classify Scrape** script above.
 
 **fuse_old_and_new_fiction.py** concatenates two metadata sources to produce a list of all Hathi fiction
+
+getting data from HTRC
+----------------------
+
+Once I've created metadata tables, I pass them to **generate_path_list**, which will create files that I can use to download extracted-feature files from HTRC.
+
+Usage is, for instance,
+
+> python3 generate_path_list.py edited_random_fiction.csv merged_sff.csv supernatural.csv
+
+Then (in a directory I use to store raw feature files)
+
+> rsync -a --files-from=/Users/tunder/Dropbox/python/pmla/getdata/justpathlist.txt data.analytics.hathitrust.org::features fic
