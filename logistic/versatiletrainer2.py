@@ -771,7 +771,7 @@ def apply_pickled_model(amodelpath, folder, extension, metapath):
 
     return metadata
 
-def tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, positive_tags, negative_tags, modelparams, modelname, outputpath, verbose = True):
+def tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, positive_tags, negative_tags, modelparams, modelname, outputpath, verbose = True, write_fullmodel = False):
     '''
     This has become the central workhorse class in the module. It takes
     a set of parameters defining positive and negative subsets of a corpus,
@@ -831,7 +831,15 @@ def tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs,
             coef, normalizedcoef, word = triple
             writer.writerow([word, coef, normalizedcoef])
 
-    predicted = [predictions[x] for x in orderedIDs]
+    if write_fullmodel:
+        # If we want to, we can write predictions created by a model
+        # trained on all the data.
+        standarddata = scaler.transform(datasubset)
+        predicted = [x[1] for x in fullmodel.predict_proba(standarddata)]
+
+    else:
+        # But the default is to write the crossvalidated predictions.
+        predicted = [predictions[x] for x in orderedIDs]
 
     metadata = metadata.assign(probability = predicted)
     metadata = metadata.assign(realclass = classvector)

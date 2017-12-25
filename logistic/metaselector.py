@@ -287,7 +287,59 @@ def set_positive_ratio(metadata, sizecap, tags4positive1, tags4positive2, ratio,
 
     return orderedIDs, classdictionary
 
+def dilute_positive_class(metadata, sizecap, tags4positive, tags4negative, ratio):
 
+    '''An experimental function that allows the user to dilute the positive class with negative examples in a fixed ratio, blurring the model.'''
+
+    allnegatives = []
+    allpositives = []
+
+    for idx, row in metadata.iterrows():
+        posintersect = len(row['tagset'] & tags4positive)
+        negintersect = len(row['tagset'] & tags4negative)
+
+        if posintersect and not negintersect:
+            allpositives.append(idx)
+
+        elif negintersect:
+            allnegatives.append(idx)
+
+    print()
+    print('Selecting ' + str(sizecap) + ' instances at a ratio of ' + str(ratio) + '.')
+    print()
+
+    dilution_ct = int(sizecap * ratio)
+    real_positive_ct = int(sizecap - dilution_ct)
+
+    # we randomly sample positive instances
+
+    real_positives = random.sample(allpositives, real_positive_ct)
+
+    dilution = random.sample(allnegatives, dilution_ct)
+
+    for d in dilution:
+        allnegatives.pop(allnegatives.index(d))
+        # we don't want instances on both sides of the
+        # boundary
+
+    real_positives.extend(dilution)
+
+    negatives = random.sample(allnegatives, sizecap)
+
+    orderedIDs = []
+    classdictionary = dict()
+
+    for anid in real_positives:
+        orderedIDs.append(anid)
+        classdictionary[anid] = 1
+
+    for anid in negatives:
+        orderedIDs.append(anid)
+        classdictionary[anid] = 0
+
+    print('Instances chosen.')
+
+    return orderedIDs, classdictionary
 
 
 

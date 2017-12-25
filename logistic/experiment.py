@@ -35,11 +35,11 @@ def first_experiment():
     plt.matshow(matrix, origin = 'lower', cmap = plt.cm.YlOrRd)
     plt.show()
 
-def get_ratio_data(vocabpath, sizecap, ratio, excludebelow = 0, excludeabove = 3000):
+def get_ratio_data(vocabpath, sizecap, ratio, tags4positive, tags4negative, excludebelow = 0, excludeabove = 3000):
 
     ''' Loads metadata, selects instances for the positive
-    and negative classes (using a ratio to blend two positive
-    classes), creates a lexicon if one doesn't
+    and negative classes (using a ratio to dilute the positive
+    class with negative instances), creates a lexicon if one doesn't
     already exist, and creates a pandas dataframe storing
     texts as rows and words/features as columns. A refactored
     and simplified version of get_data_for_model().
@@ -52,11 +52,7 @@ def get_ratio_data(vocabpath, sizecap, ratio, excludebelow = 0, excludeabove = 3
     indexcol = ['docid']
     extension = '.tsv'
     genrecol = 'tags'
-    numfeatures = 6000
-
-    tags4positive1 = {'fantasy_loc', 'fantasy_oclc'}
-    tags4positive2 = {'random'}
-    tags4negative = {'sf_loc', 'sf_oclc'}
+    numfeatures = 8000
 
     sourcefolder = '../data/'
     metadatapath = '../metadata/mastermetadata.csv'
@@ -82,7 +78,7 @@ def get_ratio_data(vocabpath, sizecap, ratio, excludebelow = 0, excludeabove = 3
     # sets of genre tags for each row. It has also been filtered so it only contains volumes
     # in the folder, and none whose date is below excludebelow or above excludeabove.
 
-    orderedIDs, classdictionary = metaselector.set_positive_ratio(metadata, sizecap, tags4positive1, tags4positive2, ratio, tags4negative)
+    orderedIDs, classdictionary = metaselector.dilute_positive_class(metadata, sizecap, tags4positive, tags4negative, ratio)
 
     metadata = metadata.loc[orderedIDs]
     # Limits the metadata data frame to rows we are actually using
@@ -133,20 +129,31 @@ def get_ratio_data(vocabpath, sizecap, ratio, excludebelow = 0, excludeabove = 3
 
     return metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist
 
-def varying_ratios():
-    if not os.path.isfile('../measuredivergence/modelstats.tsv'):
-        with open('../measuredivergence/modelstats.tsv', mode = 'w', encoding = 'utf-8') as f:
+def vary_sf_ratio_against_random():
+    if not os.path.isfile('../measuredivergence/modeldata.tsv'):
+        with open('../measuredivergence/modeldata.tsv', mode = 'w', encoding = 'utf-8') as f:
             outline = 'name\tsize\tratio\taccuracy\tfeatures\tregularization\n'
             f.write(outline)
 
-    for size in [160]:
-        for pct in range(0, 110, 10):
-            ratio = pct / 100
-            name = 'iter4_size' + str(size) + '_ratio' + str(pct)
-            vocabpath = '../measuredivergence/vocabularies/' + name + '.txt'
-            metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = get_ratio_data(vocabpath, size, ratio, excludebelow = 0, excludeabove = 3000)
+    size = 80
 
-            c_range = [.0001, .0003, .001, .004, .012, 0.3, 0.8, 2]
+    for iteration in [5, 6, 7]:
+
+        ceiling = 105
+        if iteration == 7:
+            ceiling = 5
+
+        for pct in range(0, ceiling, 5):
+            ratio = pct / 100
+            name = 'iter' + str(iteration) + '_size' + str(size) + '_ratio' + str(pct)
+
+            vocabpath = '../measuredivergence/vocabularies/' + name + '.txt'
+            tags4positive = {'sf_loc', 'sf_oclc'}
+            tags4negative = {'random'}
+
+            metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = get_ratio_data(vocabpath, size, ratio, tags4positive, tags4negative, excludebelow = 0, excludeabove = 3000)
+
+            c_range = [.00005, .0003, .001, .004, .012, 0.2, 0.8]
             featurestart = 1000
             featureend = 6000
             featurestep = 200
@@ -154,9 +161,47 @@ def varying_ratios():
             tags4positive = size
             tags4negative = ratio
 
-            matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../measuredivergence/modeloutput/' + name + '.csv')
+            matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../measuredivergence/modeloutput/' + name + '.csv', write_fullmodel = True)
 
-            with open('../measuredivergence/modelstats.tsv', mode = 'a', encoding = 'utf-8') as f:
+            with open('../measuredivergence/modeldata.tsv', mode = 'a', encoding = 'utf-8') as f:
+                outline = name + '\t' + str(size) + '\t' + str(ratio) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\n'
+                f.write(outline)
+
+def vary_fantasy_ratio_against_sf():
+    if not os.path.isfile('../measuredivergence/modeldata.tsv'):
+        with open('../measuredivergence/modeldata.tsv', mode = 'w', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tratio\taccuracy\tfeatures\tregularization\n'
+            f.write(outline)
+
+    size = 80
+
+    for iteration in [8, 9, 10]:
+
+        ceiling = 105
+        if iteration == 10:
+            ceiling = 5
+
+        for pct in range(0, ceiling, 5):
+            ratio = pct / 100
+            name = 'iter' + str(iteration) + '_size' + str(size) + '_ratio' + str(pct)
+
+            vocabpath = '../measuredivergence/vocabularies/' + name + '.txt'
+            tags4positive = {'fantasy_loc', 'fantasy_oclc'}
+            tags4negative = {'sf_loc', 'sf_oclc'}
+
+            metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = get_ratio_data(vocabpath, size, ratio, tags4positive, tags4negative, excludebelow = 0, excludeabove = 3000)
+
+            c_range = [.00005, .0003, .001, .004, .012, 0.2, 0.8, 3]
+            featurestart = 2000
+            featureend = 8000
+            featurestep = 200
+            modelparams = 'logistic', 12, featurestart, featureend, featurestep, c_range
+            tags4positive = size
+            tags4negative = ratio
+
+            matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../measuredivergence/modeloutput/' + name + '.csv', write_fullmodel = True)
+
+            with open('../measuredivergence/modeldata.tsv', mode = 'a', encoding = 'utf-8') as f:
                 outline = name + '\t' + str(size) + '\t' + str(ratio) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\n'
                 f.write(outline)
 
@@ -174,7 +219,7 @@ def accuracy_loss(df):
 
     return accuracy(df, 'probability') - accuracy(df, 'alien_model')
 
-def kl(p, q):
+def kldivergence(p, q):
     """Kullback-Leibler divergence D(P || Q) for discrete distributions
     Parameters
     ----------
@@ -186,43 +231,72 @@ def kl(p, q):
 
     return np.sum(np.where(p != 0, p * np.log(p / q), 0))
 
-def compare_models():
-    if not os.path.isfile('../measuredivergence/160results.tsv'):
-        with open('../measuredivergence/160results.tsv', mode = 'a', encoding = 'utf-8') as f:
-            outline = 'name1\tname2\tsize1\tsize2\tratiodiff\tpearson\tspearman\tloss1on2\tkl1on2\n'
+def averagecorr(r1, r2):
+    z1 = np.arctanh(r1)
+    z2 = np.arctanh(r2)
+    themean = (z1 + z2) / 2
+    return np.tanh(themean)
+
+def measure_sf_divergences():
+    if not os.path.isfile('../measuredivergence/divergences.tsv'):
+        with open('../measuredivergence/divergences.tsv', mode = 'a', encoding = 'utf-8') as f:
+            outline = 'name1\tname2\tsize1\tsize2\tacc1\tacc2\tratiodiff\tpearson\tspearman\tspearman2on1\tloss\tkl\n'
             f.write(outline)
 
-    for size in [160]:
-        for pct in range(0, 110, 10):
-            for size2 in [160]:
-                for pct2 in range(0, 110, 10):
-                    for itera in [4]:
-                        for itera2 in [4]:
-                            if size2 != size or pct2 != pct or itera2 != itera:
-                                continue
+    goldstandards = ['iter5_size80_ratio0', 'iter6_size80_ratio0', 'iter7_size80_ratio0']
+    size = 80
 
-                            name1 = '../measuredivergence/modeloutput/iter' + str(itera) + '_size' + str(size) + '_ratio' + str(pct)
-                            name2 = '../measuredivergence/modeloutput/iter' + str(itera2) + '_size' + str(size2) + '_ratio' + str(pct2)
+    modeldata = pd.read_csv('../measuredivergence/modeldata.tsv', sep = '\t', index_col = 'name')
 
-                            model1 = name1 + '.pkl'
-                            meta2 = name2 + '.csv'
+    for gold in goldstandards:
+        for itera in [5, 6]:
+            for pct in range(0, 105, 5):
+                ratio = pct / 100
 
-                            model1on2 = versatiletrainer2.apply_pickled_model(model1, '../data/', '.tsv', meta2)
+                model1 = '../measuredivergence/modeloutput/' + gold + '.pkl'
+                meta1 = '../measuredivergence/modeloutput/' + gold + '.csv'
 
-                            pearson1on2 = stats.pearsonr(model1on2.probability, model1on2.alien_model)[0]
-                            spearman1on2 = stats.spearmanr(model1on2.probability, model1on2.alien_model)[0]
-                            loss1on2 = accuracy_loss(model1on2)
-                            kl1on2 = kl(model1on2.probability, model1on2.alien_model)
+                testpath = '../measuredivergence/modeloutput/iter' + str(itera) + '_size' + str(size) + '_ratio' + str(pct)
 
-                            name1 = 'iter' + str(itera) + '_size' + str(size) + '_ratio' + str(pct)
-                            name2 = 'iter' + str(itera2) + '_size' + str(size2) + '_ratio' + str(pct2)
+                testname = 'iter' + str(itera) + '_size' + str(size) + '_ratio' + str(pct)
 
-                            with open('../measuredivergence/160results.tsv', mode = 'a', encoding = 'utf-8') as f:
-                                outline = name1 + '\t' + name2 + '\t' +str(size) + '\t' + str(size2) + '\t' + str(abs(pct - pct2)) + '\t' + str(pearson1on2) + '\t' + str(spearman1on2) + '\t' + str(loss1on2) + '\t' + str(kl1on2) + '\n'
-                                f.write(outline)
+                if testname == gold:
+                    continue
+                    # we don't test a model against itself.
+                if testname != 'iter7_size80_ratio0' and ratio != 0:
+                    continue
+                    # we're extending previous work
 
+                model2 = testpath + '.pkl'
+                meta2 = testpath + '.csv'
 
-compare_models()
+                acc1 = modeldata.loc[gold, 'accuracy']
+                acc2 = modeldata.loc[testname, 'accuracy']
+
+                model1on2 = versatiletrainer2.apply_pickled_model(model1, '../data/', '.tsv', meta2)
+                model2on1 = versatiletrainer2.apply_pickled_model(model2, '../data/', '.tsv', meta1)
+
+                pearson1on2 = stats.pearsonr(model1on2.probability, model1on2.alien_model)[0]
+                pearson2on1 = stats.pearsonr(model2on1.probability, model2on1.alien_model)[0]
+                pearson = averagecorr(pearson1on2, pearson2on1)
+
+                spearman1on2 = stats.spearmanr(model1on2.probability, model1on2.alien_model)[0]
+                spearman2on1 = stats.spearmanr(model2on1.probability, model2on1.alien_model)[0]
+                spearman = averagecorr(pearson1on2, pearson2on1)
+
+                loss1on2 = accuracy_loss(model1on2)
+                loss2on1 = accuracy_loss(model2on1)
+                loss = (loss1on2 + loss2on1) / 2
+
+                kl1on2 = kldivergence(model1on2.probability, model1on2.alien_model)
+                kl2on1 = kldivergence(model2on1.probability, model2on1.alien_model)
+                kl = (kl1on2 + kl2on1) / 2
+
+                with open('../measuredivergence/divergences.tsv', mode = 'a', encoding = 'utf-8') as f:
+                    outline = gold + '\t' + testname + '\t' +str(size) + '\t' + str(size) + '\t' + str(acc1) + '\t' + str(acc2) + '\t' + str(ratio) + '\t' + str(pearson) + '\t' + str(spearman) + '\t' + str(spearman2on1) + '\t' + str(loss) + '\t' + str(kl) + '\n'
+                    f.write(outline)
+
+vary_fantasy_ratio_against_sf()
 
 
 
