@@ -9,7 +9,7 @@ from collections import Counter
 
 # thresholds = [1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010]
 
-thresholds = [1900, 1920, 1950, 1970, 1980, 1990, 2000, 2010]
+thresholds = [1898, 1920, 1950, 1970, 1980, 1990, 2000, 2010]
 
 def get_threshold(date):
     global thresholds
