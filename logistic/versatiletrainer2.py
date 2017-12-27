@@ -546,7 +546,7 @@ def get_dataframe(volspresent, classdictionary, vocablist, freqs_already_normali
 
     return masterdata, classvector
 
-def get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, forbid4positive = {'allnegative'}, forbid4negative = {'allpositive'}, excludebelow = 0, excludeabove = 3000, verbose = False, datecols = ['firstpub'], indexcol = ['docid'], extension = '.tsv', genrecol = 'tags', numfeatures = 5000):
+def get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, forbid4positive = {'allnegative'}, forbid4negative = {'allpositive'}, excludebelow = 0, excludeabove = 3000, verbose = False, datecols = ['firstpub'], indexcol = ['docid'], extension = '.tsv', genrecol = 'tags', numfeatures = 5000, negative_strategy = 'random', overlap_strategy = 'random',force_even_distribution = False):
 
     ''' Loads metadata, selects instances for the positive and
     negative classes, creates a lexicon if one doesn't
@@ -597,7 +597,7 @@ def get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4n
     # sets of genre tags for each row. It has also been filtered so it only contains volumes
     # in the folder, and none whose date is below excludebelow or above excludeabove.
 
-    orderedIDs, classdictionary = metaselector.select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4positive, forbid4negative)
+    orderedIDs, classdictionary = metaselector.select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4positive, forbid4negative, negative_strategy = negative_strategy, overlap_strategy = overlap_strategy, force_even_distribution = 'False')
 
     metadata = metadata.loc[orderedIDs]
     # Limits the metadata data frame to rows we are actually using
@@ -609,13 +609,13 @@ def get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4n
     metadata.to_csv('experimental_metadata.csv')
 
     print()
-    print("Volumes range in date from " + str(minimumdate) + " to " + str(maximumdate) + ".")
+    print(str(len(orderedIDs)) + " volumes range in date from " + str(minimumdate) + " to " + str(maximumdate) + ".")
     print()
 
     # We now create an ordered list of id-path tuples.
 
     volspresent = [(x, sourcefolder + x + extension) for x in orderedIDs]
-    print(len(volspresent))
+
 
     print('Building vocabulary.')
 

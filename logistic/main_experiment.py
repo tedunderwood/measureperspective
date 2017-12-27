@@ -248,4 +248,29 @@ def sf2fantasy_divergence():
 
                 write_a_row(r, outfile, columns)
 
-sf2fantasy_divergence()
+def sf_vs_fantasy():
+    sourcefolder = '../data/'
+    metadatapath = '../metadata/mastermetadata.csv'
+    tags4positive = {'fantasy_loc', 'fantasy_oclc', 'supernat'}
+    tags4negative = {'sf_loc', 'sf_oclc'}
+    sizecap = 330
+
+    excludebelow = 1800
+    excludeabove = 3000
+
+
+    name = 'fantasyvsSF1'
+
+    vocabpath = '../lexica/' + name + '.txt'
+
+    metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = excludebelow, excludeabove = excludeabove, numfeatures = 7000, force_even_distribution = True)
+
+    c_range = [.00005, .0001, .0003]
+    featurestart = 4600
+    featureend = 5800
+    featurestep = 200
+    modelparams = 'logistic', 16, featurestart, featureend, featurestep, c_range
+
+    matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+sf_vs_fantasy()

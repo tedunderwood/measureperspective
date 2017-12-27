@@ -103,6 +103,8 @@ def match_negatives(metadata, positives, allnegatives):
     dates of positive and negative instances.
     '''
 
+    print('MATCHING DATES')
+
     random.shuffle(allnegatives)
 
     negatives = []
@@ -138,7 +140,76 @@ def match_negatives(metadata, positives, allnegatives):
 
     return negatives
 
-def select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4positive = {'allnegative'}, forbid4negative = {'allpositive'}, negative_strategy = 'random'):
+def force_even(allpositives, allnegatives, metadata, sizecap, k):
+    '''
+    The title of this function is a slight misnomer, because we can rarely
+    get really even distribution across the timeline. What we can do is
+    maximize coverage of sparse places, while forcing negative and positive
+    instances to match each other.
+
+    '''
+
+    # first let's figure out the length of the timeline
+
+    allinstances = allpositives + allnegatives
+    metadata = metadata.loc[allinstances]
+    classvector = [1] * len(allpositives) + [0] * len(allnegatives)
+    metadata= metadata.assign(classvector = classvector)
+
+    mindate = min(metadata.std_date)
+    maxdate = max(metadata.std_date)
+    spanlength = (maxdate - mindate) + 1
+    slicelength = spanlength // k
+    remainder = spanlength % k
+
+    ceilings = []
+    ceiling = mindate
+
+    for i in range(k):
+        ceiling = ceiling + slicelength
+        if remainder:
+            ceiling = ceiling + 1
+            remainder = remainder - 1
+        ceilings.append(ceiling)
+
+    pos_slices = []
+    neg_slices = []
+
+    floor = mindate
+    for ceiling in ceilings:
+        frameslice = metadata[(metadata.std_date >= floor) & (metadata.std_date < ceiling)]
+        pslice = frameslice[frameslice.classvector == 1]
+        nslice = frameslice[frameslice.classvector == 0]
+        pos_slices.append(pslice.index.tolist())
+        neg_slices.append(nslice.index.tolist())
+        floor = ceiling
+
+    slice_target = sizecap // k
+
+    # we only want to sample as many positive and negative
+    # from each slice as the minimum number of pos and neg
+    # we can get in any slice
+
+    limitlist = []
+
+    for pslice, nslice in zip(pos_slices, neg_slices):
+        thislimit = min(len(pslice), len(nslice), slice_target)
+        limitlist.append(thislimit)
+
+    print('Making ' + str(k) + ' slices:')
+    print(limitlist)
+
+    positives = []
+    negatives = []
+
+    for pslice, nslice, limit in zip(pos_slices, neg_slices, limitlist):
+        positives.extend(random.sample(pslice, limit))
+        negatives.extend(random.sample(nslice, limit))
+
+    return positives, negatives
+
+
+def select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4positive = {'allnegative'}, forbid4negative = {'allpositive'}, negative_strategy = 'random', overlap_strategy = 'random', force_even_distribution = False):
 
     '''Selects instances of the positive class and negative class, trying to
     hit sizecap,but not allowing imbalanced classes. For both positive and
@@ -155,33 +226,27 @@ def select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4pos
 
     allnegatives = []
     allpositives = []
-    weird_counter = 0
+
+    # It will also happen that some instances could be assigned to
+    # either class:
+    overlap = []
 
     for idx, row in metadata.iterrows():
         posintersect = len(row['tagset'] & tags4positive)
         negintersect = len(row['tagset'] & tags4negative)
 
-        if posintersect and not negintersect:
+        if posintersect:
             pos = True
         else:
             pos = False
 
-        if negintersect and not posintersect:
+        if negintersect:
             neg = True
         else:
             neg = False
 
         if pos and neg:
-            # in the odd case where an instance could belong
-            # to either class, we aim for balanced classes
-            # (this should rarely happen in practice)
-
-            weird_counter += 1
-
-            if len(allpositives) > len(allnegatives):
-                allnegatives.append(idx)
-            else:
-                allpositives.append(idx)
+            overlap.append(idx)
 
         elif pos:
             allpositives.append(idx)
@@ -189,37 +254,57 @@ def select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4pos
         elif neg:
             allnegatives.append(idx)
 
-    # now let's decide how many instances per class
+    # You can choose one of two ways to handle the overlap
+    # class. Exclude it, or assign it randomly to both.
 
-    numpositive = len(allpositives)
-    numnegative = len(allnegatives)
-
-    numinstances = min(sizecap, numpositive, numnegative)
-
-    print()
-    print('We have ' + str(numpositive) + ' potential positive instances and')
-    print(str(numnegative) + ' potential negative instances. Choosing only')
-    print(str(numinstances) + ' of each class.')
-
-    if weird_counter:
-        print('By the way, there were ' + str(weird_counter) + ' instances')
-        print('that could have belonged to either class.')
+    if overlap == 'random':
+        random.shuffle(overlap)
+        split = len(overlap) // 2
+        allpositives.extend(overlap[0: split])
+        allnegatives.extend(overlap[split: ])
+    else:
+        pass
+        # Just to be super-explicit, the other option
+        # is to do nothing and let that overlap sit
+        # in memory, untouched and unused.
 
     print()
 
-    # we randomly sample positive instances
-    positives = random.sample(allpositives, numinstances)
+    # Across a long timeline, we may want
+    # to explicitly force positive and negative classes
+    # to be evenly distributed.
 
-    # Now there are two different ways to select
-    # negative instances. If it's just random, that's simple
-
-    if negative_strategy == 'random':
-        negatives = random.sample(allnegatives, numinstances)
-
-    # but we can also closely match dates
+    if force_even_distribution:
+        positives, negatives = force_even(allpositives, allnegatives, pd.DataFrame(metadata), sizecap, k = 6)
+        # where k is the number of slices to make
+        # notice that we make a clean copy of the metadata
 
     else:
-        negatives = match_negatives(metadata, positives, allnegatives)
+
+        # now let's decide how many instances per class
+
+        numpositive = len(allpositives)
+        numnegative = len(allnegatives)
+
+        numinstances = min(sizecap, numpositive, numnegative)
+
+        print()
+        print('We have ' + str(numpositive) + ' potential positive instances and')
+        print(str(numnegative) + ' potential negative instances. Choosing only')
+        print(str(numinstances) + ' of each class.')
+        # we randomly sample positive instances
+        positives = random.sample(allpositives, numinstances)
+
+        # Now there are two different ways to select
+        # negative instances. If it's just random, that's simple
+
+        if negative_strategy == 'random':
+            negatives = random.sample(allnegatives, numinstances)
+
+        # but we can also closely match dates
+
+        else:
+            negatives = match_negatives(metadata, positives, allnegatives)
 
     orderedIDs = []
     classdictionary = dict()
