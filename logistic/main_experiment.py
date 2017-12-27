@@ -259,11 +259,13 @@ def sf_vs_fantasy():
     excludeabove = 3000
 
 
-    name = 'fantasyvsSF1'
+    name = 'fantasyvsSF2'
 
     vocabpath = '../lexica/' + name + '.txt'
 
-    metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = excludebelow, excludeabove = excludeabove, numfeatures = 7000, force_even_distribution = True)
+    metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = excludebelow, excludeabove = excludeabove, forbid4positive = {'juv'}, forbid4negative = {'juv'}, numfeatures = 7000, force_even_distribution = True)
+
+    # notice that I'm forbidding juvenile fiction on this run
 
     c_range = [.00005, .0001, .0003]
     featurestart = 4600

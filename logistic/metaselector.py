@@ -209,14 +209,13 @@ def force_even(allpositives, allnegatives, metadata, sizecap, k):
     return positives, negatives
 
 
-def select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4positive = {'allnegative'}, forbid4negative = {'allpositive'}, negative_strategy = 'random', overlap_strategy = 'random', force_even_distribution = False):
+def select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4positive = set(), forbid4negative = set(), negative_strategy = 'random', overlap_strategy = 'random', force_even_distribution = False):
 
     '''Selects instances of the positive class and negative class, trying to
     hit sizecap,but not allowing imbalanced classes. For both positive and
     negative classes, we have a set of tags necessary for inclusion, and those
     that forbid inclusion. This allows us to treat overlapping categories
-    in a variety of ways. Default behavior is that all positive tags are
-    forbidden in negative class, and vice-versa. But this can be overridden.'''
+    in a variety of ways.'''
 
     if 'allnegative' in forbid4positive:
         forbid4positive = tags4negative
@@ -235,12 +234,17 @@ def select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4pos
         posintersect = len(row['tagset'] & tags4positive)
         negintersect = len(row['tagset'] & tags4negative)
 
-        if posintersect:
+        forbiddenpos = len(row['tagset'] & forbid4positive)
+        forbiddenneg = len(row['tagset'] & forbid4negative)
+
+
+
+        if posintersect and not forbiddenpos:
             pos = True
         else:
             pos = False
 
-        if negintersect:
+        if negintersect and not forbiddenneg:
             neg = True
         else:
             neg = False
