@@ -31,6 +31,10 @@
 # Also, you'll need to create a metadata file that pairs
 # docids with paths to the features.
 
+# Example of USAGE:
+
+# run parsefeaturejsons divided ids2pathlist.tsv
+
 import csv, os, sys, bz2, random, json
 from collections import Counter
 
@@ -99,32 +103,40 @@ def slice_list(input_list, number_of_sublists):
 
 def normalize_token(token):
     ''' Normalizes a token by lowercasing it and by bundling
-    certain categories together.
+    certain categories together. Returns a *list* of tokens
+    so that we can count the parts of hyphenated words as
+    separate words.
     '''
 
     global personalnames, placenames, daysoftheweek, monthsoftheyear, romannumerals
 
     if token == "I":
-        return token.lower()
+        return [token.lower()]
         # uppercase I is not usually a roman numeral!
 
     token = token.lower()
+
     if len(token) < 1:
-        return token
+        return [token]
     elif token[0].isdigit() and token[-1].isdigit():
-        return "#arabicnumeral"
+        return ["#arabicnumeral"]
     elif token in daysoftheweek:
-        return "#dayoftheweek"
+        return ["#dayoftheweek"]
     elif token in monthsoftheyear:
-        return "#monthoftheyear"
+        return ["#monthoftheyear"]
     elif token in personalnames:
-        return "#personalname"
+        return ["#personalname"]
     elif token in placenames:
-        return "#placename"
+        return ["#placename"]
     elif token in romannumerals:
-        return "#romannumeral"
+        return ["#romannumeral"]
+    elif '-' in token:
+        return token.split('-')
+        # I never want to treat hyphenated words as distinct
+        # features; for modeling it's preferable to count the
+        # pieces
     else:
-        return token
+        return [token]
 
 class VolumeFromJson:
 
@@ -234,31 +246,39 @@ class VolumeFromJson:
                     lowertoken = token.lower()
                     typesinthischunk.add(lowertoken)
                     # we do that to keep track of types -- notably, before normalizing
-                    normaltoken = normalize_token(lowertoken)
 
-                    for part, count in partsofspeech.items():
-                        thisbodytokens += count
-                        chunktokens += count
-                        thispagecounts[normaltoken] += count
-                        if capitalized:
-                            capitalizedbodytokens += count
+                    normaltokenlist = normalize_token(lowertoken)
 
-                        if chunktokens > 10000:
-                            typetoken = len(typesinthischunk) / chunktokens
-                            typetokenratios.append(typetoken)
-                            typesinthischunk = set()
-                            chunktokens = 0
+                    # Notice that we treat each word as a list, to permit
+                    # counting both parts of a hyphenated word.
+                    # But usually this will be a list of one.
 
-                            # generally speaking we count typetoken ratios on 10000-word chunks
+                    for normaltoken in normaltokenlist:
+
+                        for part, count in partsofspeech.items():
+                            thisbodytokens += count
+                            chunktokens += count
+                            thispagecounts[normaltoken] += count
+                            if capitalized:
+                                capitalizedbodytokens += count
+
+                            if chunktokens > 10000:
+                                typetoken = len(typesinthischunk) / chunktokens
+                                typetokenratios.append(typetoken)
+                                typesinthischunk = set()
+                                chunktokens = 0
 
                 headerwords = thispage['header']['tokenPosCount']
                 for token, partsofspeech in headerwords.items():
                     lowertoken = token.lower()
-                    normaltoken = "#header" + normalize_token(lowertoken)
+                    normaltokenlist = normalize_token(lowertoken)
 
-                    for part, count in partsofspeech.items():
-                        thisheadertokens += count
-                        thispagecounts[normaltoken] += count
+                    for normaltoken in normaltokenlist:
+                        normaltoken = "#header" + normaltoken
+
+                        for part, count in partsofspeech.items():
+                            thisheadertokens += count
+                            thispagecounts[normaltoken] += count
 
                 # You will notice that I treat footers (mostly) as part of the body
                 # Footers are rare, and rarely interesting.
@@ -275,14 +295,16 @@ class VolumeFromJson:
                     lowertoken = token.lower()
                     typesinthischunk.add(lowertoken)
                     # we do that to keep track of types -- notably before normalizing
-                    normaltoken = normalize_token(lowertoken)
+                    normaltokenlist = normalize_token(lowertoken)
 
-                    for part, count in partsofspeech.items():
-                        thisbodytokens += count
-                        chunktokens += count
-                        thispagecounts[normaltoken] += count
-                        if capitalized:
-                            capitalizedbodytokens += count
+                    for normaltoken in normaltokenlist:
+
+                        for part, count in partsofspeech.items():
+                            thisbodytokens += count
+                            chunktokens += count
+                            thispagecounts[normaltoken] += count
+                            if capitalized:
+                                capitalizedbodytokens += count
 
                 self.pagecounts.append(thispagecounts)
 
@@ -330,7 +352,7 @@ class VolumeFromJson:
 
         # We are done with the __init__ method for this volume.
 
-    def write_volume_features(self, outpaths, override = False, translator = dict(), use_headers = False, skip_front = 0, skip_back = 0):
+    def write_volume_features(self, outpaths, folder, override = False, translator = dict(), use_headers = False, skip_front = 0, skip_back = 0):
 
         ''' This writes volume features while normalizing word frequencies,
         after using a translation table to, for instance, convert American spellings
@@ -403,13 +425,14 @@ class VolumeFromJson:
                 print('invocation of write_volume_features.')
 
             with open(thispath, mode = 'w', encoding = 'utf-8') as f:
-                writer = csv.writer(f)
-                writer.writerow(['feature', 'count'])
+                writer = csv.writer(f, delimiter = '\t')
+                writer.writerow(['feature', 'frequency'])
                 for key, value in featuredict.items():
                     if value > 0:
                         writer.writerow([key, value])
 
             metarow = dict()
+            metarow['docid'] = thispath.replace('.tsv', '').replace(folder, '')
             metarow['path'] = thispath
             metarow['totaltokens'] = totaltokensinchunk
             metarow['skipped_pages'] = self.skipped_pages
@@ -470,7 +493,7 @@ if __name__ == "__main__":
         for index, row in meta.iterrows():
             inpath = rootpath + row['path']
             vol = VolumeFromJson(inpath, index)
-            outpath = '../data/' + utils.clean_pairtree(index) + '.csv'
+            outpath = '../data/' + utils.clean_pairtree(index) + '.tsv'
             vol.write_volume_features(outpath, override = True, translator = translator, use_headers = False, skip_front = 0, skip_back = 0)
 
     elif args[1] == 'divided':
@@ -499,23 +522,22 @@ if __name__ == "__main__":
             numvols = next(idx for idx, value in enumerate(cut_points) if value > vol.bodytokens)
 
             if numvols == 1:
-                outpaths = ['../data/' + utils.clean_pairtree(index) + '.csv']
+                outpaths = ['../data/' + utils.clean_pairtree(index) + '.tsv']
             else:
                 outpaths = []
                 for i in range(numvols):
-                    outpaths.append('../data/' + utils.clean_pairtree(index) + '_' + str(i) + '.csv')
+                    outpaths.append('../data/' + utils.clean_pairtree(index) + '_' + str(i) + '.tsv')
 
             # here we actually do the writing
 
-            part_metadata = vol.write_volume_features(outpaths, override = True, translator = translator, use_headers = False, skip_front = skip_front, skip_back = skip_back)
+            part_metadata = vol.write_volume_features(outpaths, folder = '../data/', override = True, translator = translator, use_headers = False, skip_front = skip_front, skip_back = skip_back,)
 
             for i, part in enumerate(part_metadata):
-                part['docid'] = utils.clean_pairtree(index) + '_' + str(i)
                 part['htid'] = utils.clean_pairtree(index)
                 all_outrows.append(part)
 
         columns = ['docid', 'htid', 'totaltokens', 'skipped_pages', 'path']
-        with open('parsing_metadata.tsv', mode = 'w', encoding = 'utf-8') as f:
+        with open('parsing_metadata_1.tsv', mode = 'w', encoding = 'utf-8') as f:
             scribe = csv.DictWriter(f, fieldnames = columns, delimiter = '\t')
             scribe.writeheader()
 

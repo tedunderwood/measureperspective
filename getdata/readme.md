@@ -51,3 +51,7 @@ Then, a metadata file mapping HathiTrust volume ids to paths where the extracted
 Finally, you'll need to hard-code the 'rootpath' in line 451 of parsefeaturejsons; this tells the script where to start, and the 'paths' listed in metadata are relative to the root.
 
 If all that is available, the parsing script processes all the extracted features listed in metadata, and turns them into csvs. I've set things up so that it skips a few pages at the beginning and end of each volume. This is not a foolproof way of cutting paratext; in a perfect world I would trim it algorithmically or manually. I've also designed the script to divide large volumes into 2-4 parts; it tries to keep them in the range of 30,000 - 80,000 words, but there will be a few larger or smaller ones.
+
+Example of USAGE:
+
+run parsefeaturejsons divided ids2pathlist.tsv

@@ -54,7 +54,14 @@ found = set()
 mapping = dict()
 path2id = dict()
 
+#things we already have:
+
+already = pd.read_csv('ids2pathlist.tsv', sep = '\t')
+already = set(already.docid)
+
 for anid in ids:
+    if anid in already:
+        continue
     path, postfix = utils.pairtreepath(anid, '')
     totalpath = path + postfix + '/' + utils.clean_pairtree(anid) + '.json.bz2'
     if totalpath not in allpaths:
@@ -72,11 +79,11 @@ for anid in ids:
         path2id[totalpath] = anid
 
 
-with open('ids2pathlist.tsv', mode = 'w', encoding = 'utf-8') as f:
+with open('ids2pathlistB.tsv', mode = 'w', encoding = 'utf-8') as f:
     for path, anid in path2id.items():
         f.write(anid + '\t' + path + '\n')
 
-with open('justpathlist.tsv', mode = 'w', encoding = 'utf-8') as f:
+with open('justpathlistB.txt', mode = 'w', encoding = 'utf-8') as f:
     for path, anid in path2id.items():
         f.write(path + '\n')
 
