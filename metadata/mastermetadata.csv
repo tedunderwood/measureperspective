@@ -991,12 +991,12 @@ mdp.39015080862637_0,mdp.39015080862637,39420,random,"Cole-Adams, Kate.",,London
 mdp.39015080862637_1,mdp.39015080862637,39366,random,"Cole-Adams, Kate.",,London|Quercus|2009.,2009,2009,,Fiction|Psychic trauma|Patients|Coma,Novel|Psychological fiction,Walking to the moon / | $c: Kate Cole-Adams.
 inu.30000110613803_0,inu.30000110613803,54060,random,"Vlugt, Simone van der,",1966-,London|HarperPress|2009.,2009,2009,,Neurasthenia|Missing persons|Class reunions|Fiction|Patients,Novel|Suspense fiction,The reunion / | $c: Simone van der Vlugt ; translated from the Dutch by Michele Hutchison.
 inu.30000110613803_1,inu.30000110613803,52778,random,"Vlugt, Simone van der,",1966-,London|HarperPress|2009.,2009,2009,,Neurasthenia|Missing persons|Class reunions|Fiction|Patients,Novel|Suspense fiction,The reunion / | $c: Simone van der Vlugt ; translated from the Dutch by Michele Hutchison.
-mdp.39015078562264_0,mdp.39015078562264,42729,sf_oclc,"Paltock, Robert,",,"London;Printed for T. and J. Allman; [etc., etc.;1816.",1816,1816,v.1,"Voyages, Imaginary",,The life & adventures of Peter Wilkins
-mdp.39015078562264_1,mdp.39015078562264,43182,sf_oclc,"Paltock, Robert,",,"London;Printed for T. and J. Allman; [etc., etc.;1816.",1816,1816,v.1,"Voyages, Imaginary",,The life & adventures of Peter Wilkins
-mdp.39015078562256_0,mdp.39015078562256,41868,sf_oclc,"Paltock, Robert,",,"London;Printed for T. and J. Allman; [etc., etc.;1816.",1816,1816,v.2,"Voyages, Imaginary",,The life & adventures of Peter Wilkins
-mdp.39015078562256_1,mdp.39015078562256,40903,sf_oclc,"Paltock, Robert,",,"London;Printed for T. and J. Allman; [etc., etc.;1816.",1816,1816,v.2,"Voyages, Imaginary",,The life & adventures of Peter Wilkins
-mdp.39015004200997_0,mdp.39015004200997,45855,sf_oclc|supernat,"Shelley, Mary Wollstonecraft,",,"London;G. Routledge & sons, limited;1891.",1891,1817,,,,Frankenstein
-mdp.39015004200997_1,mdp.39015004200997,43322,sf_oclc|supernat,"Shelley, Mary Wollstonecraft,",,"London;G. Routledge & sons, limited;1891.",1891,1817,,,,Frankenstein
+mdp.39015078562264_0,mdp.39015078562264,42729,sf_bailey|sf_oclc,"Paltock, Robert,",,"London;Printed for T. and J. Allman; [etc., etc.;1816.",1816,1816,v.1,"Voyages, Imaginary",,The life & adventures of Peter Wilkins
+mdp.39015078562264_1,mdp.39015078562264,43182,sf_bailey|sf_oclc,"Paltock, Robert,",,"London;Printed for T. and J. Allman; [etc., etc.;1816.",1816,1816,v.1,"Voyages, Imaginary",,The life & adventures of Peter Wilkins
+mdp.39015078562256_0,mdp.39015078562256,41868,sf_bailey|sf_oclc,"Paltock, Robert,",,"London;Printed for T. and J. Allman; [etc., etc.;1816.",1816,1816,v.2,"Voyages, Imaginary",,The life & adventures of Peter Wilkins
+mdp.39015078562256_1,mdp.39015078562256,40903,sf_bailey|sf_oclc,"Paltock, Robert,",,"London;Printed for T. and J. Allman; [etc., etc.;1816.",1816,1816,v.2,"Voyages, Imaginary",,The life & adventures of Peter Wilkins
+mdp.39015004200997_0,mdp.39015004200997,45855,sf_bailey|sf_oclc,"Shelley, Mary Wollstonecraft,",,"London;G. Routledge & sons, limited;1891.",1891,1817,,,,Frankenstein
+mdp.39015004200997_1,mdp.39015004200997,43322,sf_bailey|sf_oclc,"Shelley, Mary Wollstonecraft,",,"London;G. Routledge & sons, limited;1891.",1891,1817,,,,Frankenstein
 coo.31924075476956,coo.31924075476956,45629,fantasy_oclc,"Peacock, Thomas Love,",1785-1866.,Felinfach|Llanerch Publishers|1992.,1992,1822,,,Fiction,Maid Marian
 uc1.32106001951109_0,uc1.32106001951109,35369,fantasy_oclc,"Scott, Walter, Sir,",1771-1832.,London|J. Calder|c1977.,1977,1830,,"Fiction|Fantasy fiction, English",Fiction,The supernatural short stories of Sir Walter Scott
 uc1.32106001951109_1,uc1.32106001951109,38846,fantasy_oclc,"Scott, Walter, Sir,",1771-1832.,London|J. Calder|c1977.,1977,1830,,"Fiction|Fantasy fiction, English",Fiction,The supernatural short stories of Sir Walter Scott
@@ -1005,39 +1005,39 @@ uc1.$b807329_1,uc1.$b807329,55921,fantasy_oclc,"Cooper, James Fenimore,",,"Phila
 uc1.$b807329_2,uc1.$b807329,56949,fantasy_oclc,"Cooper, James Fenimore,",,"Philadelphia;Carey, Lea, & Blanchard;1835.",1835,1835,,Utopias;Fiction,,The Monikins
 dul1.ark+=13960=t6ww82n4s_0,dul1.ark+=13960=t6ww82n4s,54927,fantasy_loc,"Griffith, Mary,",,"Philadelphia;Carey, Lea & Blanchard;1836.",1836,1836,,"Science fiction, American",,"Camperdown, or, News from our neighbourhood"
 dul1.ark+=13960=t6ww82n4s_1,dul1.ark+=13960=t6ww82n4s,58893,fantasy_loc,"Griffith, Mary,",,"Philadelphia;Carey, Lea & Blanchard;1836.",1836,1836,,"Science fiction, American",,"Camperdown, or, News from our neighbourhood"
-uc1.32106007514398,uc1.32106007514398,53463,juv|fantasy_oclc,"Andersen, H. C. (Hans Christian),",1805-1875.,"Harmondsworth, Middlesex|Penguin Books|1981.",1981,1844,,Fairy tales|Denmark,NotFiction,Hans Andersen's fairy tales
+uc1.32106007514398,uc1.32106007514398,53463,fantasy_oclc|juv,"Andersen, H. C. (Hans Christian),",1805-1875.,"Harmondsworth, Middlesex|Penguin Books|1981.",1981,1844,,Fairy tales|Denmark,NotFiction,Hans Andersen's fairy tales
 mdp.39015067139173_0,mdp.39015067139173,39157,sf_oclc,"Verne, Jules,",1828-1905.,Philadelphia|J.E. Potter & co.|n.d.,0,1855,,,UnknownGenre,"A winter amid the ice, & other thrilling stories. | $c: By Jules Verne..."
 mdp.39015067139173_1,mdp.39015067139173,41283,sf_oclc,"Verne, Jules,",1828-1905.,Philadelphia|J.E. Potter & co.|n.d.,0,1855,,,UnknownGenre,"A winter amid the ice, & other thrilling stories. | $c: By Jules Verne..."
 uiuo.ark+=13960=t00z7vf65,uiuo.ark+=13960=t00z7vf65,57527,fantasy_oclc,"Bronte, Charlotte,",,"London;Smith, Elder & co.;1857.",1857,1857,v. 1,,,The professor
 uiuo.ark+=13960=t5v70457m_0,uiuo.ark+=13960=t5v70457m,28016,fantasy_oclc,"Bronte, Charlotte,",,"London;Smith, Elder & co.;1857.",1857,1857,v. 2,,,The professor
 uiuo.ark+=13960=t5v70457m_1,uiuo.ark+=13960=t5v70457m,33411,fantasy_oclc,"Bronte, Charlotte,",,"London;Smith, Elder & co.;1857.",1857,1857,v. 2,,,The professor
-mdp.39015008791066_0,mdp.39015008791066,31501,sf_oclc|supernat,"O'Brien, Fitz James,",1828-1862.,"St. Clair Shores, Mich.|Scholarly Press|1970.",1970,1858,,,Fiction,"The diamond lens and other stories. | $c: With an introd. by Gilbert Seldes. Illus. by Ferdinand Huszti Horvath. New York, W. E. Rudge, 1932."
-mdp.39015008791066_1,mdp.39015008791066,34334,sf_oclc|supernat,"O'Brien, Fitz James,",1828-1862.,"St. Clair Shores, Mich.|Scholarly Press|1970.",1970,1858,,,Fiction,"The diamond lens and other stories. | $c: With an introd. by Gilbert Seldes. Illus. by Ferdinand Huszti Horvath. New York, W. E. Rudge, 1932."
+mdp.39015008791066_0,mdp.39015008791066,31501,supernat|sf_bailey|sf_oclc,"O'Brien, Fitz James,",1828-1862.,"St. Clair Shores, Mich.|Scholarly Press|1970.",1970,1858,,,Fiction,"The diamond lens and other stories. | $c: With an introd. by Gilbert Seldes. Illus. by Ferdinand Huszti Horvath. New York, W. E. Rudge, 1932."
+mdp.39015008791066_1,mdp.39015008791066,34334,supernat|sf_bailey|sf_oclc,"O'Brien, Fitz James,",1828-1862.,"St. Clair Shores, Mich.|Scholarly Press|1970.",1970,1858,,,Fiction,"The diamond lens and other stories. | $c: With an introd. by Gilbert Seldes. Illus. by Ferdinand Huszti Horvath. New York, W. E. Rudge, 1932."
 uc2.ark+=13960=t17m0k93z_0,uc2.ark+=13960=t17m0k93z,42062,fantasy_oclc,"MacDonald, George,",,Boston;Loring;185-?,1850,1858,,,,Phantastes: A faerie romance for men and women
 uc2.ark+=13960=t17m0k93z_1,uc2.ark+=13960=t17m0k93z,40748,fantasy_oclc,"MacDonald, George,",,Boston;Loring;185-?,1850,1858,,,,Phantastes: A faerie romance for men and women
 uva.x000889095_0,uva.x000889095,57557,sf_oclc,"Verne, Jules,",,New York;D. Appleton & Co.;1869.,1869,1863,,Fiction;Aeronautics,,"Five weeks in a balloon; or, Journeys and discoveries in Africa, by three Englishmen"
 uva.x000889095_1,uva.x000889095,56252,sf_oclc,"Verne, Jules,",,New York;D. Appleton & Co.;1869.,1869,1863,,Fiction;Aeronautics,,"Five weeks in a balloon; or, Journeys and discoveries in Africa, by three Englishmen"
-nnc1.cr00352934_0,nnc1.cr00352934,42574,juv|fantasy_oclc|supernat,"Kingsley, Charles,",,New York;Hurst and Co.;1900?].,1900,1863,,Chimney sweeps;Fairies;Juvenile fiction;Fantasy fiction,,The water-babies
-nnc1.cr00352934_1,nnc1.cr00352934,39336,juv|fantasy_oclc|supernat,"Kingsley, Charles,",,New York;Hurst and Co.;1900?].,1900,1863,,Chimney sweeps;Fairies;Juvenile fiction;Fantasy fiction,,The water-babies
+nnc1.cr00352934_0,nnc1.cr00352934,42574,supernat|fantasy_oclc|juv,"Kingsley, Charles,",,New York;Hurst and Co.;1900?].,1900,1863,,Chimney sweeps;Fairies;Juvenile fiction;Fantasy fiction,,The water-babies
+nnc1.cr00352934_1,nnc1.cr00352934,39336,supernat|fantasy_oclc|juv,"Kingsley, Charles,",,New York;Hurst and Co.;1900?].,1900,1863,,Chimney sweeps;Fairies;Juvenile fiction;Fantasy fiction,,The water-babies
 nyp.33433074875372,nyp.33433074875372,39178,fantasy_oclc,"Lytton, Edward Robert Bulwer Lytton,",,London;Chapman;1863.,1863,1863,v. 1,English fiction,,The ring of Amasis
 mdp.39015031602868_0,mdp.39015031602868,50725,fantasy_oclc|sf_oclc,"Verne, Jules,",1828-1905.,"New York|Dodd, Mead|1959].",1959,1864,,,Fiction,A journey to the centre of the earth.
 mdp.39015031602868_1,mdp.39015031602868,53523,fantasy_oclc|sf_oclc,"Verne, Jules,",1828-1905.,"New York|Dodd, Mead|1959].",1959,1864,,,Fiction,A journey to the centre of the earth.
-pst.000031470421_0,pst.000031470421,53302,sf_oclc,"Verne, Jules,",1828-1905.,"Garden City, N.Y.|Nelson Doubleday|ca. 1950].",1950,1865,,,NotFiction,From the earth to the moon ; and Round the moon
-pst.000031470421_1,pst.000031470421,55838,sf_oclc,"Verne, Jules,",1828-1905.,"Garden City, N.Y.|Nelson Doubleday|ca. 1950].",1950,1865,,,NotFiction,From the earth to the moon ; and Round the moon
-uva.x004152854,uva.x004152854,36339,juv|fantasy_oclc,"Carroll, Lewis,",,Philadelphia;H. Altemus;c1896.,1896,1865,,,,Alice's adventures in Wonderland
+pst.000031470421_0,pst.000031470421,53302,sf_bailey|sf_oclc,"Verne, Jules,",1828-1905.,"Garden City, N.Y.|Nelson Doubleday|ca. 1950].",1950,1865,,,NotFiction,From the earth to the moon ; and Round the moon
+pst.000031470421_1,pst.000031470421,55838,sf_bailey|sf_oclc,"Verne, Jules,",1828-1905.,"Garden City, N.Y.|Nelson Doubleday|ca. 1950].",1950,1865,,,NotFiction,From the earth to the moon ; and Round the moon
+uva.x004152854,uva.x004152854,36339,fantasy_oclc|juv,"Carroll, Lewis,",,Philadelphia;H. Altemus;c1896.,1896,1865,,,,Alice's adventures in Wonderland
 mdp.39015003852855_0,mdp.39015003852855,52549,fantasy_oclc,"MacDonald, George,",1824-1905.,London|Gollanez|1961.,1961,1868,,,UnknownGenre,"The light princess, | and other tales, being the complete fairy stories of George Macdonald. | $c: With original illus. by Arthur Hughes. Introd. by Roger Lancelyn Green."
 mdp.39015003852855_1,mdp.39015003852855,55301,fantasy_oclc,"MacDonald, George,",1824-1905.,London|Gollanez|1961.,1961,1868,,,UnknownGenre,"The light princess, | and other tales, being the complete fairy stories of George Macdonald. | $c: With original illus. by Arthur Hughes. Introd. by Roger Lancelyn Green."
-uc2.ark+=13960=t6c24rn6k,uc2.ark+=13960=t6c24rn6k,36391,juv|fantasy_oclc,"Lucas, John Templeton.",,London;Warne;1871,1871,1869,,,,Prince Ubbely Bubble's new story book
-mdp.39015004307362_0,mdp.39015004307362,66204,sf_oclc,"Verne, Jules,",,"Boston;G. M. Smith & co.;New York;Douglass & Myers; [etc., etc.;1873.",1873,1870,,,,Twenty thousand leagues under the seas;
-mdp.39015004307362_1,mdp.39015004307362,68167,sf_oclc,"Verne, Jules,",,"Boston;G. M. Smith & co.;New York;Douglass & Myers; [etc., etc.;1873.",1873,1870,,,,Twenty thousand leagues under the seas;
-nyp.33433074896071_0,nyp.33433074896071,53698,juv|fantasy_oclc,"MacDonald, George,",,"New York;A.L. Burt, Publisher;1890?",1890,1871,,English fiction,,At the back of the north wind
-nyp.33433074896071_1,nyp.33433074896071,55320,juv|fantasy_oclc,"MacDonald, George,",,"New York;A.L. Burt, Publisher;1890?",1890,1871,,English fiction,,At the back of the north wind
-njp.32101075985729,njp.32101075985729,39078,juv|fantasy_oclc,"Carroll, Lewis,",,New York;Macmillan & co.;1875.,1875,1871,,,,Through the looking-glass
-pst.000059263739,pst.000059263739,43178,juv|fantasy_loc,"Carroll, Lewis,",1832-1898.,"London|Creation|2000, 1999.",2000,1871,,"Fantasy fiction, English|Alice (Fictitious character : Carroll)|Juvenile fiction",Fiction,Alice through the looking glass
+uc2.ark+=13960=t6c24rn6k,uc2.ark+=13960=t6c24rn6k,36391,fantasy_oclc|juv,"Lucas, John Templeton.",,London;Warne;1871,1871,1869,,,,Prince Ubbely Bubble's new story book
+mdp.39015004307362_0,mdp.39015004307362,66204,sf_bailey|sf_oclc,"Verne, Jules,",,"Boston;G. M. Smith & co.;New York;Douglass & Myers; [etc., etc.;1873.",1873,1870,,,,Twenty thousand leagues under the seas;
+mdp.39015004307362_1,mdp.39015004307362,68167,sf_bailey|sf_oclc,"Verne, Jules,",,"Boston;G. M. Smith & co.;New York;Douglass & Myers; [etc., etc.;1873.",1873,1870,,,,Twenty thousand leagues under the seas;
+nyp.33433074896071_0,nyp.33433074896071,53698,fantasy_oclc|juv,"MacDonald, George,",,"New York;A.L. Burt, Publisher;1890?",1890,1871,,English fiction,,At the back of the north wind
+nyp.33433074896071_1,nyp.33433074896071,55320,fantasy_oclc|juv,"MacDonald, George,",,"New York;A.L. Burt, Publisher;1890?",1890,1871,,English fiction,,At the back of the north wind
+njp.32101075985729,njp.32101075985729,39078,fantasy_oclc|juv,"Carroll, Lewis,",,New York;Macmillan & co.;1875.,1875,1871,,,,Through the looking-glass
+pst.000059263739,pst.000059263739,43178,fantasy_loc|juv,"Carroll, Lewis,",1832-1898.,"London|Creation|2000, 1999.",2000,1871,,"Fantasy fiction, English|Alice (Fictitious character : Carroll)|Juvenile fiction",Fiction,Alice through the looking glass
 uva.x000241492_0,uva.x000241492,39430,fantasy_oclc,"Verne, Jules,",,Philadelphia;Porter & Coates;1873,1873,1872,,,,Around the world in eighty days
 uva.x000241492_1,uva.x000241492,38421,fantasy_oclc,"Verne, Jules,",,Philadelphia;Porter & Coates;1873,1873,1872,,,,Around the world in eighty days
-mdp.39015066637433_0,mdp.39015066637433,30458,juv|fantasy_oclc,"MacDonald, George,",,Philadelphia;J.B. Lippincott;190?,1900,1872,,,,The princess and the goblin
-mdp.39015066637433_1,mdp.39015066637433,32095,juv|fantasy_oclc,"MacDonald, George,",,Philadelphia;J.B. Lippincott;190?,1900,1872,,,,The princess and the goblin
+mdp.39015066637433_0,mdp.39015066637433,30458,fantasy_oclc|juv,"MacDonald, George,",,Philadelphia;J.B. Lippincott;190?,1900,1872,,,,The princess and the goblin
+mdp.39015066637433_1,mdp.39015066637433,32095,fantasy_oclc|juv,"MacDonald, George,",,Philadelphia;J.B. Lippincott;190?,1900,1872,,,,The princess and the goblin
 mdp.39015039618577_0,mdp.39015039618577,78762,sf_loc,"Verne, Jules,",,New York;C. Scribner's sons;1918.,1918,1874,,,,The mysterious island
 mdp.39015039618577_1,mdp.39015039618577,76983,sf_loc,"Verne, Jules,",,New York;C. Scribner's sons;1918.,1918,1874,,,,The mysterious island
 mdp.39015039618577_2,mdp.39015039618577,76016,sf_loc,"Verne, Jules,",,New York;C. Scribner's sons;1918.,1918,1874,,,,The mysterious island
@@ -1048,8 +1048,8 @@ mdp.39015028719642_1,mdp.39015028719642,31330,sf_loc,"Verne, Jules,",1828-1905.,
 mdp.39015028795642_0,mdp.39015028795642,72250,sf_oclc,"Verne, Jules,",1828-1905.,New York|Dover Publications|1960,1960,1877,,,UnknownGenre,Space novels: | To the sun? Off on a comet! | $c: Translated by Edward Roth.
 mdp.39015028795642_1,mdp.39015028795642,72792,sf_oclc,"Verne, Jules,",1828-1905.,New York|Dover Publications|1960,1960,1877,,,UnknownGenre,Space novels: | To the sun? Off on a comet! | $c: Translated by Edward Roth.
 mdp.39015028795642_2,mdp.39015028795642,79568,sf_oclc,"Verne, Jules,",1828-1905.,New York|Dover Publications|1960,1960,1877,,,UnknownGenre,Space novels: | To the sun? Off on a comet! | $c: Translated by Edward Roth.
-mdp.39015063921244,mdp.39015063921244,30827,juv|fantasy_loc,"Leland, Charles Godfrey,",,London;Macmillan & co.;1877.,1877,1877,,,,Johnnykin and the goblins
-mdp.39015083456759,mdp.39015083456759,54351,juv|fantasy_loc,"Molesworth, Mary Louisa",,Philadelphia;J.B. Lippincott Co.;1914;(5th impression),1914,1877,,Behavior;Cuckoos;Clocks and watches;Juvenile fiction;Fantasy fiction,,The cuckoo clock
+mdp.39015063921244,mdp.39015063921244,30827,fantasy_loc|juv,"Leland, Charles Godfrey,",,London;Macmillan & co.;1877.,1877,1877,,,,Johnnykin and the goblins
+mdp.39015083456759,mdp.39015083456759,54351,fantasy_loc|juv,"Molesworth, Mary Louisa",,Philadelphia;J.B. Lippincott Co.;1914;(5th impression),1914,1877,,Behavior;Cuckoos;Clocks and watches;Juvenile fiction;Fantasy fiction,,The cuckoo clock
 uc2.ark+=13960=t82j68r7z_0,uc2.ark+=13960=t82j68r7z,52364,fantasy_oclc,"Kip, Leonard,",,Albany;The Argus Co.;1878.,1878,1878,,,,Hannibal's man
 uc2.ark+=13960=t82j68r7z_1,uc2.ark+=13960=t82j68r7z,54439,fantasy_oclc,"Kip, Leonard,",,Albany;The Argus Co.;1878.,1878,1878,,,,Hannibal's man
 mdp.39015008026612_0,mdp.39015008026612,30481,sf_oclc,"Verne, Jules,",1828-1905.,"Westport, Conn.|Associated Booksellers|1958",1958,1879,,,UnknownGenre,The Begum's fortune. | [Translated from the French. | $c: Edited by I.O. Evans]
@@ -1064,42 +1064,42 @@ dul1.ark+=13960=t3dz0xh78_1,dul1.ark+=13960=t3dz0xh78,48862,sf_oclc,"Greg, Percy
 mdp.39015000638729,mdp.39015000638729,48977,fantasy_loc,"Le Fanu, Joseph Sheridan,",1814-1873.,New York|Garland Pub.|1979.,1978,1880,v.1,"Fantasy fiction, English",Fiction|Bibliographies,The Purcell papers
 mdp.39015000638554,mdp.39015000638554,48243,fantasy_loc,"Le Fanu, Joseph Sheridan,",1814-1873.,New York|Garland Pub.|1979.,1978,1880,v.3,"Fantasy fiction, English",Fiction|Bibliographies,The Purcell papers
 mdp.39015000638711,mdp.39015000638711,42269,fantasy_loc,"Le Fanu, Joseph Sheridan,",1814-1873.,New York|Garland Pub.|1979.,1978,1880,v.2,"Fantasy fiction, English",Fiction|Bibliographies,The Purcell papers
-uc2.ark+=13960=t9z031r2b_0,uc2.ark+=13960=t9z031r2b,36194,juv|fantasy_loc,"MacDonald, George,",,Philadelphia;J. B. Lippincott;1883.,1883,1883,,,,The princess and Curdie
-uc2.ark+=13960=t9z031r2b_1,uc2.ark+=13960=t9z031r2b,31750,juv|fantasy_loc,"MacDonald, George,",,Philadelphia;J. B. Lippincott;1883.,1883,1883,,,,The princess and Curdie
-mdp.39015066624779,mdp.39015066624779,44401,juv|fantasy_oclc,"Collodi, Carlo,",,Boston;Ginn;c1904,1904,1883,,,,"Pinocchio, the adventures of a marionette"
+uc2.ark+=13960=t9z031r2b_0,uc2.ark+=13960=t9z031r2b,36194,fantasy_loc|juv,"MacDonald, George,",,Philadelphia;J. B. Lippincott;1883.,1883,1883,,,,The princess and Curdie
+uc2.ark+=13960=t9z031r2b_1,uc2.ark+=13960=t9z031r2b,31750,fantasy_loc|juv,"MacDonald, George,",,Philadelphia;J. B. Lippincott;1883.,1883,1883,,,,The princess and Curdie
+mdp.39015066624779,mdp.39015066624779,44401,fantasy_oclc|juv,"Collodi, Carlo,",,Boston;Ginn;c1904,1904,1883,,,,"Pinocchio, the adventures of a marionette"
 uc1.b4430988_0,uc1.b4430988,54587,sf_loc,"Mitchell, Edward Page,",1852-1927.,"Garden City, N.Y.|Doubleday|1973",1973,1884,,Science fiction,Fiction,The crystal man; | landmark science fiction. | $c: Collected and with a biographical perspective by Sam Moskowitz
 uc1.b4430988_1,uc1.b4430988,53509,sf_loc,"Mitchell, Edward Page,",1852-1927.,"Garden City, N.Y.|Doubleday|1973",1973,1884,,Science fiction,Fiction,The crystal man; | landmark science fiction. | $c: Collected and with a biographical perspective by Sam Moskowitz
 uc1.b4430988_2,uc1.b4430988,52970,sf_loc,"Mitchell, Edward Page,",1852-1927.,"Garden City, N.Y.|Doubleday|1973",1973,1884,,Science fiction,Fiction,The crystal man; | landmark science fiction. | $c: Collected and with a biographical perspective by Sam Moskowitz
-uc1.$b372446_0,uc1.$b372446,50169,sf_oclc,"Jefferies, Richard,",,London;New York;Cassell;1886.,1886,1885,,,,"After London, or, Wild England"
-uc1.$b372446_1,uc1.$b372446,56908,sf_oclc,"Jefferies, Richard,",,London;New York;Cassell;1886.,1886,1885,,,,"After London, or, Wild England"
+uc1.$b372446_0,uc1.$b372446,50169,sf_bailey|sf_oclc,"Jefferies, Richard,",,London;New York;Cassell;1886.,1886,1885,,,,"After London, or, Wild England"
+uc1.$b372446_1,uc1.$b372446,56908,sf_bailey|sf_oclc,"Jefferies, Richard,",,London;New York;Cassell;1886.,1886,1885,,,,"After London, or, Wild England"
 uc1.b117774_0,uc1.b117774,34493,fantasy_oclc|sf_oclc,"Verne, Jules,",,"London;S. Low, Marston, Searle & Rivington;1887.",1887,1886,,,,The clipper of the clouds
 uc1.b117774_1,uc1.b117774,42952,fantasy_oclc|sf_oclc,"Verne, Jules,",,"London;S. Low, Marston, Searle & Rivington;1887.",1887,1886,,,,The clipper of the clouds
-uc2.ark+=13960=t9r20w429,uc2.ark+=13960=t9r20w429,51243,fantasy_oclc|sf_oclc|supernat,"Stevenson, Robert Louis,",,London;Longmans;1901.,1901,1886,,,,The strange case of Dr. Jekyll and Mr. Hyde
-uiuo.ark+=13960=t7cr65585,uiuo.ark+=13960=t7cr65585,56402,sf_loc,"Corelli, Marie,",,London;Richard Bentley;1886.,1886,1886,v.2,"Science fiction, English",,A romance of two worlds
+uc2.ark+=13960=t9r20w429,uc2.ark+=13960=t9r20w429,51243,supernat|fantasy_oclc|sf_oclc,"Stevenson, Robert Louis,",,London;Longmans;1901.,1901,1886,,,,The strange case of Dr. Jekyll and Mr. Hyde
+uiuo.ark+=13960=t7cr65585,uiuo.ark+=13960=t7cr65585,56402,sf_bailey|sf_loc,"Corelli, Marie,",,London;Richard Bentley;1886.,1886,1886,v.2,"Science fiction, English",,A romance of two worlds
 mdp.39015003956680_0,mdp.39015003956680,59314,sf_oclc,"Villiers de L'Isle-Adam, Auguste, comte de,",1838-1889.,Urbana|University of Illinois Press|c1982.,1982,1886,,,Fiction,Tomorrow's Eve
 mdp.39015003956680_1,mdp.39015003956680,62576,sf_oclc,"Villiers de L'Isle-Adam, Auguste, comte de,",1838-1889.,Urbana|University of Illinois Press|c1982.,1982,1886,,,Fiction,Tomorrow's Eve
-uc2.ark+=13960=t57d2rd92,uc2.ark+=13960=t57d2rd92,7893,juv|fantasy_loc,"Harte, Bret,",,"Boston;New York;Houghton, Mifflin, and Company;1887, c1886;(Cambridge;The Riverside Press)",1886,1886,,Juvenile literature;Stanislaus River (Calif.);Gold mines and mining;Fantasy games;California;Juvenile fiction;Pirates,,The queen of the Pirate Isle
-uc2.ark+=13960=t5q817t6c,uc2.ark+=13960=t5q817t6c,46739,juv|fantasy_oclc,"Corkran, Alice",,New York;A.L. Burt;1896,1896,1886,,,,"Down the snow stairs, or, From good-night to good-morning"
-uiuo.ark+=13960=t03x8wg41_0,uiuo.ark+=13960=t03x8wg41,30753,sf_oclc,"Russell, William Clark,",,"London;S. Low, Marston, Searle, & Rivington;1887.",1887,1887,v.1,,,The frozen pirate
-uiuo.ark+=13960=t03x8wg41_1,uiuo.ark+=13960=t03x8wg41,31676,sf_oclc,"Russell, William Clark,",,"London;S. Low, Marston, Searle, & Rivington;1887.",1887,1887,v.1,,,The frozen pirate
+uc2.ark+=13960=t57d2rd92,uc2.ark+=13960=t57d2rd92,7893,fantasy_loc|juv,"Harte, Bret,",,"Boston;New York;Houghton, Mifflin, and Company;1887, c1886;(Cambridge;The Riverside Press)",1886,1886,,Juvenile literature;Stanislaus River (Calif.);Gold mines and mining;Fantasy games;California;Juvenile fiction;Pirates,,The queen of the Pirate Isle
+uc2.ark+=13960=t5q817t6c,uc2.ark+=13960=t5q817t6c,46739,fantasy_oclc|juv,"Corkran, Alice",,New York;A.L. Burt;1896,1896,1886,,,,"Down the snow stairs, or, From good-night to good-morning"
+uiuo.ark+=13960=t03x8wg41_0,uiuo.ark+=13960=t03x8wg41,30753,sf_bailey|sf_oclc,"Russell, William Clark,",,"London;S. Low, Marston, Searle, & Rivington;1887.",1887,1887,v.1,,,The frozen pirate
+uiuo.ark+=13960=t03x8wg41_1,uiuo.ark+=13960=t03x8wg41,31676,sf_bailey|sf_oclc,"Russell, William Clark,",,"London;S. Low, Marston, Searle, & Rivington;1887.",1887,1887,v.1,,,The frozen pirate
 uc1.b3872868_0,uc1.b3872868,34828,sf_oclc,"Hudson, W. H. (William Henry),",1841-1922.,"New York|Doric Books|1949, c1950",1950,1887,,,NotFiction,A crystal age
 uc1.b3872868_1,uc1.b3872868,35198,sf_oclc,"Hudson, W. H. (William Henry),",1841-1922.,"New York|Doric Books|1949, c1950",1950,1887,,,NotFiction,A crystal age
 uiuo.ark+=13960=t85h85b3r_0,uiuo.ark+=13960=t85h85b3r,31627,sf_oclc,"Russell, William Clark,",,"London;S. Low, Marston, Searle, & Rivington;1887.",1887,1887,v.2,,,The frozen pirate
 uiuo.ark+=13960=t85h85b3r_1,uiuo.ark+=13960=t85h85b3r,30055,sf_oclc,"Russell, William Clark,",,"London;S. Low, Marston, Searle, & Rivington;1887.",1887,1887,v.2,,,The frozen pirate
-uc1.b4098570_0,uc1.b4098570,46913,juv|fantasy_oclc,"Molesworth, Mary Louisa",,New York;Macmillan;1893.,1893,1887,,,,"Four winds farm ; and, The children of the castle"
-uc1.b4098570_1,uc1.b4098570,50554,juv|fantasy_oclc,"Molesworth, Mary Louisa",,New York;Macmillan;1893.,1893,1887,,,,"Four winds farm ; and, The children of the castle"
-pst.000045747595_0,pst.000045747595,31531,juv|fantasy_oclc,"Richards, Laura Elizabeth Howe,",,Boston;Roberts Brothers;c1887].,1887,1887,,,,Toto's merry winter
-pst.000045747595_1,pst.000045747595,31028,juv|fantasy_oclc,"Richards, Laura Elizabeth Howe,",,Boston;Roberts Brothers;c1887].,1887,1887,,,,Toto's merry winter
+uc1.b4098570_0,uc1.b4098570,46913,fantasy_oclc|juv,"Molesworth, Mary Louisa",,New York;Macmillan;1893.,1893,1887,,,,"Four winds farm ; and, The children of the castle"
+uc1.b4098570_1,uc1.b4098570,50554,fantasy_oclc|juv,"Molesworth, Mary Louisa",,New York;Macmillan;1893.,1893,1887,,,,"Four winds farm ; and, The children of the castle"
+pst.000045747595_0,pst.000045747595,31531,fantasy_oclc|juv,"Richards, Laura Elizabeth Howe,",,Boston;Roberts Brothers;c1887].,1887,1887,,,,Toto's merry winter
+pst.000045747595_1,pst.000045747595,31028,fantasy_oclc|juv,"Richards, Laura Elizabeth Howe,",,Boston;Roberts Brothers;c1887].,1887,1887,,,,Toto's merry winter
 njp.32101072858242_0,njp.32101072858242,41860,sf_oclc,,,London;Edinburgh;W. Paterson;1888,1888,1888,v.5,"Short stories, English;Short stories, Scottish",,Weird tales
 njp.32101072858242_1,njp.32101072858242,39874,sf_oclc,,,London;Edinburgh;W. Paterson;1888,1888,1888,v.5,"Short stories, English;Short stories, Scottish",,Weird tales
 njp.32101072858226_0,njp.32101072858226,39775,sf_oclc,,,London;Edinburgh;W. Paterson;1888,1888,1888,v.2,"Short stories, English;Short stories, Scottish",,Weird tales
 njp.32101072858226_1,njp.32101072858226,41665,sf_oclc,,,London;Edinburgh;W. Paterson;1888,1888,1888,v.2,"Short stories, English;Short stories, Scottish",,Weird tales
 njp.32101072858234_0,njp.32101072858234,41616,sf_oclc,,,London;Edinburgh;W. Paterson;1888,1888,1888,v.3,"Short stories, English;Short stories, Scottish",,Weird tales
 njp.32101072858234_1,njp.32101072858234,40499,sf_oclc,,,London;Edinburgh;W. Paterson;1888,1888,1888,v.3,"Short stories, English;Short stories, Scottish",,Weird tales
-dul1.ark+=13960=t66401k8k_0,dul1.ark+=13960=t66401k8k,44536,sf_oclc,"Bellamy, Edward,",,Boston;Ticknor and Co.;1888.,1888,1888,,"Social problems;Time travel;Utopias;Boston (Mass.);Two thousand, A.D;Fiction",,"Looking backward, 2000-1887"
-dul1.ark+=13960=t66401k8k_1,dul1.ark+=13960=t66401k8k,44011,sf_oclc,"Bellamy, Edward,",,Boston;Ticknor and Co.;1888.,1888,1888,,"Social problems;Time travel;Utopias;Boston (Mass.);Two thousand, A.D;Fiction",,"Looking backward, 2000-1887"
-nyp.33433074959747_0,nyp.33433074959747,51422,sf_oclc|sf_loc,"De Mille, James,",,"New York;Harper;1900, c1888.",1888,1888,,,,A strange manuscript found in a copper cylinder
-nyp.33433074959747_1,nyp.33433074959747,51406,sf_oclc|sf_loc,"De Mille, James,",,"New York;Harper;1900, c1888.",1888,1888,,,,A strange manuscript found in a copper cylinder
+dul1.ark+=13960=t66401k8k_0,dul1.ark+=13960=t66401k8k,44536,sf_bailey|sf_oclc,"Bellamy, Edward,",,Boston;Ticknor and Co.;1888.,1888,1888,,"Social problems;Time travel;Utopias;Boston (Mass.);Two thousand, A.D;Fiction",,"Looking backward, 2000-1887"
+dul1.ark+=13960=t66401k8k_1,dul1.ark+=13960=t66401k8k,44011,sf_bailey|sf_oclc,"Bellamy, Edward,",,Boston;Ticknor and Co.;1888.,1888,1888,,"Social problems;Time travel;Utopias;Boston (Mass.);Two thousand, A.D;Fiction",,"Looking backward, 2000-1887"
+nyp.33433074959747_0,nyp.33433074959747,51422,sf_bailey|sf_loc|sf_oclc,"De Mille, James,",,"New York;Harper;1900, c1888.",1888,1888,,,,A strange manuscript found in a copper cylinder
+nyp.33433074959747_1,nyp.33433074959747,51406,sf_bailey|sf_loc|sf_oclc,"De Mille, James,",,"New York;Harper;1900, c1888.",1888,1888,,,,A strange manuscript found in a copper cylinder
 mdp.39015063542180_0,mdp.39015063542180,48043,sf_oclc,"Collins, Wilkie,",,"Chicago;Donohue, Henneberry & co.;188-?",1880,1888,,,,The legacy of Cain
 mdp.39015063542180_1,mdp.39015063542180,47628,sf_oclc,"Collins, Wilkie,",,"Chicago;Donohue, Henneberry & co.;188-?",1880,1888,,,,The legacy of Cain
 mdp.39015063542180_2,mdp.39015063542180,46149,sf_oclc,"Collins, Wilkie,",,"Chicago;Donohue, Henneberry & co.;188-?",1880,1888,,,,The legacy of Cain
@@ -1121,17 +1121,17 @@ mdp.39015059791767_1,mdp.39015059791767,69305,fantasy_oclc,"Haggard, H. Rider",,
 nyp.33433034410229_0,nyp.33433034410229,81881,fantasy_oclc,"Corelli, Marie,",,London;Richard Bentley & Son;1890.,1890,1890,,English fiction,,"Ardath, the story of a dead self"
 nyp.33433034410229_1,nyp.33433034410229,83038,fantasy_oclc,"Corelli, Marie,",,London;Richard Bentley & Son;1890.,1890,1890,,English fiction,,"Ardath, the story of a dead self"
 nyp.33433034410229_2,nyp.33433034410229,81041,fantasy_oclc,"Corelli, Marie,",,London;Richard Bentley & Son;1890.,1890,1890,,English fiction,,"Ardath, the story of a dead self"
-uc1.b249745,uc1.b249745,51353,juv|fantasy_oclc,"Field, Eugene,",,New York;Scribner;1890.,1890,1890,,,,A little book of profitable tales
+uc1.b249745,uc1.b249745,51353,fantasy_oclc|juv,"Field, Eugene,",,New York;Scribner;1890.,1890,1890,,,,A little book of profitable tales
 uc1.b4102938_0,uc1.b4102938,31187,sf_loc,"Ward, Herbert Dickinson,",,New York;Tait;c1891.,1891,1891,,"Science fiction, American",,A republic without a president and other stories
 uc1.b4102938_1,uc1.b4102938,30850,sf_loc,"Ward, Herbert Dickinson,",,New York;Tait;c1891.,1891,1891,,"Science fiction, American",,A republic without a president and other stories
 njp.32101068138443_0,njp.32101068138443,52487,sf_loc,"Bradshaw, William R.",,New York;J. F. Douthitt;1892.,1892,1892,,Science fiction,,The goddess of Atvatabar
 njp.32101068138443_1,njp.32101068138443,56811,sf_loc,"Bradshaw, William R.",,New York;J. F. Douthitt;1892.,1892,1892,,Science fiction,,The goddess of Atvatabar
 coo.31924022109569,coo.31924022109569,25818,juv|sf_oclc,,,New York|Frank Tousey|1893.,0,1893,,,NotFiction,"Frank Reade Jr.'s new electric submarine boat ""The explorer;"" or, To the North Pole under the ice."
-uva.x000885514_0,uva.x000885514,39880,fantasy_oclc,"Bierce, Ambrose,",,Washington;The Neale Publishing Company;1903.,1903,1893,,,,Can such things be?
-uva.x000885514_1,uva.x000885514,37492,fantasy_oclc,"Bierce, Ambrose,",,Washington;The Neale Publishing Company;1903.,1903,1893,,,,Can such things be?
+uva.x000885514_0,uva.x000885514,39880,sf_bailey|fantasy_oclc,"Bierce, Ambrose,",,Washington;The Neale Publishing Company;1903.,1903,1893,,,,Can such things be?
+uva.x000885514_1,uva.x000885514,37492,sf_bailey|fantasy_oclc,"Bierce, Ambrose,",,Washington;The Neale Publishing Company;1903.,1903,1893,,,,Can such things be?
 uc1.32106012646599,uc1.32106012646599,58452,sf_oclc,"Morris, William,",,London;Lawrence and Bullen;1895.,1895,1894,,,,The wood beyond the world
-nyp.33433075827018_0,nyp.33433075827018,32771,sf_oclc,"Flammarion, Camille,",,New York;Cosmopolitan Pub. Co.;c1894,1894,1894,,,,Omega: the last days of the world
-nyp.33433075827018_1,nyp.33433075827018,31211,sf_oclc,"Flammarion, Camille,",,New York;Cosmopolitan Pub. Co.;c1894,1894,1894,,,,Omega: the last days of the world
+nyp.33433075827018_0,nyp.33433075827018,32771,sf_bailey|sf_oclc,"Flammarion, Camille,",,New York;Cosmopolitan Pub. Co.;c1894,1894,1894,,,,Omega: the last days of the world
+nyp.33433075827018_1,nyp.33433075827018,31211,sf_bailey|sf_oclc,"Flammarion, Camille,",,New York;Cosmopolitan Pub. Co.;c1894,1894,1894,,,,Omega: the last days of the world
 mdp.39015019802894,mdp.39015019802894,59051,sf_oclc,"Harben, Will N. (Will Nathaniel),",1858-1919.,Boston|Gregg Press|1975.,1975,1894,,,Fiction|Bibliographies,The land of the changing sun
 nyp.33433075767214,nyp.33433075767214,42103,fantasy_oclc,"Weyman, Stanley John,",,New York;Cassell;1894.,1894,1894,,,,The man in black
 uc2.ark+=13960=t17m0b23x_0,uc2.ark+=13960=t17m0b23x,52577,sf_loc,"Besant, Walter,",,London;Chatto & Windus;1895.,1895,1895,,Moral and ethical aspects;Science fiction;Inheritance and succession;Wealth;Scientists;Fiction,,Beyond the dreams of avarice
@@ -1141,7 +1141,7 @@ umn.31951002376324e_0,umn.31951002376324e,68107,sf_oclc,"Griffith, George Chetwy
 umn.31951002376324e_1,umn.31951002376324e,68455,sf_oclc,"Griffith, George Chetwynd.",,London;Tower;1895.,1895,1895,,,,The outlaws of the air
 nyp.33433074876164_0,nyp.33433074876164,37811,fantasy_oclc|sf_oclc,"Machen, Arthur,",,London;J. Lane;Boston;Roberts bros.;1895.,1895,1895,,,,The three impostors;
 nyp.33433074876164_1,nyp.33433074876164,42439,fantasy_oclc|sf_oclc,"Machen, Arthur,",,London;J. Lane;Boston;Roberts bros.;1895.,1895,1895,,,,The three impostors;
-inu.30000004080028,inu.30000004080028,38108,sf_oclc,"Wells, H. G. (Herbert George),",1866-1946.,New York|Berkley Pub. Group|1988.,1988,1895,,,NotFiction,The time machine
+inu.30000004080028,inu.30000004080028,38108,sf_bailey|sf_oclc,"Wells, H. G. (Herbert George),",1866-1946.,New York|Berkley Pub. Group|1988.,1988,1895,,,NotFiction,The time machine
 uc2.ark+=13960=t9183968r,uc2.ark+=13960=t9183968r,45004,fantasy_oclc,"Grahame, Kenneth,",,Chicago;Stone & Kimball;1895.,1895,1895,,,,The golden age
 nyp.33433074878335_0,nyp.33433074878335,39355,fantasy_loc,"Le Queux, William,",,New York;Frederick A. Stokes;c1895,1895,1895,,"Fantasy fiction, English",,Stolen souls
 nyp.33433074878335_1,nyp.33433074878335,38888,fantasy_loc,"Le Queux, William,",,New York;Frederick A. Stokes;c1895,1895,1895,,"Fantasy fiction, English",,Stolen souls
@@ -1161,21 +1161,21 @@ mdp.39015009198949_0,mdp.39015009198949,45328,sf_oclc,"Shiel, M. P. (Matthew Phi
 mdp.39015009198949_1,mdp.39015009198949,43559,sf_oclc,"Shiel, M. P. (Matthew Phipps),",1865-1947.,New York|Garland Pub.|1977.,1977,1896,,,Fiction,Shapes in the fire
 uc2.ark+=13960=t9474806n_0,uc2.ark+=13960=t9474806n,33022,fantasy_oclc,"Van der Naillen, A.",,San Francisco;W. Doxey;1896 [c1895,1896,1896,,,,In the sanctuary
 uc2.ark+=13960=t9474806n_1,uc2.ark+=13960=t9474806n,30493,fantasy_oclc,"Van der Naillen, A.",,San Francisco;W. Doxey;1896 [c1895,1896,1896,,,,In the sanctuary
-nyp.33433074915343_0,nyp.33433074915343,55805,fantasy_oclc|sf_oclc|supernat,"Morris, William,",,"New York;London;Bombay;Longmans, Green, and Co.;1897.",1897,1897,,,,The water of the Wondrous isles
-nyp.33433074915343_1,nyp.33433074915343,56365,fantasy_oclc|sf_oclc|supernat,"Morris, William,",,"New York;London;Bombay;Longmans, Green, and Co.;1897.",1897,1897,,,,The water of the Wondrous isles
-nyp.33433074915343_2,nyp.33433074915343,55887,fantasy_oclc|sf_oclc|supernat,"Morris, William,",,"New York;London;Bombay;Longmans, Green, and Co.;1897.",1897,1897,,,,The water of the Wondrous isles
-mdp.39015072611786_0,mdp.39015072611786,33284,sf_oclc|sf_loc,"(Herbert George), Wells, H. G.",1866-1946.,New York|Harper & Brothers|c1926.,1926,1897,,Science fiction,NotFiction,The war of the worlds
-mdp.39015072611786_1,mdp.39015072611786,35428,sf_oclc|sf_loc,"(Herbert George), Wells, H. G.",1866-1946.,New York|Harper & Brothers|c1926.,1926,1897,,Science fiction,NotFiction,The war of the worlds
+nyp.33433074915343_0,nyp.33433074915343,55805,supernat|fantasy_oclc|sf_oclc,"Morris, William,",,"New York;London;Bombay;Longmans, Green, and Co.;1897.",1897,1897,,,,The water of the Wondrous isles
+nyp.33433074915343_1,nyp.33433074915343,56365,supernat|fantasy_oclc|sf_oclc,"Morris, William,",,"New York;London;Bombay;Longmans, Green, and Co.;1897.",1897,1897,,,,The water of the Wondrous isles
+nyp.33433074915343_2,nyp.33433074915343,55887,supernat|fantasy_oclc|sf_oclc,"Morris, William,",,"New York;London;Bombay;Longmans, Green, and Co.;1897.",1897,1897,,,,The water of the Wondrous isles
+mdp.39015072611786_0,mdp.39015072611786,33284,sf_bailey|sf_loc|sf_oclc,"(Herbert George), Wells, H. G.",1866-1946.,New York|Harper & Brothers|c1926.,1926,1897,,Science fiction,NotFiction,The war of the worlds
+mdp.39015072611786_1,mdp.39015072611786,35428,sf_bailey|sf_loc|sf_oclc,"(Herbert George), Wells, H. G.",1866-1946.,New York|Harper & Brothers|c1926.,1926,1897,,Science fiction,NotFiction,The war of the worlds
 nyp.33433074915350_0,nyp.33433074915350,54980,sf_oclc,"Morris, William,",,"New York;London [etc.;Longmans, Green, and co.;1898.",1898,1897,,,,The sundering flood
 nyp.33433074915350_1,nyp.33433074915350,54115,sf_oclc,"Morris, William,",,"New York;London [etc.;Longmans, Green, and co.;1898.",1898,1897,,,,The sundering flood
-mdp.39015046862747_0,mdp.39015046862747,45603,sf_oclc|sf_loc,"Verne, Jules,",,Philadelphia;Lippincott;1899.,1899,1897,,,,An Antarctic mystery
-mdp.39015046862747_1,mdp.39015046862747,48596,sf_oclc|sf_loc,"Verne, Jules,",,Philadelphia;Lippincott;1899.,1899,1897,,,,An Antarctic mystery
+mdp.39015046862747_0,mdp.39015046862747,45603,sf_loc|sf_oclc,"Verne, Jules,",,Philadelphia;Lippincott;1899.,1899,1897,,,,An Antarctic mystery
+mdp.39015046862747_1,mdp.39015046862747,48596,sf_loc|sf_oclc,"Verne, Jules,",,Philadelphia;Lippincott;1899.,1899,1897,,,,An Antarctic mystery
 nyp.33433076059777,nyp.33433076059777,38041,sf_oclc,"Pope, Marion Manville,",,New York;The Century Co.;1897.,1897,1897,,,,Up the Matterhorn in a boat
-uc1.$b808833_0,uc1.$b808833,39656,sf_oclc,"Waterloo, Stanley,",1846-1913.,"New York|Arno Press|1975, [c1897",1975,1897,,Fiction|Prehistoric peoples,Science fiction|Fiction,The story of Ab; | a tale of the time of the cave man.
-uc1.$b808833_1,uc1.$b808833,41172,sf_oclc,"Waterloo, Stanley,",1846-1913.,"New York|Arno Press|1975, [c1897",1975,1897,,Fiction|Prehistoric peoples,Science fiction|Fiction,The story of Ab; | a tale of the time of the cave man.
+uc1.$b808833_0,uc1.$b808833,39656,sf_bailey|sf_oclc,"Waterloo, Stanley,",1846-1913.,"New York|Arno Press|1975, [c1897",1975,1897,,Fiction|Prehistoric peoples,Science fiction|Fiction,The story of Ab; | a tale of the time of the cave man.
+uc1.$b808833_1,uc1.$b808833,41172,sf_bailey|sf_oclc,"Waterloo, Stanley,",1846-1913.,"New York|Arno Press|1975, [c1897",1975,1897,,Fiction|Prehistoric peoples,Science fiction|Fiction,The story of Ab; | a tale of the time of the cave man.
 uc2.ark+=13960=t2j67fg4m_0,uc2.ark+=13960=t2j67fg4m,41031,fantasy_oclc,"Griffith, George Chetwynd.",,London;F. V. White;1897.,1897,1897,,,,The romance of Golden Star
 uc2.ark+=13960=t2j67fg4m_1,uc2.ark+=13960=t2j67fg4m,39933,fantasy_oclc,"Griffith, George Chetwynd.",,London;F. V. White;1897.,1897,1897,,,,The romance of Golden Star
-mdp.39076002629850,mdp.39076002629850,47461,juv|fantasy_loc,"Hall, Edith King.",,New York;A.L. Burt;1900?,1900,1897,,Juvenile fiction;Fantasy fiction,,Adventures in Toyland
+mdp.39076002629850,mdp.39076002629850,47461,fantasy_loc|juv,"Hall, Edith King.",,New York;A.L. Burt;1900?,1900,1897,,Juvenile fiction;Fantasy fiction,,Adventures in Toyland
 uc1.32106007308551_0,uc1.32106007308551,45358,fantasy_loc,"Oliphant, (Margaret), Mrs.",1828-1897.,Edinburgh|Scottish Academic|1985.,1985,1898,,"Fantasy fiction, English",Fiction,Selected short stories of the supernatural
 uc1.32106007308551_1,uc1.32106007308551,47820,fantasy_loc,"Oliphant, (Margaret), Mrs.",1828-1897.,Edinburgh|Scottish Academic|1985.,1985,1898,,"Fantasy fiction, English",Fiction,Selected short stories of the supernatural
 uc1.32106007308551_2,uc1.32106007308551,47064,fantasy_loc,"Oliphant, (Margaret), Mrs.",1828-1897.,Edinburgh|Scottish Academic|1985.,1985,1898,,"Fantasy fiction, English",Fiction,Selected short stories of the supernatural
@@ -1183,8 +1183,8 @@ mdp.39015063916798_0,mdp.39015063916798,40582,sf_oclc,"Douglass, Ellsworth.",,Lo
 mdp.39015063916798_1,mdp.39015063916798,42576,sf_oclc,"Douglass, Ellsworth.",,London;C. A. Pearson;1899.,1899,1899,,Utopias,,Pharaoh's broker
 mdp.39015019363590_0,mdp.39015019363590,43938,sf_oclc,"Beale, Charles Willing,",1845-1932.,New York|Arno Press|1975.,1975,1899,,,Fiction,The secret of the earth.
 mdp.39015019363590_1,mdp.39015019363590,43311,sf_oclc,"Beale, Charles Willing,",1845-1932.,New York|Arno Press|1975.,1975,1899,,,Fiction,The secret of the earth.
-mdp.39015058086136_0,mdp.39015058086136,51430,sf_oclc|sf_loc,"Wells, H. G. (Herbert George),",1866-1946.,New York|Modern Library|2003.,2003,1899,,Fiction|Twenty-first century|Technological innovations|Time travel,Novel|Dystopias|Science fiction,When the sleeper wakes
-mdp.39015058086136_1,mdp.39015058086136,53128,sf_oclc|sf_loc,"Wells, H. G. (Herbert George),",1866-1946.,New York|Modern Library|2003.,2003,1899,,Fiction|Twenty-first century|Technological innovations|Time travel,Novel|Dystopias|Science fiction,When the sleeper wakes
+mdp.39015058086136_0,mdp.39015058086136,51430,sf_loc|sf_oclc,"Wells, H. G. (Herbert George),",1866-1946.,New York|Modern Library|2003.,2003,1899,,Fiction|Twenty-first century|Technological innovations|Time travel,Novel|Dystopias|Science fiction,When the sleeper wakes
+mdp.39015058086136_1,mdp.39015058086136,53128,sf_loc|sf_oclc,"Wells, H. G. (Herbert George),",1866-1946.,New York|Modern Library|2003.,2003,1899,,Fiction|Twenty-first century|Technological innovations|Time travel,Novel|Dystopias|Science fiction,When the sleeper wakes
 uc1.l0063361513,uc1.l0063361513,36236,fantasy_oclc,"Bangs, John Kendrick,",,"New York;London;Harper & brothers;1900, c1899.",1899,1899,,,,The enchanted typewriter
 nyp.33433074935127_0,nyp.33433074935127,33452,fantasy_loc,"Capes, Bernard Edward Joseph,",,New York;Doubleday & McClure;1899.,1899,1899,,"Fantasy fiction, English",,At a winter's fire
 nyp.33433074935127_1,nyp.33433074935127,34690,fantasy_loc,"Capes, Bernard Edward Joseph,",,New York;Doubleday & McClure;1899.,1899,1899,,"Fantasy fiction, English",,At a winter's fire
@@ -1194,27 +1194,27 @@ coo.31924013568781_0,coo.31924013568781,42381,sf_loc,"Wells, H. G.",,Leipzig;B. 
 coo.31924013568781_1,coo.31924013568781,42330,sf_loc,"Wells, H. G.",,Leipzig;B. Tauchnitz;1900.,1900,1900,,"Science fiction, English",,Tales of space and time
 mdp.39015015358164_0,mdp.39015015358164,45601,sf_oclc,"Newcomb, Simon,",1835-1909.,New York|Arno Press|1975.,1975,1900,,,Fiction,"His wisdom, the defender; | a story."
 mdp.39015015358164_1,mdp.39015015358164,45863,sf_oclc,"Newcomb, Simon,",1835-1909.,New York|Arno Press|1975.,1975,1900,,,Fiction,"His wisdom, the defender; | a story."
-pst.000055159890,pst.000055159890,47300,juv|fantasy_oclc,"Baum, L. Frank (Lyman Frank),",1856-1919.,New York|Scholastic Book Services|1958].,1958,1900,,,NotFiction,The Wizard of Oz
+pst.000055159890,pst.000055159890,47300,fantasy_oclc|juv,"Baum, L. Frank (Lyman Frank),",1856-1919.,New York|Scholastic Book Services|1958].,1958,1900,,,NotFiction,The Wizard of Oz
 mdp.39015000541261_0,mdp.39015000541261,41760,sf_oclc,"Paine, Albert Bigelow,",1861-1937.,New York|Arno Press|1975 [c1901,1975,1901,,,Fiction,"The great white way; | a record of an unusual voyage of discovery, and some romantic love affairs amid strange surroundings."
 mdp.39015000541261_1,mdp.39015000541261,40969,sf_oclc,"Paine, Albert Bigelow,",1861-1937.,New York|Arno Press|1975 [c1901,1975,1901,,,Fiction,"The great white way; | a record of an unusual voyage of discovery, and some romantic love affairs amid strange surroundings."
 mdp.39015045695080_0,mdp.39015045695080,52348,sf_oclc,"Wells, H. G. (Herbert George),",1866-1946.,"Jefferson, N.C.|McFarland & Co.|c1998.",1998,1901,,Utopias|Fiction|Space flight to the moon,Fiction|Bibliographies|Science fiction|Satire,"The first men in the moon : | a critical text of the 1901 London first edition, with an introduction and appendices"
 mdp.39015045695080_1,mdp.39015045695080,54994,sf_oclc,"Wells, H. G. (Herbert George),",1866-1946.,"Jefferson, N.C.|McFarland & Co.|c1998.",1998,1901,,Utopias|Fiction|Space flight to the moon,Fiction|Bibliographies|Science fiction|Satire,"The first men in the moon : | a critical text of the 1901 London first edition, with an introduction and appendices"
 mdp.39015045695080_2,mdp.39015045695080,51100,sf_oclc,"Wells, H. G. (Herbert George),",1866-1946.,"Jefferson, N.C.|McFarland & Co.|c1998.",1998,1901,,Utopias|Fiction|Space flight to the moon,Fiction|Bibliographies|Science fiction|Satire,"The first men in the moon : | a critical text of the 1901 London first edition, with an introduction and appendices"
-mdp.39015037377713_0,mdp.39015037377713,63620,sf_oclc,"Shiel, M. P. (Matthew Phipps),",1865-1947.,New York|Arno Press|1975.,1975,1901,,,Fiction,The lord of the sea.
-mdp.39015037377713_1,mdp.39015037377713,62542,sf_oclc,"Shiel, M. P. (Matthew Phipps),",1865-1947.,New York|Arno Press|1975.,1975,1901,,,Fiction,The lord of the sea.
-mdp.39015037377713_2,mdp.39015037377713,62847,sf_oclc,"Shiel, M. P. (Matthew Phipps),",1865-1947.,New York|Arno Press|1975.,1975,1901,,,Fiction,The lord of the sea.
+mdp.39015037377713_0,mdp.39015037377713,63620,sf_bailey|sf_oclc,"Shiel, M. P. (Matthew Phipps),",1865-1947.,New York|Arno Press|1975.,1975,1901,,,Fiction,The lord of the sea.
+mdp.39015037377713_1,mdp.39015037377713,62542,sf_bailey|sf_oclc,"Shiel, M. P. (Matthew Phipps),",1865-1947.,New York|Arno Press|1975.,1975,1901,,,Fiction,The lord of the sea.
+mdp.39015037377713_2,mdp.39015037377713,62847,sf_bailey|sf_oclc,"Shiel, M. P. (Matthew Phipps),",1865-1947.,New York|Arno Press|1975.,1975,1901,,,Fiction,The lord of the sea.
 nyp.33433082303581,nyp.33433082303581,25863,fantasy_oclc,"Clapp, Eva Katherine,",,Chicago;Lansing;R. Smith Printing Co.;1901,1901,1901,,,,"Zauberlinda, the wise witch;"
 nyp.33433074954656,nyp.33433074954656,36544,sf_loc,"Owen, Harle Oren.",,"Boston, Mass.;Mutual Book Co.;c1902.",1902,1902,,"Science fiction, American",,Welsh rarebit tales
 mdp.39015031219481_0,mdp.39015031219481,36994,fantasy_oclc|sf_oclc,,,London|W. H. Allen|1975-,0,1902,v.1,19th century|English fiction,Fiction,Before Armageddon : | an anthology of Victorian and Edwardian imaginative fiction published before 1914
 mdp.39015031219481_1,mdp.39015031219481,34481,fantasy_oclc|sf_oclc,,,London|W. H. Allen|1975-,0,1902,v.1,19th century|English fiction,Fiction,Before Armageddon : | an anthology of Victorian and Edwardian imaginative fiction published before 1914
-nyp.33433082333174_0,nyp.33433082333174,58192,juv|fantasy_oclc,"Jenks, Tudor,",,Boston;Hall and Locke Company;c1902,1902,1902,,Children's stories,,Tales of fantasy
-nyp.33433082333174_1,nyp.33433082333174,61937,juv|fantasy_oclc,"Jenks, Tudor,",,Boston;Hall and Locke Company;c1902,1902,1902,,Children's stories,,Tales of fantasy
-uc1.b4087889_0,uc1.b4087889,36364,juv|fantasy_oclc,"Nesbit, E. (Edith),",1858-1924.,"Harmondsworth, Eng.|Puffin Books|New York|Penguin Books|1959.",1959,1902,,,Fiction,Five children and it
-uc1.b4087889_1,uc1.b4087889,36293,juv|fantasy_oclc,"Nesbit, E. (Edith),",1858-1924.,"Harmondsworth, Eng.|Puffin Books|New York|Penguin Books|1959.",1959,1902,,,Fiction,Five children and it
-mdp.39076002242886,mdp.39076002242886,30054,juv|fantasy_loc,"Doty, Douglas Zabriskie,",,New York;J.F. Taylor;1902.,1902,1902,,Adventure stories;Boys;Fantasy fiction;Juvenile fiction;Dolls,,Andy's adventures on Noah's ark
-nc01.ark+=13960=t8v995442,nc01.ark+=13960=t8v995442,35226,juv|fantasy_loc,"Baum, L. Frank",,Indianapolis;The Bowen-Merrill Co.;1902.,1902,1902,,Santa Claus;Christmas stories;Fantasy;Fairies;Juvenile fiction,,The life and adventures of Santa Claus
-mdp.39015085432923_0,mdp.39015085432923,38127,juv|fantasy_loc|supernat,"Barrie, J. M.",,"Toronto;Copp, Clark Company, Ltd.;MDCCCCII [1902",1902,1902,,"Kensington Gardens (London, England);Fantasy;Juvenile fiction;Children's literature, English",,"The little white bird; or, Adventures in Kensington Gardens"
-mdp.39015085432923_1,mdp.39015085432923,38901,juv|fantasy_loc|supernat,"Barrie, J. M.",,"Toronto;Copp, Clark Company, Ltd.;MDCCCCII [1902",1902,1902,,"Kensington Gardens (London, England);Fantasy;Juvenile fiction;Children's literature, English",,"The little white bird; or, Adventures in Kensington Gardens"
+nyp.33433082333174_0,nyp.33433082333174,58192,fantasy_oclc|juv,"Jenks, Tudor,",,Boston;Hall and Locke Company;c1902,1902,1902,,Children's stories,,Tales of fantasy
+nyp.33433082333174_1,nyp.33433082333174,61937,fantasy_oclc|juv,"Jenks, Tudor,",,Boston;Hall and Locke Company;c1902,1902,1902,,Children's stories,,Tales of fantasy
+uc1.b4087889_0,uc1.b4087889,36364,fantasy_oclc|juv,"Nesbit, E. (Edith),",1858-1924.,"Harmondsworth, Eng.|Puffin Books|New York|Penguin Books|1959.",1959,1902,,,Fiction,Five children and it
+uc1.b4087889_1,uc1.b4087889,36293,fantasy_oclc|juv,"Nesbit, E. (Edith),",1858-1924.,"Harmondsworth, Eng.|Puffin Books|New York|Penguin Books|1959.",1959,1902,,,Fiction,Five children and it
+mdp.39076002242886,mdp.39076002242886,30054,fantasy_loc|juv,"Doty, Douglas Zabriskie,",,New York;J.F. Taylor;1902.,1902,1902,,Adventure stories;Boys;Fantasy fiction;Juvenile fiction;Dolls,,Andy's adventures on Noah's ark
+nc01.ark+=13960=t8v995442,nc01.ark+=13960=t8v995442,35226,fantasy_loc|juv,"Baum, L. Frank",,Indianapolis;The Bowen-Merrill Co.;1902.,1902,1902,,Santa Claus;Christmas stories;Fantasy;Fairies;Juvenile fiction,,The life and adventures of Santa Claus
+mdp.39015085432923_0,mdp.39015085432923,38127,fantasy_loc|supernat|juv,"Barrie, J. M.",,"Toronto;Copp, Clark Company, Ltd.;MDCCCCII [1902",1902,1902,,"Kensington Gardens (London, England);Fantasy;Juvenile fiction;Children's literature, English",,"The little white bird; or, Adventures in Kensington Gardens"
+mdp.39015085432923_1,mdp.39015085432923,38901,fantasy_loc|supernat|juv,"Barrie, J. M.",,"Toronto;Copp, Clark Company, Ltd.;MDCCCCII [1902",1902,1902,,"Kensington Gardens (London, England);Fantasy;Juvenile fiction;Children's literature, English",,"The little white bird; or, Adventures in Kensington Gardens"
 uc1.$b386778_0,uc1.$b386778,44722,sf_oclc,"Wells, H. G. (Herbert George),",1866-1946.,London|Distributed by Heron Books|1969.,1969,1904,,,Fiction,"The food of the gods | $c: [by] H. G. Wells, original illustrations by Graham Byfield."
 uc1.$b386778_1,uc1.$b386778,45429,sf_oclc,"Wells, H. G. (Herbert George),",1866-1946.,London|Distributed by Heron Books|1969.,1969,1904,,,Fiction,"The food of the gods | $c: [by] H. G. Wells, original illustrations by Graham Byfield."
 mdp.39015008880844,mdp.39015008880844,59130,sf_oclc,"Verne, Jules,",1828-1905.,"Westport, Conn.|Associated Booksellers|1962",1962,1904,,,UnknownGenre,Master of the world. | $c: Edited by I.O. Evans.
@@ -1234,15 +1234,15 @@ pst.000020900496_0,pst.000020900496,50816,sf_oclc,"Wells, H. G. (Herbert George)
 pst.000020900496_1,pst.000020900496,48638,sf_oclc,"Wells, H. G. (Herbert George),",1866-1946.,London|Hogarth|1985.,1985,1906,,,NotFiction,In the days of the comet
 mdp.39015030750999_0,mdp.39015030750999,35024,sf_oclc,"Hernaman-Johnson, Francis,",1879-1949.,New York|Arno Press|1975.,1975,1906,,,Fiction,The polyphemes; | a story of strange adventures among strange beings.
 mdp.39015030750999_1,mdp.39015030750999,35572,sf_oclc,"Hernaman-Johnson, Francis,",1879-1949.,New York|Arno Press|1975.,1975,1906,,,Fiction,The polyphemes; | a story of strange adventures among strange beings.
-uc1.b3470481_0,uc1.b3470481,32259,sf_oclc,"Cook, William Wallace,",1867-1933.,New York|Arno Press|1975.,1975,1906,,,Fiction,"Adrift in the unknown; | or, Queer adventures in a queer realm."
-uc1.b3470481_1,uc1.b3470481,32483,sf_oclc,"Cook, William Wallace,",1867-1933.,New York|Arno Press|1975.,1975,1906,,,Fiction,"Adrift in the unknown; | or, Queer adventures in a queer realm."
+uc1.b3470481_0,uc1.b3470481,32259,sf_bailey|sf_oclc,"Cook, William Wallace,",1867-1933.,New York|Arno Press|1975.,1975,1906,,,Fiction,"Adrift in the unknown; | or, Queer adventures in a queer realm."
+uc1.b3470481_1,uc1.b3470481,32483,sf_bailey|sf_oclc,"Cook, William Wallace,",1867-1933.,New York|Arno Press|1975.,1975,1906,,,Fiction,"Adrift in the unknown; | or, Queer adventures in a queer realm."
 pst.000060921147,pst.000060921147,18423,fantasy_loc,"Barrie, J. M. (James Matthew),",1860-1937.,"Gloucester, UK|Dodo Press|2006",2006,1906,,"Fantasy fiction, English|Peter Pan (Fictitious character)|Fiction",Short stories,Peter Pan in Kensington Gardens
-uva.x030580544_0,uva.x030580544,39617,fantasy_oclc,"London, Jack,",,New York;The Macmillan & co.;1919,1906,1906,,,,Before Adam
-uva.x030580544_1,uva.x030580544,24006,fantasy_oclc,"London, Jack,",,New York;The Macmillan & co.;1919,1906,1906,,,,Before Adam
+uva.x030580544_0,uva.x030580544,39617,sf_bailey|fantasy_oclc,"London, Jack,",,New York;The Macmillan & co.;1919,1906,1906,,,,Before Adam
+uva.x030580544_1,uva.x030580544,24006,sf_bailey|fantasy_oclc,"London, Jack,",,New York;The Macmillan & co.;1919,1906,1906,,,,Before Adam
 uc1.l0070882576_0,uc1.l0070882576,49810,fantasy_loc|supernat,"Machen, Arthur,",1863-1947.,"North Stratford, NH|Ayer Company|1999.",1999,1906,,"Fantasy fiction, English|Supernatural|Fiction",Fiction,The house of souls
 uc1.l0070882576_1,uc1.l0070882576,50239,fantasy_loc|supernat,"Machen, Arthur,",1863-1947.,"North Stratford, NH|Ayer Company|1999.",1999,1906,,"Fantasy fiction, English|Supernatural|Fiction",Fiction,The house of souls
 nyp.33433076024326,nyp.33433076024326,19443,fantasy_oclc,"Lorimer, George Horace,",,New York;D. Appleton and Company;1906.,1906,1906,,,,The false gods
-uc2.ark+=13960=t26970r57,uc2.ark+=13960=t26970r57,57638,juv|fantasy_oclc|fantasy_loc,"Baum, L. Frank",,Chicago;Reilly & Britton;c1906,1906,1906,,,,John Dough and the cherub
+uc2.ark+=13960=t26970r57,uc2.ark+=13960=t26970r57,57638,fantasy_loc|fantasy_oclc|juv,"Baum, L. Frank",,Chicago;Reilly & Britton;c1906,1906,1906,,,,John Dough and the cherub
 uc2.ark+=13960=t00z77h4n_0,uc2.ark+=13960=t00z77h4n,49965,sf_oclc,"Benson, Arthur Christopher,",,"London;Smith, Elder & co.;1907.",1907,1907,,,,Beside still waters
 uc2.ark+=13960=t00z77h4n_1,uc2.ark+=13960=t00z77h4n,49326,sf_oclc,"Benson, Arthur Christopher,",,"London;Smith, Elder & co.;1907.",1907,1907,,,,Beside still waters
 dul1.ark+=13960=t9r21mf2d_0,dul1.ark+=13960=t9r21mf2d,60280,sf_oclc,"Benson, Robert Hugh,",,"New York;Dodd, Mead;1908.",1908,1908,,Utopias,,Lord of the world
@@ -1255,8 +1255,8 @@ mdp.49015000982067_0,mdp.49015000982067,31925,sf_oclc,"Hodgson, William Hope,",1
 mdp.49015000982067_1,mdp.49015000982067,30742,sf_oclc,"Hodgson, William Hope,",1877-1918.,"Westport, Conn.|Hyperion Press|1976, c1908.",1976,1908,,,Fiction,The house on the borderland ...
 uc1.$b318311_0,uc1.$b318311,32378,fantasy_loc,"Mende��s, Catulle,",1841-1909.,London|T. Werner Laurie|1928.,1928,1908,,"Fantasy fiction, French",Fiction,Number 56 and other stories
 uc1.$b318311_1,uc1.$b318311,32339,fantasy_loc,"Mende��s, Catulle,",1841-1909.,London|T. Werner Laurie|1928.,1928,1908,,"Fantasy fiction, French",Fiction,Number 56 and other stories
-mdp.39015008859509_0,mdp.39015008859509,35211,juv|fantasy_oclc,"Grahame, Kenneth,",,New York;C. Scribner's sons;1908.,1908,1908,,Animals;Juvenile fiction,,The wind in the willows
-mdp.39015008859509_1,mdp.39015008859509,36637,juv|fantasy_oclc,"Grahame, Kenneth,",,New York;C. Scribner's sons;1908.,1908,1908,,Animals;Juvenile fiction,,The wind in the willows
+mdp.39015008859509_0,mdp.39015008859509,35211,fantasy_oclc|juv,"Grahame, Kenneth,",,New York;C. Scribner's sons;1908.,1908,1908,,Animals;Juvenile fiction,,The wind in the willows
+mdp.39015008859509_1,mdp.39015008859509,36637,fantasy_oclc|juv,"Grahame, Kenneth,",,New York;C. Scribner's sons;1908.,1908,1908,,Animals;Juvenile fiction,,The wind in the willows
 pst.000029121120_0,pst.000029121120,33956,fantasy_oclc,"Chesterton, G. K. (Gilbert Keith),",1874-1936.,"New York|Dodd, Mead and company|1935].",1935,1908,,,NotFiction,The man who was Thursday : | a nightmare
 pst.000029121120_1,pst.000029121120,34127,fantasy_oclc,"Chesterton, G. K. (Gilbert Keith),",1874-1936.,"New York|Dodd, Mead and company|1935].",1935,1908,,,NotFiction,The man who was Thursday : | a nightmare
 nyp.33433074961263,nyp.33433074961263,36127,sf_oclc,"Oppenheim, E. Phillips",,New York;c. H. Doscher & co.;1909.,1909,1909,,,,A daughter of Astrea
@@ -1268,7 +1268,7 @@ mdp.39015073907274_1,mdp.39015073907274,33139,sf_oclc,"Hodgson, William Hope,",1
 mdp.39015032254008_0,mdp.39015032254008,48208,fantasy_oclc,"Stoker, Bram,",1847-1912.,New York|Paperback Library|1966.,1966,1909,,,Fiction,The lady of the shroud ; | a paperback library gothic
 mdp.39015032254008_1,mdp.39015032254008,47437,fantasy_oclc,"Stoker, Bram,",1847-1912.,New York|Paperback Library|1966.,1966,1909,,,Fiction,The lady of the shroud ; | a paperback library gothic
 mdp.39015032254008_2,mdp.39015032254008,45777,fantasy_oclc,"Stoker, Bram,",1847-1912.,New York|Paperback Library|1966.,1966,1909,,,Fiction,The lady of the shroud ; | a paperback library gothic
-mdp.39076002651722,mdp.39076002651722,51445,juv|fantasy_loc,"Lewis, Edwin Herbert,",,Indianapolis;Bobbs-Merrill;1909.,1909,1909,,Children's stories;Fantasy;Brothers and sisters;Juvenile fiction,,Almost fairy children
+mdp.39076002651722,mdp.39076002651722,51445,fantasy_loc|juv,"Lewis, Edwin Herbert,",,Indianapolis;Bobbs-Merrill;1909.,1909,1909,,Children's stories;Fantasy;Brothers and sisters;Juvenile fiction,,Almost fairy children
 uva.x004507096_0,uva.x004507096,47675,fantasy_oclc,"Blackwood, Algernon,",,New York;H. Holt and company;1910,1909,1909,,,,The education of Uncle Paul
 uva.x004507096_1,uva.x004507096,47474,fantasy_oclc,"Blackwood, Algernon,",,New York;H. Holt and company;1910,1909,1909,,,,The education of Uncle Paul
 uc2.ark+=13960=t3125zp7f_0,uc2.ark+=13960=t3125zp7f,56490,fantasy_oclc,"Kipling, Rudyard,",,"New York;Doubleday, Page & company;1909.",1909,1909,,,,Actions and reactions
@@ -1286,29 +1286,29 @@ uc2.ark+=13960=t3kw58021_0,uc2.ark+=13960=t3kw58021,37326,sf_oclc,"Beresford, J.
 uc2.ark+=13960=t3kw58021_1,uc2.ark+=13960=t3kw58021,36814,sf_oclc,"Beresford, J. D.",,New York;George H. Doran company;c1917,1917,1911,,,,The Wonder
 nyp.33433075746895_0,nyp.33433075746895,41381,sf_loc,"Serviss, Garrett Putman,",,New York;London;D. Appleton and Company;1911.,1911,1911,,Science fiction,,A Columbus of space
 nyp.33433075746895_1,nyp.33433075746895,41657,sf_loc,"Serviss, Garrett Putman,",,New York;London;D. Appleton and Company;1911.,1911,1911,,Science fiction,,A Columbus of space
-mdp.39015001799165,mdp.39015001799165,58045,juv|fantasy_oclc,"(James Matthew), Barrie, J. M.",1860-1937.,New York|Scribner|1950.,1950,1911,,,Fiction,Peter Pan; | $c: illustrated by Nora S. Unwin.
-uc2.ark+=13960=t2599zm8x,uc2.ark+=13960=t2599zm8x,29898,juv|fantasy_oclc,"Cherubini, E.",,Boston;New York [etc.;Ginn and Company;c1911,1911,1911,,,,Pinocchio in Africa
+mdp.39015001799165,mdp.39015001799165,58045,fantasy_oclc|juv,"(James Matthew), Barrie, J. M.",1860-1937.,New York|Scribner|1950.,1950,1911,,,Fiction,Peter Pan; | $c: illustrated by Nora S. Unwin.
+uc2.ark+=13960=t2599zm8x,uc2.ark+=13960=t2599zm8x,29898,fantasy_oclc|juv,"Cherubini, E.",,Boston;New York [etc.;Ginn and Company;c1911,1911,1911,,,,Pinocchio in Africa
 nyp.33433074850169,nyp.33433074850169,32708,fantasy_oclc,"Haggard, H. Rider",,New York;H. Holt and company;1911.,1911,1911,,,,The mahatma and the hare;
 mdp.39015043257750_0,mdp.39015043257750,31442,fantasy_oclc,"Stoker, Bram,",1847-1912.,London|Arrow Books|1960.,1960,1911,,,Fiction,The lair of the white worm
 mdp.39015043257750_1,mdp.39015043257750,32824,fantasy_oclc,"Stoker, Bram,",1847-1912.,London|Arrow Books|1960.,1960,1911,,,Fiction,The lair of the white worm
 mdp.39015063940210_0,mdp.39015063940210,52597,fantasy_oclc,"De Morgan, William,",,London;Heinemann;1911.,1911,1911,,,,A likely story
 mdp.39015063940210_1,mdp.39015063940210,53521,fantasy_oclc,"De Morgan, William,",,London;Heinemann;1911.,1911,1911,,,,A likely story
 mdp.39015001553547,mdp.39015001553547,24401,sf_oclc,"London, Jack,",,New York;The Macmillan Company;1915.,1915,1912,,,,The scarlet plague
-njp.32101064789157_0,njp.32101064789157,44844,sf_oclc,"Doyle, Arthur Conan,",,"New York;A.L. Burt Co., Publishers, published by arrangement with George H. Doran Company;c1912.",1912,1912,,"Challenger, Professor (Fictitious character);Discovery and exploration;South America;Prehistoric peoples;Dinosaurs;Fiction",,The lost world
-njp.32101064789157_1,njp.32101064789157,45521,sf_oclc,"Doyle, Arthur Conan,",,"New York;A.L. Burt Co., Publishers, published by arrangement with George H. Doran Company;c1912.",1912,1912,,"Challenger, Professor (Fictitious character);Discovery and exploration;South America;Prehistoric peoples;Dinosaurs;Fiction",,The lost world
+njp.32101064789157_0,njp.32101064789157,44844,sf_bailey|sf_oclc,"Doyle, Arthur Conan,",,"New York;A.L. Burt Co., Publishers, published by arrangement with George H. Doran Company;c1912.",1912,1912,,"Challenger, Professor (Fictitious character);Discovery and exploration;South America;Prehistoric peoples;Dinosaurs;Fiction",,The lost world
+njp.32101064789157_1,njp.32101064789157,45521,sf_bailey|sf_oclc,"Doyle, Arthur Conan,",,"New York;A.L. Burt Co., Publishers, published by arrangement with George H. Doran Company;c1912.",1912,1912,,"Challenger, Professor (Fictitious character);Discovery and exploration;South America;Prehistoric peoples;Dinosaurs;Fiction",,The lost world
 uc2.ark+=13960=t9h41k936_0,uc2.ark+=13960=t9h41k936,52105,sf_oclc,"Serviss, Garrett Putman,",,"New York;McBride, Nast;1912.",1912,1912,,,,The second deluge
 uc2.ark+=13960=t9h41k936_1,uc2.ark+=13960=t9h41k936,53003,sf_oclc,"Serviss, Garrett Putman,",,"New York;McBride, Nast;1912.",1912,1912,,,,The second deluge
-nyp.33433076068869_0,nyp.33433076068869,36548,juv|fantasy_oclc,"Gates, Eleanor,",,New York;Grosset & Dunlap;c1912.,1912,1912,,American fiction,,The poor little rich girl
-nyp.33433076068869_1,nyp.33433076068869,38502,juv|fantasy_oclc,"Gates, Eleanor,",,New York;Grosset & Dunlap;c1912.,1912,1912,,American fiction,,The poor little rich girl
-mdp.39015031308953_0,mdp.39015031308953,32713,fantasy_oclc|supernat,"Stephens, James,",,"London;Macmillan and co., limited;1912.",1912,1912,,,,The crock of gold
-mdp.39015031308953_1,mdp.39015031308953,34491,fantasy_oclc|supernat,"Stephens, James,",,"London;Macmillan and co., limited;1912.",1912,1912,,,,The crock of gold
+nyp.33433076068869_0,nyp.33433076068869,36548,fantasy_oclc|juv,"Gates, Eleanor,",,New York;Grosset & Dunlap;c1912.,1912,1912,,American fiction,,The poor little rich girl
+nyp.33433076068869_1,nyp.33433076068869,38502,fantasy_oclc|juv,"Gates, Eleanor,",,New York;Grosset & Dunlap;c1912.,1912,1912,,American fiction,,The poor little rich girl
+mdp.39015031308953_0,mdp.39015031308953,32713,supernat|fantasy_oclc,"Stephens, James,",,"London;Macmillan and co., limited;1912.",1912,1912,,,,The crock of gold
+mdp.39015031308953_1,mdp.39015031308953,34491,supernat|fantasy_oclc,"Stephens, James,",,"London;Macmillan and co., limited;1912.",1912,1912,,,,The crock of gold
 uva.x001689900,uva.x001689900,35601,sf_oclc,"Doyle, Arthur Conan,",,London;New York;Hodder and Stoughton;1913?].,1913,1913,,,,The poison belt
 uc1.b4373265_0,uc1.b4373265,52454,sf_oclc,"Burroughs, Edgar Rice,",,New York;Ballantine Books;c1913.,1913,1913,,,,The return of Tarzan
 uc1.b4373265_1,uc1.b4373265,49780,sf_oclc,"Burroughs, Edgar Rice,",,New York;Ballantine Books;c1913.,1913,1913,,,,The return of Tarzan
 mdp.39015030395175,mdp.39015030395175,59512,sf_oclc,"Chambers, Robert W. (Robert William),",1865-1933.,New York|Arno Press|1975.,1975,1913,,,Fiction,The gay rebellion.
-mdp.39015074391536,mdp.39015074391536,32496,juv|fantasy_loc,"Carryl, Charles E.",,Boston;New York;Houghton Mifflin;1913.,1913,1913,,Fantasy,,Davy and the goblin
-uva.x000835612_0,uva.x000835612,36639,juv|fantasy_loc,"Baum, L. Frank",,Chicago;Reilly & Lee Co.;c1913,1913,1913,,Fantasy,,The patchwork girl of Oz
-uva.x000835612_1,uva.x000835612,35880,juv|fantasy_loc,"Baum, L. Frank",,Chicago;Reilly & Lee Co.;c1913,1913,1913,,Fantasy,,The patchwork girl of Oz
+mdp.39015074391536,mdp.39015074391536,32496,fantasy_loc|juv,"Carryl, Charles E.",,Boston;New York;Houghton Mifflin;1913.,1913,1913,,Fantasy,,Davy and the goblin
+uva.x000835612_0,uva.x000835612,36639,fantasy_loc|juv,"Baum, L. Frank",,Chicago;Reilly & Lee Co.;c1913,1913,1913,,Fantasy,,The patchwork girl of Oz
+uva.x000835612_1,uva.x000835612,35880,fantasy_loc|juv,"Baum, L. Frank",,Chicago;Reilly & Lee Co.;c1913,1913,1913,,Fantasy,,The patchwork girl of Oz
 uva.x030751450_0,uva.x030751450,54364,fantasy_oclc,"Blackwood, Algernon,",,"London;Macmillan and co.,ltd.;1920",1913,1913,,,,A prisoner in fairyland (the book that 'Uncle Paul' wrote)
 uva.x030751450_1,uva.x030751450,55102,fantasy_oclc,"Blackwood, Algernon,",,"London;Macmillan and co.,ltd.;1920",1913,1913,,,,A prisoner in fairyland (the book that 'Uncle Paul' wrote)
 uva.x030751450_2,uva.x030751450,54414,fantasy_oclc,"Blackwood, Algernon,",,"London;Macmillan and co.,ltd.;1920",1913,1913,,,,A prisoner in fairyland (the book that 'Uncle Paul' wrote)
@@ -1323,8 +1323,8 @@ mdp.39015047580728_0,mdp.39015047580728,47002,fantasy_loc,"Meyrink, Gustav,",186
 mdp.39015047580728_1,mdp.39015047580728,50733,fantasy_loc,"Meyrink, Gustav,",1868-1932.,"Sawtry, Cambs|Dedalus|Riverside, CA|Ariadne|1995.",1995,1914,,"Fiction|Legends|Fantasy fiction, German|Translations into English|Paranormal fiction|Golem",Fiction|Bibliographies,The Golem
 uc2.ark+=13960=t0ft8f11f_0,uc2.ark+=13960=t0ft8f11f,36187,sf_oclc,"Le Queux, William,",,London;Hodder;1915.,1915,1915,,,,The mystery of the green ray
 uc2.ark+=13960=t0ft8f11f_1,uc2.ark+=13960=t0ft8f11f,35238,sf_oclc,"Le Queux, William,",,London;Hodder;1915.,1915,1915,,,,The mystery of the green ray
-mdp.39076002619562_0,mdp.39076002619562,26273,juv|fantasy_loc,"Brown, Abbie Farwell,",,Boston;New York;Houghton Mifflin Co.;1915.,1915,1915,,Juvenile literature;Fantasy;Fairy tales,,Kisington town
-mdp.39076002619562_1,mdp.39076002619562,30944,juv|fantasy_loc,"Brown, Abbie Farwell,",,Boston;New York;Houghton Mifflin Co.;1915.,1915,1915,,Juvenile literature;Fantasy;Fairy tales,,Kisington town
+mdp.39076002619562_0,mdp.39076002619562,26273,fantasy_loc|juv,"Brown, Abbie Farwell,",,Boston;New York;Houghton Mifflin Co.;1915.,1915,1915,,Juvenile literature;Fantasy;Fairy tales,,Kisington town
+mdp.39076002619562_1,mdp.39076002619562,30944,fantasy_loc|juv,"Brown, Abbie Farwell,",,Boston;New York;Houghton Mifflin Co.;1915.,1915,1915,,Juvenile literature;Fantasy;Fairy tales,,Kisington town
 nyp.33433076080302_0,nyp.33433076080302,49822,fantasy_loc,"Howard, Maude Lesseur.",,"Elkhart, Indiana;Occult Pub. Co.;1915.",1915,1915,,"Fantasy fiction, American",,Myriam and the mystic brotherhood
 nyp.33433076080302_1,nyp.33433076080302,47879,fantasy_loc,"Howard, Maude Lesseur.",,"Elkhart, Indiana;Occult Pub. Co.;1915.",1915,1915,,"Fantasy fiction, American",,Myriam and the mystic brotherhood
 nyp.33433076080302_2,nyp.33433076080302,43904,fantasy_loc,"Howard, Maude Lesseur.",,"Elkhart, Indiana;Occult Pub. Co.;1915.",1915,1915,,"Fantasy fiction, American",,Myriam and the mystic brotherhood
@@ -1332,7 +1332,7 @@ uc2.ark+=13960=t8cf9mv4w_0,uc2.ark+=13960=t8cf9mv4w,59013,fantasy_loc,"Blackwood
 uc2.ark+=13960=t8cf9mv4w_1,uc2.ark+=13960=t8cf9mv4w,62681,fantasy_loc,"Blackwood, Algernon,",,New York;The Macmillan company;1915.,1915,1915,,"Fantasy fiction, English",,The extra day
 pst.000043321285_0,pst.000043321285,55321,fantasy_loc,"London, Jack,",1876-1916.,Lincoln|University of Nebraska Press|1998].,1998,1915,,"Fantasy fiction, American",Bibliographies|NotFiction,Fantastic tales
 pst.000043321285_1,pst.000043321285,62530,fantasy_loc,"London, Jack,",1876-1916.,Lincoln|University of Nebraska Press|1998].,1998,1915,,"Fantasy fiction, American",Bibliographies|NotFiction,Fantastic tales
-uva.x001086289,uva.x001086289,7022,juv|fantasy_oclc,"Gordon, Elizabeth,",,"Chicago;New York;Rand, McNally & company;c1915",1915,1915,,,,Loraine and the little people
+uva.x001086289,uva.x001086289,7022,fantasy_oclc|juv,"Gordon, Elizabeth,",,"Chicago;New York;Rand, McNally & company;c1915",1915,1915,,,,Loraine and the little people
 uc2.ark+=13960=t84j0cc9k_0,uc2.ark+=13960=t84j0cc9k,52998,sf_oclc,"England, George Allan,",,New York;The H.K. Fly Company;c1916.,1916,1916,,,,The golden blight
 uc2.ark+=13960=t84j0cc9k_1,uc2.ark+=13960=t84j0cc9k,51395,sf_oclc,"England, George Allan,",,New York;The H.K. Fly Company;c1916.,1916,1916,,,,The golden blight
 mdp.39015002580598_0,mdp.39015002580598,56266,fantasy_loc,"London, Jack,",1876-1916.,"Port Washington, N.Y.|Kennikat Press|1975.",1975,1916,,"Fantasy fiction, American",Fiction|Bibliographies,Curious fragments : | Jack London's tales of fantasy fiction
@@ -1372,19 +1372,19 @@ nyp.33433074939996_0,nyp.33433074939996,35930,fantasy_oclc,"Biss, Gerald.",,New 
 nyp.33433074939996_1,nyp.33433074939996,36057,fantasy_oclc,"Biss, Gerald.",,New York;Putnam;1920.,1920,1920,,Werewolves;Fiction,,The door of the unreal
 nyp.33433074806260,nyp.33433074806260,36305,fantasy_oclc,"Pyle, Howard,",,New York;C. Scribner's Sons;1920.,1920,1920,,,,The garden behind the moon
 uc1.b3868727,uc1.b3868727,33787,fantasy_oclc,"Colum, Padraic,",,New York;The Macmillan Company;1920.,1920,1920,,,,The boy apprenticed to an enchanter
-uc1.b4099023,uc1.b4099023,32266,juv|fantasy_oclc,"Lofting, Hugh,",,New York;Frederick A. Stokes company;1920.,1920,1920,,,,"The story of Doctor Dolittle, being the history of his peculiar life at home and astonishing adventures in foreign parts"
+uc1.b4099023,uc1.b4099023,32266,fantasy_oclc|juv,"Lofting, Hugh,",,New York;Frederick A. Stokes company;1920.,1920,1920,,,,"The story of Doctor Dolittle, being the history of his peculiar life at home and astonishing adventures in foreign parts"
 uc1.b3324361,uc1.b3324361,57194,fantasy_oclc,"Housman, Laurence,",1865-1959.,"New York|Harcourt, Brace|192-?",1920,1920,,,Fiction,All-fellows and The cloak of friendship
 nyp.33433074850367_0,nyp.33433074850367,66557,sf_oclc,"Haggard, H. Rider",,"New York;Longmans, Green;1921.",1921,1921,,,,She and Allan
 nyp.33433074850367_1,nyp.33433074850367,67648,sf_oclc,"Haggard, H. Rider",,"New York;Longmans, Green;1921.",1921,1921,,,,She and Allan
 nyp.33433074942420_0,nyp.33433074942420,53065,sf_oclc,"Casserly, Gordon.",,New York;G. P. Putnam's sons;1921.,1921,1921,,,,The elephant god
 nyp.33433074942420_1,nyp.33433074942420,54429,sf_oclc,"Casserly, Gordon.",,New York;G. P. Putnam's sons;1921.,1921,1921,,,,The elephant god
-mdp.39076002449382_0,mdp.39076002449382,39945,juv|fantasy_loc,"Bowen, William,",,"New York;The Macmillan Co.;1922, c1921.",1921,1921,,Boys;Fantasy fiction;Juvenile fiction;Pirates,,The old tobacco shop
-mdp.39076002449382_1,mdp.39076002449382,43357,juv|fantasy_loc,"Bowen, William,",,"New York;The Macmillan Co.;1922, c1921.",1921,1921,,Boys;Fantasy fiction;Juvenile fiction;Pirates,,The old tobacco shop
+mdp.39076002449382_0,mdp.39076002449382,39945,fantasy_loc|juv,"Bowen, William,",,"New York;The Macmillan Co.;1922, c1921.",1921,1921,,Boys;Fantasy fiction;Juvenile fiction;Pirates,,The old tobacco shop
+mdp.39076002449382_1,mdp.39076002449382,43357,fantasy_loc|juv,"Bowen, William,",,"New York;The Macmillan Co.;1922, c1921.",1921,1921,,Boys;Fantasy fiction;Juvenile fiction;Pirates,,The old tobacco shop
 mdp.39015001600769_0,mdp.39015001600769,31310,sf_oclc,"��apek, Karel,",1890-1938.,London|G. Allen & Unwin ltd|1944,1944,1922,,,UnknownGenre,The absolute at large | $c: [by] Karel ��apek.
 mdp.39015001600769_1,mdp.39015001600769,30742,sf_oclc,"��apek, Karel,",1890-1938.,London|G. Allen & Unwin ltd|1944,1944,1922,,,UnknownGenre,The absolute at large | $c: [by] Karel ��apek.
 uc2.ark+=13960=t7sn01t31_0,uc2.ark+=13960=t7sn01t31,36091,sf_oclc,"Oppenheim, E. Phillips",,"Boston;Little, Brown and Company;1922.",1922,1922,,,,The great Prince Shan
 uc2.ark+=13960=t7sn01t31_1,uc2.ark+=13960=t7sn01t31,36495,sf_oclc,"Oppenheim, E. Phillips",,"Boston;Little, Brown and Company;1922.",1922,1922,,,,The great Prince Shan
-pst.000016155800,pst.000016155800,4703,juv|fantasy_oclc,"Bianco, Margery Williams,",1881-1944,New York|Doubleday|1991?].,1991,1922,,Fiction|Toys,NotFiction,"The velveteen rabbit, or, How toys become real"
+pst.000016155800,pst.000016155800,4703,fantasy_oclc|juv,"Bianco, Margery Williams,",1881-1944,New York|Doubleday|1991?].,1991,1922,,Fiction|Toys,NotFiction,"The velveteen rabbit, or, How toys become real"
 mdp.39015018287048,mdp.39015018287048,32654,fantasy_oclc,"Sandburg, Carl,",,"New York;Harcourt, Brace;c1922;(Rahway, N.J.;Quinn & Boden Company)",1922,1922,,"Children's stories, American",,Rootabaga stories
 mdp.39076002338643,mdp.39076002338643,33114,fantasy_loc,"Taylor, Bert Leston,",,New York;Knopf;1922.,1922,1922,,Animals;Fantasy;Girls;Juvenile fiction,,The well in the wood
 uva.x030802527,uva.x030802527,27861,fantasy_oclc,"Cory, David Magie,",,New York;Harper & brothers;c1922,1922,1922,,Animals;Folklore,,Puss junior and Robinson Crusoe
@@ -1479,7 +1479,7 @@ umn.319510008904524,umn.319510008904524,28757,fantasy_loc,"Jones, Elizabeth Orto
 mdp.39015031010799_0,mdp.39015031010799,59471,fantasy_oclc,"Stong, Phil,",1899-1957.,"Garden City, N.Y.|Garden City publishing co., inc.|1942",1942,1942,,"Short stories, American",UnknownGenre,"The other worlds; | 25 modern stories, of mystery and imagination, | $c: ed. with an introduction by Phil Ston."
 mdp.39015031010799_1,mdp.39015031010799,60559,fantasy_oclc,"Stong, Phil,",1899-1957.,"Garden City, N.Y.|Garden City publishing co., inc.|1942",1942,1942,,"Short stories, American",UnknownGenre,"The other worlds; | 25 modern stories, of mystery and imagination, | $c: ed. with an introduction by Phil Ston."
 mdp.39015031010799_2,mdp.39015031010799,57810,fantasy_oclc,"Stong, Phil,",1899-1957.,"Garden City, N.Y.|Garden City publishing co., inc.|1942",1942,1942,,"Short stories, American",UnknownGenre,"The other worlds; | 25 modern stories, of mystery and imagination, | $c: ed. with an introduction by Phil Ston."
-mdp.39015000593189,mdp.39015000593189,21577,juv|fantasy_oclc,"Saint-Exup̩ry, Antoine de,",1900-1944.,"New York|Harcourt, Brace|1943",1943,1943,,,UnknownGenre,"The little prince, | $c: written and drawn by Antoine de Saint-Exup̩ry, translated from the French by Katherine Woods."
+mdp.39015000593189,mdp.39015000593189,21577,fantasy_oclc|juv,"Saint-Exup̩ry, Antoine de,",1900-1944.,"New York|Harcourt, Brace|1943",1943,1943,,,UnknownGenre,"The little prince, | $c: written and drawn by Antoine de Saint-Exup̩ry, translated from the French by Katherine Woods."
 mdp.39015029502112_0,mdp.39015029502112,60919,sf_oclc,"Huxley, Aldous,",1894-1963.,New York|London|Harper & Brothers|1944.,1944,1944,,,Typefaces (Type evidence)|Baskerville|Publishers' advertisements|NotFiction,Time must have a stop
 mdp.39015029502112_1,mdp.39015029502112,59069,sf_oclc,"Huxley, Aldous,",1894-1963.,New York|London|Harper & Brothers|1944.,1944,1944,,,Typefaces (Type evidence)|Baskerville|Publishers' advertisements|NotFiction,Time must have a stop
 uc1.$b102273_0,uc1.$b102273,56031,sf_oclc,"Gellhorn, Martha,",1908-1998.,New York|C. Scribner's Sons|1944.,1944,1944,,,NotFiction,Liana
@@ -1512,7 +1512,7 @@ uc1.b3541070_2,uc1.b3541070,106856,sf_loc,"Conklin, Groff,",1904-1968.,New York|
 uc1.b3541070_3,uc1.b3541070,111195,sf_loc,"Conklin, Groff,",1904-1968.,New York|Crown Publishers|1946,1946,1946,,Science fiction|Short stories,Short stories,"The best of science fiction, | $c: edited with an introduction by Groff Conklin. Preface by John W. Campbell, jr."
 uc1.$b86033_0,uc1.$b86033,54030,fantasy_oclc|sf_oclc,"Bond, Nelson Slade,",1908-,New York|Coward-McCann|1946,1946,1946,,,NotFiction,Mr. Mergenthwirker's lobblies and other fantastic tales
 uc1.$b86033_1,uc1.$b86033,56490,fantasy_oclc|sf_oclc,"Bond, Nelson Slade,",1908-,New York|Coward-McCann|1946,1946,1946,,,NotFiction,Mr. Mergenthwirker's lobblies and other fantastic tales
-inu.30000005036151,inu.30000005036151,1050,juv|fantasy_loc,"Bannerman, Helen,",1862-1946.,London|Chatto & Windus|1966.,1966,1946,,Fantasy,Fiction,The story of Little White Squibba
+inu.30000005036151,inu.30000005036151,1050,fantasy_loc|juv,"Bannerman, Helen,",1862-1946.,London|Chatto & Windus|1966.,1966,1946,,Fantasy,Fiction,The story of Little White Squibba
 uc1.$b56203_0,uc1.$b56203,70043,fantasy_oclc,"Peake, Mervyn Laurence,",1911-1968.,New York|Reynal & Hitchcock|c1946,1946,1946,,,NotFiction,"Titus Groan, | a gothic novel | $c: by Mervyn Peake."
 uc1.$b56203_1,uc1.$b56203,73390,fantasy_oclc,"Peake, Mervyn Laurence,",1911-1968.,New York|Reynal & Hitchcock|c1946,1946,1946,,,NotFiction,"Titus Groan, | a gothic novel | $c: by Mervyn Peake."
 uc1.$b56203_2,uc1.$b56203,72238,fantasy_oclc,"Peake, Mervyn Laurence,",1911-1968.,New York|Reynal & Hitchcock|c1946,1946,1946,,,NotFiction,"Titus Groan, | a gothic novel | $c: by Mervyn Peake."
@@ -1521,7 +1521,7 @@ uc1.$b601378_1,uc1.$b601378,40034,sf_oclc,"Haines, William Wister,",1908-1989.,"
 uc1.$b114447_0,uc1.$b114447,80401,fantasy_oclc,"Stern, Philip Van Doren,",1900-1984.,New York|Doubleday|1947.,1947,1947,,Short stories,Short stories,Travelers in time : | strange tales of man's journeyings into the past and the future
 uc1.$b114447_1,uc1.$b114447,73160,fantasy_oclc,"Stern, Philip Van Doren,",1900-1984.,New York|Doubleday|1947.,1947,1947,,Short stories,Short stories,Travelers in time : | strange tales of man's journeyings into the past and the future
 uc1.$b114447_2,uc1.$b114447,71433,fantasy_oclc,"Stern, Philip Van Doren,",1900-1984.,New York|Doubleday|1947.,1947,1947,,Short stories,Short stories,Travelers in time : | strange tales of man's journeyings into the past and the future
-pst.000001758405,pst.000001758405,33163,juv|fantasy_oclc,"Godden, Rumer,",1907-1998,New York|Viking Press|1960 [c1947].,1947,1947,,,NotFiction,The dolls' house
+pst.000001758405,pst.000001758405,33163,fantasy_oclc|juv,"Godden, Rumer,",1907-1998,New York|Viking Press|1960 [c1947].,1947,1947,,,NotFiction,The dolls' house
 mdp.39015014165461_0,mdp.39015014165461,94534,sf_loc,,,New York|Crown Pub.|1948.,1948,1948,,"Science fiction, American",Fiction,A treasury of science fiction
 mdp.39015014165461_1,mdp.39015014165461,99153,sf_loc,,,New York|Crown Pub.|1948.,1948,1948,,"Science fiction, American",Fiction,A treasury of science fiction
 mdp.39015014165461_2,mdp.39015014165461,96876,sf_loc,,,New York|Crown Pub.|1948.,1948,1948,,"Science fiction, American",Fiction,A treasury of science fiction
@@ -1537,9 +1537,9 @@ mdp.39015069174269_1,mdp.39015069174269,57341,sf_loc,"Sturgeon, Theodore",,"Berk
 mdp.39015069174269_2,mdp.39015069174269,56176,sf_loc,"Sturgeon, Theodore",,"Berkeley, Calif.|North Atlantic Books|c1994-<c1997   >",0,1949,v.3,"Science fiction, American",Fiction,The complete stories of Theodore Sturgeon
 pst.000058048559_0,pst.000058048559,37901,sf_oclc,"Heinlein, Robert A. (Robert Anson),",1907-1988,New York|New American Library|c1949.,1949,1949,,,NotFiction,The day after tomorrow
 pst.000058048559_1,pst.000058048559,36461,sf_oclc,"Heinlein, Robert A. (Robert Anson),",1907-1988,New York|New American Library|c1949.,1949,1949,,,NotFiction,The day after tomorrow
-mdp.39015009199327_0,mdp.39015009199327,52994,sf_oclc|sf_loc,"Stewart, George R.,",1895-1980.,Boston|Houghton Mifflin|1949,1949,1949,,,NotFiction,Earth abides
-mdp.39015009199327_1,mdp.39015009199327,52204,sf_oclc|sf_loc,"Stewart, George R.,",1895-1980.,Boston|Houghton Mifflin|1949,1949,1949,,,NotFiction,Earth abides
-mdp.39015009199327_2,mdp.39015009199327,50947,sf_oclc|sf_loc,"Stewart, George R.,",1895-1980.,Boston|Houghton Mifflin|1949,1949,1949,,,NotFiction,Earth abides
+mdp.39015009199327_0,mdp.39015009199327,52994,sf_loc|sf_oclc,"Stewart, George R.,",1895-1980.,Boston|Houghton Mifflin|1949,1949,1949,,,NotFiction,Earth abides
+mdp.39015009199327_1,mdp.39015009199327,52204,sf_loc|sf_oclc,"Stewart, George R.,",1895-1980.,Boston|Houghton Mifflin|1949,1949,1949,,,NotFiction,Earth abides
+mdp.39015009199327_2,mdp.39015009199327,50947,sf_loc|sf_oclc,"Stewart, George R.,",1895-1980.,Boston|Houghton Mifflin|1949,1949,1949,,,NotFiction,Earth abides
 uc1.32106009743425_0,uc1.32106009743425,40131,sf_loc,"Heinlein, Robert A. (Robert Anson),",1907-1988,"New York|Ballantine|1990, c1947",1949,1949,,Fiction|Mars (Planet)|Science fiction,Fiction,Red planet
 uc1.32106009743425_1,uc1.32106009743425,40956,sf_loc,"Heinlein, Robert A. (Robert Anson),",1907-1988,"New York|Ballantine|1990, c1947",1949,1949,,Fiction|Mars (Planet)|Science fiction,Fiction,Red planet
 mdp.39015002966581_0,mdp.39015002966581,60765,fantasy_oclc,"Blackwood, Algernon,",1869-1951.,London|New York|P. Nevill|1949,1949,1949,,,Fiction,Tales of the uncanny and supernatural.
@@ -1548,7 +1548,7 @@ mdp.39015002966581_2,mdp.39015002966581,59846,fantasy_oclc,"Blackwood, Algernon,
 uc1.$b106425_0,uc1.$b106425,47445,fantasy_oclc,"Bridge, Ann,",1889-1974.,New York|Macmillan Co.|1949 [c1948,1949,1949,,,NotFiction,"And then you came, | $c: by Ann Bridge [pseud.]"
 uc1.$b106425_1,uc1.$b106425,49257,fantasy_oclc,"Bridge, Ann,",1889-1974.,New York|Macmillan Co.|1949 [c1948,1949,1949,,,NotFiction,"And then you came, | $c: by Ann Bridge [pseud.]"
 uc1.$b106425_2,uc1.$b106425,47193,fantasy_oclc,"Bridge, Ann,",1889-1974.,New York|Macmillan Co.|1949 [c1948,1949,1949,,,NotFiction,"And then you came, | $c: by Ann Bridge [pseud.]"
-mdp.39076002339229,mdp.39076002339229,35277,juv|fantasy_loc,"Besterman, Catherine,",1908-,Indianapolis|Bobbs-Merrill Co.|c1949.,1949,1949,,Juvenile fiction|Boys|Voyages and travels|Education|Fantasy fiction,Fiction,The extraordinary education of Johnny Longfoot in his search for the magic hat
+mdp.39076002339229,mdp.39076002339229,35277,fantasy_loc|juv,"Besterman, Catherine,",1908-,Indianapolis|Bobbs-Merrill Co.|c1949.,1949,1949,,Juvenile fiction|Boys|Voyages and travels|Education|Fantasy fiction,Fiction,The extraordinary education of Johnny Longfoot in his search for the magic hat
 inu.30000005092410_0,inu.30000005092410,42722,sf_loc,"Asimov, Isaac,",1920-1992,"Garden City, N.Y.|Doubleday|1963 [c1950",1950,1950,,"Robots|Fiction|Science fiction, American",Fiction|Science fiction,"I, Robot."
 inu.30000005092410_1,inu.30000005092410,46361,sf_loc,"Asimov, Isaac,",1920-1992,"Garden City, N.Y.|Doubleday|1963 [c1950",1950,1950,,"Robots|Fiction|Science fiction, American",Fiction|Science fiction,"I, Robot."
 mdp.39015008828157_0,mdp.39015008828157,32657,fantasy_oclc|sf_oclc,"Vance, Jack,",1916-,"New York|Pocket Books|1977 printing, c1950.",0,1950,,,Fiction,The dying earth
@@ -1632,7 +1632,7 @@ mdp.39015005607919_2,mdp.39015005607919,63930,fantasy_oclc,"(John Ronald Reuel),
 mdp.39015054025773_0,mdp.39015054025773,60886,fantasy_oclc,"(John Ronald Reuel), Tolkien, J. R. R.",1892-1973.,London|Allen & Unwin|1954-55.,1954,1954,pt.2,,Fiction,The lord of the rings.
 mdp.39015054025773_1,mdp.39015054025773,62620,fantasy_oclc,"(John Ronald Reuel), Tolkien, J. R. R.",1892-1973.,London|Allen & Unwin|1954-55.,1954,1954,pt.2,,Fiction,The lord of the rings.
 mdp.39015054025773_2,mdp.39015054025773,64343,fantasy_oclc,"(John Ronald Reuel), Tolkien, J. R. R.",1892-1973.,London|Allen & Unwin|1954-55.,1954,1954,pt.2,,Fiction,The lord of the rings.
-mdp.39076002607377,mdp.39076002607377,21757,juv|fantasy_oclc,"Brown, Palmer.",,New York|Harper|c1954.,1954,1954,,Juvenile fiction|Railroad travel|Girls|Conduct of life|Aunts,NotFiction,Beyond the pawpaw trees : | the story of Anna Lavinia/ | $c: by Palmer Brown ; drawings by the author.
+mdp.39076002607377,mdp.39076002607377,21757,fantasy_oclc|juv,"Brown, Palmer.",,New York|Harper|c1954.,1954,1954,,Juvenile fiction|Railroad travel|Girls|Conduct of life|Aunts,NotFiction,Beyond the pawpaw trees : | the story of Anna Lavinia/ | $c: by Palmer Brown ; drawings by the author.
 mdp.39015002189283_0,mdp.39015002189283,37624,sf_oclc,"Golding, William,",1911-1993.,"New York|Coward-McCann|1955, c1954",1955,1955,,,Fiction,"Lord of the flies, | a novel."
 mdp.39015002189283_1,mdp.39015002189283,37714,sf_oclc,"Golding, William,",1911-1993.,"New York|Coward-McCann|1955, c1954",1955,1955,,,Fiction,"Lord of the flies, | a novel."
 mdp.39015030718657_0,mdp.39015030718657,48668,fantasy_loc|sf_loc,"Sturgeon, Theodore.",,New York|Funk & Wagnalls|1955.,1955,1955,,"Science fiction, American|Fantasy fiction, American",NotFiction,"A way home, stories of science fiction and fantasy | $c: [by] Theodore Sturgeon. Selected and with an introd. by Groff Conklin."
@@ -1641,7 +1641,7 @@ mdp.39015030718657_2,mdp.39015030718657,50398,fantasy_loc|sf_loc,"Sturgeon, Theo
 mdp.39015054059525_0,mdp.39015054059525,54959,fantasy_oclc,"Bradbury, Ray,",1920-2012.,New York|Ballantine Books|1955,1955,1955,,,Fiction,"The October country, | $c: illustrated by Joe Mugnaini."
 mdp.39015054059525_1,mdp.39015054059525,55372,fantasy_oclc,"Bradbury, Ray,",1920-2012.,New York|Ballantine Books|1955,1955,1955,,,Fiction,"The October country, | $c: illustrated by Joe Mugnaini."
 pst.000011216162,pst.000011216162,50851,fantasy_oclc,"Lewis, C. S. (Clive Staples),",1898-1963.,New York|Macmillan|1955].,1955,1955,,,NotFiction,The magician's nephew
-pst.000025483086,pst.000025483086,47683,juv|fantasy_oclc,"Boston, L. M. (Lucy Maria),",1892-1990,"San Diego|Harcourt, Brace, Jovanovich|c1955.",1955,1955,,Space and time|Juvenile fiction,NotFiction,The children of Green Knowe
+pst.000025483086,pst.000025483086,47683,fantasy_oclc|juv,"Boston, L. M. (Lucy Maria),",1892-1990,"San Diego|Harcourt, Brace, Jovanovich|c1955.",1955,1955,,Space and time|Juvenile fiction,NotFiction,The children of Green Knowe
 osu.32435068347988_0,osu.32435068347988,43533,fantasy_oclc,"Hughes, Riley.",,Milwaukee|Bruce Pub. Co.|1955,1955,1955,,,NotFiction,The hills were liars : | a novel
 osu.32435068347988_1,osu.32435068347988,45380,fantasy_oclc,"Hughes, Riley.",,Milwaukee|Bruce Pub. Co.|1955,1955,1955,,,NotFiction,The hills were liars : | a novel
 mdp.39015014136587_0,mdp.39015014136587,32829,sf_oclc,"Pohl, Frederik.",,"New York, N.Y.|Ballantine Books|1971, c1956|(1st printing, April, 1971)",1956,1956,,,Fiction,Undersea fleet
@@ -1650,7 +1650,7 @@ uc1.32106015120998_0,uc1.32106015120998,58631,sf_loc,"Sturgeon, Theodore",,"Berk
 uc1.32106015120998_1,uc1.32106015120998,61426,sf_loc,"Sturgeon, Theodore",,"Berkeley, Calif.|North Atlantic Books|c1994-<c1997   >",0,1956,v.5,"Science fiction, American",Fiction,The complete stories of Theodore Sturgeon
 uc1.32106015120998_2,uc1.32106015120998,59682,sf_loc,"Sturgeon, Theodore",,"Berkeley, Calif.|North Atlantic Books|c1994-<c1997   >",0,1956,v.5,"Science fiction, American",Fiction,The complete stories of Theodore Sturgeon
 mdp.39015005058410,mdp.39015005058410,24083,fantasy_oclc,"Hesse, Hermann,",1877-1962.,London|P. Owen|1956,1956,1956,,,NotFiction,The journey to the East.
-mdp.39015038922723,mdp.39015038922723,52885,juv|fantasy_oclc,"Lewis, C. S. (Clive Staples),",1898-1963.,London|The Bodley Head|1956.,1956,1956,,,NotFiction,"The last battle, | a story for children; | $c: illustrated by Pauline Baynes."
+mdp.39015038922723,mdp.39015038922723,52885,fantasy_oclc|juv,"Lewis, C. S. (Clive Staples),",1898-1963.,London|The Bodley Head|1956.,1956,1956,,,NotFiction,"The last battle, | a story for children; | $c: illustrated by Pauline Baynes."
 mdp.39015030945789_0,mdp.39015030945789,33772,sf_loc,"Anderson, Poul,",1926-2001.,"New York|Avon Books|1970, c1957|(1st Camelot printing, January 1970)",1957,1957,,Science fiction|Short stories,NotFiction,Earthman's burden
 mdp.39015030945789_1,mdp.39015030945789,35981,sf_loc,"Anderson, Poul,",1926-2001.,"New York|Avon Books|1970, c1957|(1st Camelot printing, January 1970)",1957,1957,,Science fiction|Short stories,NotFiction,Earthman's burden
 uc1.b4082361_0,uc1.b4082361,32185,sf_oclc,"(Terence Hanbury), White, T. H.",1906-1964.,New York|Putnam|c1957.,1957,1957,,,Fiction,The master : | an adventure story
@@ -1697,7 +1697,7 @@ osu.32435063116172_1,osu.32435063116172,51600,fantasy_loc,"Gardner, Maurice B.",
 mdp.39015000543929_0,mdp.39015000543929,45344,fantasy_oclc,"Peake, Mervyn Laurence,",1911-1968.,London|Eyre & Spottiswoode|1959.,1959,1959,,,UnknownGenre,Titus alone.
 mdp.39015000543929_1,mdp.39015000543929,46764,fantasy_oclc,"Peake, Mervyn Laurence,",1911-1968.,London|Eyre & Spottiswoode|1959.,1959,1959,,,UnknownGenre,Titus alone.
 uc1.$b326450,uc1.$b326450,56060,fantasy_oclc,"Gebhardt, Hertha Antonia Mathilde (Triepel) Von.",,New York|Criterion Books|1959,1959,1959,,,NotFiction,The girl from nowhere. | $c: Translated by James Kirkup.  Illustrated by Helen Brun.
-pst.000007265860,pst.000007265860,31815,juv|fantasy_oclc,"Lindgren, Astrid,",1907-2002,"New York|Scholastic Book Services|1968, c1959.",1959,1959,,,NotFiction,Pippi Longstocking
+pst.000007265860,pst.000007265860,31815,fantasy_oclc|juv,"Lindgren, Astrid,",1907-2002,"New York|Scholastic Book Services|1968, c1959.",1959,1959,,,NotFiction,Pippi Longstocking
 mdp.39015014136595,mdp.39015014136595,52887,sf_oclc,"Pohl, Frederik.",,New York [N.Y.|Ballentine Books|c1960.,1960,1960,,,Fiction,Drunkard's walk
 mdp.39015021919876_0,mdp.39015021919876,44443,sf_oclc,"Hartley, L. P. (Leslie Poles),",1895-1972.,London|H. Hamilton|1960,1960,1960,,,NotFiction,Facial justice.
 mdp.39015021919876_1,mdp.39015021919876,47447,sf_oclc,"Hartley, L. P. (Leslie Poles),",1895-1972.,London|H. Hamilton|1960,1960,1960,,,NotFiction,Facial justice.
@@ -1725,8 +1725,8 @@ pst.000044217853_1,pst.000044217853,34519,sf_oclc,"Burgess, Anthony,",1917-1993,
 osu.32435053363701,osu.32435053363701,55631,fantasy_oclc,"Laumer, Keith,",1925-1993.,New York|Ace Books|1962.,1962,1962,,,Fiction,Worlds of the Imperium
 mdp.39015005906592_0,mdp.39015005906592,33192,fantasy_oclc,"Bradbury, Ray,",1920-2012.,"New York|Bantam Books|1963, c1962.",1962,1962,,,Fiction,Something wicked this way comes
 mdp.39015005906592_1,mdp.39015005906592,37366,fantasy_oclc,"Bradbury, Ray,",1920-2012.,"New York|Bantam Books|1963, c1962.",1962,1962,,,Fiction,Something wicked this way comes
-pst.000003806074_0,pst.000003806074,62676,sf_oclc|sf_loc,"Mills, Robert P.,",,"New York|Paperback Library|1970, c1963].",1963,1953,,,NotFiction|Science fiction,The worlds of science fiction.
-pst.000003806074_1,pst.000003806074,63714,sf_oclc|sf_loc,"Mills, Robert P.,",,"New York|Paperback Library|1970, c1963].",1963,1953,,,NotFiction|Science fiction,The worlds of science fiction.
+pst.000003806074_0,pst.000003806074,62676,sf_loc|sf_oclc,"Mills, Robert P.,",,"New York|Paperback Library|1970, c1963].",1963,1953,,,NotFiction|Science fiction,The worlds of science fiction.
+pst.000003806074_1,pst.000003806074,63714,sf_loc|sf_oclc,"Mills, Robert P.,",,"New York|Paperback Library|1970, c1963].",1963,1953,,,NotFiction|Science fiction,The worlds of science fiction.
 mdp.39015020680917_0,mdp.39015020680917,42022,sf_oclc,"Simak, Clifford D.,",1904-1988.,"Garden City, N.Y.|Doubleday|1963.",1963,1963,,,Fiction,Way station
 mdp.39015020680917_1,mdp.39015020680917,41899,sf_oclc,"Simak, Clifford D.,",1904-1988.,"Garden City, N.Y.|Doubleday|1963.",1963,1963,,,Fiction,Way station
 uc1.b4095618_0,uc1.b4095618,41200,sf_oclc,"Hoyle, Fred, Sir.",,London|Heinemann|1963,1963,1963,,,Fiction,Fifth planet
@@ -1736,7 +1736,7 @@ osu.32435053306007_0,osu.32435053306007,36582,sf_loc,"Brown, Rosel George.",,New
 osu.32435053306007_1,osu.32435053306007,36178,sf_loc,"Brown, Rosel George.",,New York|Ballantine Books|c1963.,1963,1963,,"Science fiction, American",Fiction,A handful of time
 osu.32435053305041_0,osu.32435053305041,36078,fantasy_oclc,"Bradbury, Ray,",1920-2012.,New York|Berkley|1963.,1963,1963,,Science fiction,Fiction,Beyond
 osu.32435053305041_1,osu.32435053305041,36361,fantasy_oclc,"Bradbury, Ray,",1920-2012.,New York|Berkley|1963.,1963,1963,,Science fiction,Fiction,Beyond
-mdp.39015025370241,mdp.39015025370241,24996,juv|fantasy_oclc,"Lindsay, Norman,",1879-1969.,Sydney|Angus and Robertson|1963.,1963,1963,,,NotFiction,The magic pudding : | being the adventures of Bunyip Bluegum and his friends Bill Barnacle and Sam Sawnoff
+mdp.39015025370241,mdp.39015025370241,24996,fantasy_oclc|juv,"Lindsay, Norman,",1879-1969.,Sydney|Angus and Robertson|1963.,1963,1963,,,NotFiction,The magic pudding : | being the adventures of Bunyip Bluegum and his friends Bill Barnacle and Sam Sawnoff
 inu.39000000059332_0,inu.39000000059332,45691,fantasy_oclc,"Norton, Andre.",,New York|Ace Books|1963,1963,1963,,"Science fiction, American",UnknownGenre,Witch world.
 inu.39000000059332_1,inu.39000000059332,45236,fantasy_oclc,"Norton, Andre.",,New York|Ace Books|1963,1963,1963,,"Science fiction, American",UnknownGenre,Witch world.
 uc1.32106002114343_0,uc1.32106002114343,63600,sf_loc,"Heinlein, Robert A. (Robert Anson),",1907-1988,"London|Dennis Dobson|1965, c1964",1964,1964,,Science fiction,NotFiction,Farnham's freehold; | $c: a novel by Robert A. Heinlein.
@@ -1749,7 +1749,7 @@ uc1.$b401402_1,uc1.$b401402,63545,sf_oclc,"Caidin, Martin,",1927-1997.,New York|
 inu.30000007090594,inu.30000007090594,50355,fantasy_oclc,"George, Peter,",1924-1966.,New York|Bantam Books|1964,1964,1964,,,Fiction,"Dr. Strangelove : | or, How I learned to stop worrying and love the bomb; a novel"
 mdp.39015017693923_0,mdp.39015017693923,45980,fantasy_oclc,"Fyson, Jenny Grace.",,London|Oxford University Press|1964.,1964,1964,,,UnknownGenre,The three brothers of Ur. | $c: Illustrated by Victor G. Ambrus.
 mdp.39015017693923_1,mdp.39015017693923,44834,fantasy_oclc,"Fyson, Jenny Grace.",,London|Oxford University Press|1964.,1964,1964,,,UnknownGenre,The three brothers of Ur. | $c: Illustrated by Victor G. Ambrus.
-pst.000049194265,pst.000049194265,28369,juv|fantasy_loc,"Fleming, Ian,",1908-1964.,"New York|Scholastic Book Services|1969], c1964.",1964,1964,,Fantasy|Automobiles|Juvenile fiction,Fiction,Chitty chitty bang bang
+pst.000049194265,pst.000049194265,28369,fantasy_loc|juv,"Fleming, Ian,",1908-1964.,"New York|Scholastic Book Services|1969], c1964.",1964,1964,,Fantasy|Automobiles|Juvenile fiction,Fiction,Chitty chitty bang bang
 mdp.39076000903778_0,mdp.39076000903778,50502,sf_loc,,,New York|Doubleday|1965-1976.,1965,1965,v.11,Science fiction|Science Fiction Writers of America,Fiction,Nebula award stories
 mdp.39076000903778_1,mdp.39076000903778,54990,sf_loc,,,New York|Doubleday|1965-1976.,1965,1965,v.11,Science fiction|Science Fiction Writers of America,Fiction,Nebula award stories
 mdp.39076000903760_0,mdp.39076000903760,53172,sf_loc,,,New York|Doubleday|1965-1976.,1965,1965,v.10,Science fiction|Science Fiction Writers of America,Fiction,Nebula award stories
@@ -1762,7 +1762,7 @@ mdp.39015050556565_0,mdp.39015050556565,79679,sf_oclc,"Hersey, John,",1914-1993,
 mdp.39015050556565_1,mdp.39015050556565,80663,sf_oclc,"Hersey, John,",1914-1993,New York|A. A. Knopf|1965.,1965,1965,,,Fiction,White lotus | $c: [by] John Hersey.
 mdp.39015050556565_2,mdp.39015050556565,79885,sf_oclc,"Hersey, John,",1914-1993,New York|A. A. Knopf|1965.,1965,1965,,,Fiction,White lotus | $c: [by] John Hersey.
 mdp.39015050556565_3,mdp.39015050556565,82180,sf_oclc,"Hersey, John,",1914-1993,New York|A. A. Knopf|1965.,1965,1965,,,Fiction,White lotus | $c: [by] John Hersey.
-mdp.39015013296119,mdp.39015013296119,37699,juv|fantasy_oclc,"Jansson, Tove.",,New York|H. Z. Walck|1965 [c1958,1965,1965,,,UnknownGenre,"Finn family Moomintroll, | $c: written and illustrated by Tove Jansson. Translated by Elizabeth Portch."
+mdp.39015013296119,mdp.39015013296119,37699,fantasy_oclc|juv,"Jansson, Tove.",,New York|H. Z. Walck|1965 [c1958,1965,1965,,,UnknownGenre,"Finn family Moomintroll, | $c: written and illustrated by Tove Jansson. Translated by Elizabeth Portch."
 pst.000013229504_0,pst.000013229504,35691,fantasy_oclc,"Bradley, Marion Zimmer.",,New York|Ace Science Fiction books|c1965.,1965,1965,,,NotFiction,Star of danger
 pst.000013229504_1,pst.000013229504,32666,fantasy_oclc,"Bradley, Marion Zimmer.",,New York|Ace Science Fiction books|c1965.,1965,1965,,,NotFiction,Star of danger
 mdp.39015019750366,mdp.39015019750366,39402,fantasy_oclc,"Key, Alexander,",1904-1979.,Philadelphia|Westminster Press|c1965,1965,1965,,,UnknownGenre,The forgotten door.
@@ -1836,7 +1836,7 @@ mdp.39015020709617_2,mdp.39015020709617,48781,fantasy_oclc,"Dick, Philip K.",,Ne
 mdp.39015013397081,mdp.39015013397081,32911,fantasy_oclc,"Babbitt, Natalie.",,"New York|Farrar, Straus and Giroux|1969",1969,1969,,,UnknownGenre,The search for delicious.
 mdp.39015002755190_0,mdp.39015002755190,52316,fantasy_oclc,"Saxton, Mark.",,Boston|Houghton Mifflin|1969.,1969,1969,,,UnknownGenre,"The Islar, a narrative of Lang III."
 mdp.39015002755190_1,mdp.39015002755190,50810,fantasy_oclc,"Saxton, Mark.",,Boston|Houghton Mifflin|1969.,1969,1969,,,UnknownGenre,"The Islar, a narrative of Lang III."
-mdp.39015010544107,mdp.39015010544107,31003,juv|fantasy_oclc,"Bond, Michael.",,"New York|Dell Pub. Co.|1969, c1958",1969,1969,,,UnknownGenre,A bear called Paddington. | $c: With drawings by Peggy Fortnum.
+mdp.39015010544107,mdp.39015010544107,31003,fantasy_oclc|juv,"Bond, Michael.",,"New York|Dell Pub. Co.|1969, c1958",1969,1969,,,UnknownGenre,A bear called Paddington. | $c: With drawings by Peggy Fortnum.
 mdp.39015004852391,mdp.39015004852391,46975,fantasy_loc,"Nichols, Ruth,",1918-,"New York|Harcourt, Brace & World|1969",1969,1969,,Fantasy,UnknownGenre,A walk out of the world. | $c: Illustrated by Trina Schart Hyman.
 mdp.39015005160836,mdp.39015005160836,51076,fantasy_oclc,"Curry, Jane Louise.",,"New York|Harcourt, Brace & World|1969",1969,1969,,,UnknownGenre,The change-child
 mdp.39015001430548_0,mdp.39015001430548,41063,sf_oclc,"Barjavel, Ren̩,",1911-,London|Hart-Davis|1970.,1970,1970,,,Fiction,The ice people; | $c: translated from the French by Charles Lam Markmann.
@@ -1863,7 +1863,7 @@ mdp.39015010738097_0,mdp.39015010738097,31385,fantasy_oclc,"Wibberley, Leonard,"
 mdp.39015010738097_1,mdp.39015010738097,31670,fantasy_oclc,"Wibberley, Leonard,",1915-1983.,"Toronto|New York|Bantam Books|1971, c1962.",1971,1971,,,Fiction,The mouse on the moon
 mdp.39015019357808_0,mdp.39015019357808,69854,fantasy_oclc,"Gerrold, David",,New York|Ballantine|1971.,1971,1971,,Science fiction,NotFiction,The flying sorcerers
 mdp.39015019357808_1,mdp.39015019357808,66904,fantasy_oclc,"Gerrold, David",,New York|Ballantine|1971.,1971,1971,,Science fiction,NotFiction,The flying sorcerers
-pst.000012777891,pst.000012777891,46093,sf_oclc|fantasy_loc,"Serling, Rod,",1924-1975,Toronto|New York|Bantam Books|1972].,1972,1972,,"Fantasy fiction, American",NotFiction,Night gallery 2.
+pst.000012777891,pst.000012777891,46093,fantasy_loc|sf_oclc,"Serling, Rod,",1924-1975,Toronto|New York|Bantam Books|1972].,1972,1972,,"Fantasy fiction, American",NotFiction,Night gallery 2.
 mdp.39015051364977_0,mdp.39015051364977,56671,sf_oclc,"Brower, Brock,",1931-,New York|Atheneum|1972.,1972,1972,,,Fiction,The late great creature.
 mdp.39015051364977_1,mdp.39015051364977,50485,sf_oclc,"Brower, Brock,",1931-,New York|Atheneum|1972.,1972,1972,,,Fiction,The late great creature.
 mdp.39015010748443_0,mdp.39015010748443,87177,sf_loc,"Harrison, Harry,",,"Garden City, N.Y.|Doubleday|1972-",1943,1972,v.1,"Science fiction, American|Science fiction, English",Fiction,"The astounding-analog reader, | $c: edited by Harry Harrison [and] Brian W. Aldiss."
@@ -1873,8 +1873,8 @@ mdp.39015061857671_0,mdp.39015061857671,53728,fantasy_loc,"Zelazny, Roger.",,"Ga
 mdp.39015061857671_1,mdp.39015061857671,51399,fantasy_loc,"Zelazny, Roger.",,"Garden City, N.Y.|Nelson Doubleday|c1972-1978.",1972,1972,v.1,"Fiction|Amber (Imaginary place)|Fantasy fiction, American",Novel,The chronicles of Amber
 mdp.39015061857671_2,mdp.39015061857671,50521,fantasy_loc,"Zelazny, Roger.",,"Garden City, N.Y.|Nelson Doubleday|c1972-1978.",1972,1972,v.1,"Fiction|Amber (Imaginary place)|Fantasy fiction, American",Novel,The chronicles of Amber
 mdp.39015011288076,mdp.39015011288076,57310,fantasy_oclc,"Moorcock, Michael,",1939-,New York|Daw|1972.,1972,1972,,,Fiction,Elric of Melnibone./ | $c: Michael Moorcock.
-mdp.39015058074553_0,mdp.39015058074553,39881,sf_oclc|fantasy_loc,,,"Garden City, N.Y.|Nelson Doubleday|c1973-",0,1973,v.5,"Magic|Fiction|Short stories, American|Swordsmen|Fantasy fiction, American",Short stories,Flashing swords!
-mdp.39015058074553_1,mdp.39015058074553,41417,sf_oclc|fantasy_loc,,,"Garden City, N.Y.|Nelson Doubleday|c1973-",0,1973,v.5,"Magic|Fiction|Short stories, American|Swordsmen|Fantasy fiction, American",Short stories,Flashing swords!
+mdp.39015058074553_0,mdp.39015058074553,39881,fantasy_loc|sf_oclc,,,"Garden City, N.Y.|Nelson Doubleday|c1973-",0,1973,v.5,"Magic|Fiction|Short stories, American|Swordsmen|Fantasy fiction, American",Short stories,Flashing swords!
+mdp.39015058074553_1,mdp.39015058074553,41417,fantasy_loc|sf_oclc,,,"Garden City, N.Y.|Nelson Doubleday|c1973-",0,1973,v.5,"Magic|Fiction|Short stories, American|Swordsmen|Fantasy fiction, American",Short stories,Flashing swords!
 mdp.39015030931383_0,mdp.39015030931383,38122,sf_loc,"Effinger, George Alec.",,Nashville|T. Nelson|1973,1973,1973,,"American fiction|20th century|Science fiction, American",Fiction,"Chains of the sea; | three original novellas of science fiction, | $c: by Geo. Alec Effinger, Gardner R. Dozois [and] Gordon Eklund. Edited and with an introd. by Robert Silverberg. -"
 mdp.39015030931383_1,mdp.39015030931383,39189,sf_loc,"Effinger, George Alec.",,Nashville|T. Nelson|1973,1973,1973,,"American fiction|20th century|Science fiction, American",Fiction,"Chains of the sea; | three original novellas of science fiction, | $c: by Geo. Alec Effinger, Gardner R. Dozois [and] Gordon Eklund. Edited and with an introd. by Robert Silverberg. -"
 uc1.b3536480_0,uc1.b3536480,58098,sf_oclc,"Wollheim, Donald A.",,New York|Daw Books|1973,0,1973,,,UnknownGenre,"World's best science fiction, 1973"
@@ -1932,8 +1932,8 @@ mdp.39015003842419_1,mdp.39015003842419,37131,sf_loc,"Menville, Douglas Alver.",
 inu.39000003578593_0,inu.39000003578593,43904,sf_oclc,"Roberts, Keith,",1935-,"New York|Putnam|1975, c1973.",1975,1975,,,Fiction,The chalk giants
 inu.39000003578593_1,inu.39000003578593,49716,sf_oclc,"Roberts, Keith,",1935-,"New York|Putnam|1975, c1973.",1975,1975,,,Fiction,The chalk giants
 mdp.39015003345728,mdp.39015003345728,43392,sf_oclc,"Fawcett, Edward Douglas,",1866-,New York|Arno Press|1975.,1975,1975,,,Fiction,"Hartmann, the anarchist; | or, The doom of the great city."
-mdp.39015053238286_0,mdp.39015053238286,46857,sf_oclc|fantasy_loc,,,New York|Pyramid Books|1975-,0,1975,v.1,Fantasy fiction,Fiction,Weird heroes
-mdp.39015053238286_1,mdp.39015053238286,49325,sf_oclc|fantasy_loc,,,New York|Pyramid Books|1975-,0,1975,v.1,Fantasy fiction,Fiction,Weird heroes
+mdp.39015053238286_0,mdp.39015053238286,46857,fantasy_loc|sf_oclc,,,New York|Pyramid Books|1975-,0,1975,v.1,Fantasy fiction,Fiction,Weird heroes
+mdp.39015053238286_1,mdp.39015053238286,49325,fantasy_loc|sf_oclc,,,New York|Pyramid Books|1975-,0,1975,v.1,Fantasy fiction,Fiction,Weird heroes
 mdp.39015019934069_0,mdp.39015019934069,40579,sf_oclc,"Williamson, Jack,",1908-2006.,"New York|Garland Pub.|1975, c1947.",1975,1975,,,Fiction,The legion of space
 mdp.39015019934069_1,mdp.39015019934069,40246,sf_oclc,"Williamson, Jack,",1908-2006.,"New York|Garland Pub.|1975, c1947.",1975,1975,,,Fiction,The legion of space
 mdp.39015008439567_0,mdp.39015008439567,34986,sf_oclc,"Le Guin, Ursula K.,",1929-,"Toronto|New York|Bantam Books|1975, c1968.",1975,1975,,,Fiction,A wizard of earthsea
@@ -1945,8 +1945,8 @@ uc1.32106010493283_1,uc1.32106010493283,37254,fantasy_loc,"Le Guin, Ursula K.,",
 mdp.39015073820543_0,mdp.39015073820543,61814,fantasy_loc,,,"Sauk City, Wis.|Arkham House|1975.",1975,1975,,"Horror tales, American|Fantasy fiction, English|Horror tales, English|Fantasy fiction, American",Short stories,Nameless places
 mdp.39015073820543_1,mdp.39015073820543,60519,fantasy_loc,,,"Sauk City, Wis.|Arkham House|1975.",1975,1975,,"Horror tales, American|Fantasy fiction, English|Horror tales, English|Fantasy fiction, American",Short stories,Nameless places
 mdp.39015003449231,mdp.39015003449231,56322,sf_loc,"Bradbury, Ray,",1920-2012.,"St. Albans, Herts.|Panther|1976.",1976,1976,,"Science fiction, American",Fiction,The small assassin.
-mdp.39015002662453_0,mdp.39015002662453,45634,sf_oclc|sf_loc,"Wilhelm, Kate.",,New York|Harper & Row|c1976.,1976,1976,,,Fiction,Where late the sweet birds sang
-mdp.39015002662453_1,mdp.39015002662453,48174,sf_oclc|sf_loc,"Wilhelm, Kate.",,New York|Harper & Row|c1976.,1976,1976,,,Fiction,Where late the sweet birds sang
+mdp.39015002662453_0,mdp.39015002662453,45634,sf_loc|sf_oclc,"Wilhelm, Kate.",,New York|Harper & Row|c1976.,1976,1976,,,Fiction,Where late the sweet birds sang
+mdp.39015002662453_1,mdp.39015002662453,48174,sf_loc|sf_oclc,"Wilhelm, Kate.",,New York|Harper & Row|c1976.,1976,1976,,,Fiction,Where late the sweet birds sang
 uc1.b4432430_0,uc1.b4432430,43622,sf_loc,"Biggle, Lloyd,",1923-2002,"Garden City, N.Y.|Doubleday|1976.",1976,1976,,"Science fiction, American",Fiction,A galaxy of strangers
 uc1.b4432430_1,uc1.b4432430,46019,sf_loc,"Biggle, Lloyd,",1923-2002,"Garden City, N.Y.|Doubleday|1976.",1976,1976,,"Science fiction, American",Fiction,A galaxy of strangers
 mdp.39015046878727_0,mdp.39015046878727,32064,sf_oclc,"Butler, Octavia E.",,"Garden City, N.Y.|Doubleday|c1976.",1976,1976,,,Fiction|Science fiction,Patternmaster
@@ -1955,8 +1955,8 @@ mdp.39015007043337_0,mdp.39015007043337,45695,sf_oclc,"Dick, Philip K.",,"St. Al
 mdp.39015007043337_1,mdp.39015007043337,43855,sf_oclc,"Dick, Philip K.",,"St. Albans, Herts|Panther|1976, c1974.",1976,1976,,,Fiction,"Flow my tears, the policeman said"
 mdp.39015012296821_0,mdp.39015012296821,42963,fantasy_oclc,"Bradbury, Ray,",1920-2012.,Toronto|New York|Bantam Books|1976.,1976,1976,,,Fiction,The machineries of joy : | short stories
 mdp.39015012296821_1,mdp.39015012296821,47162,fantasy_oclc,"Bradbury, Ray,",1920-2012.,Toronto|New York|Bantam Books|1976.,1976,1976,,,Fiction,The machineries of joy : | short stories
-mdp.39076001176655_0,mdp.39076001176655,32702,juv|fantasy_loc,"L'Engle, Madeleine.",,"New York|Dell|1976, c1973.",1976,1976,,Juvenile fiction|Fantasy,NotFiction,A wind in the door
-mdp.39076001176655_1,mdp.39076001176655,29825,juv|fantasy_loc,"L'Engle, Madeleine.",,"New York|Dell|1976, c1973.",1976,1976,,Juvenile fiction|Fantasy,NotFiction,A wind in the door
+mdp.39076001176655_0,mdp.39076001176655,32702,fantasy_loc|juv,"L'Engle, Madeleine.",,"New York|Dell|1976, c1973.",1976,1976,,Juvenile fiction|Fantasy,NotFiction,A wind in the door
+mdp.39076001176655_1,mdp.39076001176655,29825,fantasy_loc|juv,"L'Engle, Madeleine.",,"New York|Dell|1976, c1973.",1976,1976,,Juvenile fiction|Fantasy,NotFiction,A wind in the door
 mdp.39015010296195_0,mdp.39015010296195,37329,fantasy_oclc,"Wolfe, Gene.",,"New York|Ace Books|1977, c1976.",1976,1976,,,Fiction,The Devil in a forest
 mdp.39015010296195_1,mdp.39015010296195,39715,fantasy_oclc,"Wolfe, Gene.",,"New York|Ace Books|1977, c1976.",1976,1976,,,Fiction,The Devil in a forest
 mdp.39015049862876,mdp.39015049862876,56892,fantasy_oclc,"Kellum, David F.",,Edmonton|Tree Frog Press|1976.,1976,1976,,,Fiction,The falling world of Tristram Pocket
@@ -2027,8 +2027,8 @@ mdp.39015002661174_1,mdp.39015002661174,44148,sf_loc,"Dickson, Gordon R.",,"Gard
 mdp.39015003498436_0,mdp.39015003498436,47814,sf_loc,,,"Garden City, N.Y.|Doubleday|1980.",1980,1965,,"Science fiction, American|Fantasy fiction, American",Fiction,The Magazine of fantasy and science fiction : | a 30-year retrospective
 mdp.39015003498436_1,mdp.39015003498436,50341,sf_loc,,,"Garden City, N.Y.|Doubleday|1980.",1980,1965,,"Science fiction, American|Fantasy fiction, American",Fiction,The Magazine of fantasy and science fiction : | a 30-year retrospective
 mdp.39015003498436_2,mdp.39015003498436,48256,sf_loc,,,"Garden City, N.Y.|Doubleday|1980.",1980,1965,,"Science fiction, American|Fantasy fiction, American",Fiction,The Magazine of fantasy and science fiction : | a 30-year retrospective
-uc1.32106018321460_0,uc1.32106018321460,50041,juv|fantasy_oclc,"Carroll, Jonathan,",1949-,New York|Viking Press|1980.,1980,1980,,Biographers|Fiction|Children's stories|Authorship|Biography as a literary form,Fiction,The land of laughs
-uc1.32106018321460_1,uc1.32106018321460,53039,juv|fantasy_oclc,"Carroll, Jonathan,",1949-,New York|Viking Press|1980.,1980,1980,,Biographers|Fiction|Children's stories|Authorship|Biography as a literary form,Fiction,The land of laughs
+uc1.32106018321460_0,uc1.32106018321460,50041,fantasy_oclc|juv,"Carroll, Jonathan,",1949-,New York|Viking Press|1980.,1980,1980,,Biographers|Fiction|Children's stories|Authorship|Biography as a literary form,Fiction,The land of laughs
+uc1.32106018321460_1,uc1.32106018321460,53039,fantasy_oclc|juv,"Carroll, Jonathan,",1949-,New York|Viking Press|1980.,1980,1980,,Biographers|Fiction|Children's stories|Authorship|Biography as a literary form,Fiction,The land of laughs
 uc1.32106007982744_0,uc1.32106007982744,47031,sf_loc,"Card, Orson Scott.",,New York|Dial Press|c1980.,1981,1981,,"Science fiction, American",Fiction,Unaccompanied sonata & other stories
 uc1.32106007982744_1,uc1.32106007982744,48909,sf_loc,"Card, Orson Scott.",,New York|Dial Press|c1980.,1981,1981,,"Science fiction, American",Fiction,Unaccompanied sonata & other stories
 mdp.39015003900720_0,mdp.39015003900720,50349,sf_loc,"Lem, Stanis��aw.",,New York|Continuum|1981.,1981,1981,,"Translations into English|Science fiction, Polish",Fiction,The cosmic carnival of Stanis��aw Lem : | an anthology of entertaining stories by the modern master of science fiction
@@ -2171,8 +2171,8 @@ pst.000021946516_2,pst.000021946516,60079,sf_loc,"Dick, Philip K.",,"New York, N
 mdp.39015059135650_0,mdp.39015059135650,57200,fantasy_oclc,"Thomas, Elizabeth Marshall,",1931-,Boston|Houghton Mifflin|c1987.,1987,1987,,Prehistoric peoples|Fiction,Novel|Historical fiction,Reindeer Moon
 mdp.39015059135650_1,mdp.39015059135650,60892,fantasy_oclc,"Thomas, Elizabeth Marshall,",1931-,Boston|Houghton Mifflin|c1987.,1987,1987,,Prehistoric peoples|Fiction,Novel|Historical fiction,Reindeer Moon
 mdp.39015059135650_2,mdp.39015059135650,57461,fantasy_oclc,"Thomas, Elizabeth Marshall,",1931-,Boston|Houghton Mifflin|c1987.,1987,1987,,Prehistoric peoples|Fiction,Novel|Historical fiction,Reindeer Moon
-mdp.39015062109072_0,mdp.39015062109072,47452,fantasy_oclc|fantasy_loc,"Adams, Douglas,",1952-2001.,New York|Simon and Schuster|c1987.,1987,1987,,,Fiction,Dirk Gently's Holistic Detective Agency
-mdp.39015062109072_1,mdp.39015062109072,46273,fantasy_oclc|fantasy_loc,"Adams, Douglas,",1952-2001.,New York|Simon and Schuster|c1987.,1987,1987,,,Fiction,Dirk Gently's Holistic Detective Agency
+mdp.39015062109072_0,mdp.39015062109072,47452,fantasy_loc|fantasy_oclc,"Adams, Douglas,",1952-2001.,New York|Simon and Schuster|c1987.,1987,1987,,,Fiction,Dirk Gently's Holistic Detective Agency
+mdp.39015062109072_1,mdp.39015062109072,46273,fantasy_loc|fantasy_oclc,"Adams, Douglas,",1952-2001.,New York|Simon and Schuster|c1987.,1987,1987,,,Fiction,Dirk Gently's Holistic Detective Agency
 pst.000021750151_0,pst.000021750151,98742,fantasy_oclc,"Park, Paul,",1954-,New York|Guild America Books|c1989.,1987,1987,,,NotFiction,The sugar festival
 pst.000021750151_1,pst.000021750151,95959,fantasy_oclc,"Park, Paul,",1954-,New York|Guild America Books|c1989.,1987,1987,,,NotFiction,The sugar festival
 pst.000021750151_2,pst.000021750151,94985,fantasy_oclc,"Park, Paul,",1954-,New York|Guild America Books|c1989.,1987,1987,,,NotFiction,The sugar festival
@@ -2243,9 +2243,9 @@ mdp.39015061386812_1,mdp.39015061386812,45717,fantasy_loc|sf_loc,,,"Harrisonvill
 uc1.32106010372289_0,uc1.32106010372289,78515,sf_loc,"Tepper, Sheri S.",,"New York|Bantam Books|1991, c1990.",1991,1991,,"Science fiction, American",Fiction,Raising the stones
 uc1.32106010372289_1,uc1.32106010372289,77374,sf_loc,"Tepper, Sheri S.",,"New York|Bantam Books|1991, c1990.",1991,1991,,"Science fiction, American",Fiction,Raising the stones
 uc1.32106010372289_2,uc1.32106010372289,74457,sf_loc,"Tepper, Sheri S.",,"New York|Bantam Books|1991, c1990.",1991,1991,,"Science fiction, American",Fiction,Raising the stones
-mdp.39015061465624_0,mdp.39015061465624,84575,sf_oclc|fantasy_loc,,,New York|Gramercy Books|Distributed by Outlet Book Co.|1991.,1991,1946,,"Horror tales, American|Fantasy fiction, American",Short stories,Famous fantastic mysteries : | 30 great tales of fantasy and horror from the classic pulp magazines Famous fantastic mysteries & Fantastic novels
-mdp.39015061465624_1,mdp.39015061465624,87422,sf_oclc|fantasy_loc,,,New York|Gramercy Books|Distributed by Outlet Book Co.|1991.,1991,1946,,"Horror tales, American|Fantasy fiction, American",Short stories,Famous fantastic mysteries : | 30 great tales of fantasy and horror from the classic pulp magazines Famous fantastic mysteries & Fantastic novels
-mdp.39015061465624_2,mdp.39015061465624,83388,sf_oclc|fantasy_loc,,,New York|Gramercy Books|Distributed by Outlet Book Co.|1991.,1991,1946,,"Horror tales, American|Fantasy fiction, American",Short stories,Famous fantastic mysteries : | 30 great tales of fantasy and horror from the classic pulp magazines Famous fantastic mysteries & Fantastic novels
+mdp.39015061465624_0,mdp.39015061465624,84575,fantasy_loc|sf_oclc,,,New York|Gramercy Books|Distributed by Outlet Book Co.|1991.,1991,1946,,"Horror tales, American|Fantasy fiction, American",Short stories,Famous fantastic mysteries : | 30 great tales of fantasy and horror from the classic pulp magazines Famous fantastic mysteries & Fantastic novels
+mdp.39015061465624_1,mdp.39015061465624,87422,fantasy_loc|sf_oclc,,,New York|Gramercy Books|Distributed by Outlet Book Co.|1991.,1991,1946,,"Horror tales, American|Fantasy fiction, American",Short stories,Famous fantastic mysteries : | 30 great tales of fantasy and horror from the classic pulp magazines Famous fantastic mysteries & Fantastic novels
+mdp.39015061465624_2,mdp.39015061465624,83388,fantasy_loc|sf_oclc,,,New York|Gramercy Books|Distributed by Outlet Book Co.|1991.,1991,1946,,"Horror tales, American|Fantasy fiction, American",Short stories,Famous fantastic mysteries : | 30 great tales of fantasy and horror from the classic pulp magazines Famous fantastic mysteries & Fantastic novels
 mdp.39015028917980,mdp.39015028917980,56562,fantasy_oclc,"Bellairs, John.",,New York|Collier Books|Toronto|Maxwell Macmillan Canada|New York|Maxwell Macmillan International|1991.,1991,1969,,,Fiction,The face in the frost
 mdp.39015028914631_0,mdp.39015028914631,47298,fantasy_oclc,"Barrett, Neal.",,"Shingletown, CA|M.V. Ziesing|1991.",1991,1991,,,Fiction,The hereafter gang
 mdp.39015028914631_1,mdp.39015028914631,48434,fantasy_oclc,"Barrett, Neal.",,"Shingletown, CA|M.V. Ziesing|1991.",1991,1991,,,Fiction,The hereafter gang
@@ -2508,13 +2508,13 @@ pst.000066114031_0,pst.000066114031,58542,fantasy_oclc,"Harris, Charlaine.",,New
 pst.000066114031_1,pst.000066114031,56149,fantasy_oclc,"Harris, Charlaine.",,New York|Ace Books|2004.,2004,2004,,Waitresses|City and town life|Fiction|Telepathy|Vampires,Horror fiction|Fiction|Occult fiction,Dead to the world
 mdp.39015060836189_0,mdp.39015060836189,47231,sf_loc,,,"San Francisco, Calif.|Chronicle Books|c2005.",2005,2005,,"Human-alien encounters|Fiction|Science fiction, American",Short stories,"The campfire collection : | thrilling, chilling tales of alien encounters"
 mdp.39015060836189_1,mdp.39015060836189,47738,sf_loc,,,"San Francisco, Calif.|Chronicle Books|c2005.",2005,2005,,"Human-alien encounters|Fiction|Science fiction, American",Short stories,"The campfire collection : | thrilling, chilling tales of alien encounters"
-pst.000066629801_0,pst.000066629801,53952,sf_oclc|fantasy_loc,"Brooks, Terry.",,"New York|Ballentine Books|2006, c2005.",2005,2005,,Shannara (Imaginary place)|Magic|Fantasy|Fiction,Novel,Straken
-pst.000066629801_1,pst.000066629801,54488,sf_oclc|fantasy_loc,"Brooks, Terry.",,"New York|Ballentine Books|2006, c2005.",2005,2005,,Shannara (Imaginary place)|Magic|Fantasy|Fiction,Novel,Straken
-pst.000066629801_2,pst.000066629801,52914,sf_oclc|fantasy_loc,"Brooks, Terry.",,"New York|Ballentine Books|2006, c2005.",2005,2005,,Shannara (Imaginary place)|Magic|Fantasy|Fiction,Novel,Straken
+pst.000066629801_0,pst.000066629801,53952,fantasy_loc|sf_oclc,"Brooks, Terry.",,"New York|Ballentine Books|2006, c2005.",2005,2005,,Shannara (Imaginary place)|Magic|Fantasy|Fiction,Novel,Straken
+pst.000066629801_1,pst.000066629801,54488,fantasy_loc|sf_oclc,"Brooks, Terry.",,"New York|Ballentine Books|2006, c2005.",2005,2005,,Shannara (Imaginary place)|Magic|Fantasy|Fiction,Novel,Straken
+pst.000066629801_2,pst.000066629801,52914,fantasy_loc|sf_oclc,"Brooks, Terry.",,"New York|Ballentine Books|2006, c2005.",2005,2005,,Shannara (Imaginary place)|Magic|Fantasy|Fiction,Novel,Straken
 mdp.39015060887596_0,mdp.39015060887596,66392,sf_loc,,,"Amherst, NY|Pyr|2005.",2005,2005,,"Persecution|Fiction|Superstition|Science fiction, American|Scientists",UnknownGenre,Galileo's children : | tales of science vs. superstition
 mdp.39015060887596_1,mdp.39015060887596,66271,sf_loc,,,"Amherst, NY|Pyr|2005.",2005,2005,,"Persecution|Fiction|Superstition|Science fiction, American|Scientists",UnknownGenre,Galileo's children : | tales of science vs. superstition
-pst.000058960691_0,pst.000058960691,40006,juv|fantasy_loc,"Pearson, Ridley.",,New York|Disney Editions|c2005.,2005,2005,,Fantasy|Holography|Juvenile fiction|Suspense fiction|Cartoon characters|Teenagers|Good and evil|Fiction,"Suspense fiction|Fantasy fiction, American|Adventure stories, American|Novel|Fantasy fiction",The kingdom keepers
-pst.000058960691_1,pst.000058960691,38615,juv|fantasy_loc,"Pearson, Ridley.",,New York|Disney Editions|c2005.,2005,2005,,Fantasy|Holography|Juvenile fiction|Suspense fiction|Cartoon characters|Teenagers|Good and evil|Fiction,"Suspense fiction|Fantasy fiction, American|Adventure stories, American|Novel|Fantasy fiction",The kingdom keepers
+pst.000058960691_0,pst.000058960691,40006,fantasy_loc|juv,"Pearson, Ridley.",,New York|Disney Editions|c2005.,2005,2005,,Fantasy|Holography|Juvenile fiction|Suspense fiction|Cartoon characters|Teenagers|Good and evil|Fiction,"Suspense fiction|Fantasy fiction, American|Adventure stories, American|Novel|Fantasy fiction",The kingdom keepers
+pst.000058960691_1,pst.000058960691,38615,fantasy_loc|juv,"Pearson, Ridley.",,New York|Disney Editions|c2005.,2005,2005,,Fantasy|Holography|Juvenile fiction|Suspense fiction|Cartoon characters|Teenagers|Good and evil|Fiction,"Suspense fiction|Fantasy fiction, American|Adventure stories, American|Novel|Fantasy fiction",The kingdom keepers
 inu.30000103028167_0,inu.30000103028167,63006,fantasy_oclc,"Turtledove, Harry.",,"Riverdale, NY|Baen Books|New York, NY|Distributed by Simon & Schuster|c2005.",2005,2005,,Refugees|Fiction|Clergy,Fiction|Fantasy fiction,Bridge of the Separator
 inu.30000103028167_1,inu.30000103028167,62817,fantasy_oclc,"Turtledove, Harry.",,"Riverdale, NY|Baen Books|New York, NY|Distributed by Simon & Schuster|c2005.",2005,2005,,Refugees|Fiction|Clergy,Fiction|Fantasy fiction,Bridge of the Separator
 inu.30000103028167_2,inu.30000103028167,61282,fantasy_oclc,"Turtledove, Harry.",,"Riverdale, NY|Baen Books|New York, NY|Distributed by Simon & Schuster|c2005.",2005,2005,,Refugees|Fiction|Clergy,Fiction|Fantasy fiction,Bridge of the Separator
@@ -2598,26 +2598,26 @@ mdp.39015080843892_1,mdp.39015080843892,60941,sf_loc,,,Nottingham|Solaris|2009.,
 mdp.39015079150150_0,mdp.39015079150150,54893,fantasy_loc,,,"Nottingham, UK|Solaris|2009.",2009,2009,,Horror tales|Fantasy fiction,NotFiction|Short stories,"POE : | 19 new tales of suspense, dark fantasy, and horror inspired by Edgar Allan Poe"
 mdp.39015079150150_1,mdp.39015079150150,56801,fantasy_loc,,,"Nottingham, UK|Solaris|2009.",2009,2009,,Horror tales|Fantasy fiction,NotFiction|Short stories,"POE : | 19 new tales of suspense, dark fantasy, and horror inspired by Edgar Allan Poe"
 mdp.39015079150150_2,mdp.39015079150150,58234,fantasy_loc,,,"Nottingham, UK|Solaris|2009.",2009,2009,,Horror tales|Fantasy fiction,NotFiction|Short stories,"POE : | 19 new tales of suspense, dark fantasy, and horror inspired by Edgar Allan Poe"
-mdp.39015035777831_0,mdp.39015035777831,66811,"Dacre, Charlotte,|supernat","Dacre, Charlotte,",b. 1782.,London|The Fortune Press|1928,1928,1806,,,Fiction,"Zofloya; or, The moor, | $c: by Charlotte Dacre (better known as Rosa Matilda) with an introduction by the Rev. Montague Summers."
-mdp.39015035777831_1,mdp.39015035777831,64585,"Dacre, Charlotte,|supernat","Dacre, Charlotte,",b. 1782.,London|The Fortune Press|1928,1928,1806,,,Fiction,"Zofloya; or, The moor, | $c: by Charlotte Dacre (better known as Rosa Matilda) with an introduction by the Rev. Montague Summers."
+mdp.39015035777831_0,mdp.39015035777831,66811,supernat|sf_bailey,"Dacre, Charlotte,",b. 1782.,London|The Fortune Press|1928,1928,1806,,,Fiction,"Zofloya; or, The moor, | $c: by Charlotte Dacre (better known as Rosa Matilda) with an introduction by the Rev. Montague Summers."
+mdp.39015035777831_1,mdp.39015035777831,64585,supernat|sf_bailey,"Dacre, Charlotte,",b. 1782.,London|The Fortune Press|1928,1928,1806,,,Fiction,"Zofloya; or, The moor, | $c: by Charlotte Dacre (better known as Rosa Matilda) with an introduction by the Rev. Montague Summers."
 uc1.31158001441749_0,uc1.31158001441749,33430,supernat,"Maturin, Charles Robert,",,"Edinburgh;A. Constable and Company; [etc., etc.;1821.",1821,1821,v.0001,,,Melmoth the wanderer: a tale
 uc1.31158001441749_1,uc1.31158001441749,35286,supernat,"Maturin, Charles Robert,",,"Edinburgh;A. Constable and Company; [etc., etc.;1821.",1821,1821,v.0001,,,Melmoth the wanderer: a tale
 njp.32101072759879_0,njp.32101072759879,67035,supernat,"Scott, Walter,",,Edinburgh;A. and C. Black;1868.,1868,1825,,,,The talisman
 njp.32101072759879_1,njp.32101072759879,71270,supernat,"Scott, Walter,",,Edinburgh;A. and C. Black;1868.,1868,1825,,,,The talisman
 njp.32101072759879_2,njp.32101072759879,56180,supernat,"Scott, Walter,",,Edinburgh;A. and C. Black;1868.,1868,1825,,,,The talisman
-uc1.31822038205001_0,uc1.31822038205001,41326,supernat,"Poe, Edgar Allan,",,London;Wiley and Putnam;1838,1838,1838,,,,"The narrative of Arthur Gordon Pym [pseud.] of Nantucket, North America"
-uc1.31822038205001_1,uc1.31822038205001,39876,supernat,"Poe, Edgar Allan,",,London;Wiley and Putnam;1838,1838,1838,,,,"The narrative of Arthur Gordon Pym [pseud.] of Nantucket, North America"
-uc2.ark+=13960=t2w37sx92_0,uc2.ark+=13960=t2w37sx92,52455,supernat,"Du Maurier, George,",,"London;J.R. Osgood, McIlvaine;1846.",1846,1846,,,,Peter Ibbetson
-uc2.ark+=13960=t2w37sx92_1,uc2.ark+=13960=t2w37sx92,55254,supernat,"Du Maurier, George,",,"London;J.R. Osgood, McIlvaine;1846.",1846,1846,,,,Peter Ibbetson
+uc1.31822038205001_0,uc1.31822038205001,41326,supernat|sf_bailey,"Poe, Edgar Allan,",,London;Wiley and Putnam;1838,1838,1838,,,,"The narrative of Arthur Gordon Pym [pseud.] of Nantucket, North America"
+uc1.31822038205001_1,uc1.31822038205001,39876,supernat|sf_bailey,"Poe, Edgar Allan,",,London;Wiley and Putnam;1838,1838,1838,,,,"The narrative of Arthur Gordon Pym [pseud.] of Nantucket, North America"
+uc2.ark+=13960=t2w37sx92_0,uc2.ark+=13960=t2w37sx92,52455,supernat|sf_bailey,"Du Maurier, George,",,"London;J.R. Osgood, McIlvaine;1846.",1846,1846,,,,Peter Ibbetson
+uc2.ark+=13960=t2w37sx92_1,uc2.ark+=13960=t2w37sx92,55254,supernat|sf_bailey,"Du Maurier, George,",,"London;J.R. Osgood, McIlvaine;1846.",1846,1846,,,,Peter Ibbetson
 mdp.39015011608810,mdp.39015011608810,27492,supernat,"Eliot, George,",1819-1880.,"New York, N.Y.|Penguin Books--Virago Press|1985.",1985,1859,,,Fiction,The lifted veil / | $c: George Eliot ; with a new afterword by Beryl Gray.
 nyp.33433004008656_0,nyp.33433004008656,29258,supernat,"Phelps, E. Stuart",,"Boston;Fields, Osgood, & Co.;1869.",1869,1868,,,,The gates ajar
 nyp.33433004008656_1,nyp.33433004008656,30925,supernat,"Phelps, E. Stuart",,"Boston;Fields, Osgood, & Co.;1869.",1869,1868,,,,The gates ajar
-uc1.b3579080_0,uc1.b3579080,58963,supernat,"Howells, William Dean,",,"Boston;Houghton, Mifflin and company;1880.",1880,1880,c.2,,,The undiscovered country
-uc1.b3579080_1,uc1.b3579080,68404,supernat,"Howells, William Dean,",,"Boston;Houghton, Mifflin and company;1880.",1880,1880,c.2,,,The undiscovered country
-mdp.49015000790080,mdp.49015000790080,55422,supernat,"Oliphant, (Margaret), Mrs.",1828-1897.,"Westport, Conn.|Greenwood Press|1970",1970,1880,,,Fiction,"A beleaguered city; | being a narrative of certain recent events in the city of Semur, in the Department of the Haute Bourgogne, a story of the seen and the unseen, | $c: by Mrs. Oliphant."
-mdp.39015019144156_0,mdp.39015019144156,46012,supernat,"Twain, Mark,",,New York;London;Harper and brothers;c1889,1889,1889,,,,A Connecticut Yankee in King Arthur's court
-mdp.39015019144156_1,mdp.39015019144156,47251,supernat,"Twain, Mark,",,New York;London;Harper and brothers;c1889,1889,1889,,,,A Connecticut Yankee in King Arthur's court
-mdp.39015019144156_2,mdp.39015019144156,45347,supernat,"Twain, Mark,",,New York;London;Harper and brothers;c1889,1889,1889,,,,A Connecticut Yankee in King Arthur's court
+uc1.b3579080_0,uc1.b3579080,58963,supernat|sf_bailey,"Howells, William Dean,",,"Boston;Houghton, Mifflin and company;1880.",1880,1880,c.2,,,The undiscovered country
+uc1.b3579080_1,uc1.b3579080,68404,supernat|sf_bailey,"Howells, William Dean,",,"Boston;Houghton, Mifflin and company;1880.",1880,1880,c.2,,,The undiscovered country
+mdp.49015000790080,mdp.49015000790080,55422,supernat|sf_bailey,"Oliphant, (Margaret), Mrs.",1828-1897.,"Westport, Conn.|Greenwood Press|1970",1970,1880,,,Fiction,"A beleaguered city; | being a narrative of certain recent events in the city of Semur, in the Department of the Haute Bourgogne, a story of the seen and the unseen, | $c: by Mrs. Oliphant."
+mdp.39015019144156_0,mdp.39015019144156,46012,supernat|sf_bailey,"Twain, Mark,",,New York;London;Harper and brothers;c1889,1889,1889,,,,A Connecticut Yankee in King Arthur's court
+mdp.39015019144156_1,mdp.39015019144156,47251,supernat|sf_bailey,"Twain, Mark,",,New York;London;Harper and brothers;c1889,1889,1889,,,,A Connecticut Yankee in King Arthur's court
+mdp.39015019144156_2,mdp.39015019144156,45347,supernat|sf_bailey,"Twain, Mark,",,New York;London;Harper and brothers;c1889,1889,1889,,,,A Connecticut Yankee in King Arthur's court
 uc1.$b808697_0,uc1.$b808697,48569,supernat,"Wilde, Oscar,",,"London;New York;Ward, Lock;1891",1891,1890,,,,The picture of Dorian Gray
 uc1.$b808697_1,uc1.$b808697,47635,supernat,"Wilde, Oscar,",,"London;New York;Ward, Lock;1891",1891,1890,,,,The picture of Dorian Gray
 mdp.39015021071926_0,mdp.39015021071926,53533,supernat,"Crawford, F. Marion",,London;New York;Macmillan and co.;1891.,1891,1890,,,,The witch of Prague
@@ -2648,3 +2648,175 @@ uc2.ark+=13960=t2g73850s,uc2.ark+=13960=t2g73850s,25136,supernat,"Burnett, Franc
 mdp.39015005690451_0,mdp.39015005690451,55287,supernat,"Blackwood, Algernon,",1869-1951.,"Secaucus, N. J.|Castle Books, Inc., distributed to the trade by Book Sales, Inc.|1974",1974,1921,,,UnknownGenre,Tales of the mysterious and macabre.
 mdp.39015005690451_1,mdp.39015005690451,54210,supernat,"Blackwood, Algernon,",1869-1951.,"Secaucus, N. J.|Castle Books, Inc., distributed to the trade by Book Sales, Inc.|1974",1974,1921,,,UnknownGenre,Tales of the mysterious and macabre.
 mdp.39015005690451_2,mdp.39015005690451,55034,supernat,"Blackwood, Algernon,",1869-1951.,"Secaucus, N. J.|Castle Books, Inc., distributed to the trade by Book Sales, Inc.|1974",1974,1921,,,UnknownGenre,Tales of the mysterious and macabre.
+nyp.33433076046147,nyp.33433076046147,45789,supernat,"Mitchell, John Ames,",,New York;C. Scribner's Sons;1898.,1898,1898,,,,Amos Judd
+inu.32000000646093_0,inu.32000000646093,67644,supernat,"Sue, Eugène,",,London;Chapman and Hall;1844-1845.,1844,1844,v.1-2,Wandering Jew;Fiction,,The wandering Jew
+inu.32000000646093_1,inu.32000000646093,70482,supernat,"Sue, Eugène,",,London;Chapman and Hall;1844-1845.,1844,1844,v.1-2,Wandering Jew;Fiction,,The wandering Jew
+dul1.ark+=13960=t50g4f66g_0,dul1.ark+=13960=t50g4f66g,71194,supernat,"Lytton, Edward Bulwer Lytton,",,,1863,1862,,,,A strange story
+dul1.ark+=13960=t50g4f66g_1,dul1.ark+=13960=t50g4f66g,72831,supernat,"Lytton, Edward Bulwer Lytton,",,,1863,1862,,,,A strange story
+dul1.ark+=13960=t50g4f66g_2,dul1.ark+=13960=t50g4f66g,70967,supernat,"Lytton, Edward Bulwer Lytton,",,,1863,1862,,,,A strange story
+uc2.ark+=13960=t3fx74b36_0,uc2.ark+=13960=t3fx74b36,67789,supernat,"Silvani, Anita.",,Chicago;R. R. Donnelley & Sons Company;1906.,1906,1906,,,,The strange story of Ahrinziman
+uc2.ark+=13960=t3fx74b36_1,uc2.ark+=13960=t3fx74b36,66678,supernat,"Silvani, Anita.",,Chicago;R. R. Donnelley & Sons Company;1906.,1906,1906,,,,The strange story of Ahrinziman
+nyp.33433076087844_0,nyp.33433076087844,48029,supernat,"Hawthorne, Nathaniel,",London;Chapman and Hall;1852.,,1852,1852, ,,,The Blithedale romance
+nyp.33433076087844_1,nyp.33433076087844,46616,supernat,"Hawthorne, Nathaniel,",London;Chapman and Hall;1852.,,1852,1852, ,,,The Blithedale romance
+mdp.39015006960606,mdp.39015006960606,40606,sf_bailey,"Abbott, Edwin Abbott,",1838-1926.,New York|Barnes & Noble|1963,1963,1884,,Fourth dimension,NotFiction,"Flatland; | a romance of many dimensions, | $c: with illus. by the author, a square (Edwin A. Abbott) With introd. by William Garnett."
+nyp.33433074792866_0,nyp.33433074792866,62915,sf_bailey,[Angelo],,New York;Hurst & co.;c1880,1880,1880,,,,The adventures of an atom
+nyp.33433074792866_1,nyp.33433074792866,56390,sf_bailey,[Angelo],,New York;Hurst & co.;c1880,1880,1880,,,,The adventures of an atom
+mdp.39015035490344_0,mdp.39015035490344,56873,sf_bailey,"Arnold, Edwin Lester Linden,",,New York;A. L. Burt co.;1890?,1890,1890,,,,The wonderful adventures of Phra the Phoenician
+mdp.39015035490344_1,mdp.39015035490344,56853,sf_bailey,"Arnold, Edwin Lester Linden,",,New York;A. L. Burt co.;1890?,1890,1890,,,,The wonderful adventures of Phra the Phoenician
+mdp.39015035490344_2,mdp.39015035490344,56520,sf_bailey,"Arnold, Edwin Lester Linden,",,New York;A. L. Burt co.;1890?,1890,1890,,,,The wonderful adventures of Phra the Phoenician
+uc2.ark+=13960=t4mk65h9r_0,uc2.ark+=13960=t4mk65h9r,38783,sf_bailey,"Bennet, Robert Ames,",,Chicago;A. C. McClurg & Co.;1908.,1908,1908,,,,Into the primitive
+uc2.ark+=13960=t4mk65h9r_1,uc2.ark+=13960=t4mk65h9r,39932,sf_bailey,"Bennet, Robert Ames,",,Chicago;A. C. McClurg & Co.;1908.,1908,1908,,,,Into the primitive
+inu.32000001384124_0,inu.32000001384124,56857,sf_bailey,"Benson, Robert Hugh,",,London;Hutchinson;1911?,1911,1911,,,,The dawn of all
+inu.32000001384124_1,inu.32000001384124,57786,sf_bailey,"Benson, Robert Hugh,",,London;Hutchinson;1911?,1911,1911,,,,The dawn of all
+mdp.39015019922320,mdp.39015019922320,34885,sf_bailey,"Blanchard, Henry Percy,",,New York;Cochrane publishing company;1909.,1909,1909,,,,After the cataclysm;
+dul1.ark+=13960=t1fj34z1f_0,dul1.ark+=13960=t1fj34z1f,29804,sf_bailey,"Lytton, Edward Bulwer Lytton,",,Edinburgh;London;W. Blackwood and sons;1871.,1871,1871,,Utopias,,The coming race
+dul1.ark+=13960=t1fj34z1f_1,dul1.ark+=13960=t1fj34z1f,31317,sf_bailey,"Lytton, Edward Bulwer Lytton,",,Edinburgh;London;W. Blackwood and sons;1871.,1871,1871,,Utopias,,The coming race
+dul1.ark+=13960=t3jw91q2r_0,dul1.ark+=13960=t3jw91q2r,38469,sf_bailey,"Butler, Samuel,",,London;Tr?_bner & Co. ...;1872.,1872,1872,,Utopias,,"Erewhon, or, Over the range"
+dul1.ark+=13960=t3jw91q2r_1,dul1.ark+=13960=t3jw91q2r,39459,sf_bailey,"Butler, Samuel,",,London;Tr?_bner & Co. ...;1872.,1872,1872,,Utopias,,"Erewhon, or, Over the range"
+mdp.39015063542149_0,mdp.39015063542149,29093,sf_bailey,"Collins, Wilkie,",,London;Chatto & Windus;1883.,1883,1883,v.3,,,Heart and science;
+mdp.39015063542149_1,mdp.39015063542149,40227,sf_bailey,"Collins, Wilkie,",,London;Chatto & Windus;1883.,1883,1883,v.3,,,Heart and science;
+hvd.32044009637083,hvd.32044009637083,53388,sf_bailey,"Fowler, George.",,Baltimore;Printed and sold by A. Miltenberger;1813.,1813,1813,,"Voyages, Imaginary;Moon",,"A flight to the moon, or, The vision of Randalthus"
+mdp.39015003686816_0,mdp.39015003686816,46267,sf_bailey,"Freeman, R. Austin (Richard Austin),",1862-1943.,"New York|Dodd, Mead & co.|1930.",1930,1912,,,Fiction,"The mystery of 31, New inn, | $c: by R. Austin Freeman."
+mdp.39015003686816_1,mdp.39015003686816,47332,sf_bailey,"Freeman, R. Austin (Richard Austin),",1862-1943.,"New York|Dodd, Mead & co.|1930.",1930,1912,,,Fiction,"The mystery of 31, New inn, | $c: by R. Austin Freeman."
+mdp.39015015233953_0,mdp.39015015233953,38291,sf_bailey,"Gillmore, Inez Haynes,",1873-1970.,"New York, NY|New American Library|1988.",1988,1914,,,Fiction,Angel Island / | $c: by Inez Haynes Gillmore ; introduction by Ursula K. Le Guin.
+mdp.39015015233953_1,mdp.39015015233953,38730,sf_bailey,"Gillmore, Inez Haynes,",1873-1970.,"New York, NY|New American Library|1988.",1988,1914,,,Fiction,Angel Island / | $c: by Inez Haynes Gillmore ; introduction by Ursula K. Le Guin.
+mdp.39015000619554,mdp.39015000619554,53103,sf_bailey,"Greer, Tom.",,New York|Arno Press|1975.,1975,1887,,,Fiction,A modern Daedalus.
+dul1.ark+=13960=t2h713c5c_0,dul1.ark+=13960=t2h713c5c,50040,sf_bailey,"Griffith, George Chetwynd.",,"London;Simpkin, Marshall, Hamilton, Kent and Co.;1897.",1897,1894,,"Utopias;Robinson, Ernest;Provenance",,Olga Romanoff
+dul1.ark+=13960=t2h713c5c_1,dul1.ark+=13960=t2h713c5c,51885,sf_bailey,"Griffith, George Chetwynd.",,"London;Simpkin, Marshall, Hamilton, Kent and Co.;1897.",1897,1894,,"Utopias;Robinson, Ernest;Provenance",,Olga Romanoff
+dul1.ark+=13960=t2h713c5c_2,dul1.ark+=13960=t2h713c5c,46597,sf_bailey,"Griffith, George Chetwynd.",,"London;Simpkin, Marshall, Hamilton, Kent and Co.;1897.",1897,1894,,"Utopias;Robinson, Ernest;Provenance",,Olga Romanoff
+coo.31924013476480_0,coo.31924013476480,47686,sf_bailey,"Haggard, H. Rider",,Leipzig;B. Tauchnitz;1886.,1886,1885,,,,King Solomon's mines
+coo.31924013476480_1,coo.31924013476480,48359,sf_bailey,"Haggard, H. Rider",,Leipzig;B. Tauchnitz;1886.,1886,1885,,,,King Solomon's mines
+mdp.39015005277770,mdp.39015005277770,56662,sf_bailey,"Hardy, Thomas,",,Leipzig;B. Tauchnitz;1883.,1883,1882,v.2,,,Two on a tower
+uc1.32106014427691_0,uc1.32106014427691,55487,sf_bailey,"Holmes, Oliver Wendell,",,New York;Grosset and Dunlap;1883.,1883,1861,,,,Elsie Venner;
+uc1.32106014427691_1,uc1.32106014427691,58239,sf_bailey,"Holmes, Oliver Wendell,",,New York;Grosset and Dunlap;1883.,1883,1861,,,,Elsie Venner;
+uc1.32106014427691_2,uc1.32106014427691,55506,sf_bailey,"Holmes, Oliver Wendell,",,New York;Grosset and Dunlap;1883.,1883,1861,,,,Elsie Venner;
+nyp.33433074875745,nyp.33433074875745,48431,sf_bailey,"MacDonald, George,",,"London;Smith, Elder and Co.;1864.",1864,1860,,English fiction;Scottish authors,,The portent
+uc1.$b440754,uc1.$b440754,10474,sf_bailey,"Mitchell, John Ames,",,New York;F. A. Stokes;1891.,1891,1889,,,,The last American
+dul1.ark+=13960=t7cr6hc61_0,dul1.ark+=13960=t7cr6hc61,46537,sf_bailey,"Morris, William,",,London;Reeves & Turner;1891.,1891,1890,,"Utopias;Buckhurst, Helen Macmillan;Provenance",,News from nowhere
+dul1.ark+=13960=t7cr6hc61_1,dul1.ark+=13960=t7cr6hc61,46087,sf_bailey,"Morris, William,",,London;Reeves & Turner;1891.,1891,1890,,"Utopias;Buckhurst, Helen Macmillan;Provenance",,News from nowhere
+nyp.33433075746960_0,nyp.33433075746960,53667,sf_bailey,"Shelley, Mary Wollstonecraft,","Philadelphia;Carey, Lea and Blanchard;1833.",,1833,1826,v. 1,,,The last man
+nyp.33433075746960_1,nyp.33433075746960,57232,sf_bailey,"Shelley, Mary Wollstonecraft,","Philadelphia;Carey, Lea and Blanchard;1833.",,1833,1826,v. 1,,,The last man
+uiuo.ark+=13960=t6c25j15x_0,uiuo.ark+=13960=t6c25j15x,32903,sf_bailey,"Shelley, Mary Wollstonecraft,",,London;H. Colburn;1826.,1826,1826,v.2,,,The last man
+uiuo.ark+=13960=t6c25j15x_1,uiuo.ark+=13960=t6c25j15x,31997,sf_bailey,"Shelley, Mary Wollstonecraft,",,London;H. Colburn;1826.,1826,1826,v.2,,,The last man
+hvd.32044020321865_0,hvd.32044020321865,103173,detective,"Vidocq, Eugène François,",,,1834,1829,,,,Memoirs of Vidocq
+hvd.32044020321865_1,hvd.32044020321865,108184,detective,"Vidocq, Eugène François,",,,1834,1829,,,,Memoirs of Vidocq
+hvd.32044020321865_2,hvd.32044020321865,102229,detective,"Vidocq, Eugène François,",,,1834,1829,,,,Memoirs of Vidocq
+hvd.32044020321865_3,hvd.32044020321865,96273,detective,"Vidocq, Eugène François,",,,1834,1829,,,,Memoirs of Vidocq
+uc2.ark+=13960=t0bv79z1x_0,uc2.ark+=13960=t0bv79z1x,56933,detective,"Poe, Edgar Allan,",1809.0,London;Sid,1909,1845,,,,Selected tales of mystery
+uc2.ark+=13960=t0bv79z1x_1,uc2.ark+=13960=t0bv79z1x,57315,detective,"Poe, Edgar Allan,",1809.0,London;Sid,1909,1845,,,,Selected tales of mystery
+nyp.33433074954748_0,nyp.33433074954748,107624,detective,"Dickens, Charles,",1812.0,London;A. ,1904,1853,,,,Bleak house
+nyp.33433074954748_1,nyp.33433074954748,106030,detective,"Dickens, Charles,",1812.0,London;A. ,1904,1853,,,,Bleak house
+nyp.33433074954748_2,nyp.33433074954748,106113,detective,"Dickens, Charles,",1812.0,London;A. ,1904,1853,,,,Bleak house
+nyp.33433074954748_3,nyp.33433074954748,107132,detective,"Dickens, Charles,",1812.0,London;A. ,1904,1853,,,,Bleak house
+nyp.33433074929393_0,nyp.33433074929393,51991,detective,"Williams, John Babbington",1827.0,New York;D,1865,1865,,Detectives,,Leaves from the note-book
+nyp.33433074929393_1,nyp.33433074929393,54591,detective,"Williams, John Babbington",1827.0,New York;D,1865,1865,,Detectives,,Leaves from the note-book
+nyp.33433074929393_2,nyp.33433074929393,51294,detective,"Williams, John Babbington",1827.0,New York;D,1865,1865,,Detectives,,Leaves from the note-book
+uc1.32106006960592_0,uc1.32106006960592,50846,detective,"Gaboriau, Emile,",1832.0,New York;S,1905,1866,,,,The widow Lerouge
+uc1.32106006960592_1,uc1.32106006960592,51062,detective,"Gaboriau, Emile,",1832.0,New York;S,1905,1866,,,,The widow Lerouge
+uc1.32106006960592_2,uc1.32106006960592,48937,detective,"Gaboriau, Emile,",1832.0,New York;S,1905,1866,,,,The widow Lerouge
+mdp.39015030307881_0,mdp.39015030307881,62006,detective,"Gaboriau, Emile,",1832.0,Boston;Lit,1899,1867,,,,File no. 113
+mdp.39015030307881_1,mdp.39015030307881,62344,detective,"Gaboriau, Emile,",1832.0,Boston;Lit,1899,1867,,,,File no. 113
+mdp.39015030307881_2,mdp.39015030307881,61767,detective,"Gaboriau, Emile,",1832.0,Boston;Lit,1899,1867,,,,File no. 113
+nyp.33433075833354_0,nyp.33433075833354,63585,detective,"Gaboriau, Emile,",1832.0,New York;C,1906,1867,,,,The mystery of Orcival
+nyp.33433075833354_1,nyp.33433075833354,65337,detective,"Gaboriau, Emile,",1832.0,New York;C,1906,1867,,,,The mystery of Orcival
+inu.30000007708815_0,inu.30000007708815,77258,detective,"Collins, Wilkie,",1824.0,New York;H,1868,1868,,,,The moonstone
+inu.30000007708815_1,inu.30000007708815,80125,detective,"Collins, Wilkie,",1824.0,New York;H,1868,1868,,,,The moonstone
+inu.30000007708815_2,inu.30000007708815,80898,detective,"Collins, Wilkie,",1824.0,New York;H,1868,1868,,,,The moonstone
+uiuo.ark+=13960=t3223k32d,uiuo.ark+=13960=t3223k32d,57502,detective,"Speight, T. W.",1830.0,London;Tin,1869,1868,v.2,,,Under lock and key; a sto
+uc1.b3386909_0,uc1.b3386909,82303,detective,"McWatters, George S",1812.0,Hartford;J,1871,1871,,Detectives,,Knots untied
+uc1.b3386909_1,uc1.b3386909,84224,detective,"McWatters, George S",1812.0,Hartford;J,1871,1871,,Detectives,,Knots untied
+uc1.b3386909_2,uc1.b3386909,85554,detective,"McWatters, George S",1812.0,Hartford;J,1871,1871,,Detectives,,Knots untied
+njp.32101067344661_0,njp.32101067344661,65076,detective,"Le Fanu, Joseph Sheridan,",1814.0,Philadelph,1871,1871,,Irish fict,,Checkmate
+njp.32101067344661_1,njp.32101067344661,67817,detective,"Le Fanu, Joseph Sheridan,",1814.0,Philadelph,1871,1871,,Irish fict,,Checkmate
+njp.32101067344661_2,njp.32101067344661,63294,detective,"Le Fanu, Joseph Sheridan,",1814.0,Philadelph,1871,1871,,Irish fict,,Checkmate
+uc2.ark+=13960=t43r0q389_0,uc2.ark+=13960=t43r0q389,36825,detective,"Pinkerton, Allan,",1819.0,New York;G,1903,1875,,Detectives,,The somnambulist and the 
+uc2.ark+=13960=t43r0q389_1,uc2.ark+=13960=t43r0q389,38056,detective,"Pinkerton, Allan,",1819.0,New York;G,1903,1875,,Detectives,,The somnambulist and the 
+nyp.33433075818801_0,nyp.33433075818801,66328,detective,"Du Boisgobey, Fortun?,",1821.0,Philadelph,1876,1875,,French fic,,The golden tress
+nyp.33433075818801_1,nyp.33433075818801,67077,detective,"Du Boisgobey, Fortun?,",1821.0,Philadelph,1876,1875,,French fic,,The golden tress
+uc2.ark+=13960=t9474d81g_0,uc2.ark+=13960=t9474d81g,61910,detective,"Russell, William Clark,",1844.0,London;Cha,1898,1876,,,,Is he the man?
+uc2.ark+=13960=t9474d81g_1,uc2.ark+=13960=t9474d81g,61903,detective,"Russell, William Clark,",1844.0,London;Cha,1898,1876,,,,Is he the man?
+uc2.ark+=13960=t9474d81g_2,uc2.ark+=13960=t9474d81g,75074,detective,"Russell, William Clark,",1844.0,London;Cha,1898,1876,,,,Is he the man?
+njp.32101068784931_0,njp.32101068784931,46514,detective,"Pinkerton, Allan,",1819.0,New York;G,1900,1878,,Correspond,,Criminal reminiscences an
+njp.32101068784931_1,njp.32101068784931,50341,detective,"Pinkerton, Allan,",1819.0,New York;G,1900,1878,,Correspond,,Criminal reminiscences an
+mdp.39015035566440_0,mdp.39015035566440,65382,detective,"Green, Anna Katharine,",1846.0,New York;A,1906,1878,,,,The Leavenworth case
+mdp.39015035566440_1,mdp.39015035566440,69113,detective,"Green, Anna Katharine,",1846.0,New York;A,1906,1878,,,,The Leavenworth case
+uc2.ark+=13960=t5bc3wr6q_0,uc2.ark+=13960=t5bc3wr6q,54330,detective,"Pinkerton, Allan,",1819.0,New York;G,1879,1879,,Detectives,,Mississippi outlaws and t
+uc2.ark+=13960=t5bc3wr6q_1,uc2.ark+=13960=t5bc3wr6q,57686,detective,"Pinkerton, Allan,",1819.0,New York;G,1879,1879,,Detectives,,Mississippi outlaws and t
+mdp.39015031447595_0,mdp.39015031447595,30453,detective,"Pinkerton, Allan,",1819.0,New York;D,1880,1880,,Detectives,,Bucholz and the detective
+mdp.39015031447595_1,mdp.39015031447595,31485,detective,"Pinkerton, Allan,",1819.0,New York;D,1880,1880,,Detectives,,Bucholz and the detective
+uva.x030832557_0,uva.x030832557,40095,detective,"Aldrich, Thomas Bailey,",1836.0,Boston;Hou,1897,1880,v.6 1897,,,The stillwater tragedy
+uva.x030832557_1,uva.x030832557,36923,detective,"Aldrich, Thomas Bailey,",1836.0,Boston;Hou,1897,1880,v.6 1897,,,The stillwater tragedy
+uc1.$b813836_0,uc1.$b813836,49052,detective,"Pinkerton, Allan,",1819.0,New York;D,1909,1881,,Detectives,,The rail-road forger and 
+uc1.$b813836_1,uc1.$b813836,48706,detective,"Pinkerton, Allan,",1819.0,New York;D,1909,1881,,Detectives,,The rail-road forger and 
+uc1.b318291_0,uc1.b318291,31035,detective,"Du Boisgobey, Fortuné,",1821.0,London;Viz,1887,1883,,,,The detective's eye ;
+uc1.b318291_1,uc1.b318291,32158,detective,"Du Boisgobey, Fortuné,",1821.0,London;Viz,1887,1883,,,,The detective's eye ;
+uc2.ark+=13960=t5n874v29_0,uc2.ark+=13960=t5n874v29,45473,detective,"Lynch, Lawrence L.",1853.0,Chicago;A.,1886,1885,,,,"Dangerous ground, or, The"
+uc2.ark+=13960=t5n874v29_1,uc2.ark+=13960=t5n874v29,48264,detective,"Lynch, Lawrence L.",1853.0,Chicago;A.,1886,1885,,,,"Dangerous ground, or, The"
+uc2.ark+=13960=t5n874v29_2,uc2.ark+=13960=t5n874v29,45758,detective,"Lynch, Lawrence L.",1853.0,Chicago;A.,1886,1885,,,,"Dangerous ground, or, The"
+njp.32101063580268_0,njp.32101063580268,56727,detective,"Hume, Fergus,",1859.0,London;Jar,1900,1886,,,,The mystery of a hansom c
+njp.32101063580268_1,njp.32101063580268,58506,detective,"Hume, Fergus,",1859.0,London;Jar,1900,1886,,,,The mystery of a hansom c
+njp.32101068784923_0,njp.32101068784923,56304,detective,"Pinkerton, Allan,",1819.0,New York;D,1900,1886,,Correspond,,Professional thieves and 
+njp.32101068784923_1,njp.32101068784923,58590,detective,"Pinkerton, Allan,",1819.0,New York;D,1900,1886,,Correspond,,Professional thieves and 
+njp.32101068784923_2,njp.32101068784923,65880,detective,"Pinkerton, Allan,",1819.0,New York;D,1900,1886,,Correspond,,Professional thieves and 
+uc1.b4107807_0,uc1.b4107807,58026,detective,"Doyle, Arthur Conan,",1859.0,New York;P,1914,1887,(copy 1),,,A study in scarlet
+uc1.b4107807_1,uc1.b4107807,65364,detective,"Doyle, Arthur Conan,",1859.0,New York;P,1914,1887,(copy 1),,,A study in scarlet
+uc2.ark+=13960=t1gh9jr4d_0,uc2.ark+=13960=t1gh9jr4d,40661,detective,"Haggard, H. Rider",1856.0,London;Spe,1888,1888,,,,Mr. Meeson's will
+uc2.ark+=13960=t1gh9jr4d_1,uc2.ark+=13960=t1gh9jr4d,42693,detective,"Haggard, H. Rider",1856.0,London;Spe,1888,1888,,,,Mr. Meeson's will
+uva.x001307832_0,uva.x001307832,46395,detective,"Green, Anna Katharine,",1846.0,New York;G,1906,1888,,,,Behind closed doors
+uva.x001307832_1,uva.x001307832,48153,detective,"Green, Anna Katharine,",1846.0,New York;G,1906,1888,,,,Behind closed doors
+uva.x001307832_2,uva.x001307832,46400,detective,"Green, Anna Katharine,",1846.0,New York;G,1906,1888,,,,Behind closed doors
+uc1.b4105364,uc1.b4105364,50491,detective,"Zangwill, Israel,",1864.0,Chicago;Ra,1895,1892,,,,The big bow mystery
+mdp.39015049217741_0,mdp.39015049217741,60487,detective,"Doyle, Arthur Conan,",1859.0,New York;H,1892,1892,,,,Adventures of Sherlock Ho
+mdp.39015049217741_1,mdp.39015049217741,66654,detective,"Doyle, Arthur Conan,",1859.0,New York;H,1892,1892,,,,Adventures of Sherlock Ho
+uc1.b4105459_0,uc1.b4105459,34570,detective,"Morrison, Arthur,",1863.0,New York;H,1907,1894,,,,"Martin Hewitt, investigat"
+uc1.b4105459_1,uc1.b4105459,35142,detective,"Morrison, Arthur,",1863.0,New York;H,1907,1894,,,,"Martin Hewitt, investigat"
+nyp.33433075765705_0,nyp.33433075765705,35855,detective,"Pemberton, Max,",1863.0,London;War,1894,1894,,Fiction;Je,,Jewel mysteries I have kn
+nyp.33433075765705_1,nyp.33433075765705,40474,detective,"Pemberton, Max,",1863.0,London;War,1894,1894,,Fiction;Je,,Jewel mysteries I have kn
+mdp.39015011950766_0,mdp.39015011950766,30420,detective,"Post, Melville Davisson,",1869.0,New York [,1896,1896,,,,The strange schemes of Ra
+mdp.39015011950766_1,mdp.39015011950766,29956,detective,"Post, Melville Davisson,",1869.0,New York [,1896,1896,,,,The strange schemes of Ra
+nyp.33433074915269_0,nyp.33433074915269,35390,detective,"Morrison, Arthur,",1863.0,London;War,1897,1897,,English fi,,The Dorrington deed-box
+nyp.33433074915269_1,nyp.33433074915269,37755,detective,"Morrison, Arthur,",1863.0,London;War,1897,1897,,English fi,,The Dorrington deed-box
+uc1.b4104310_0,uc1.b4104310,50519,detective,"Green, Anna Katharine,",1846.0,New York;L,1899,1899,,,,Agatha Webb
+uc1.b4104310_1,uc1.b4104310,53943,detective,"Green, Anna Katharine,",1846.0,New York;L,1899,1899,,,,Agatha Webb
+nyp.33433074876388_0,nyp.33433074876388,33066,detective,"Hornung, E. W.",1866.0,New York;C,1899,1899,,English fi,,The amateur cracksman
+nyp.33433074876388_1,nyp.33433074876388,32252,detective,"Hornung, E. W.",1866.0,New York;C,1899,1899,,English fi,,The amateur cracksman
+uc1.$b813839_0,uc1.$b813839,32125,detective,"Pinkerton, Allan,",1819.0,New York;G,1900,1900,,Detectives,,The burglar's fate and th
+uc1.$b813839_1,uc1.$b813839,31017,detective,"Pinkerton, Allan,",1819.0,New York;G,1900,1900,,Detectives,,The burglar's fate and th
+nyp.33433075763080_0,nyp.33433075763080,46969,detective,"Tracy, Louis,",1863.0,New York;R,1904,1904,,,,The Albert Gate mystery
+nyp.33433075763080_1,nyp.33433075763080,46284,detective,"Tracy, Louis,",1863.0,New York;R,1904,1904,,,,The Albert Gate mystery
+nyp.33433081593646,nyp.33433081593646,55885,detective,"Pain, Barry,",1864.0,London;Unw,1905,1905,,,,The memoirs of Constantin
+nyp.33433074941562_0,nyp.33433074941562,34206,detective,"Chambers, Robert W.",1865.0,New York;D,1906,1906,,,,The tracer of lost person
+nyp.33433074941562_1,nyp.33433074941562,33889,detective,"Chambers, Robert W.",1865.0,New York;D,1906,1906,,,,The tracer of lost person
+njp.32101066455278_0,njp.32101066455278,46226,detective,"Bodkin, M. McDonnell",1850.0,London;Unw,1908,1908,,,,The quests of Paul Beck
+njp.32101066455278_1,njp.32101066455278,48647,detective,"Bodkin, M. McDonnell",1850.0,London;Unw,1908,1908,,,,The quests of Paul Beck
+uc2.ark+=13960=t3707xt9q_0,uc2.ark+=13960=t3707xt9q,42699,detective,"Rinehart, Mary Roberts,",1876.0,New York :,1908,1908,,,,The circular staircase
+uc2.ark+=13960=t3707xt9q_1,uc2.ark+=13960=t3707xt9q,42710,detective,"Rinehart, Mary Roberts,",1876.0,New York :,1908,1908,,,,The circular staircase
+uc2.ark+=13960=t4qj79t1j_0,uc2.ark+=13960=t4qj79t1j,42243,detective,"Orczy, Emmuska Orczy,",1865.0,New York;D,1909,1909,,,,The man in the corner
+uc2.ark+=13960=t4qj79t1j_1,uc2.ark+=13960=t4qj79t1j,40919,detective,"Orczy, Emmuska Orczy,",1865.0,New York;D,1909,1909,,,,The man in the corner
+mdp.39015011950758_0,mdp.39015011950758,43897,detective,"Post, Melville Davisson,",1869.0,New York;L,1923,1909,,,,"Randolph Mason, corrector"
+mdp.39015011950758_1,mdp.39015011950758,45144,detective,"Post, Melville Davisson,",1869.0,New York;L,1923,1909,,,,"Randolph Mason, corrector"
+uc2.ark+=13960=t83j39v3z_0,uc2.ark+=13960=t83j39v3z,40635,detective,"Rinehart, Mary Roberts,",1876.0,New York;G,1909,1909,,,,The man in lower ten
+uc2.ark+=13960=t83j39v3z_1,uc2.ark+=13960=t83j39v3z,40953,detective,"Rinehart, Mary Roberts,",1876.0,New York;G,1909,1909,,,,The man in lower ten
+mdp.39015006963881_0,mdp.39015006963881,45449,detective,"Mason, A. E. W.",1865.0,New York;G,1910,1910,,,,At the Villa Rose
+mdp.39015006963881_1,mdp.39015006963881,46441,detective,"Mason, A. E. W.",1865.0,New York;G,1910,1910,,,,At the Villa Rose
+njp.32101068574530_0,njp.32101068574530,49217,detective,"Orczy, Emmuska Orczy,",1865.0,London;New,1910,1910,,,,Lady Molly of Scotland Ya
+njp.32101068574530_1,njp.32101068574530,52043,detective,"Orczy, Emmuska Orczy,",1865.0,London;New,1910,1910,,,,Lady Molly of Scotland Ya
+uva.x001752097_0,uva.x001752097,45946,detective,"Leroux, Gaston,",1868.0,New York;G,1910,1910,,,,The mystery of the yellow
+uva.x001752097_1,uva.x001752097,45237,detective,"Leroux, Gaston,",1868.0,New York;G,1910,1910,,,,The mystery of the yellow
+nyp.33433076073786_0,nyp.33433076073786,39439,detective,"Wells, Carolyn,",1862.0,Philadelph,1911,1911,,,,The gold bag
+nyp.33433076073786_1,nyp.33433076073786,41953,detective,"Wells, Carolyn,",1862.0,Philadelph,1911,1911,,,,The gold bag
+uc2.ark+=13960=t5j961w9x_0,uc2.ark+=13960=t5j961w9x,61414,detective,"Reeve, Arthur B.",1880.0,New York;H,1911,1911,,,,The poisoned pen
+uc2.ark+=13960=t5j961w9x_1,uc2.ark+=13960=t5j961w9x,60604,detective,"Reeve, Arthur B.",1880.0,New York;H,1911,1911,,,,The poisoned pen
+uc1.32106001930137_0,uc1.32106001930137,47445,detective,"Chesterton, G. K.",1874.0,New York;J,1911,1911,,Clergy;Cat,,The innocence of Father B
+uc1.32106001930137_1,uc1.32106001930137,49635,detective,"Chesterton, G. K.",1874.0,New York;J,1911,1911,,Clergy;Cat,,The innocence of Father B
+uc2.ark+=13960=t6zw19x28_0,uc2.ark+=13960=t6zw19x28,43568,detective,"Pidgin, Charles Felton,",1844.0,Boston;L. ,1912,1912,,,,The chronicles of Quincy 
+uc2.ark+=13960=t6zw19x28_1,uc2.ark+=13960=t6zw19x28,44344,detective,"Pidgin, Charles Felton,",1844.0,Boston;L. ,1912,1912,,,,The chronicles of Quincy 
+mdp.39015074379739_0,mdp.39015074379739,31511,detective,"Baum, L. Frank",1856.0,Chicago;Re,1912,1912,,Mystery an,,Aunt Jane's nieces on vac
+mdp.39015074379739_1,mdp.39015074379739,29031,detective,"Baum, L. Frank",1856.0,Chicago;Re,1912,1912,,Mystery an,,Aunt Jane's nieces on vac
+nyp.33433076053762,nyp.33433076053762,45174,detective,"Rinehart, Mary Roberts,",1876.0,Indianapol,1913,1913,,,,The case of Jennie Brice
+uc2.ark+=13960=t3222sk2s_0,uc2.ark+=13960=t3222sk2s,59102,detective,"Green, Anna Katharine,",1846.0,New York;A,1913,1913,,,,"Room number 3, and other "
+uc2.ark+=13960=t3222sk2s_1,uc2.ark+=13960=t3222sk2s,61061,detective,"Green, Anna Katharine,",1846.0,New York;A,1913,1913,,,,"Room number 3, and other "
+uc2.ark+=13960=t8z89353s_0,uc2.ark+=13960=t8z89353s,41933,detective,"Reeve, Arthur B.",1880.0,New York;H,1913,1913,,,,"Constance Dunlap, woman d"
+uc2.ark+=13960=t8z89353s_1,uc2.ark+=13960=t8z89353s,41943,detective,"Reeve, Arthur B.",1880.0,New York;H,1913,1913,,,,"Constance Dunlap, woman d"
+nyp.33433076047871_0,nyp.33433076047871,55980,detective,"Reeve, Arthur B.",1880.0,New York;V,1914,1914,,American f,,The dream doctor
+nyp.33433076047871_1,nyp.33433076047871,57056,detective,"Reeve, Arthur B.",1880.0,New York;V,1914,1914,,American f,,The dream doctor

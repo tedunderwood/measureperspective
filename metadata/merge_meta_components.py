@@ -40,7 +40,7 @@ for p in parsing_paths:
 
 # Load all the dataframes holding metadata.
 
-component_paths = ['random.csv', 'loc_oclc.csv', 'supernatural.csv']
+component_paths = ['random.csv', 'loc_oclc.csv', 'supernatural.csv', 'oslerbailey.csv', 'thedetectives.csv']
 components = []
 
 for p in component_paths:
@@ -70,7 +70,9 @@ for c in components:
 
 rows = []
 
-existing_columns = components[1].columns.values
+existing_columns = list(components[1].columns.values)
+existing_columns.pop(existing_columns.index('place'))
+# we just don't need it
 
 # I use loc_oclc.csv for that because I like the order of the columns there.
 
@@ -101,7 +103,7 @@ newmetafile = pd.DataFrame(rows)
 columns = ['docid', 'htid', 'tokens', 'tags', 'author', 'authordate', 'imprint', 'inferreddate', 'firstpub', 'enumcron', 'subjects', 'genres', 'title']
 newmetafile = newmetafile.loc[ : , columns]
 
-newmetafile.to_csv('mastermetadata.csv', index = False)
+newmetafile.to_csv('newmastermetadata.csv', index = False)
 
 
 

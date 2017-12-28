@@ -9,7 +9,7 @@ from collections import Counter
 
 # thresholds = [1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010]
 
-thresholds = [1898, 1920, 1950, 1970, 1980, 1990, 2000, 2010]
+thresholds = [1850, 1898, 1920, 1950, 1970, 1980, 1990, 2000, 2010]
 
 def get_threshold(date):
     global thresholds
@@ -36,9 +36,9 @@ for idx, row in md.iterrows():
     thresh = get_threshold(date)
     genres = splittags(row['tags'])
 
-    if 'fantasy_loc' in genres or 'fantasy_oclc' in genres:
+    if 'fantasy_loc' in genres or 'fantasy_oclc' in genres and not 'juv' in genres:
         fantasy[thresh] += 1
-    if 'sf_loc' in genres or 'sf_oclc' in genres:
+    if 'sf_loc' in genres or 'sf_oclc' in genres and not 'juv' in genres:
         scifi[thresh] += 1
     if 'random' in genres:
         random[thresh] += 1
