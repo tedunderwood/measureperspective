@@ -261,8 +261,10 @@ def select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4pos
     # You can choose one of two ways to handle the overlap
     # class. Exclude it, or assign it randomly to both.
 
-    if overlap == 'random':
+    if overlap_strategy == 'random':
         random.shuffle(overlap)
+        print('Length of overlap: ' + str(len(overlap)))
+        print('Overlap is randomly distributed between classes!')
         split = len(overlap) // 2
         allpositives.extend(overlap[0: split])
         allnegatives.extend(overlap[split: ])
@@ -279,7 +281,7 @@ def select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4pos
     # to be evenly distributed.
 
     if force_even_distribution:
-        positives, negatives = force_even(allpositives, allnegatives, pd.DataFrame(metadata), sizecap, k = 6)
+        positives, negatives = force_even(allpositives, allnegatives, pd.DataFrame(metadata), sizecap, k = 7)
         # where k is the number of slices to make
         # notice that we make a clean copy of the metadata
 

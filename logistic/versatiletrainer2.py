@@ -597,7 +597,7 @@ def get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4n
     # sets of genre tags for each row. It has also been filtered so it only contains volumes
     # in the folder, and none whose date is below excludebelow or above excludeabove.
 
-    orderedIDs, classdictionary = metaselector.select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4positive, forbid4negative, negative_strategy = negative_strategy, overlap_strategy = overlap_strategy, force_even_distribution = 'False')
+    orderedIDs, classdictionary = metaselector.select_instances(metadata, sizecap, tags4positive, tags4negative, forbid4positive, forbid4negative, negative_strategy = negative_strategy, overlap_strategy = overlap_strategy, force_even_distribution = force_even_distribution)
 
     metadata = metadata.loc[orderedIDs]
     # Limits the metadata data frame to rows we are actually using
