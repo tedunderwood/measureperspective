@@ -23,7 +23,7 @@ uc2.ark+=13960=t5s758j22,7690025,7510374.0,PZ3.L998H,"Lytton, Edward Bulwer Lytt
 uc2.ark+=13960=t3cz33528,7656342,621785.0,,"Cooper, James Fenimore,",,New York;and London;G. P. Putnam's sons;1896.,1896,1849,xx ,v.20,,,The works of James Fenimore Cooper,random
 njp.32101068581915,8972775,37129550.0,,"Cooper, James Fenimore,",,"London;R. Bentley;etc., etc.] 1852.",1852,1852,enk,,,,"Homeward bound; or, The chase",random
 uiuo.ark+=13960=t8w95tm1j,8722564,13349077.0,,"Tayleure, Floyd.",,London;Newby;1852.,1852,1852,enk,v.1,,,Professions,random
-nyp.33433082300629,8689162,20777596.0,,"Lermont, L.",,New Orleans;Burnett & Bostwick;1854.,1854,1854,lau,,Children's literature,,Aunt Patty's mirror;,random
+nyp.33433082300629,8689162,20777596.0,,"Lermont, L.",,New Orleans;Burnett & Bostwick;1854.,1854,1854,lau,,Children's literature,,Aunt Patty's mirror;,random|juv
 uiuo.ark+=13960=t6rx9xb52,8722282,20687495.0,PR5249.R4P54,"Rowcroft, Albert E.",,London;Tinsley Brothers;1875.,1857,1857,enk,v.2,,,Philip Darrell,random
 uc2.ark+=13960=t5gb1zf4p,9262023,8535819.0,,"Kingston, William Henry Giles,",,London;T. Nelson and sons;1859.,1859,1859,enk,,Oceania;Juvenile fiction;Whaling,,Old Jack,random
 uc2.ark+=13960=t8sb40745,7431978,10113065.0,,"Lytton, Edward Bulwer Lytton,",,Edinburgh;London;W. Blackwood and Sons;1859-1874.,1859,1859,stk,v.11,,,Novels of Sir Edward Bulwer Lytton,random
@@ -94,7 +94,7 @@ nyp.33433074938766,8670344,37299164.0,,"Bullock, Shan F.,",,"London;J. Bowden [e
 nyp.33433074828249,8657711,1617213.0,PZ3.B292At,"Baskett, James Newton,",,"New York, London;The Macmillan company;1898.",1898,1898,xx ,,,,"""At you-all's house"";",random
 miun.abj8105.0001.001,320900,2583157.0,,"King, Charles,",,London;New York [etc.;F. T. Neely;c1899,1899,1899,enk,,,,Found in the Philippines;,random
 nyp.33433074851910,778759,620587.0,,"Cable, George Washington,",,New York;C. Scribner's sons;1899.,1899,1899,nyu,,,,Strong hearts,random
-nyp.33433082357611,589479,6415829.0,,"Otis, James,",,New York;T. Y. Crowell & co.;1900,1900,1900,nyu,,Children's literature,,Aunt Hannah and Seth,random
+nyp.33433082357611,589479,6415829.0,,"Otis, James,",,New York;T. Y. Crowell & co.;1900,1900,1900,nyu,,Children's literature,,Aunt Hannah and Seth,random|juv
 inu.32000000656480,11813758,23225310.0,,"Sims, George R.,",,London;Chatto & Windus;1900.,1900,1900,enk,,,,Without the limelight;,random
 uc1.b4669500,11158300,,,"Becke, Louis,",,New York City;New Amsterdam Book Co.;1901.,1901,1901,   ,,,,By rock and pool on an Austral shore,random
 nyp.33433076091259,8657686,26291301.0,,"Fraser, Hugh,",,Philadelphia;Lippincott;1901.,1901,1901,pau,,,,A little grey sheep,random
@@ -122,7 +122,7 @@ uc2.ark+=13960=t1kh0f79c,7659539,3130483.0,PZ3.O12L,"Hall, Eliza Calvert.",,"Bos
 mdp.39015011029546,1239438,498631.0,DR432.B7,"Vaka, Demetra,",,Boston and New York;Houghton Mifflin company;1909.,1909,1909,xx ,,,,Haremlik; some pages from the life of Turkish women,random
 uc1.31822038207411,10824450,4110323.0,,"Webster, Frank V",,New York;Cupples & Leon Co.;c1909,1909,1909,nyu,,,,"Two boy gold miners, or, Lost in the mountains",random
 mdp.39015058659890,1328690,67306057.0,,"Dutt, Romesh Chunder,",,London;T. Fisher Unwin;1909.,1909,1909,enk,,,,The slave girl of Agra;,random
-nyp.33433082349402,8660712,37018805.0,,"Otis, James,",,Boston;L.C. Page & Co.;1910,1910,1910,mau,,"Children's stories, American",,"The wreck of the ""Ocean Queen""",random
+nyp.33433082349402,8660712,37018805.0,,"Otis, James,",,Boston;L.C. Page & Co.;1910,1910,1910,mau,,"Children's stories, American",,"The wreck of the ""Ocean Queen""",random|juv
 njp.32101069166427,8978449,4348434.0,PS1764.G29L6 1911,"Greene, Sarah Pratt McLean,",,New York;The Baker & Taylor Company;1911.,1911,1911,nyu,,,,The long green road,random
 nyp.33433074807763,8659516,15986041.0,,"Fenn, Robert.",,"New York;Dodd, Mead and Company;1911.",1911,1911,nyu,,,,The hidden empire,random
 nyp.33433074840467,8659172,26250619.0,,"Dale, Mary.",,New York;The Bookery Publishing Co.;c1912.,1912,1912,nyu,,American fiction,,Bottled sunshine,random
@@ -158,7 +158,7 @@ nyp.33433076026040,8690470,19842308.0,PS3537.M459T45 1922,"Smith, Gordon Arthur,
 nyp.33433076075534,8659597,10580423.0,PZ3.M135On,"MacConnell, Sarah Warder.",,New York;The Macmillan Company;1922.,1922,1922,nyu,,,,One,random
 njp.32101031813718,8888023,8185923.0,,,,Princeton N.J.|1923.,1923,1923,nju,,,NotFiction,The second book of the Tuesday evening club.,random
 uc1.b3346936,7926232,4732599.0,PZ3.N79Br10,"Norris, Charles Gilman,",1881-1945.,New York|E.P. Dutton & Company|1923,1923,1923,nyu,,,Photoplay editions|Fiction,Brass : | a novel of marriage / | $c: by Charles G. Norris ...,random
-mdp.39076002630676,9930217,2777532.0,,"Garis, Lilian,",1873-1954.,New York|Grosset & Dunlap|c1924.,1924,1924,nyu,,Juvenile fiction|Love stories|Young women|Orphans,Fiction,"Joan : | just girl / | $c: by Lilian Garis, illustrated by Thelma Gooch.",random
+mdp.39076002630676,9930217,2777532.0,,"Garis, Lilian,",1873-1954.,New York|Grosset & Dunlap|c1924.,1924,1924,nyu,,Juvenile fiction|Love stories|Young women|Orphans,Fiction,"Joan : | just girl / | $c: by Lilian Garis, illustrated by Thelma Gooch.",random|juv
 mdp.39015028694761,1910504,1188565.0,,"O'Flaherty, Liam,",1896-1984.,New York|A.A. Knopf|1926.,1926,1926,nyu,,,UnknownGenre,"Spring sowing, | $c: by Liam O'Flaherty.",random
 uc1.$b703632,9970777,808371836.0,PZ3.M7942Eu,"Morand, Paul,",1888-1976.,London|A. A. Knopf|1926.,1926,1926,enk,,,NotFiction,"Europe at love,",random
 uc1.32106015585968,1110439,1558209.0,,"(Aleksandra), Kollontaĭ, A.",1872-1952.,New York|Seven Arts Publishing Company|1927.,1927,1927,   ,,,NotFiction,"Red love, | $c: by Alexandra Kollontay.",random
@@ -229,7 +229,7 @@ uc1.$b312841,6541741,1492167.0,PZ4.W742Wh,"Willson, Meredith,",1902-1984.,"Garde
 uc1.$b87098,6593315,3360156.0,PZ3.C3845Me,"Charques, Dorothy.",,London|Murray|1952,1952,1952,enk,,,NotFiction,Men like shadows.,random
 mdp.39015004269125,1215006,1896945.0,PZ3.Q313Is,"Queffélec, Henri,",1910-,New York|Dutton|1952.,1952,1952,nyu,,,Fiction,Island priest; | $c: translated from the French by James Whitall.,random
 uc1.$b103191,276675,1739135.0,PZ4.M759Se,"Montague, Kate Bigelow.",,New York|J. Day Co.|1952,1952,1952,nyu,,,Fiction,Send the wise wind.,random
-mdp.39076002199037,9926193,8039419.0,,"Sutcliff, Rosemary.",,London|Oxford University Press|1952.,1952,1952,enk,,Juvenile fiction|16th century|Social life and customs,Fiction,Brother Dusty-Feet / | $c: Rosemary Sutcliff ; illustrated by C. Walter Hodges.,random
+mdp.39076002199037,9926193,8039419.0,,"Sutcliff, Rosemary.",,London|Oxford University Press|1952.,1952,1952,enk,,Juvenile fiction|16th century|Social life and customs,Fiction,Brother Dusty-Feet / | $c: Rosemary Sutcliff ; illustrated by C. Walter Hodges.,random|juv
 uc1.$b322746,115135,28773214.0,PZ3.B17028So,"Baker, George Edward,",1902-,London|J. Barrie|1952.,1952,1952,enk,,,Fiction,Son of Hylas.,random
 uc1.b4097965,6153064,1581689.0,PZ4.B784Bam,"Bowen, Robert O.,",1920-,New York|Knopf|1953.,1953,1953,xx ,,,NotFiction,Bamboo.,random
 osu.32435064823644,2858933,38052967.0,,"Gotshall, Jack.",,"New York, N.Y.|Fawcett Publications|1953.",1953,1953,nyu,,,Fiction|Domestic fiction,Pappy and the promised land / | $c: by Jack Gotshall.,random
@@ -240,7 +240,7 @@ uc1.$b114431,6608333,350715.0,PZ5.S42Bat,"Scoggin, Margaret Clara,",1905-,New Yo
 mdp.39015013281632,1187430,734102.0,PZ3.T6715Cp,"Tracy, Don,",1905-1976.,New York|Dial Press|1953.,1953,1953,nyu,,War of 1812|History | Fiction,NotFiction,Crimson is the Eastern Shore.,random
 mdp.39015065331327,1061450,2177131.0,PZ3.Z143Fl,"Zakrutkin, Vitaliĭ.",,Moscow|Foreign Languages Pub. House|1954.,1954,1954,rur,,,Fiction,Floating stanitsa. | $c: [Translated from the Russian by Bernard Isaacs],random
 uc1.$b100790,6600963,778410.0,,"Harwood, Alice.",,Indianapolis|Bobbs-Merrill|1954,1954,1954,xx ,v. 1,,NotFiction,"The strangeling, | a Victorian novel.",random
-mdp.39076002244338,9926628,1498739.0,,"Simont, Marc.",,New York|Harper & Brothers|c1954.,1954,1954,nyu,,Juvenile fiction|Singers|Sopranos (Singers)|Mice,Fiction,Mimi / | $c: story and pictures by Marc Simont.,random
+mdp.39076002244338,9926628,1498739.0,,"Simont, Marc.",,New York|Harper & Brothers|c1954.,1954,1954,nyu,,Juvenile fiction|Singers|Sopranos (Singers)|Mice,Fiction,Mimi / | $c: story and pictures by Marc Simont.,random|juv
 inu.32000009177983,6059639,12064157.0,,"English, Isobel.",,London|A. Deutsch|1954,1954,1954,enk,,,NotFiction,The key that rusts.,random
 uc1.$b400794,1015710,186478.0,PZ1.S639Mo,"Slonim, Marc,",1894-1976.,New York|Simon and Schuster|1954.,1954,1954,nyu,,"Short stories, English|Translations into English|Translations from Italian|Short stories, Italian",Fiction,Modern Italian short stories.,random
 mdp.39015058806400,4924624,1580718.0,PZ4.L95Cr,"Lugt, Arie van der.",,New York|Random House|c1954.,1954,1954,nyu,,Fiction|Physicians|Netherlands,Fiction,The crazy doctor / | $c: Arie van der Lugt ; translated from the Dutch by Alfred van Ameyden van Duym.,random
