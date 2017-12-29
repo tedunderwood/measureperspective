@@ -1,7 +1,7 @@
 A Measured Perspective
 =========================
 
-Can we measure the differentiation of fictional genres? We'll ask, in particular, whether fantasy and science fiction become more clearly distinct from mainstream fiction (and from each other) as we move down a timeline from the nineteenth century to the early twenty-first.
+Can we measure the differentiation of fictional genres? We'll ask, in particular, whether fantasy and science fiction become more clearly distinct from mainstream fiction (and from each other) as we move down a timeline from the nineteenth century to the early twenty-first. (I owe the impulse to compare F and SF to a suggestion from Alan Liu.)
 
 Part of a larger project about the measurement of "perspective" in literary history.
 
