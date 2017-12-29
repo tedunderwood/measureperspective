@@ -5,9 +5,9 @@ Can we measure the differentiation of fictional genres? We'll ask, in particular
 
 Part of a larger project about the measurement of "perspective" in literary history.
 
-Early stage. Most data has been gathered, but more needs to be gathered and cleaned. No substantive experiments have been run yet.
+A [plan of research was pre-registered, Dec 24, 2017.](https://osf.io/5b72w/register/5771ca429ad5a1020de2872e)
 
-A [plan of research has been pre-registered.](https://osf.io/5b72w/register/5771ca429ad5a1020de2872e)
+Most data has been gathered and cleaned. The first substantive experiments have been run, with initial observations recorded in **labnotebook.md.** More experiments needed to assess uncertainty.
 
 getdata
 -------
