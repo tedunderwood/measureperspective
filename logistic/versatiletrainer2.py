@@ -507,8 +507,7 @@ def get_dataframe(volspresent, classdictionary, vocablist, freqs_already_normali
     '''
     Given a vocabulary list, and list of volumes, this actually creates the
     pandas dataframe with volumes as rows and words (or other features) as
-    columns. It also enriches the metadata dictionary with information about
-    total wordcount for each volume.
+    columns.
     '''
 
     voldata = list()
