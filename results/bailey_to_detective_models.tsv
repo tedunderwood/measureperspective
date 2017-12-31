@@ -1,0 +1,4 @@
+name	size	floor	ceiling	meandate	accuracy	features	regularization	i
+detective0	74	1800	1920	1889	0.932432432432	2400	100	0
+detective1	74	1800	1920	1885	0.925675675676	1800	0.01	1
+detective2	74	1800	1920	1889	0.966216216216	3000	10	2

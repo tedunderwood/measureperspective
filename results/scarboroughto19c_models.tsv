@@ -1,0 +1,4 @@
+name	size	floor	ceiling	meandate	accuracy	features	regularization	i
+19c_fantasy_0	74	1800	1922	1892	0.824324324324	1800	0.1	0
+19c_fantasy_1	74	1800	1922	1898	0.783783783784	6300	0.0001	1
+19c_fantasy_2	74	1800	1922	1897	0.844594594595	2100	1	2
