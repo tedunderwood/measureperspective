@@ -38,3 +38,8 @@ However, I also excluded from this set, not only volumes already in **merged_sff
 This last criterion is a little tricky. It's a place where my personal judgment gets involved. But it only affected about 4-5 volumes out of ~400. 
 
 Different kinds of contrast sets are imaginable; one could allow the contrast set to overlap with the genre sets, for instance. I didn't do that because I felt that overlap would register increases in the sheer size of fantasy & science fiction (they're more likely to be sampled randomly) rather than real *similarity* between that genre and the random set.
+
+simple_author_dedup
+-------------------
+
+Nothing is really ever simple, but this is my effort to identify authors that have variant names. It produces an **author_translation_table** that can be used to standardize names; the ultimate goal is to make sure that we are appropriately holding out instances by author when we crossvalidate.
