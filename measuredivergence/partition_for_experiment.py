@@ -39,11 +39,21 @@ fantasy = fantasy[fantasy.firstpub < 1930]
 
 for idx, row in mainstream.iterrows():
     if type(row['author']) != str:
-        mainstream.loc[idx, 'author'] = random.choice(['a anonymous', 'b anonymous', 'y anonymous' 'z anonymous'])[0]
+        mainstream.loc[idx, 'author'] = random.choice(['A anonymous', 'B anonymous', 'C anonymous', 'X anonymous', 'Y anonymous', 'Z anonymous'])
 
 mainstream.sort_values(by = 'author', inplace = True)
 detective.sort_values(by = 'author', inplace = True)
 fantasy.sort_values(by = 'author', inplace = True)
+
+for idx in mainstream.index:
+    mainstream.loc[idx, 'tags'] = 'random'
+
+for idx in fantasy.index:
+    fantasy.loc[idx, 'tags'] = 'fantasy'
+
+mainstream = mainstream.drop('tagset', 1)
+detective = detective.drop('tagset', 1)
+fantasy = fantasy.drop('tagset', 1)
 
 print(mainstream.shape)
 print(detective.shape)
