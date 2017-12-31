@@ -22,6 +22,13 @@ import glob, csv
 # Each docid is paired to a token count, which is
 # found in one of several parsing_metadata files.
 
+translationtable = dict()
+
+with open('../mungedata/author_translation_table.tsv', encoding = 'utf-8') as f:
+    reader = csv.DictReader(f, delimiter = '\t')
+    for row in reader:
+        translationtable[row['name']] = row['bettername']
+
 htid2docs = dict()
 doc2tokens = dict()
 
@@ -40,7 +47,7 @@ for p in parsing_paths:
 
 # Load all the dataframes holding metadata.
 
-component_paths = ['random.csv', 'loc_oclc.csv', 'supernatural.csv', 'oslerbailey.csv', 'thedetectives.csv']
+component_paths = ['random.csv', 'loc_oclc.csv', 'supernatural.csv', 'oslerbailey.csv', 'thedetectives.csv', 'randomB.csv']
 components = []
 
 for p in component_paths:
@@ -94,7 +101,20 @@ for c in components:
                 newrow['htid'] = htid
                 newrow['tokens'] = doc2tokens[docid]
                 for col in existing_columns:
-                    newrow[col] = row[col]
+                    if col == 'author':
+                        # our goal here is to standardize author names,
+                        # using translation table if needed,
+                        # or just stripping punctuation otherwise
+
+                        if row[col] in translationtable:
+                            newrow[col] = translationtable[row[col]]
+                        else:
+                            if type(row[col]) == str:
+                                newrow[col] = row[col].strip(',. ')
+                            else:
+                                newrow[col] = row[col]
+                    else:
+                        newrow[col] = row[col]
                 newrow['tags'] = '|'.join(htid2tagset[htid])
                 rows.append(newrow)
 

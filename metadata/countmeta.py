@@ -29,6 +29,7 @@ def splittags(tags):
 fantasy = Counter()
 scifi = Counter()
 random = Counter()
+both = Counter()
 
 
 for idx, row in md.iterrows():
@@ -36,19 +37,28 @@ for idx, row in md.iterrows():
     thresh = get_threshold(date)
     genres = splittags(row['tags'])
 
+    gcount = 0
+
     if 'fantasy_loc' in genres or 'fantasy_oclc' in genres and not 'juv' in genres:
         fantasy[thresh] += 1
+        gcount += 1
     if 'sf_loc' in genres or 'sf_oclc' in genres and not 'juv' in genres:
         scifi[thresh] += 1
-    if 'random' in genres:
+        gcount += 1
+    if 'random' in genres and not 'juv' in genres:
         random[thresh] += 1
+
+    if gcount == 2 and not 'juv' in genres:
+        both[thresh] += 1
 
 
 for t in thresholds:
     print(t)
     print('Fantasy: ' + str(fantasy[t]))
     print('SF: ' + str(scifi[t]))
+    print('of which both: ' + str(both[t]))
     print('Random: ' + str(random[t]))
+
     print()
 
 
