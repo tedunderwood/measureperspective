@@ -15,8 +15,27 @@ Note that iterations 5 and 6 each contain 20 models, but iteration 7 only one. T
 
 This produced clearer results, but also meant that I had fewer data points, so I decided to create a third undiluted model, to allow multiple touchstones, and (especially) multiple comparisons among the undiluted models.
 
-The models themselves are trained by **../logistic/methodological_experiment.vary_sf_ratio_against_random()** Comparisons among the models are made by **../logistic/methodological_experiment.measure_sf_divergences()**, and stored in sfrandom_divergences.tsv.
+The models themselves are trained by **../logistic/methodological_experiment.vary_sf_ratio_against_random()** Comparisons among the models are made by **../logistic/methodological_experiment.measure_sf_divergences()**, and stored in sf_divergences.tsv.
 
-**In iterations 8-10,** I followed the same procedure, but trained models of *fantasy* against a negative class consituted by science fiction. These models are considerably less accurate, topping out at 77.5%. Models are trained by are trained by **../logistic/methodological_experiment.vary_fantasy_ratio_against_sf()**. The divergences between models are measured by are trained by **../logistic/methodological_experiment.measure_fantasy_divergence_from_sf()**, and stored in fsf_divergences.tsv.
+**In iterations 8-10,** I followed the same procedure, but trained models of *fantasy* against a negative class consituted by science fiction. These models are considerably less accurate, topping out at 77.5%. Models are trained by are trained by **../logistic/methodological_experiment.vary_fantasy_ratio_against_sf()**. The divergences between models are measured by are trained by **../logistic/methodological_experiment.measure_fsf_divergences()**, and stored in fsf_divergences.tsv.
 
+**In iterations 11-13,** I trained models of fantasy against a negative class of random fiction. I used functions vary_fantasy_ratio_against_random() and measure_fantasy_divergences(), and the results are stored in fantasy_divergences.tsv.
 
+December 31 - new experiment
+----------------------------
+
+So, I just have not been confident that the artificial data in my previous experiment gave me a good yardstick. Genres are not actually created by mixing in random volumes. We are comparing to a *different* standard, not strictly a *weaker* version of the same one. Worse, the possibility of sharing some of the exact same volumes gave me a misleading baseline; there were situations where model A could do a better job of predicting model B than model B did, because model B was crossvalidated against itself, and model A wasn't.
+
+All problematic! So, new plan. I know detective fiction is pretty remote from both fantasy and science fiction. Let's use that distance as a calibration
+
+I'll start by dividing both fantasy and random volumes 1800-1920 into two partitions, A and B. Gold standard models will be trained within A. Comparison models will come from B. No shared volumes between the two.
+
+Then we'll gradually mutate the B fantasy volumes by mixing them with detective fiction, on a word by word basis. In each case we'll take a random fantasy volume and a random detective volume, and replace X% of the fantasy features with detective features. In words shared between vols, we'll just replace the count for X% of words; in words unique, we'll replace X% of unique fantasy words with X% of unique detective words (and counts)
+
+For X% in 0, 5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95, 100.
+
+On either end, there is a gold standard constructed with entirely different volumes (detective or fantasy) contrasted against a non-overlapping random set (partition A). It's important to compare this against partition B: 0 / 100, which are different models of detective or fantasy, still generically pure, but different non-overlapping volumes than our genre baseline. The difference between those models is what should count as zero generic distance: not a self-comparison to an overlapping random set.
+
+We'll calculate the distance from gold standards *in both directions*; i.e, from fantasy and from detective fiction. Part of the problem I'm dealing with is that "distances" are not symmetric, and I hope this will clarify how much of an issue that is.
+
+Then we train a model to estimate "distances" between genres in terms of the distance between fantasy and detective fiction.
