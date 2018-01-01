@@ -1,23 +1,37 @@
 measuring the divergence between models
 =====================================
 
-The goal here is to come up with a metric of similarity between models *trained on different data.* I plan to develop a metric by assuming that a good metric should correlate with the percentage of data in training set A also found in training set B. Ultimately I want to use this metric to assess distances between training sets that have *no* instances in common, and that are in fact modeling different boundaries. But my working premise is that a good metric would show a smaller distance between training sets that overlap than those that don't, while remaining as unaffected as possible by extraneous differences (the size of the training set, regularization constants, mean accuracy of the two models, etc).
+The goal here is to come up with a metric of similarity between models *trained on different data.* I plan to develop a metric by assuming that a good metric should correlate with the percentage of data in training set A also found in training set B. Ultimately I want to use this metric to assess distances between training sets that have *no* instances in common, and that are in fact modeling different genre boundaries.
 
-**Here's the approach I adopted:**
+history of experiments
+----------------------
 
-We don't start out knowing, in principle, which genres are more or less similar to each other, so it's hard to calibrate the space of similarity between models.
+I had a hard time figuring out how to design this experiment; a history of different attempts is recorded in labnotebook.md.
 
-We do know, however, that a model asked to discriminate between two random samples of the same set will produce very little useful information. So we might reasonably use that to mark "zero" on our thermometer. Whatever boundary (A vs. B) we want to model, a model of an entirely random boundary should count as "not at all meaningfully similar to it."
+All of the experiments did produce a fairly strong correlation between 
 
-Then we could calibrate the space between A vs. B and sheer randomness by gradually mixing B into A. For instance, we could start diluting A by replacing 5% of the A examples with examples of B. This will weaken our model; the A/B boundary will be less accurately traced. Then we replace 10% of the examples of A. Then 15%, and so on. By the time we're done, we have twenty models defining the space between A/B and a random boundary.
+* the known distance between datasets A and B, and 
+* the accuracy lost when models of A are applied to B (and vice-versa). 
 
-We can compare each of those models to a "gold standard" where the positive class (A) is entirely undiluted. We'll try different measures of divergence, and see which correlate most closely with known difference between the training sets:
+We would expect those things to correlate strongly, and they always do. But I wanted to know exactly how strongly, and I wanted to know whether I could expect the linear relationship to be roughly the same for different genres.
+
+It was difficult to figure out how to design a comparison that would be genuinely analogous to the kind of difference I expect when I'm comparing genres. At first I thought I could "dilute" a model by mixing negative examples into the positive class. For instance, a model of detective fiction vs. random contrast set, and then one where 5% of positive (detective) examples are replaced by other random examples, and then one where 10% are replaced, etc.
+
+This was relatively easy to run, but not a very realistic picture of the degrees of difference we actually encounter between genres. Genre B is rarely just a less-consistent version of genre A, closer to the negative (contrast) set.
+
+So I built a more complicated experiment, where two different genres are being compared to a random contrast set. At each intermediate point between the genres, we create a new dataset, by creating new files where 5%, 10%, and so on of the *features* in genre A are mixed with 95%, 90%, and so on of the *features* in genre B. (We do replacement at the type level rather than with individual tokens, but I think this is acceptable, since different types are replaced for each data file.)
+
+This experiment is contained in **logistic/methodological_experiment.new_experiment()** and **.new_divergences()**. Data prep is done especially by **mix_data.py,** in this folder.
+
+In my original experiment I had measured divergence in four ways:
 
 * absolute difference in accuracy of the original model and the applied model
 * Pearson's correlation between P(genre|text) produced by the two models
 * Spearman correlation between P(genre|text) produced by the two models
 * KL divergence between P(genre|text) produced by the two models
 
-Correlations may need to pass through [the Fisher z-transformation.](https://en.wikipedia.org/wiki/Fisher_transformation) After that transformation, I'm hoping I can find a strong correlation between the absolute distance between two training sets (measured as percent mainstream) and the z-transformed correlation between the P(genre|text)s they produce. I'm also hoping this is commutative; i.e., one model's predictions about the other model's training set should be off by roughly as much as vice-versa.
+Correlations passed through [the Fisher z-transformation.](https://en.wikipedia.org/wiki/Fisher_transformation) to render them linear.
 
-Finally, I'm hoping that the correlation is not hugely distorted by differences in sample size. But I bet it is distorted! Probably we're going to learn that these comparisons only make sense if all models have roughly the same amount of data to work with. Probably we will also learn that the metric does not obey triangle inequality and is a "divergence" rather than a distance.
+But I rapidly found that KL divergence was never a very good measure, and that Pearson and Spearman correlation were so close that we really only needed one or the other. So my final version of the experiment compares Spearman to lost-accuracy.
+
+Analysis in **spacebetweengenres.ipynb** has convinced me that lost-accuracy is the most robust measure. To be clear, it's not 100% linear, and not 100% symmetric; I don't think it's really a distance metric. But it seems to be a robust measure of divergence for the kind of problems I will actually encounter. 

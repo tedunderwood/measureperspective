@@ -633,8 +633,13 @@ def new_divergences():
             scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
             scribe.writeheader()
 
-    for i in range(3):
-        for j in range(3):
+    # I originally ran this with i and j
+    # iterating through range(3). Now trying
+    # on models generated with the partitions
+    # reversed.
+
+    for i in range(3, 6):
+        for j in range(3, 6):
             for ratio in [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100]:
 
                 r = dict()
@@ -657,7 +662,7 @@ def new_divergences():
 
                 write_a_row(r, outcomparisons, columns)
 
-new_experiment()
+new_divergences()
 
 
 

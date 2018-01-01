@@ -39,3 +39,12 @@ On either end, there is a gold standard constructed with entirely different volu
 We'll calculate the distance from gold standards *in both directions*; i.e, from fantasy and from detective fiction. Part of the problem I'm dealing with is that "distances" are not symmetric, and I hope this will clarify how much of an issue that is.
 
 Then we train a model to estimate "distances" between genres in terms of the distance between fantasy and detective fiction.
+
+January 1
+----------
+
+The above experiment worked pretty well. It's in **logistic/methodological_experiment.new_experiment()** and **.new_divergences()**; data preparation was accomplished by **mix_data.py** and **copyrandom.py** in **measuredivergences.** Analysis is taking place in **spacebetweengenres.ipynb**.
+
+The upshot is, I am resigning myself to the fact that there is no measure guaranteed to be truly symmetric or linear in this space. A lot depends in reality on the fit between particular datasets, and that can vary from one genre or sample or another. However, lost accuracy seems to work in practice extremely well, across a number of different experiments with data generated in different ways.
+
+I originally ran this experiment (iterations 0-2) using partition 2 to generate the mixed data and partition 1 to create gold standard models that could be compared to models of the mixed data. But I think it may really matter which partitions you use, so I am flipping them. To be super-rigorous I would randomize them repeatedly, and I might yet do that!
