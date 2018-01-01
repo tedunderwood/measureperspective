@@ -437,7 +437,227 @@ def measure_fantasy_divergences():
                     scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
                     scribe.writerow(row)
 
-measure_fantasy_divergences()
+def new_experiment():
+
+    # The first time I ran this, I used partition 2 to build the
+    # mixed data, and partition 1 as a gold standard. Now reversing.
+
+    outmodelpath = '../measuredivergence/results/newexperimentmodels.csv'
+    columns = ['name', 'size', 'ratio', 'iteration', 'meandate', 'maxaccuracy', 'features', 'regularization']
+    if not os.path.isfile(outmodelpath):
+        with open(outmodelpath, mode = 'w', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, fieldnames = columns)
+            scribe.writeheader()
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1500
+    featureend = 6000
+    featurestep = 300
+    modelparams = 'logistic', 10, featurestart, featureend, featurestep, c_range
+    sizecap = 75
+
+    for i in range(3, 6):
+        for ratio in [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100]:
+            sourcefolder = '../measuredivergence/mix/' + str(ratio) + '/'
+            metadatapath = '../measuredivergence/partitionmeta/meta' + str(ratio) + '.csv'
+            name = 'mixeddata_' + str(i) + '_' + str(ratio)
+            vocabpath = '../lexica/' + name + '.txt'
+            tags4positive = {'fantasy', 'detective'}
+            tags4negative = {'random'}
+            floor = 1800
+            ceiling = 1930
+
+            metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, force_even_distribution = False, numfeatures = 6000)
+
+            matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../measuredivergence/newmodeloutput/' + name + '.csv')
+
+            meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+            row = dict()
+            row['name'] = name
+            row['size'] = sizecap
+            row['ratio'] = ratio
+            row['iteration'] = i
+            row['meandate'] = meandate
+            row['maxaccuracy'] = maxaccuracy
+            row['features'] = features4max
+            row['regularization'] = best_regularization_coef
+
+            with open(outmodelpath, mode = 'a', encoding = 'utf-8') as f:
+                scribe = csv.DictWriter(f, fieldnames = columns)
+                scribe.writerow(row)
+
+            os.remove(vocabpath)
+
+        sourcefolder = '../data/'
+        metadatapath = '../measuredivergence/partitionmeta/part2.csv'
+        # note that this is changed if you create mix data with
+        # partition 2
+
+        name = 'goldfantasy_' + str(i)
+        vocabpath = '../lexica/' + name + '.txt'
+        tags4positive = {'fantasy'}
+        tags4negative = {'random', 'randomB'}
+        floor = 1800
+        ceiling = 1930
+
+        metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, force_even_distribution = False, numfeatures = 6000)
+
+        matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../measuredivergence/newmodeloutput/' + name + '.csv')
+
+        meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+        row = dict()
+        row['name'] = name
+        row['size'] = sizecap
+        row['ratio'] = ratio
+        row['iteration'] = i
+        row['meandate'] = meandate
+        row['maxaccuracy'] = maxaccuracy
+        row['features'] = features4max
+        row['regularization'] = best_regularization_coef
+
+        with open(outmodelpath, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, fieldnames = columns)
+            scribe.writerow(row)
+
+        os.remove(vocabpath)
+
+        sourcefolder = '../data/'
+        metadatapath = '../measuredivergence/partitionmeta/part2.csv'
+        # depending on which partition you used to create mix data;
+        # this will be the other one
+
+        name = 'golddetective_' + str(i)
+        vocabpath = '../lexica/' + name + '.txt'
+        tags4positive = {'detective'}
+        tags4negative = {'random', 'randomB'}
+        floor = 1800
+        ceiling = 1930
+
+        metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, force_even_distribution = False, numfeatures = 6000)
+
+        matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../measuredivergence/newmodeloutput/' + name + '.csv')
+
+        meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+        row = dict()
+        row['name'] = name
+        row['size'] = sizecap
+        row['ratio'] = ratio
+        row['iteration'] = i
+        row['meandate'] = meandate
+        row['maxaccuracy'] = maxaccuracy
+        row['features'] = features4max
+        row['regularization'] = best_regularization_coef
+
+        with open(outmodelpath, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, fieldnames = columns)
+            scribe.writerow(row)
+
+        os.remove(vocabpath)
+
+def accuracy(df, column):
+    totalcount = len(df.realclass)
+    tp = sum((df.realclass > 0.5) & (df[column] > 0.5))
+    tn = sum((df.realclass <= 0.5) & (df[column] <= 0.5))
+    fp = sum((df.realclass <= 0.5) & (df[column] > 0.5))
+    fn = sum((df.realclass > 0.5) & (df[column] <= 0.5))
+    assert totalcount == (tp + fp + tn + fn)
+
+    return (tp + tn) / totalcount
+
+def accuracy_loss(df):
+
+    return accuracy(df, 'probability') - accuracy(df, 'alien_model')
+
+def get_divergence(sampleA, sampleB, datafolder):
+    '''
+    This function applies model a to b, and vice versa, and returns
+    a couple of measures of divergence: notably lost accuracy and
+    z-tranformed spearman correlation.
+    '''
+
+    # We start by constructing the paths to the sampleA
+    # standard model criteria (.pkl) and
+    # model output (.csv) on the examples
+    # originally used to train it.
+
+    # We're going to try applying the sampleA standard
+    # criteria to another model's output, and vice-
+    # versa.
+
+    model1 = '../measuredivergence/newmodeloutput/' + sampleA + '.pkl'
+    meta1 = '../measuredivergence/newmodeloutput/' + sampleA + '.csv'
+
+    # Now we construct paths to the test model
+    # criteria (.pkl) and output (.csv).
+
+    model2 = '../measuredivergence/newmodeloutput/' + sampleB + '.pkl'
+    meta2 = '../measuredivergence/newmodeloutput/' + sampleB + '.csv'
+
+    model1on2 = versatiletrainer2.apply_pickled_model(model1, datafolder, '.tsv', meta2)
+    model2on1 = versatiletrainer2.apply_pickled_model(model2, '../data/', '.tsv', meta1)
+
+    spearman1on2 = np.arctanh(stats.spearmanr(model1on2.probability, model1on2.alien_model)[0])
+    spearman2on1 = np.arctanh(stats.spearmanr(model2on1.probability, model2on1.alien_model)[0])
+    spearman = (spearman1on2 + spearman2on1) / 2
+
+    loss1on2 = accuracy_loss(model1on2)
+    loss2on1 = accuracy_loss(model2on1)
+    loss = (loss1on2 + loss2on1) / 2
+
+    alienacc2 = accuracy(model1on2, 'alien_model')
+    alienacc1 = accuracy(model2on1, 'alien_model')
+
+    acc2 = accuracy(model1on2, 'probability')
+    acc1 = accuracy(model2on1, 'probability')
+
+    meandate2 = np.mean(model1on2.std_date)
+    meandate1 = np.mean(model2on1.std_date)
+
+    return spearman, loss, spearman1on2, spearman2on1, loss1on2, loss2on1, acc1, acc2, alienacc1, alienacc2, meandate1, meandate2
+
+def write_a_row(r, outfile, columns):
+    with open(outfile, mode = 'a', encoding = 'utf-8') as f:
+        scribe = csv.DictWriter(f, fieldnames = columns, delimiter = '\t')
+        scribe.writerow(r)
+
+def new_divergences():
+
+    outcomparisons = '../measuredivergence/results/new_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ratio', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'meandate1', 'meandate2']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    for i in range(3):
+        for j in range(3):
+            for ratio in [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100]:
+
+                r = dict()
+                r['testype'] = 'fantasy2mixed'
+                r['name1'] = 'goldfantasy_' + str(i)
+                r['name2'] = 'mixeddata_' + str(j) + '_' + str(ratio)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'], '../measuredivergence/mix/' + str(ratio) + '/')
+                r['ratio'] = ratio
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'detective2mixed'
+                r['name1'] = 'golddetective_' + str(i)
+                r['name2'] = 'mixeddata_' + str(j) + '_' + str(ratio)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'], '../measuredivergence/mix/' + str(ratio) + '/')
+                r['ratio'] = 100 - ratio
+                # note that distance from detective is the complement
+                # of distance from fantasy
+
+                write_a_row(r, outcomparisons, columns)
+
+new_experiment()
 
 
 
