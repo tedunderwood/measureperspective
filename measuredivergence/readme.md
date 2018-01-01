@@ -11,7 +11,7 @@ The conclusion I came to: Train multiple models of each genre, and compare model
 
     meanCrossCorrelation(A, B) / max(meanSelfCorrelation(A), meanSelfCorrelation(B))
 
-That will give you a measure of similarity that tracks the known similarities between datasets very closely. Note that it is not actually a distance metric: A -> B is not the same as B -> A. We're averaging across both directions to come up with something useful for projects that may not yet be ready to think through the messy reality of asymmetry.
+That will give you a measure of similarity that tracks the known similarities between datasets very closely (adjusted r-squared: .925). Note that this is just based on a few intial experiments; it's not guaranteed to be invariant across genres, nor is it actually a distance metric: the underlying A -> B is not the same as B -> A. We're averaging across both directions to come up with something useful for projects that may not yet be ready to think through the messy reality of asymmetry.
 
 history of experiments
 ----------------------
