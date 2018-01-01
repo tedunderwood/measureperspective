@@ -3,9 +3,9 @@ measuring the divergence between models
 
 When models are trained on the same data, we can compare "accuracy" or "recall." The goal here is to come up with a metric of similarity between models trained on different data, aimed especially at the case where the positive set changes although the negative (contrast) set remains the same. 
 
-This will allow us to meaningfully say "fantasy and science fiction are different from the mainstream *in similar ways*, whereas detective fiction diverges *in a different direction.*" I don't think you can defend a conclusion like that just with raw linguistic distances; you need to measure *the divergence between predictive models that reflect human categories.
+This will allow us to meaningfully say "fantasy and science fiction are different from the mainstream *in similar ways*, whereas detective fiction diverges *in a different direction.*" I don't think you can defend a conclusion like that just with raw linguistic distances; you need to measure the divergence between predictive models that reflect human categories.
 
-But how can we prove that a measure of difference between two models accurately reflects differences in the underlying data? The relationship could be very fuzzy, or curved. To test this, I created a series of artificial datasets that blend data from two genres in fixed proportions. That allows us to calibrate a metric of similarity between models, and know that it corresponds to degrees of similarity in the underlying data.
+But how can we prove that a measure of difference between two models accurately reflects differences in the underlying data? The relationship between those quantities could be very fuzzy, or curved. To test this, I created a series of artificial datasets that blend data from two genres in fixed proportions. That allows us to calibrate a metric of similarity between models, and know that it corresponds to degrees of similarity in the underlying data.
 
 current state of conclusions
 ----------------------------
