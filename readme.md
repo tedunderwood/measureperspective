@@ -27,9 +27,9 @@ All-purpose folder covering transformations of data and, especially, metadata.
 logistic
 --------
 
-Code for predictive modeling.
+Code for predictive modeling. **main_experiment** and **methodological_experiment** in this folder are the heart of the project.
 
 measuredivergence
 -----------------
 
-One of the challenges of this project is to figure out how we should measure the "distance" between predictive models. This task may not be quite as straightforward as it seems; e.g. I put scare quotes around *distance* because it's probably not literally a distance. The only experiments I have run so far are general methodological experiments trying to calibrate a metric.
+One of the challenges of this project is to figure out how we should measure the "distance" between predictive models. This task may not be quite as straightforward as it seems; e.g. I put scare quotes around *distance* because it's probably not literally a distance. I've reached a tentative conclusion, explained in [a Jupyter notebook **spacebetweengenres.**](https://github.com/tedunderwood/measureperspective/blob/master/measuredivergence/spacebetweengenres.ipynb)
