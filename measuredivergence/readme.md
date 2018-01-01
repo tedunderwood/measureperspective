@@ -7,7 +7,7 @@ current state of conclusions
 ----------------------------
 I think the experiment is complete, at least for now -- unless, say, reviewers force me to rethink my assumptions. The conclusions I have reached are organized in [**spacebetweengenres.ipynb.**](https://github.com/tedunderwood/measureperspective/blob/master/measuredivergence/spacebetweengenres.ipynb)
 
-The conclusion I came to: Train multiple models of each genre, and compare models based on non-overlapping samples of data. The most reliable model of divergence is to calculate correlation (say, Spearman correlation) between the P(genre|text) predictions made by model A on B's data, and B on B's data (and also vice-versa, B on A's data, etc). Do this both within genres (on non-overlapping samples) and across genres. Then calculate:
+The conclusion I came to: Train multiple models of each genre, and compare models based on non-overlapping samples of data. The most reliable model of divergence is to calculate correlation (say, Spearman correlation) between the P(genre|text) predictions made by model A on B's data, and B on B's data (and also vice-versa, B on A's data, etc). Do this both within genres (on non-overlapping samples) and across genres. Use a Fisher's z-transform on the correlations so they're not bounded at 1. Then calculate:
 
     meanCrossCorrelation(A, B) / max(meanSelfCorrelation(A), meanSelfCorrelation(B))
 
