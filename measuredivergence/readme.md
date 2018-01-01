@@ -3,6 +3,16 @@ measuring the divergence between models
 
 The goal here is to come up with a metric of similarity between models *trained on different data.* I plan to develop a metric by assuming that a good metric should correlate with the percentage of data in training set A also found in training set B. Ultimately I want to use this metric to assess distances between training sets that have *no* instances in common, and that are in fact modeling different genre boundaries.
 
+current state of conclusions
+----------------------------
+I think the experiment is complete, at least for now -- unless, say, reviewers force me to rethink my assumptions. The conclusions I have reached are organized in [**spacebetweengenres.ipynb.**](https://github.com/tedunderwood/measureperspective/blob/master/measuredivergence/spacebetweengenres.ipynb)
+
+The conclusion I came to: Train multiple models of each genre, and compare models based on non-overlapping samples of data. The most reliable model of divergence is to calculate correlation (say, Spearman correlation) between the P(genre|text) predictions made by model A on B's data, and vice-versa. Do this both within genres (on non-overlapping samples) and across genres. Then calculate:
+
+    meanCrossCorrelation(A, B) / max(meanSelfCorrelation(A), meanSelfCorrelation(B))
+
+That will give you a measure of similarity that tracks the known similarities between datasets very closely. Note that it is not actually a distance metric: A -> B is not the same as B -> A. We're averaging across both directions to come up with something useful for projects that may not yet be ready to think through the messy reality of asymmetry.
+
 history of experiments
 ----------------------
 
@@ -34,4 +44,8 @@ Correlations passed through [the Fisher z-transformation.](https://en.wikipedia.
 
 But I rapidly found that KL divergence was never a very good measure, and that Pearson and Spearman correlation were so close that we really only needed one or the other. So my final version of the experiment compares Spearman to lost-accuracy.
 
-Analysis in **spacebetweengenres.ipynb** has convinced me that lost-accuracy is the most robust measure. To be clear, it's not 100% linear, and not 100% symmetric; I don't think it's really a distance metric. But it seems to be a robust measure of divergence for the kind of problems I will actually encounter. 
+[Analysis in **spacebetweengenres.ipynb**](https://github.com/tedunderwood/measureperspective/blob/master/measuredivergence/spacebetweengenres.ipynb) has convinced me that Spearman correlation on P(genre|text) produced by two models is the most robust measure. Specifically, the divergence between genres can be estimated by
+
+    meanCrossCorrelation(A, B) / max(meanSelfCorrelation(A), meanSelfCorrelation(B))
+
+To be clear, divergence between genres is not symmetric; A->B and B->A are usually different. I don't think this really a distance metric. But the measure described above seems to be a robust measure of divergence for the kind of problems I will actually encounter. Older analysis on an earlier experiment can be found in **modelsofdivergence.ipynb.**
