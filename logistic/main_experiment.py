@@ -17,7 +17,7 @@ def add2dict(category, auth, docid):
         category[auth] = []
     category[auth].append(docid)
 
-def divide_authdict(authdict, auths):
+def divide_authdict(authdict, auths, ceiling):
     random.shuffle(auths)
     part1 = []
     part2 = []
@@ -32,11 +32,13 @@ def divide_authdict(authdict, auths):
         return part1, part2
     else:
         with open('errorlog.txt', mode = 'a', encoding = 'utf-8') as f:
-            f.write('Error: imbalanced classes.')
+            f.write('Error: imbalanced classes\n')
+            f.write(str(ceiling) + '\t' + str(part1[0]) + '\n')
+
         if len(part1) > 75:
             part2.extend(part1[75: ])
         elif len(part2) > 75:
-            part1.extend(part1[75: ])
+            part1.extend(part2[75: ])
         return part1, part2
 
 def split_metadata(master, floor, ceiling):
@@ -99,9 +101,9 @@ def split_metadata(master, floor, ceiling):
     fantasyauths = list(fant.keys())
     mainstreamauths = list(mainstream.keys())
 
-    maindocs1, maindocs2 = divide_authdict(mainstream, mainstreamauths)
-    fantdocs1, fantdocs2 = divide_authdict(fant, fantasyauths)
-    sfdocs1, sfdocs2 = divide_authdict(sf, sfauths)
+    maindocs1, maindocs2 = divide_authdict(mainstream, mainstreamauths, ceiling)
+    fantdocs1, fantdocs2 = divide_authdict(fant, fantasyauths, ceiling)
+    sfdocs1, sfdocs2 = divide_authdict(sf, sfauths, ceiling)
 
     sf1 = master.loc[sfdocs1 + maindocs1]
     sf2 = master.loc[sfdocs2 + maindocs2]
@@ -413,13 +415,13 @@ def reliable_genre_comparisons():
     featurestep = 300
     modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
 
-    master = pd.read_csv('../metadata/mastermetadata.csv')
-    periods = [(1800, 1919), (1880, 1934), (1910, 1959), (1930, 1969), (1950, 1979), (1970, 1989), (1980, 1999), (1990, 2010)]
+    master = pd.read_csv('../metadata/mastermetadata.csv', index_col = 'docid')
+    periods = [(1800, 1919), (1880, 1936), (1910, 1957), (1930, 1969), (1950, 1979), (1970, 1989), (1980, 1999), (1990, 2010)]
     forbiddenwords = {'fantasy', 'fiction', 'science', 'horror'}
 
     # endpoints both inclusive
 
-    for i in range(12):
+    for i in range(11):
         for floor, ceiling in periods:
 
             split_metadata(master, floor, ceiling)
