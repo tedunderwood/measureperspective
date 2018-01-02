@@ -17,7 +17,7 @@ def add2dict(category, auth, docid):
         category[auth] = []
     category[auth].append(docid)
 
-def divide_authdict(authdict, auths, ceiling):
+def divide_authdict(authdict, auths, ceiling, sizecap):
     random.shuffle(auths)
     part1 = []
     part2 = []
@@ -28,20 +28,20 @@ def divide_authdict(authdict, auths, ceiling):
         else:
             part1.extend(authdict[a])
 
-    if len(part1) > 75 and len(part2) > 75:
+    if len(part1) >= sizecap and len(part2) >= sizecap:
         return part1, part2
     else:
         with open('errorlog.txt', mode = 'a', encoding = 'utf-8') as f:
             f.write('Error: imbalanced classes\n')
-            f.write(str(ceiling) + '\t' + str(part1[0]) + '\n')
+            f.write(str(ceiling) + '\t' + str(len(part1)) + '\t' + str(len(part2)) + '\n')
 
-        if len(part1) > 75:
-            part2.extend(part1[75: ])
-        elif len(part2) > 75:
-            part1.extend(part2[75: ])
+        if len(part1) > sizecap:
+            part2.extend(part1[sizecap: ])
+        elif len(part2) > sizecap:
+            part1.extend(part2[sizecap: ])
         return part1, part2
 
-def split_metadata(master, floor, ceiling):
+def split_metadata(master, floor, ceiling, sizecap):
     '''
     This function serves quixotic_dead_end() and should
     probably be moved closer to it. It selects a chronological
@@ -101,9 +101,9 @@ def split_metadata(master, floor, ceiling):
     fantasyauths = list(fant.keys())
     mainstreamauths = list(mainstream.keys())
 
-    maindocs1, maindocs2 = divide_authdict(mainstream, mainstreamauths, ceiling)
-    fantdocs1, fantdocs2 = divide_authdict(fant, fantasyauths, ceiling)
-    sfdocs1, sfdocs2 = divide_authdict(sf, sfauths, ceiling)
+    maindocs1, maindocs2 = divide_authdict(mainstream, mainstreamauths, ceiling, sizecap)
+    fantdocs1, fantdocs2 = divide_authdict(fant, fantasyauths, ceiling, sizecap)
+    sfdocs1, sfdocs2 = divide_authdict(sf, sfauths, ceiling, sizecap)
 
     sf1 = master.loc[sfdocs1 + maindocs1]
     sf2 = master.loc[sfdocs2 + maindocs2]
@@ -407,7 +407,7 @@ def reliable_genre_comparisons():
             f.write(outline)
 
     sourcefolder = '../data/'
-    sizecap = 75
+    sizecap = 72
 
     c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
     featurestart = 1500
@@ -416,7 +416,7 @@ def reliable_genre_comparisons():
     modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
 
     master = pd.read_csv('../metadata/mastermetadata.csv', index_col = 'docid')
-    periods = [(1800, 1919), (1880, 1936), (1910, 1957), (1930, 1969), (1950, 1979), (1970, 1989), (1980, 1999), (1990, 2010)]
+    periods = [(1800, 1919), (1880, 1939), (1910, 1959), (1930, 1969), (1950, 1979), (1970, 1989), (1980, 1999), (1990, 2010)]
     forbiddenwords = {'fantasy', 'fiction', 'science', 'horror'}
 
     # endpoints both inclusive
@@ -424,7 +424,7 @@ def reliable_genre_comparisons():
     for i in range(11):
         for floor, ceiling in periods:
 
-            split_metadata(master, floor, ceiling)
+            split_metadata(master, floor, ceiling, sizecap)
 
             metaoptions = ['sf1', 'sf2', 'fant1', 'fant2']
 
@@ -434,9 +434,9 @@ def reliable_genre_comparisons():
                 name = 'temp_' + m + str(ceiling) + '_' + str(i)
 
                 if m == 'sf1' or m == 'sf2':
-                    tags4positive = {'sf_loc', 'sf_oclc'}
+                    tags4positive = {'sf_loc', 'sf_oclc', 'sf_bailey'}
                 else:
-                    tags4positive = {'fantasy_loc', 'fantasy_oclc'}
+                    tags4positive = {'fantasy_loc', 'fantasy_oclc', 'supernat'}
 
                 tags4negative = {'random'}
 
