@@ -12,21 +12,60 @@ import matplotlib.pyplot as plt
 
 from scipy import stats
 
+def add2dict(category, auth, docid):
+    if auth not in category:
+        category[auth] = []
+    category[auth].append(docid)
+
+def divide_authdict(authdict, auths):
+    random.shuffle(auths)
+    part1 = []
+    part2 = []
+
+    for a in auths:
+        if len(part1) > len(part2):
+            part2.extend(authdict[a])
+        else:
+            part1.extend(authdict[a])
+
+    if len(part1) > 75 and len(part2) > 75:
+        return part1, part2
+    else:
+        with open('errorlog.txt', mode = 'a', encoding = 'utf-8') as f:
+            f.write('Error: imbalanced classes.')
+        if len(part1) > 75:
+            part2.extend(part1[75: ])
+        elif len(part2) > 75:
+            part1.extend(part1[75: ])
+        return part1, part2
+
 def split_metadata(master, floor, ceiling):
+    '''
+    This function serves quixotic_dead_end() and should
+    probably be moved closer to it. It selects a chronological
+    slice of master metadata and then divides that slice
+    randomly into two partitions. Each partition is turned into
+    two files: one that can be used for a model of SF vs
+    mainstream lit, and one that can be used for a model of
+    fantasy vs mainstream lit.
+    '''
+
     dateslice = master[(master.firstpub >= floor) & (master.firstpub <= ceiling)]
 
-    mainstream = []
-    sf = []
-    fant = []
+    mainstream = dict()
+    sf = dict()
+    fant = dict()
 
     for idx in dateslice.index:
         tags = set(dateslice.loc[idx, 'tags'].split('|'))
+        auth = dateslice.loc[idx, 'author']
+
         if 'juv' in tags:
             continue
             # no juvenile fiction included
 
         if 'random' in tags:
-            mainstream.append(idx)
+            add2dict(mainstream, auth, idx)
             continue
 
         if 'sf_loc' in tags or 'sf_oclc' in tags:
@@ -42,29 +81,33 @@ def split_metadata(master, floor, ceiling):
         if issf and isfant:
             whim = random.choice([True, False])
             if whim:
-                sf.append(idx)
+                add2dict(sf, auth, idx)
             else:
-                fant.append(idx)
+                add2dict(fant, auth, idx)
 
         elif issf:
-            sf.append(idx)
+            add2dict(sf, auth, idx)
 
         elif isfant:
-            fant.append(idx)
+            add2dict(fant, auth, idx)
 
         else:
             pass
             # do precisely nothing
 
-    random.shuffle(sf)
-    random.shuffle(fant)
-    random.shuffle(mainstream)
+    sfauths = list(sf.keys())
+    fantasyauths = list(fant.keys())
+    mainstreamauths = list(mainstream.keys())
 
-    sf1 = master.loc[sf[0:75] + mainstream[0:75]]
-    sf2 = master.loc[sf[75:150] + mainstream[75:150]]
+    maindocs1, maindocs2 = divide_authdict(mainstream, mainstreamauths)
+    fantdocs1, fantdocs2 = divide_authdict(fant, fantasyauths)
+    sfdocs1, sfdocs2 = divide_authdict(sf, sfauths)
 
-    fant1 = master.loc[fant[0:75] + mainstream[0:75]]
-    fant2 = master.loc[fant[75:150] + mainstream[75:150]]
+    sf1 = master.loc[sfdocs1 + maindocs1]
+    sf2 = master.loc[sfdocs2 + maindocs2]
+
+    fant1 = master.loc[fantdocs1 + maindocs1]
+    fant2 = master.loc[fantdocs2 + maindocs2]
 
     sf1.to_csv('../temp/sf1.csv')
     sf2.to_csv('../temp/sf2.csv')
@@ -167,49 +210,6 @@ def averagecorr(r1, r2):
     z2 = np.arctanh(r2)
     themean = (z1 + z2) / 2
     return np.tanh(themean)
-
-def get_divergence(sampleA, sampleB):
-    '''
-    This function applies model a to b, and vice versa, and returns
-    a couple of measures of divergence: notably lost accuracy and
-    z-tranformed spearman correlation.
-    '''
-
-    # We start by constructing the paths to the sampleA
-    # standard model criteria (.pkl) and
-    # model output (.csv) on the examples
-    # originally used to train it.
-
-    # We're going to try applying the sampleA standard
-    # criteria to another model's output, and vice-
-    # versa.
-
-    model1 = '../modeloutput/' + sampleA + '.pkl'
-    meta1 = '../modeloutput/' + sampleA + '.csv'
-
-    # Now we construct paths to the test model
-    # criteria (.pkl) and output (.csv).
-
-    model2 = '../modeloutput/' + sampleB + '.pkl'
-    meta2 = '../modeloutput/' + sampleB + '.csv'
-
-    model1on2 = versatiletrainer2.apply_pickled_model(model1, '../data/', '.tsv', meta2)
-    model2on1 = versatiletrainer2.apply_pickled_model(model2, '../data/', '.tsv', meta1)
-
-    spearman1on2 = np.arctanh(stats.spearmanr(model1on2.probability, model1on2.alien_model)[0])
-    spearman2on1 = np.arctanh(stats.spearmanr(model2on1.probability, model2on1.alien_model)[0])
-    spearman = (spearman1on2 + spearman2on1) / 2
-
-    loss1on2 = accuracy_loss(model1on2)
-    loss2on1 = accuracy_loss(model2on1)
-    loss = (loss1on2 + loss2on1) / 2
-
-    normalacc = (accuracy(model1on2, 'probability') + accuracy(model2on1, 'probability')) / 2
-    alienacc = (accuracy(model1on2, 'alien_model') + accuracy(model2on1, 'alien_model')) / 2
-    altloss = normalacc - alienacc
-
-    return spearman, loss, spearman1on2, spearman2on1, loss1on2, loss2on1, altloss
-
 
 def write_a_row(r, outfile, columns):
     with open(outfile, mode = 'a', encoding = 'utf-8') as f:
@@ -381,18 +381,18 @@ def sf_vs_fantasy_periods():
                 outline = name + '\t' + str(sizecap) + '\t' + str(excludebelow) + '\t' + str(excludeabove) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
                 f.write(outline)
 
-def quixotic_dead_end ():
+def reliable_genre_comparisons():
     '''
     Trying to get around contamination of my spearman comparisons
     by comparing only models *with no shared instances*.
+
+    Edit Jan 1: To be even more careful about leakage, make that
+    *no shared authors.*
     '''
 
-    print("This probably won't work.")
-
-    outmodels = '../results/quixotic_models.tsv'
-    outcomparisons = '../results/quixotic_comparisons.tsv'
-    columns = ['testype', 'name1', 'name2', 'acc1', 'acc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1', 'altloss', 'meandate', 'ceiling', 'floor']
-
+    outmodels = '../results/reliable_models.tsv'
+    outcomparisons = '../results/reliable_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ceiling', 'floor', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
 
     if not os.path.isfile(outcomparisons):
         with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
@@ -400,7 +400,7 @@ def quixotic_dead_end ():
             scribe.writeheader()
 
     if not os.path.isfile(outmodels):
-        with open(outmodels, mode = 'w', encoding = 'utf-8') as f:
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
             outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
             f.write(outline)
 
@@ -409,23 +409,22 @@ def quixotic_dead_end ():
 
     c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
     featurestart = 1500
-    featureend = 5500
+    featureend = 6500
     featurestep = 300
     modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
 
     master = pd.read_csv('../metadata/mastermetadata.csv')
-    periods = [(1800, 1919), (1920, 1969), (1970, 1989), (1990, 2010)]
+    periods = [(1800, 1919), (1880, 1934), (1910, 1959), (1930, 1969), (1950, 1979), (1970, 1989), (1980, 1999), (1990, 2010)]
+    forbiddenwords = {'fantasy', 'fiction', 'science', 'horror'}
 
     # endpoints both inclusive
 
-    for i in range(5):
+    for i in range(12):
         for floor, ceiling in periods:
 
             split_metadata(master, floor, ceiling)
 
             metaoptions = ['sf1', 'sf2', 'fant1', 'fant2']
-            accuracies = []
-            meandates = []
 
             for m in metaoptions:
                 metadatapath = '../temp/' + m + '.csv'
@@ -439,13 +438,11 @@ def quixotic_dead_end ():
 
                 tags4negative = {'random'}
 
-                metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False)
+                metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, numfeatures = 6500, forbiddenwords = forbiddenwords)
 
                 matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
 
                 meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
-                accuracies.append(maxaccuracy)
-                meandates.append(meandate)
 
                 with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
                     outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
@@ -459,11 +456,7 @@ def quixotic_dead_end ():
             r['floor'] = floor
             r['name1'] = 'temp_sf1' + str(ceiling) + '_' + str(i)
             r['name2'] = 'temp_sf2' + str(ceiling) + '_' + str(i)
-            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['altloss'] = get_divergence(r['name1'], r['name2'])
-            r['acc1'] = accuracies[0]
-            r['acc2'] = accuracies[1]
-            r['meandate'] = (meandates[0] + meandates[1]) / 2
-
+            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
             write_a_row(r, outcomparisons, columns)
 
             r = dict()
@@ -472,11 +465,7 @@ def quixotic_dead_end ():
             r['floor'] = floor
             r['name1'] = 'temp_fant1' + str(ceiling) + '_' + str(i)
             r['name2'] = 'temp_fant2' + str(ceiling) + '_' + str(i)
-            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['altloss'] = get_divergence(r['name1'], r['name2'])
-            r['acc1'] = accuracies[2]
-            r['acc2'] = accuracies[3]
-            r['meandate'] = (meandates[2] + meandates[3]) / 2
-
+            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
             write_a_row(r, outcomparisons, columns)
 
             r = dict()
@@ -485,11 +474,7 @@ def quixotic_dead_end ():
             r['floor'] = floor
             r['name1'] = 'temp_sf1' + str(ceiling) + '_' + str(i)
             r['name2'] = 'temp_fant2' + str(ceiling) + '_' + str(i)
-            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['altloss'] = get_divergence(r['name1'], r['name2'])
-            r['acc1'] = accuracies[0]
-            r['acc2'] = accuracies[3]
-            r['meandate'] = (meandates[0] + meandates[3]) / 2
-
+            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
             write_a_row(r, outcomparisons, columns)
 
             r = dict()
@@ -498,11 +483,483 @@ def quixotic_dead_end ():
             r['floor'] = floor
             r['name1'] = 'temp_sf2' + str(ceiling) + '_' + str(i)
             r['name2'] = 'temp_fant1' + str(ceiling) + '_' + str(i)
-            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['altloss'] = get_divergence(r['name1'], r['name2'])
-            r['acc1'] = accuracies[1]
-            r['acc2'] = accuracies[2]
-            r['meandate'] = (meandates[1] + meandates[2]) / 2
+            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+            write_a_row(r, outcomparisons, columns)
+
+def bailey_to_postwar():
+    outmodels = '../results/bailey_to_postwar_models.tsv'
+    outcomparisons = '../results/bailey_to_postwar_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    if not os.path.isfile(outmodels):
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
+            f.write(outline)
+
+    sourcefolder = '../data/'
+    sizecap = 74
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1500
+    featureend = 5500
+    featurestep = 300
+    modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
+    metadatapath = '../metadata/mastermetadata.csv'
+
+    accuracies = dict()
+    meandates = dict()
+
+    for i in range(3):
+
+        name = 'bailey' + str(i)
+        vocabpath = '../lexica/' + name + '.txt'
+        tags4positive = {'sf_bailey'}
+        tags4negative = {'random'}
+        floor = 1800
+        ceiling = 1920
+
+        metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match')
+
+        matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+        meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+        accuracies[name] = maxaccuracy
+        meandates[name] = meandate
+
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+            f.write(outline)
+
+        os.remove(vocabpath)
+
+        name = 'postwarSF' + str(i)
+        vocabpath = '../lexica/' + name + '.txt'
+        tags4positive = {'sf_loc', 'sf_oclc'}
+        tags4negative = {'random'}
+        floor = 1945
+        ceiling = 2010
+
+        metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match')
+
+        matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+        meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+        accuracies[name] = maxaccuracy
+        meandates[name] = meandate
+
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+            f.write(outline)
+
+        os.remove(vocabpath)
+
+    for i in range(3):
+        for j in range(3):
+
+            r = dict()
+            r['testype'] = 'bailey-postwar'
+            r['name1'] = 'bailey' + str(i)
+            r['name2'] = 'postwarSF' + str(j)
+            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], altloss = get_divergence(r['name1'], r['name2'])
 
             write_a_row(r, outcomparisons, columns)
 
-quixotic_dead_end()
+def bailey_to_detective():
+    outmodels = '../results/bailey_to_detective_models.tsv'
+    outcomparisons = '../results/bailey_to_detective_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    if not os.path.isfile(outmodels):
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
+            f.write(outline)
+
+    sourcefolder = '../data/'
+    sizecap = 74
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1500
+    featureend = 5000
+    featurestep = 300
+    modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
+    metadatapath = '../metadata/mastermetadata.csv'
+
+    for i in range(3):
+
+        name = 'detective' + str(i)
+        vocabpath = '../lexica/' + name + '.txt'
+        tags4positive = {'detective'}
+        tags4negative = {'random'}
+        floor = 1800
+        ceiling = 1920
+
+        metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match')
+
+        matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+        meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+            f.write(outline)
+
+        os.remove(vocabpath)
+
+    for i in range(3):
+        for j in range(3):
+
+            r = dict()
+            r['testype'] = 'bailey-detective'
+            r['name1'] = 'bailey' + str(i)
+            r['name2'] = 'detective' + str(j)
+            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], altloss = get_divergence(r['name1'], r['name2'])
+
+            write_a_row(r, outcomparisons, columns)
+
+def bailey_to_19cSF():
+    outmodels = '../results/bailey_to_19cSF_models.tsv'
+    outcomparisons = '../results/bailey_to_19cSF_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    if not os.path.isfile(outmodels):
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
+            f.write(outline)
+
+    sourcefolder = '../data/'
+    sizecap = 74
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1500
+    featureend = 5000
+    featurestep = 300
+    modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
+    metadatapath = '../metadata/mastermetadata.csv'
+
+    for i in range(3):
+
+        name = '19cSF' + str(i)
+        vocabpath = '../lexica/' + name + '.txt'
+        tags4positive = {'sf_loc', 'sf_oclc'}
+        tags4negative = {'random'}
+        floor = 1800
+        ceiling = 1920
+
+        metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match')
+
+        matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+        meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+            f.write(outline)
+
+        os.remove(vocabpath)
+
+    for i in range(3):
+        for j in range(3):
+
+            r = dict()
+            r['testype'] = 'bailey-19cSF'
+            r['name1'] = 'bailey' + str(i)
+            r['name2'] = '19cSF' + str(j)
+            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], altloss = get_divergence(r['name1'], r['name2'])
+
+            write_a_row(r, outcomparisons, columns)
+
+def scarborough_to_19c_fantasy():
+    outmodels = '../results/scarboroughto19c_models.tsv'
+    outcomparisons = '../results/scarboroughto19c_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'meandate1', 'meandate2']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    if not os.path.isfile(outmodels):
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
+            f.write(outline)
+
+    sourcefolder = '../data/'
+    sizecap = 74
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1500
+    featureend = 6500
+    featurestep = 300
+    modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
+    metadatapath = '../metadata/mastermetadata.csv'
+
+    for i in range(3):
+
+        name = 'scarborough_' + str(i)
+        vocabpath = '../lexica/' + name + '.txt'
+        tags4positive = {'supernat'}
+        tags4negative = {'random'}
+        floor = 1800
+        ceiling = 1922
+
+        if not os.path.isfile('../modeloutput/' + name + '.csv'):
+
+            metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 6500)
+
+            # notice that I am not excluding children's lit this time!
+
+            matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+            meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+            with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+                outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+                f.write(outline)
+
+            os.remove(vocabpath)
+
+        name = '19c_fantasy_' + str(i)
+        vocabpath = '../lexica/' + name + '.txt'
+        tags4positive = {'fantasy_oclc', 'fantasy_loc'}
+        tags4negative = {'random'}
+        floor = 1800
+        ceiling = 1922
+
+        if not os.path.isfile('../modeloutput/' + name + '.csv'):
+
+            metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 6500)
+
+            # notice, not excluding children's lit
+
+            matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+            meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+            with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+                outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+                f.write(outline)
+
+            os.remove(vocabpath)
+
+    for i in range(3):
+        for j in range(3):
+
+            r = dict()
+            r['testype'] = 'scarborough-19cfantasy'
+            r['name1'] = 'scarborough_' + str(i)
+            r['name2'] = '19c_fantasy_' + str(j)
+            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+            write_a_row(r, outcomparisons, columns)
+
+def just_maximize_SF():
+
+    sourcefolder = '../data/'
+    sizecap = 700
+
+    c_range = [.00001, .0001, .001, .005, .01, 0.1, 1, 10, 100]
+    featurestart = 1500
+    featureend = 7000
+    featurestep = 200
+    modelparams = 'logistic', 20, featurestart, featureend, featurestep, c_range
+    metadatapath = '../metadata/mastermetadata.csv'
+
+    name = 'maxaccuracySF'
+    vocabpath = '../lexica/' + name + '.txt'
+    tags4positive = {'sf_loc', 'sf_oclc'}
+    tags4negative = {'random'}
+    floor = 1800
+    ceiling = 2011
+
+    metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 7000)
+
+    matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+def just_maximize_fantasy():
+
+    sourcefolder = '../data/'
+    sizecap = 700
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1500
+    featureend = 7500
+    featurestep = 300
+    modelparams = 'logistic', 20, featurestart, featureend, featurestep, c_range
+    metadatapath = '../metadata/mastermetadata.csv'
+
+    name = 'maxaccuracy_fantasy'
+    vocabpath = '../lexica/' + name + '.txt'
+    tags4positive = {'fantasy_loc', 'fantasy_oclc'}
+    tags4negative = {'random'}
+    floor = 1800
+    ceiling = 2011
+
+    metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 7500)
+
+    matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+def get_divergence(sampleA, sampleB):
+    '''
+    This function applies model a to b, and vice versa, and returns
+    a couple of measures of divergence: notably lost accuracy and
+    z-tranformed spearman correlation.
+    '''
+
+    # We start by constructing the paths to the sampleA
+    # standard model criteria (.pkl) and
+    # model output (.csv) on the examples
+    # originally used to train it.
+
+    # We're going to try applying the sampleA standard
+    # criteria to another model's output, and vice-
+    # versa.
+
+    model1 = '../modeloutput/' + sampleA + '.pkl'
+    meta1 = '../modeloutput/' + sampleA + '.csv'
+
+    # Now we construct paths to the test model
+    # criteria (.pkl) and output (.csv).
+
+    model2 = '../modeloutput/' + sampleB + '.pkl'
+    meta2 = '../modeloutput/' + sampleB + '.csv'
+
+    model1on2 = versatiletrainer2.apply_pickled_model(model1, '../data/', '.tsv', meta2)
+    model2on1 = versatiletrainer2.apply_pickled_model(model2, '../data/', '.tsv', meta1)
+
+    spearman1on2 = np.arctanh(stats.spearmanr(model1on2.probability, model1on2.alien_model)[0])
+    spearman2on1 = np.arctanh(stats.spearmanr(model2on1.probability, model2on1.alien_model)[0])
+    spearman = (spearman1on2 + spearman2on1) / 2
+
+    loss1on2 = accuracy_loss(model1on2)
+    loss2on1 = accuracy_loss(model2on1)
+    loss = (loss1on2 + loss2on1) / 2
+
+    alienacc2 = accuracy(model1on2, 'alien_model')
+    alienacc1 = accuracy(model2on1, 'alien_model')
+
+    acc2 = accuracy(model1on2, 'probability')
+    acc1 = accuracy(model2on1, 'probability')
+
+    meandate2 = np.mean(model1on2.std_date)
+    meandate1 = np.mean(model2on1.std_date)
+
+    return spearman, loss, spearman1on2, spearman2on1, loss1on2, loss2on1, acc1, acc2, alienacc1, alienacc2, meandate1, meandate2
+
+def scarborough_to_postwar_fantasy():
+    outmodels = '../results/scarborough2postwar_models.tsv'
+    outcomparisons = '../results/scarborough2postwar_fcomparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'meandate1', 'meandate2']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    if not os.path.isfile(outmodels):
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
+            f.write(outline)
+
+    sourcefolder = '../data/'
+    sizecap = 74
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1500
+    featureend = 7000
+    featurestep = 300
+    modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
+    metadatapath = '../metadata/mastermetadata.csv'
+
+    for i in range(3):
+
+        name = 'scarborough_' + str(i)
+        vocabpath = '../lexica/' + name + '.txt'
+        tags4positive = {'supernat'}
+        tags4negative = {'random'}
+        floor = 1800
+        ceiling = 1930
+
+        metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 7000)
+
+        matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+        meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+            f.write(outline)
+
+        os.remove(vocabpath)
+
+        name = 'postwar_fantasy_' + str(i)
+        vocabpath = '../lexica/' + name + '.txt'
+        tags4positive = {'fantasy_oclc', 'fantasy_loc'}
+        tags4negative = {'random'}
+        floor = 1945
+        ceiling = 2010
+
+        metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 7000)
+
+        matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+        meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+            f.write(outline)
+
+        os.remove(vocabpath)
+
+    for i in range(3):
+        for j in range(3):
+
+            r = dict()
+            r['testype'] = 'scarborough-postwar'
+            r['name1'] = 'scarborough_' + str(i)
+            r['name2'] = 'postwar_fantasy_' + str(j)
+            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+            write_a_row(r, outcomparisons, columns)
+
+def scarborough_to_detective():
+    outmodels = '../results/scarborough2detective_models.tsv'
+    outcomparisons = '../results/scarborough2detective_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'meandate1', 'meandate2']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    if not os.path.isfile(outmodels):
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
+            f.write(outline)
+
+    for i in range(3):
+        for j in range(3):
+
+            r = dict()
+            r['testype'] = 'scar-detective'
+            r['name1'] = 'scarborough_' + str(i)
+            r['name2'] = 'detective' + str(j)
+            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+            write_a_row(r, outcomparisons, columns)
+
+reliable_genre_comparisons()

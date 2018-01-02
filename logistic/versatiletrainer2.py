@@ -51,69 +51,7 @@
 # fuzzy-matching pass across the corpus to make sure that authors
 # have precisely the same name in every row, without extra initials
 # or commas, etc).
-#
-# Much of the work I've just described is handled by
-# the function get_data_for_model(), in this module, and inside
-# the module *metafilter*, which it calls.
-#
-# Because we want to be very versatile, there are unfortunately
-# a lot of arguments for get_data_for_model(). We pass in three tuples,
-# each of which unpacks into a bunch of arguments.
-#
-# paths unpacks into
-# sourcefolder, extension, metadatapath, outputpath, vocabpath
-# where
-# sourcefolder is the directory with data files
-# extension is the extension those files end with
-# metadatapath is the path to a metadata csv
-# outputpath is the path to a csv of results to be written
-# and vocabpath is the path to a file of words to be used
-#   as features for all models
-#
-# exclusions unpacks into
-# excludeif, excludeifnot, excludebelow, excludeabove, sizecap
-# where
-# all the "excludes" are dictionaries pairing a key (the name of a metadata
-#     column) with a value that should be excluded -- if it's present,
-#     absent, lower than this, or higher than this.
-# sizecap limits the number of vols in the positive class; randomly
-#      sampled if greater.
-#
-# classifyconditions unpacks into:
-# positive_tags, negative_tags, datetype, numfeatures, regularization, testconditions
-# where
-# positive_tags is a list of tags to be included in the positive class
-# negative_tags is a list of tags to be selected for the negative class
-#     (unless volume also has a positive_tag, and note that the negative class
-#      is always selected to match the chronological distribution of the positive
-#      as closely as possible)
-# datetype is the date column to be used for chronological distribution
-# numfeatures can be used to limit the features in this model to top N;
-#      it is in practice not functional right now because I'm using all
-#      features in the vocab file -- originally selected by doc frequency in
-#      the whole corpus
-# regularization is a constant to be handed to scikit-learn (I'm using one
-#    established in previous experiments on a different corpus)
-# and testconditions ... is complex.
-#
-# The variable testconditions will be a set of tags. It may contain tags for classes
-# that are to be treated as a test set. Positive volumes will be assigned to
-# this set if they have no positive tags that are *not* in testconditions.
-# A corresponding group of negative volumes will at the same time
-# be assigned. It can also contain two integers to be interpreted as dates, a
-# pastthreshold and futurethreshold. Dates outside these thresholds will not
-# be used for training. If date thresholds are provided they must be provided
-# as a pair to clarify which one is the pastthreshold and which the future.
-# If you're only wanting to exclude volumes in the future, provide a past
-# threshold like "1."
 
-# All of these conditions exclude volumes from the training set, and place them
-# in a set that is used only for testing. But also note that these
-# exclusions are always IN ADDITION TO holding-out-authors.
-
-# In other words, if an author w/ multiple volumes has only some of them excluded
-# from training by testconditions, it is *still* the case that the author will never
-# be in a training set when her own volumes are being predicted.
 
 import numpy as np
 import pandas as pd
@@ -132,11 +70,6 @@ usedate = False
 # Leave this flag false unless you plan major
 # surgery to reactivate the currently-deprecated
 # option to use "date" as a predictive feature.
-
-excludedfeatures = {}
-
-# this allows punctuation marks, bigrams, and
-# statistical metrics to be excluded as needed
 
 # FUNCTIONS GET DEFINED BELOW.
 
@@ -198,14 +131,12 @@ def normalizearray(featurearray, usedate):
 
     return featurearray, means, stdevs
 
-def create_vocablist(volspresent, n, vocabpath):
+def create_vocablist(volspresent, n, vocabpath, forbidden):
     '''
     Makes a list of the top n words in sourcedir, and writes it
     to vocabpath. Notice that we are ranking words by document
     frequency: that is, by the number of documents they occur in.
     '''
-
-    global excludedfeatures
 
     sourcepaths = [x[1] for x in volspresent]
     # volspresent is a list of id, path 2-tuples created by get_volume_lists
@@ -221,7 +152,7 @@ def create_vocablist(volspresent, n, vocabpath):
                     continue
                 if fields[1] != 'frequency':
                     word = fields[0]
-                    if word not in excludedfeatures and len(word) > 0:
+                    if word not in forbidden and len(word) > 0:
                         wordcounts[word] += 1
 
     with open(vocabpath, mode = 'w', encoding = 'utf-8') as f:
@@ -234,7 +165,7 @@ def create_vocablist(volspresent, n, vocabpath):
 
     return vocabulary
 
-def get_vocablist(vocabpath, volspresent, n):
+def get_vocablist(vocabpath, volspresent, n, forbidden):
     '''
     Gets the vocablist stored in vocabpath or, alternately, if that list
     doesn't yet exist, it creates a vocablist and puts it there.
@@ -244,7 +175,7 @@ def get_vocablist(vocabpath, volspresent, n):
     '''
 
     if not os.path.isfile(vocabpath):
-        vocablist = create_vocablist(volspresent, n, vocabpath)
+        vocablist = create_vocablist(volspresent, n, vocabpath, forbidden)
 
     else:
         vocablist = []
@@ -252,7 +183,8 @@ def get_vocablist(vocabpath, volspresent, n):
             reader = csv.DictReader(f)
             for row in reader:
                 word = row['word']
-                vocablist.append(word)
+                if word not in forbidden:
+                    vocablist.append(word)
 
         if len(vocablist) > n:
             vocablist = vocablist[0: n]
@@ -545,7 +477,7 @@ def get_dataframe(volspresent, classdictionary, vocablist, freqs_already_normali
 
     return masterdata, classvector
 
-def get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, forbid4positive = {'allnegative'}, forbid4negative = {'allpositive'}, excludebelow = 0, excludeabove = 3000, verbose = False, datecols = ['firstpub'], indexcol = ['docid'], extension = '.tsv', genrecol = 'tags', numfeatures = 5000, negative_strategy = 'random', overlap_strategy = 'random',force_even_distribution = False):
+def get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, forbid4positive = {'allnegative'}, forbid4negative = {'allpositive'}, excludebelow = 0, excludeabove = 3000, verbose = False, datecols = ['firstpub'], indexcol = ['docid'], extension = '.tsv', genrecol = 'tags', numfeatures = 5000, negative_strategy = 'random', overlap_strategy = 'random',force_even_distribution = False, forbiddenwords = set()):
 
     ''' Loads metadata, selects instances for the positive and
     negative classes, creates a lexicon if one doesn't
@@ -618,7 +550,7 @@ def get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4n
 
     print('Building vocabulary.')
 
-    vocablist = get_vocablist(vocabpath, volspresent, n = numfeatures)
+    vocablist = get_vocablist(vocabpath, volspresent, n = numfeatures, forbidden = forbiddenwords)
 
     # This function either gets the vocabulary list already stored in vocabpath, or
     # creates a list of the top n words, by doc frequency, in the volumes
