@@ -537,8 +537,6 @@ def get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4n
     minimumdate = min(metadata.std_date)
     maximumdate = max(metadata.std_date)
 
-    metadata.to_csv('experimental_metadata.csv')
-
     print()
     print(str(len(orderedIDs)) + " volumes range in date from " + str(minimumdate) + " to " + str(maximumdate) + ".")
     print()

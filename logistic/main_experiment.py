@@ -23,6 +23,7 @@ def divide_authdict(authdict, auths, ceiling, sizecap):
     part2 = []
 
     for a in auths:
+        lastauth = a
         if len(part1) > len(part2):
             part2.extend(authdict[a])
         else:
@@ -33,7 +34,7 @@ def divide_authdict(authdict, auths, ceiling, sizecap):
     else:
         with open('errorlog.txt', mode = 'a', encoding = 'utf-8') as f:
             f.write('Error: imbalanced classes\n')
-            f.write(str(ceiling) + '\t' + str(len(part1)) + '\t' + str(len(part2)) + '\n')
+            f.write(str(ceiling) + '\t' + str(len(part1)) + '\t' + str(len(part2)) + '\t' + lastauth + '\n')
 
         if len(part1) > sizecap:
             part2.extend(part1[sizecap: ])
@@ -66,16 +67,16 @@ def split_metadata(master, floor, ceiling, sizecap):
             continue
             # no juvenile fiction included
 
-        if 'random' in tags:
+        if 'random' in tags or 'randomB' in tags:
             add2dict(mainstream, auth, idx)
             continue
 
-        if 'sf_loc' in tags or 'sf_oclc' in tags:
+        if 'sf_loc' in tags or 'sf_oclc' in tags or 'sf_bailey' in tags:
             issf = True
         else:
             issf = False
 
-        if 'fantasy_loc' in tags or 'fantasy_oclc' in tags:
+        if 'fantasy_loc' in tags or 'fantasy_oclc' in tags or 'supernat' in tags:
             isfant = True
         else:
             isfant = False
@@ -438,7 +439,7 @@ def reliable_genre_comparisons():
                 else:
                     tags4positive = {'fantasy_loc', 'fantasy_oclc', 'supernat'}
 
-                tags4negative = {'random'}
+                tags4negative = {'random', 'randomB'}
 
                 metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, numfeatures = 6500, forbiddenwords = forbiddenwords)
 
