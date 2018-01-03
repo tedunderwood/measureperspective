@@ -393,8 +393,8 @@ def reliable_genre_comparisons():
     *no shared authors.*
     '''
 
-    outmodels = '../results/reliable_models.tsv'
-    outcomparisons = '../results/reliable_comparisons.tsv'
+    outmodels = '../results/supplement_models.tsv'
+    outcomparisons = '../results/supplement_comparisons.tsv'
     columns = ['testype', 'name1', 'name2', 'ceiling', 'floor', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
 
     if not os.path.isfile(outcomparisons):
@@ -417,12 +417,13 @@ def reliable_genre_comparisons():
     modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
 
     master = pd.read_csv('../metadata/mastermetadata.csv', index_col = 'docid')
-    periods = [(1800, 1919), (1880, 1939), (1910, 1959), (1930, 1969), (1950, 1979), (1970, 1989), (1980, 1999), (1990, 2010)]
+    periods = [(1800, 1909), (1880, 1924)]
+    others = [(1900, 1949), (1910, 1959), (1930, 1969), (1950, 1979), (1970, 1989), (1980, 1999), (1990, 2010)]
     forbiddenwords = {'fantasy', 'fiction', 'science', 'horror'}
 
     # endpoints both inclusive
 
-    for i in range(11):
+    for i in range(15):
         for floor, ceiling in periods:
 
             split_metadata(master, floor, ceiling, sizecap)
@@ -454,7 +455,7 @@ def reliable_genre_comparisons():
                 os.remove(vocabpath)
 
             r = dict()
-            r['testype'] = 'fantasyself'
+            r['testype'] = 'sfself'
             r['ceiling'] = ceiling
             r['floor'] = floor
             r['name1'] = 'temp_sf1' + str(ceiling) + '_' + str(i)
@@ -463,7 +464,7 @@ def reliable_genre_comparisons():
             write_a_row(r, outcomparisons, columns)
 
             r = dict()
-            r['testype'] = 'sfself'
+            r['testype'] = 'fantasyself'
             r['ceiling'] = ceiling
             r['floor'] = floor
             r['name1'] = 'temp_fant1' + str(ceiling) + '_' + str(i)
