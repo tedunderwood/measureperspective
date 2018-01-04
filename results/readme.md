@@ -11,6 +11,10 @@ interpretFSFcomparison.ipynb
 ----------------------------
 The payoff of a lot of work, revealing some clear trends in generic similarity.
 
+interpretpaceofchange.ipynb
+---------------------------
+Variations in the pace of change for science fiction. Less stunning, still in progress.
+
 bailey_to_19cSF
 ---------------
 JO Bailey applied to contemporaneous 19c SF. Nearly impossible to distinguish.
