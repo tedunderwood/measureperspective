@@ -117,6 +117,45 @@ def split_metadata(master, floor, ceiling, sizecap):
     fant1.to_csv('../temp/fant1.csv')
     fant2.to_csv('../temp/fant2.csv')
 
+def split_one_genre(master, floor, ceiling, positive_tags, genrename, sizecap):
+    '''
+    This function serves reliable_change_comparisons().
+    '''
+
+    dateslice = master[(master.firstpub >= floor) & (master.firstpub <= ceiling)]
+
+    mainstream = dict()
+    genre = dict()
+
+    for idx in dateslice.index:
+        tags = set(dateslice.loc[idx, 'tags'].split('|'))
+        auth = dateslice.loc[idx, 'author']
+
+        if 'juv' in tags:
+            continue
+            # no juvenile fiction included
+
+        if 'random' in tags or 'randomB' in tags:
+            add2dict(mainstream, auth, idx)
+            continue
+
+        for t in positive_tags:
+            if t in tags:
+                add2dict(genre, auth, idx)
+                break
+
+    genreauths = list(genre.keys())
+    mainstreamauths = list(mainstream.keys())
+
+    maindocs1, maindocs2 = divide_authdict(mainstream, mainstreamauths, ceiling, sizecap)
+    genredocs1, genredocs2 = divide_authdict(genre, genreauths, ceiling, sizecap)
+
+    partition1 = master.loc[genredocs1 + maindocs1]
+    partition2 = master.loc[genredocs2 + maindocs2]
+
+    partition1.to_csv('../temp/' + genrename + '1.csv')
+    partition2.to_csv('../temp/' + genrename + '2.csv')
+
 def fantasy_periods():
     print('fantasy periods:')
 
@@ -417,8 +456,7 @@ def reliable_genre_comparisons():
     modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
 
     master = pd.read_csv('../metadata/mastermetadata.csv', index_col = 'docid')
-    periods = [(1800, 1909), (1880, 1924)]
-    others = [(1900, 1949), (1910, 1959), (1930, 1969), (1950, 1979), (1970, 1989), (1980, 1999), (1990, 2010)]
+    periods = [(1800, 1909), (1880, 1924), (1900, 1949), (1910, 1959), (1930, 1969), (1950, 1979), (1970, 1989), (1980, 1999), (1990, 2010)]
     forbiddenwords = {'fantasy', 'fiction', 'science', 'horror'}
 
     # endpoints both inclusive
@@ -489,6 +527,243 @@ def reliable_genre_comparisons():
             r['name2'] = 'temp_fant1' + str(ceiling) + '_' + str(i)
             r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
             write_a_row(r, outcomparisons, columns)
+
+def reliable_change_comparisons():
+    '''
+    Using the same method in the previous function, but to assess
+    change in SF.
+    '''
+
+    outmodels = '../results/change_models.tsv'
+    outcomparisons = '../results/change_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ceiling1', 'floor1', 'ceiling2', 'floor2', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    if not os.path.isfile(outmodels):
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
+            f.write(outline)
+
+    sourcefolder = '../data/'
+    sizecap = 50
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1500
+    featureend = 6500
+    featurestep = 300
+    modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
+
+    master = pd.read_csv('../metadata/mastermetadata.csv', index_col = 'docid')
+    periods = [(1870, 1899), (1900, 1929), (1930, 1959), (1960, 1989), (1990, 2010), (1880, 1909), (1910, 1939), (1940, 1969), (1970, 1999), (1890, 1919), (1920, 1949), (1950, 1979), (1980, 2009)]
+    forbiddenwords = {'fantasy', 'fiction', 'science', 'horror'}
+
+    # endpoints both inclusive
+
+    for i in range(5):
+        for floor, ceiling in periods:
+
+            namestart = 'rccsf'+ str(floor) + '_' + str(ceiling) + '_' + str(i) + '_'
+
+            split_one_genre(master, floor, ceiling, {'sf_loc', 'sf_oclc', 'sf_bailey'}, namestart, sizecap)
+
+            names = []
+
+            for partition in ['1', '2']:
+                name = namestart + partition
+                names.append(name)
+
+                metadatapath = '../temp/' + name + '.csv'
+                vocabpath = '../lexica/' + name + '.txt'
+
+                tags4positive = {'sf_loc', 'sf_oclc', 'sf_bailey'}
+                tags4negative = {'random', 'randomB'}
+
+                metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, numfeatures = 6500, forbiddenwords = forbiddenwords)
+
+                matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+                meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+                with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+                    outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+                    f.write(outline)
+
+                os.remove(vocabpath)
+
+def cross_reliable_change():
+
+    periodsets = []
+
+    periodsets.append([(1870, 1899), (1900, 1929), (1930, 1959), (1960, 1989), (1990, 2010)])
+    periodsets.append([(1880, 1909), (1910, 1939), (1940, 1969), (1970, 1999)])
+    periodsets.append([(1890, 1919), (1920, 1949), (1950, 1979), (1980, 2009)])
+
+    outcomparisons = '../results/change_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ceiling1', 'floor1', 'ceiling2', 'floor2', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    for pset in range(3):
+        periods = periodsets[pset]
+
+        for i in range(5):
+            for idx, floorandceiling in enumerate(periods):
+                f1, c1 = floorandceiling
+
+                # first, self-comparison between partitions for a particular
+                # period and iteration.
+
+                name1 = 'rccsf'+ str(f1) + '_' + str(c1) + '_' + str(i) + '_1'
+                name2 = 'rccsf'+ str(f1) + '_' + str(c1) + '_' + str(i) + '_2'
+
+                r = dict()
+                r['testype'] = 'self'
+                r['ceiling1'] = c1
+                r['floor1'] = f1
+                r['ceiling2'] = c1
+                r['floor2'] = f1
+                r['name1'] = name1
+                r['name2'] = name2
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                # Now let's do cross comparisons between this period and the next
+                # But only if there is a next!
+
+                if idx + 1 >= len(periods):
+                    continue
+                else:
+                    f2, c2 = periods[idx + 1]
+                    print(f1, c1, f2, c2)
+
+                for j in range(5):
+
+                    partition = random.choice(['1', '2'])
+                    # we're randomizing that only to cut the total
+                    # number of comparisons in half; we have enough!
+
+                    name1 = 'rccsf'+ str(f1) + '_' + str(c1) + '_' + str(i) + '_' + partition
+                    name2 = 'rccsf'+ str(f2) + '_' + str(c2) + '_' + str(j) + '_' + partition
+
+                    r = dict()
+                    r['testype'] = 'cross'
+                    r['ceiling1'] = c1
+                    r['floor1'] = f1
+                    r['ceiling2'] = c2
+                    r['floor2'] = f2
+                    r['name1'] = name1
+                    r['name2'] = name2
+                    r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                    write_a_row(r, outcomparisons, columns)
+
+def get_surprising_books(sampleA, sampleB):
+
+    '''
+    This function applies model a to b, and vice versa, and returns
+    two dictionaries pairing volumes with differences in
+    z-scores. Not yet complete.
+    '''
+
+    # We start by constructing the paths to the sampleA
+    # standard model criteria (.pkl) and
+    # model output (.csv) on the examples
+    # originally used to train it.
+
+    # We're going to try applying the sampleA standard
+    # criteria to another model's output, and vice-
+    # versa.
+
+    model1 = '../modeloutput/' + sampleA + '.pkl'
+    meta1 = '../modeloutput/' + sampleA + '.csv'
+
+    # Now we construct paths to the test model
+    # criteria (.pkl) and output (.csv).
+
+    model2 = '../modeloutput/' + sampleB + '.pkl'
+    meta2 = '../modeloutput/' + sampleB + '.csv'
+
+    model1on2 = versatiletrainer2.apply_pickled_model(model1, '../data/', '.tsv', meta2)
+    model2on1 = versatiletrainer2.apply_pickled_model(model2, '../data/', '.tsv', meta1)
+
+    diff = stats.zscore(model1on2.probability) - stats.zscore(model1on2.alien_model)
+    diff1to2 = {k:v for k, v in zip(model1on2.index, diff)}
+
+    diff = stats.zscore(model2on1.probability) - stats.zscore(model2on1.alien_model)
+    diff2to1 = {k:v for k, v in zip(model2on1.index, diff)}
+
+    return diff1to2, diff2to1
+
+def get_rcc_surprise(date):
+    periods = [(1870, 1899), (1900, 1929), (1930, 1959), (1960, 1989), (1990, 2010), (1880, 1909), (1910, 1939), (1940, 1969), (1970, 1999), (1890, 1919), (1920, 1949), (1950, 1979), (1980, 2009)]
+
+    # identify the periods at issue
+
+    for floor, ceiling in periods:
+        if ceiling+ 1 == date:
+            f1, c1 = floor, ceiling
+        if floor == date:
+            f2, c2 = floor, ceiling
+
+    surprisingly_new = dict()
+    surprisingly_old = dict()
+
+    for i in range(5):
+        for j in range(5):
+            for part in [1, 2]:
+
+                name1 = 'rccsf'+ str(f1) + '_' + str(c1) + '_' + str(i) + '_' + str(part)
+                name2 = 'rccsf'+ str(f2) + '_' + str(c2) + '_' + str(j) + '_' + str(part)
+
+                diff1to2, diff2to1 = get_surprising_books(name1, name2)
+
+                for k, v in diff1to2.items():
+                    if k not in surprisingly_new:
+                        surprisingly_new[k] = []
+                    surprisingly_new[k].append(v)
+
+                for k, v in diff2to1.items():
+                    if k not in surprisingly_old:
+                        surprisingly_old[k] = []
+                    surprisingly_old[k].append(v)
+
+    meta = pd.read_csv('../metadata/mastermetadata.csv', index_col = 'docid')
+
+    outfile = '../results/sf' + str(date) + 'newsurprises.tsv'
+    with open(outfile, mode = 'w', encoding = 'utf-8') as f:
+        scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = ['docid', 'diff', 'firstpub', 'author', 'tags', 'title'])
+        scribe.writeheader()
+        for k, v in surprisingly_new.items():
+            o = dict()
+            o['docid'] = k
+            o['diff'] = sum(v) / len(v)
+            o['author'] = meta.loc[k, 'author']
+            o['title'] = meta.loc[k, 'title']
+            o['firstpub'] = meta.loc[k, 'firstpub']
+            o['tags'] = meta.loc[k, 'tags']
+            scribe.writerow(o)
+
+    outfile = '../results/sf' + str(date) + 'oldsurprises.tsv'
+    with open(outfile, mode = 'w', encoding = 'utf-8') as f:
+        scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = ['docid', 'diff', 'firstpub', 'author', 'tags', 'title'])
+        scribe.writeheader()
+        for k, v in surprisingly_old.items():
+            o = dict()
+            o['docid'] = k
+            o['diff'] = sum(v) / len(v)
+            o['author'] = meta.loc[k, 'author']
+            o['title'] = meta.loc[k, 'title']
+            o['firstpub'] = meta.loc[k, 'firstpub']
+            o['tags'] = meta.loc[k, 'tags']
+            scribe.writerow(o)
 
 def bailey_to_postwar():
     outmodels = '../results/bailey_to_postwar_models.tsv'
@@ -966,4 +1241,4 @@ def scarborough_to_detective():
 
             write_a_row(r, outcomparisons, columns)
 
-reliable_genre_comparisons()
+get_rcc_surprise(1980)
