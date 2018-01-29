@@ -9,6 +9,20 @@ from collections import Counter
 date = sys.argv[1]
 novelname = sys.argv[2]
 
+# USAGE:
+# python3 apply_normalized_surprise_metric.py 1840 leguinlefthand.txt
+
+# The program looks for a surprise-metric file in the surprisemetrics subfolder,
+# using "date" (above) to generate the name of the file.
+
+# It also looks for "novelname" in a sibling folder called "rawtexts."
+
+# Then it applies the surprise-metric to the novel, after first breaking
+# the novel into ~250-word chunks. It uppercases the 2000 words that have the
+# biggest positive effect on surprise (i.e., words that are more likely
+# in the later of the two periods that were contrasted to create the
+# the surprise metric).
+
 
 def onlyalpha(word):
     only = ''
@@ -23,7 +37,7 @@ with open(inpath, encoding = 'utf-8') as f:
     lines = f.readlines()
 
 coefs = dict()
-with open('crudemetrics/surprise_in_' + str(date) + '.csv', encoding = 'utf-8') as f:
+with open('surprisemetrics/surprise_in_' + str(date) + '.csv', encoding = 'utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         coefs[row['word']] = float(row['coef'])
@@ -61,7 +75,8 @@ for p in pages:
 significant = []
 
 for word, coef in coefs.items():
-    significant.append((coef, word))
+    if coef > 0:
+        significant.append((coef, word))
 
 significant.sort(reverse = True)
 
