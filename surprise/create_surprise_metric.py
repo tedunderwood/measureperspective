@@ -18,7 +18,13 @@ def addtodict(adict, afilename):
                 continue
                 # we're just using alphabetic words for this
 
-            coef = float(row[1])
+            coef = float(row[2])
+            # note that a great deal depends on the difference between
+            # row[1] (the unadjusted coefficient) and row[2] (the
+            # coefficient divided by the .variance of the scaler for
+            # this word, aka "how much a single instance of the word
+            # moves the needle.")
+
             if word in adict:
                 adict[word].append(coef)
             else:
@@ -51,7 +57,7 @@ for i in range(5):
 
 allwords = set([x for x in old.keys()]).union(set([x for x in new.keys()]))
 
-with open('crudemetrics/surprisein' + str(date) + '.csv', mode = 'w', encoding = 'utf-8') as f:
+with open('crudemetrics/surprise_in_' + str(date) + '.csv', mode = 'w', encoding = 'utf-8') as f:
     scribe = csv.DictWriter(f, fieldnames = ['word', 'coef'])
     scribe.writeheader()
 
@@ -68,7 +74,7 @@ with open('crudemetrics/surprisein' + str(date) + '.csv', mode = 'w', encoding =
 
         o = dict()
         o['word'] = w
-        o['coef'] = newcoef - oldcoef
+        o['coef'] = (newcoef - oldcoef) / 1000000
         scribe.writerow(o)
 
 
