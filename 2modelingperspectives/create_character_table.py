@@ -60,7 +60,7 @@ print()
 
 # We're going to want author gender, so let's load some metadata.
 
-meta = pd.read_csv('/Users/tunder/Dropbox/python/character/metadata/filtered_fiction_plus_18c.tsv', sep = '\t', index_col = 'docid')
+meta = pd.read_csv('../metadata/filtered_fiction_plus_18c.tsv', sep = '\t', index_col = 'docid')
 meta = meta[~meta.index.duplicated(keep='first')]
 
 # Now, time to go back through the raw data.
