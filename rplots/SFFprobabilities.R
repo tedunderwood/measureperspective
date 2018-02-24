@@ -2,7 +2,7 @@ library(scales)
 library(ggplot2)
 library(dplyr)
 
-l <- read.csv('../modeloutput/fantasyvsSF2.csv')
+l <- read.csv('../modeloutput/fantasyvsSF3.csv')
 
 l$reviewed <- as.factor(l$realclass)
 levels(l$reviewed) = c('biography\n', 'fiction\n')
