@@ -15,4 +15,4 @@ The full sequence of steps is as follows:
 
 3. Run **gendered_perspectives.ipynb**. This does all the interesting work of comparing word frequencies using Funnimng's log likelihood, plotting two perspectives against each other, etc. It uses **chartable.tsv** as raw data, and produces **data4r.csv** as output. (Or, you can skip this step, if you're really only interested in visualization, and start with the next step, 4.)
 
-4. Run **plot2perspectives.R**. It uses the data produced in step 2, and produces figure 2 as output: **fig2plot2perspectives.tiff*.
+4. Run **plot2perspectives.R**. It uses the data produced in step 2, and produces figure 2 as output: **fig2plot2perspectives.tiff**.

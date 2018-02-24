@@ -27,11 +27,11 @@ These sections involve completely new samples of data and metadata. Instead of c
 The core question posed section 3 was, "Can we measure the differentiation of fictional genres?""
  I asked, in particular, whether fantasy and science fiction become more clearly distinct from mainstream fiction (and from each other) as we move down a timeline from the nineteenth century to the early twenty-first. (I owe the impulse to compare F and SF to a suggestion from Alan Liu.)
 
-Part of a larger project about the measurement of "perspective" in literary history.
+Early in the project a [plan of research was pre-registered, Dec 24, 2017.](https://osf.io/5b72w/register/5771ca429ad5a1020de2872e)
 
-A [plan of research was pre-registered, Dec 24, 2017.](https://osf.io/5b72w/register/5771ca429ad5a1020de2872e)
+If you're interested in reproducing the research process from the beginning, I would recommend starting with **/rawdata**, where I document the process of selecting the sample of books I used.
 
-Most data has been gathered and cleaned. The first substantive experiments have been run, with initial observations recorded in **labnotebook.md.** More experiments needed to assess uncertainty.
+If you're interested in understanding the immediate sources of evidence for a particular figure in the article, I would start with **/rplots**, which contains the R scripts actually used for visualization.
 
 getdata
 -------
