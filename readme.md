@@ -7,10 +7,17 @@ There are four different sections of the article, but the first two draw on data
 
 The final two sections draw on new data, and will be completely documented in this repository.
 
-Section 1: Counting Things
+[Section 1: Counting things](https://github.com/tedunderwood/measureperspective/tree/master/1counting)
 ==========================
 
 The raw data used for the figure in this section is documented in [Chapter 4 of *Distant Horizons*](https://github.com/tedunderwood/horizon/tree/master/chapter4).
+
+The figure, and the R script used to plot it, are contained in the subfolder **1counting**.
+
+Section 2: Measuring perspectives
+=================================
+
+Section 3:
 
 Can we measure the differentiation of fictional genres? We'll ask, in particular, whether fantasy and science fiction become more clearly distinct from mainstream fiction (and from each other) as we move down a timeline from the nineteenth century to the early twenty-first. (I owe the impulse to compare F and SF to a suggestion from Alan Liu.)
 
