@@ -1,6 +1,17 @@
 A Measured Perspective
 =========================
 
+Code and data to support Ted Underwood, "A Measured Perspective."
+
+There are four different sections of the article, but the first two draw on data from previous experiments; they will be lightly documented here, with links pointing out to other repositories.
+
+The final two sections draw on new data, and will be completely documented in this repository.
+
+Section 1: Counting Things
+==========================
+
+The raw data used for the figure in this section is documented in [Chapter 4 of *Distant Horizons*](https://github.com/tedunderwood/horizon/tree/master/chapter4).
+
 Can we measure the differentiation of fictional genres? We'll ask, in particular, whether fantasy and science fiction become more clearly distinct from mainstream fiction (and from each other) as we move down a timeline from the nineteenth century to the early twenty-first. (I owe the impulse to compare F and SF to a suggestion from Alan Liu.)
 
 Part of a larger project about the measurement of "perspective" in literary history.
