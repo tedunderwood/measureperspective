@@ -1,4 +1,4 @@
-code for training predictive modelsin "A Measured Perspective"
+code for training predictive models in "A Measured Perspective"
 ==============================================================
 
 This code is based on [predictive modeling code that has been kicking around](https://github.com/tedunderwood/horizon/tree/master/logistic) in my workflow for the last 2-3 articles.
