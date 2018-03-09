@@ -24,7 +24,7 @@ Sections 3 and 4: Comparing multiple perspectives, Measuring parallax
 
 These sections involve completely new samples of data and metadata. Instead of creating a separate folder for each section, I have spread the various components of the workflow across different folders (**/data**, **/metadata**, and so on) documented below.
 
-The core question posed section 3 was, "Can we measure the differentiation of fictional genres?""
+The core question posed in section 3 was, "Can we measure the differentiation of fictional genres?""
  I asked, in particular, whether fantasy and science fiction become more clearly distinct from mainstream fiction (and from each other) as we move down a timeline from the nineteenth century to the early twenty-first. (I owe the impulse to compare F and SF to a suggestion from Alan Liu.)
 
 Early in the project a [plan of research was pre-registered, Dec 24, 2017.](https://osf.io/5b72w/register/5771ca429ad5a1020de2872e)
@@ -33,27 +33,32 @@ If you're interested in reproducing the research process from the beginning, I w
 
 If you're interested in understanding the immediate sources of evidence for a particular figure in the article, I would start with **/rplots**, which contains the R scripts actually used for visualization.
 
-getdata
+[getdata](https://github.com/tedunderwood/measureperspective/tree/master/getdata)
 -------
 
 Scripts I used to scrape genre tags, download data, and tokenize extracted features.
 
-rawdata
+[rawdata](https://github.com/tedunderwood/measureperspective/tree/master/rawdata)
 -------
 
 Early metadata files. It should really be named "rawmetadata" but the name is in too many scripts to change at this point.
 
-mungedata
+[mungedata](https://github.com/tedunderwood/measureperspective/tree/master/mungedata)
 ---------
 
 All-purpose folder covering transformations of data and, especially, metadata.
 
-logistic
+[logistic](https://github.com/tedunderwood/measureperspective/tree/master/logistic)
 --------
 
 Code for predictive modeling. **main_experiment** and **methodological_experiment** in this folder are the heart of the project.
 
-measuredivergence
+[measuredivergence](https://github.com/tedunderwood/measureperspective/tree/master/measuredivergence)
 -----------------
 
 One of the challenges of this project is to figure out how we should measure the "distance" between predictive models. This task may not be quite as straightforward as it seems; e.g. I put scare quotes around *distance* because it's probably not literally a distance. I've reached a tentative conclusion, explained in [a Jupyter notebook **spacebetweengenres.**](https://github.com/tedunderwood/measureperspective/blob/master/measuredivergence/spacebetweengenres.ipynb)
+
+[surprise](https://github.com/tedunderwood/measureperspective/tree/master/surprise)
+-----------------------
+
+These scripts are used to find passages in a book that are "surprising" to earlier models of a genre. They're used in the section of the article on "measuring parallax."
