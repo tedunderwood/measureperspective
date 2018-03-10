@@ -33,6 +33,8 @@ If you're interested in reproducing the research process from the beginning, I w
 
 If you're interested in understanding the immediate sources of evidence for a particular figure in the article, I would start with **/rplots**, which contains the R scripts actually used for visualization.
 
+To reproduce the predictive modeling in the article, you will need word counts for volume parts. I store these in a folder called simply **data**, but the folder is a little large for a github repo, so I am instead providing a link that allows download: [**DataForMeasuredPerspective.zip**](https://www.dropbox.com/s/hs1wxyfqsddx4s4/DataForMeasuredPerspective.zip?dl=0). Right now that simply links to my Dropbox; I'll replace it with an archival version as we get closer to publication.
+
 [getdata](https://github.com/tedunderwood/measureperspective/tree/master/getdata)
 -------
 
