@@ -40,9 +40,24 @@
 # bibliography to models based on 19c works tagged as science
 # fiction by postwar librarians.
 
+# sfsurprise + *date*
+#
+# The syntax for this command differs from the general syntax
+# above in requiring an additional argument, a date that will
+# be the midpoint between the two periods, or strictly speaking
+# the floor of the upper period. For instance, if you wanted to
+# compare 1900-29 to 1930-59 you would say
+#
+# python3 main_experiment.py sfsurprise 1930
+#
+# The function runs get_rcc_surprise(date).
+# This the function that produced the data
+# ultimately used in figure 5.
+
 # Note that not all of the functions below are directly
 # used in the article. This script includes relics
-# of earlier stages of research.
+# of earlier stages of research, and side branches
+# to explore related questions.
 
 import sys, os, csv, random
 import numpy as np
@@ -504,8 +519,8 @@ def reliable_genre_comparisons():
     finally compare the self-comparisons to the cross-comparisons.
     '''
 
-    outmodels = '../results/supplement_models.tsv'
-    outcomparisons = '../results/supplement_comparisons.tsv'
+    outmodels = '../results/reliable_models.tsv'
+    outcomparisons = '../results/reliable_comparisons.tsv'
     columns = ['testype', 'name1', 'name2', 'ceiling', 'floor', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
 
     if not os.path.isfile(outcomparisons):
@@ -794,6 +809,10 @@ def get_surprising_books(sampleA, sampleB):
     return diff1to2, diff2to1, probs1, alien1, probs2, alien2
 
 def get_rcc_surprise(date):
+    '''
+    This function produces figure 5.
+    '''
+
     periods = [(1870, 1899), (1900, 1929), (1930, 1959), (1960, 1989), (1990, 2010), (1880, 1909), (1910, 1939), (1940, 1969), (1970, 1999), (1890, 1919), (1920, 1949), (1950, 1979), (1980, 2009)]
 
     # identify the periods at issue
@@ -803,6 +822,8 @@ def get_rcc_surprise(date):
             f1, c1 = floor, ceiling
         if floor == date:
             f2, c2 = floor, ceiling
+        # both of those if statements should be triggered at some point in the passage
+        # through periods
 
     surprisingly_new = dict()
     surprisingly_old = dict()
@@ -828,6 +849,10 @@ def get_rcc_surprise(date):
                 foldintodict(alien2, alien_old)
 
     meta = pd.read_csv('../metadata/mastermetadata.csv', index_col = 'docid')
+
+    # We write a file "new surprises," which is basically new books sorted by
+    # the old period's degree of surprise, as well as a file "old surprises,"
+    # which sounds like an oxymoron, but is just the converse.
 
     outfile = '../results/sf' + str(date) + '_new_surprises.tsv'
     with open(outfile, mode = 'w', encoding = 'utf-8') as f:

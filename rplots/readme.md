@@ -28,4 +28,4 @@ The obvious question you will have about this figure is, "what did he do with vo
 Figure 5
 ---------
 
-Was produced by **fig5surprisearrows.R**. This draws immediately on **../results/sf1940_means.tsv**. For the process producing that data see **../surprise.**
+Was produced by **fig5surprisearrows.R**. This draws immediately on **../results/sf1940_means.tsv**. The data was produced ultimately by the function *get_rcc_surprise()* in **../logistic/main_experiment.py**. That function produced ../results/sf1940newsurprises.tsv, which was munged cosmetically for figure 5 by ../results/mungezscores.py. I'm not sure this final script did anything with z scores, really; I think it mostly formatted the data for display.
