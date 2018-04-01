@@ -10,10 +10,10 @@ tolabel <- persp[persp$label != '', ]
 p <- ggplot(persp, aes(m, f)) + 
   theme_bw() +
   geom_point(alpha = 0.5) +
-  scale_y_continuous('m   <--   in books by women  -->     f', limits = c(-15, 15)) +
-  scale_x_continuous('m   <--   in books by men   -->    f', limits = c(-15, 15)) +
-  geom_text_repel(aes(m, f, label = label), force = 7, 
-                  point.padding = 0.7, max.iter = 1200, size = 4.2,
+  scale_y_continuous('m   <--   in books by women  -->     f', limits = c(-15.5, 15.5)) +
+  scale_x_continuous('m   <--   in books by men   -->    f', limits = c(-15.5, 15.5)) +
+  geom_text_repel(aes(m, f, label = label), force = 6, box.padding = 0.6, 
+                  point.padding = 0.5, max.iter = 1200, size = 4.2,
                   family = "Avenir Next Medium") +
   ggtitle('Words overrepresented in description\nof masculine or feminine characters, 1780-2009') +
   theme(text = element_text(size = 16, family = "Avenir Next Medium"), 
