@@ -60,6 +60,16 @@ All-purpose folder covering transformations of data and, especially, metadata.
 
 Code for predictive modeling. **main_experiment** and **methodological_experiment** in this folder are the heart of the project.
 
+[results](https://github.com/tedunderwood/measureperspective/tree/master/results)
+------------
+
+This folder contains the output produced by individual modeling runs.
+
+[interpretations](https://github.com/tedunderwood/measureperspective/tree/master/interpretations)
+-----------------
+
+Several Jupyter notebooks that survey results, visualize them, and discuss them.
+
 [measuredivergence](https://github.com/tedunderwood/measureperspective/tree/master/measuredivergence)
 -----------------
 
