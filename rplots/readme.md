@@ -21,7 +21,7 @@ Was produced by **fig3baseaccuracy.R**. This draws immediately on two files in *
 Figure 4
 ----------
 
-Was produced by **fig4fsfcomparison.R**. This draws immediately on **../results/groupedFSFdivergences.csv**, which is produced by **../results/interpretFSFcomparison.ipynb**. That notebook, in turn, draws on data produced by the function *reliable_genre_comparisons()* in **../logistic/main_experiment.py**.
+Was produced by **fig4fsfcomparison.R**. This draws immediately on **../interpretations/groupedFSFdivergences.csv**, which is produced by **../interpretations/interpretFSFcomparison.ipynb**. That notebook, in turn, draws on data produced by the function *reliable_genre_comparisons()* in **../logistic/main_experiment.py**.
 
 Figure 5
 ---------

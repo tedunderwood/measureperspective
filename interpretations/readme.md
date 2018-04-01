@@ -13,6 +13,8 @@ In particular:
 
 **genrespace.ipynb** is a dubious experiment not used in the article.
 
+**groupedFSFcomparisons.csv** is data used in figure 4.
+
 The name of this folder is not meant as an assertion about the hermeneutic character of the actions herein performed. It's just a name, y'all.
 
 
