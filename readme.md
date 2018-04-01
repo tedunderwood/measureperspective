@@ -25,7 +25,7 @@ Sections 3 and 4: Comparing multiple perspectives, Measuring parallax
 These sections involve completely new samples of data and metadata. Instead of creating a separate folder for each section, I have spread the various components of the workflow across different folders (**/data**, **/metadata**, and so on) documented below.
 
 The core question posed in section 3 was, "Can we measure the differentiation of fictional genres?""
- I asked, in particular, whether fantasy and science fiction become more clearly distinct from mainstream fiction (and from each other) as we move down a timeline from the nineteenth century to the early twenty-first. (I owe the impulse to compare F and SF to a suggestion from Alan Liu.)
+ I asked, in particular, whether fantasy and science fiction become more clearly distinct from mainstream fiction (and from each other) as we move down a timeline from the nineteenth century to the early twenty-first. (I owe the impulse to compare fantasy and science fiction to a suggestion from Alan Liu.)
 
 Early in the project a [plan of research was pre-registered, Dec 24, 2017.](https://osf.io/5b72w/register/5771ca429ad5a1020de2872e)
 
@@ -33,7 +33,7 @@ If you're interested in reproducing the research process from the beginning, I w
 
 If you're interested in understanding the immediate sources of evidence for a particular figure in the article, I would start with [**/rplots**,](https://github.com/tedunderwood/measureperspective/tree/master/rplots) which contains the R scripts actually used for visualization.
 
-To reproduce the predictive modeling in the article, you will need word counts for volume parts. I store these in a folder called simply **data**, but the folder is a little large for a github repo, so I am instead providing a link that allows download: [**DataForMeasuredPerspective.zip**](https://www.dropbox.com/s/hs1wxyfqsddx4s4/DataForMeasuredPerspective.zip?dl=0). Right now that simply links to my Dropbox; I'll replace it with an archival version as we get closer to publication.
+To reproduce the predictive modeling in the article, you will need word counts for volume parts. I store these in a folder called simply **data**, but that folder is a little large for a github repo, so I am instead providing a link that allows download: [**DataForMeasuredPerspective.zip**](https://www.ideals.illinois.edu/handle/2142/99573).
 
 [rplots](https://github.com/tedunderwood/measureperspective/tree/master/rplots)
 -------------------
@@ -60,15 +60,20 @@ All-purpose folder covering transformations of data and, especially, metadata.
 
 Code for predictive modeling. **main_experiment** and **methodological_experiment** in this folder are the heart of the project.
 
+[modeloutput](https://github.com/tedunderwood/measureperspective/tree/master/modeloutput)
+-----------------------
+
+Files produced by individual modeling runs. Files that end simply ".csv" contain predictions about individual volumes; files that end ".coefs.csv" contain the coefficients attached to individual words, and can be used to get a sense of the words that matter for a particular genre in a particular period. Files that end ".pkl" are machine-readable versions of a model; see **logistic/versatiletrainer2.py** to understand the format.
+
 [results](https://github.com/tedunderwood/measureperspective/tree/master/results)
 ------------
 
-This folder contains the output produced by individual modeling runs.
+This folder mostly contains files that summarize results across multiple modeling runs.
 
 [interpretations](https://github.com/tedunderwood/measureperspective/tree/master/interpretations)
 -----------------
 
-Several Jupyter notebooks that survey results, visualize them, and discuss them.
+Several Jupyter notebooks that survey results, visualize them, and discuss them. These notebooks provide support for several assertions made in passing in the third and fourth section of the article.
 
 [measuredivergence](https://github.com/tedunderwood/measureperspective/tree/master/measuredivergence)
 -----------------

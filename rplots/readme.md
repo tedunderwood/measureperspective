@@ -23,6 +23,8 @@ Figure 4
 
 Was produced by **fig4fsfcomparison.R**. This draws immediately on **../interpretations/groupedFSFdivergences.csv**, which is produced by **../interpretations/interpretFSFcomparison.ipynb**. That notebook, in turn, draws on data produced by the function *reliable_genre_comparisons()* in **../logistic/main_experiment.py**.
 
+The obvious question you will have about this figure is, "what did he do with volumes that were tagged as both 'fantasy' and 'science fiction'?" The answer is that they were allowed to belong to both genres; no other solution seemed appropriate. So the trajectory at the end of figure 4 may be *partly* shaped quite simply by the number of volumes that are explicit generic cross-overs. But that can't be the whole story, because the trends don't neatly align.
+
 Figure 5
 ---------
 
