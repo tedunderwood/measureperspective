@@ -23,8 +23,6 @@ Figure 4
 
 Was produced by **fig4fsfcomparison.R**. This draws immediately on **../results/groupedFSFdivergences.csv**, which is produced by **../results/interpretFSFcomparison.ipynb**. That notebook, in turn, draws on data produced by the function *reliable_genre_comparisons()* in **../logistic/main_experiment.py**.
 
-NB *this function needs better documentation in the main_experiment script.*
-
 Figure 5
 ---------
 

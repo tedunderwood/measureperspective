@@ -2,6 +2,48 @@
 
 # main_experiment.py
 
+# USAGE syntax:
+
+# python3 main_experiment.py *command*
+
+# Where *command* is one of the following codes.
+# I have tried to start with functions that are
+# relatively important to the argument of the article.
+
+# sf_periods
+# Runs sf_periods(), which simply assesses the ease
+# of distinguishing science fiction from a random
+# background in different periods.
+
+# fantasy_periods
+# Runs fantasy_periods(), which likewise assesses the
+# ease of distinguishing fantasy from a random background.
+
+# reliable_genre
+# Runs reliable_genre_comparisons(), which does the work
+# behind figure 4. The "reliable" part is that this function
+# cautiously avoids comparing overlapping sets.
+
+# reliable_change
+# Runs reliable_change_comparisons(), which supports a casual
+# assertion I make in passing about the pace of change in
+# science fiction.
+
+# scar_19c
+# Runs scarborough_to_19c_fantasy(), which compares
+# a model based on Dorothy Scarborough's selection
+# of "supernatural" fiction to books labeled "fantasy"
+# by librarians.
+
+# bailey_19c
+# Runs bailey_to_19cSF(), which compares models based on J. O. Bailey's
+# bibliography to models based on 19c works tagged as science
+# fiction by postwar librarians.
+
+# Note that not all of the functions below are directly
+# used in the article. This script includes relics
+# of earlier stages of research.
+
 import sys, os, csv, random
 import numpy as np
 import pandas as pd
@@ -12,10 +54,14 @@ import matplotlib.pyplot as plt
 
 from scipy import stats
 
-def add2dict(category, auth, docid):
-    if auth not in category:
-        category[auth] = []
-    category[auth].append(docid)
+def add2dict(category, key, value):
+    if key not in category:
+        category[key] = []
+    category[key].append(value)
+
+def foldintodict(d1, d2):
+    for k, v in d1.items():
+        add2dict(d2, k, v)
 
 def divide_authdict(authdict, auths, ceiling, sizecap):
     random.shuffle(auths)
@@ -157,7 +203,11 @@ def split_one_genre(master, floor, ceiling, positive_tags, genrename, sizecap):
     partition2.to_csv('../temp/' + genrename + '2.csv')
 
 def fantasy_periods():
-    print('fantasy periods:')
+    '''
+    Assesses the accuracy of models that distinguish fantasy from a random contrast set,
+    in a series of periods defined by "periods". For the meaning of the parameters,
+    consult versatiletrainer2.
+    '''
 
     if not os.path.isfile('../results/fantasy_nojuv_periods.tsv'):
         with open('../results/fantasy_nojuv_periods.tsv', mode = 'w', encoding = 'utf-8') as f:
@@ -197,6 +247,13 @@ def fantasy_periods():
                 f.write(outline)
 
 def sf_periods():
+
+    '''
+    Assesses the accuracy of models that distinguish SF from a random contrast set,
+    in a series of periods defined by "periods". For the meaning of the parameters,
+    consult versatiletrainer2.
+    '''
+
     if not os.path.isfile('../results/sf_nojuv_periods.tsv'):
         with open('../results/sf_nojuv_periods.tsv', mode = 'w', encoding = 'utf-8') as f:
             outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
@@ -259,6 +316,8 @@ def write_a_row(r, outfile, columns):
         scribe.writerow(r)
 
 def sf2fantasy_divergence():
+
+    ''' I suspect this is now deprecated.'''
 
     columns = ['testype', 'name1', 'name2', 'acc1', 'acc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1', 'meandate', 'ceiling', 'floor']
 
@@ -357,6 +416,9 @@ def sf2fantasy_divergence():
                 write_a_row(r, outfile, columns)
 
 def sf_vs_fantasy():
+
+    '''Not sure this was used for the current version of the article.'''
+
     sourcefolder = '../data/'
     metadatapath = '../metadata/mastermetadata.csv'
     tags4positive = {'fantasy_loc', 'fantasy_oclc', 'supernat'}
@@ -384,6 +446,8 @@ def sf_vs_fantasy():
     matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
 
 def sf_vs_fantasy_periods():
+
+    '''Not sure this was used for the current version of the article.'''
 
     outresults = '../results/sf_vs_fantasy_periods2.tsv'
 
@@ -424,12 +488,20 @@ def sf_vs_fantasy_periods():
                 f.write(outline)
 
 def reliable_genre_comparisons():
+
     '''
-    Trying to get around contamination of my spearman comparisons
+    This function was used in the current version of the article.
+
+    It addresses weaknesses in earlier versions of genre comparison
     by comparing only models *with no shared instances*.
 
-    Edit Jan 1: To be even more careful about leakage, make that
-    *no shared authors.*
+    [Edit Jan 1: To be even more careful about leakage, make that
+    *no shared authors.*]
+
+    Doing that required a ----load of complexity I'm afraid. I have to first
+    split each genre into disjoint sets, then create self-comparisons between
+    those disjoint sets, as well as cross-comparisons between genres, and then
+    finally compare the self-comparisons to the cross-comparisons.
     '''
 
     outmodels = '../results/supplement_models.tsv'
@@ -465,6 +537,11 @@ def reliable_genre_comparisons():
         for floor, ceiling in periods:
 
             split_metadata(master, floor, ceiling, sizecap)
+
+            # That function just above does the real work of preventing leakage,
+            # by splitting the genre into two disjoint sets. This allows self-
+            # comparisons that avoid shared authors, and are thus strictly
+            # comparable to cross-comparisons.
 
             metaoptions = ['sf1', 'sf2', 'fant1', 'fant2']
 
@@ -700,7 +777,21 @@ def get_surprising_books(sampleA, sampleB):
     diff = stats.zscore(model2on1.probability) - stats.zscore(model2on1.alien_model)
     diff2to1 = {k:v for k, v in zip(model2on1.index, diff)}
 
-    return diff1to2, diff2to1
+    # We normalize probabilities so that they can be averaged meaningfully.
+    # The constants here are arbitrary but designed to produce a distribution
+    # within 0, 1 bounds.
+
+    normalized1on2prob = (stats.zscore(model1on2.probability) * .21) + .5
+    normalized1on2alien = (stats.zscore(model1on2.alien_model) * .21) + .5
+    normalized2on1prob = (stats.zscore(model2on1.probability) * .21) + .5
+    normalized2on1alien = (stats.zscore(model2on1.alien_model) * .21) + .5
+
+    probs1 = {k:v for k, v in zip(model1on2.index, normalized1on2prob)}
+    alien1 = {k:v for k, v in zip(model1on2.index, normalized1on2alien)}
+    probs2 = {k:v for k, v in zip(model2on1.index, normalized2on1prob)}
+    alien2 = {k:v for k, v in zip(model2on1.index, normalized2on1alien)}
+
+    return diff1to2, diff2to1, probs1, alien1, probs2, alien2
 
 def get_rcc_surprise(date):
     periods = [(1870, 1899), (1900, 1929), (1930, 1959), (1960, 1989), (1990, 2010), (1880, 1909), (1910, 1939), (1940, 1969), (1970, 1999), (1890, 1919), (1920, 1949), (1950, 1979), (1980, 2009)]
@@ -715,6 +806,10 @@ def get_rcc_surprise(date):
 
     surprisingly_new = dict()
     surprisingly_old = dict()
+    original_new = dict()
+    alien_new = dict()
+    original_old = dict()
+    alien_old = dict()
 
     for i in range(5):
         for j in range(5):
@@ -723,23 +818,20 @@ def get_rcc_surprise(date):
                 name1 = 'rccsf'+ str(f1) + '_' + str(c1) + '_' + str(i) + '_' + str(part)
                 name2 = 'rccsf'+ str(f2) + '_' + str(c2) + '_' + str(j) + '_' + str(part)
 
-                diff1to2, diff2to1 = get_surprising_books(name1, name2)
+                diff1to2, diff2to1, probs1, alien1, probs2, alien2 = get_surprising_books(name1, name2)
 
-                for k, v in diff1to2.items():
-                    if k not in surprisingly_new:
-                        surprisingly_new[k] = []
-                    surprisingly_new[k].append(v)
-
-                for k, v in diff2to1.items():
-                    if k not in surprisingly_old:
-                        surprisingly_old[k] = []
-                    surprisingly_old[k].append(v)
+                foldintodict(diff1to2, surprisingly_new)
+                foldintodict(diff2to1, surprisingly_old)
+                foldintodict(probs1, original_new)
+                foldintodict(alien1, alien_new)
+                foldintodict(probs2, original_old)
+                foldintodict(alien2, alien_old)
 
     meta = pd.read_csv('../metadata/mastermetadata.csv', index_col = 'docid')
 
-    outfile = '../results/sf' + str(date) + 'newsurprises.tsv'
+    outfile = '../results/sf' + str(date) + '_new_surprises.tsv'
     with open(outfile, mode = 'w', encoding = 'utf-8') as f:
-        scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = ['docid', 'diff', 'firstpub', 'author', 'tags', 'title'])
+        scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = ['docid', 'diff', 'original', 'alien', 'firstpub', 'author', 'tags', 'title'])
         scribe.writeheader()
         for k, v in surprisingly_new.items():
             o = dict()
@@ -749,11 +841,13 @@ def get_rcc_surprise(date):
             o['title'] = meta.loc[k, 'title']
             o['firstpub'] = meta.loc[k, 'firstpub']
             o['tags'] = meta.loc[k, 'tags']
+            o['original'] = sum(original_new[k]) / len(original_new[k])
+            o['alien'] = sum(alien_new[k]) / len(alien_new[k])
             scribe.writerow(o)
 
-    outfile = '../results/sf' + str(date) + 'oldsurprises.tsv'
+    outfile = '../results/sf' + str(date) + '_old_surprises.tsv'
     with open(outfile, mode = 'w', encoding = 'utf-8') as f:
-        scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = ['docid', 'diff', 'firstpub', 'author', 'tags', 'title'])
+        scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = ['docid', 'diff', 'original', 'alien', 'firstpub', 'author', 'tags', 'title'])
         scribe.writeheader()
         for k, v in surprisingly_old.items():
             o = dict()
@@ -763,6 +857,75 @@ def get_rcc_surprise(date):
             o['title'] = meta.loc[k, 'title']
             o['firstpub'] = meta.loc[k, 'firstpub']
             o['tags'] = meta.loc[k, 'tags']
+            o['original'] = sum(original_old[k]) / len(original_old[k])
+            o['alien'] = sum(alien_old[k]) / len(alien_old[k])
+            scribe.writerow(o)
+
+def get_fantasy_surprise(date):
+    periods = [(1800, 1899), (1900, 1919), (1920, 1949), (1950, 1969), (1970, 1979), (1980, 1989), (1990, 1999), (2000, 2009)]
+
+    # identify the periods at issue
+
+    for floor, ceiling in periods:
+        if ceiling+ 1 == date:
+            f1, c1 = floor, ceiling
+        if floor == date:
+            f2, c2 = floor, ceiling
+
+    surprisingly_new = dict()
+    surprisingly_old = dict()
+    original_new = dict()
+    alien_new = dict()
+    original_old = dict()
+    alien_old = dict()
+
+    for i in range(5):
+        for j in range(5):
+
+            name1 = 'fantasynojuv'+ str(f1) + 'to' + str(c1) + 'v' + str(i)
+            name2 = 'fantasynojuv'+ str(f2) + 'to' + str(c2) + 'v' + str(j)
+
+            diff1to2, diff2to1, probs1, alien1, probs2, alien2 = get_surprising_books(name1, name2)
+
+            foldintodict(diff1to2, surprisingly_new)
+            foldintodict(diff2to1, surprisingly_old)
+            foldintodict(probs1, original_new)
+            foldintodict(alien1, alien_new)
+            foldintodict(probs2, original_old)
+            foldintodict(alien2, alien_old)
+
+    meta = pd.read_csv('../metadata/mastermetadata.csv', index_col = 'docid')
+
+    outfile = '../results/fantasy' + str(date) + 'newsurprises.tsv'
+    with open(outfile, mode = 'w', encoding = 'utf-8') as f:
+        scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = ['docid', 'diff', 'original', 'alien', 'firstpub', 'author', 'tags', 'title'])
+        scribe.writeheader()
+        for k, v in surprisingly_new.items():
+            o = dict()
+            o['docid'] = k
+            o['diff'] = sum(v) / len(v)
+            o['author'] = meta.loc[k, 'author']
+            o['title'] = meta.loc[k, 'title']
+            o['firstpub'] = meta.loc[k, 'firstpub']
+            o['tags'] = meta.loc[k, 'tags']
+            o['original'] = sum(original_new[k]) / len(original_new[k])
+            o['alien'] = sum(alien_new[k]) / len(alien_new[k])
+            scribe.writerow(o)
+
+    outfile = '../results/fantasy' + str(date) + 'oldsurprises.tsv'
+    with open(outfile, mode = 'w', encoding = 'utf-8') as f:
+        scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = ['docid', 'diff', 'original', 'alien', 'firstpub', 'author', 'tags', 'title'])
+        scribe.writeheader()
+        for k, v in surprisingly_old.items():
+            o = dict()
+            o['docid'] = k
+            o['diff'] = sum(v) / len(v)
+            o['author'] = meta.loc[k, 'author']
+            o['title'] = meta.loc[k, 'title']
+            o['firstpub'] = meta.loc[k, 'firstpub']
+            o['tags'] = meta.loc[k, 'tags']
+            o['original'] = sum(original_old[k]) / len(original_old[k])
+            o['alien'] = sum(alien_old[k]) / len(alien_old[k])
             scribe.writerow(o)
 
 def bailey_to_postwar():
@@ -1125,6 +1288,194 @@ def scarborough_to_19c_fantasy():
 
                 write_a_row(r, outcomparisons, columns)
 
+def scarborough_to_bailey():
+    '''
+    This function assumes that you've already trained the models of scarborough
+    and bailey using different random contrast sets, and now just need to compare them.
+    '''
+
+    outcomparisons = '../results/scarborough2bailey_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ceiling1', 'floor1', 'ceiling2', 'floor2', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    for contrast in ['random', 'randomB']:
+        if contrast == 'random':
+            othercontrast = 'randomB'
+        else:
+            othercontrast = 'random'
+
+        for i in range(3):
+            for j in range(3):
+
+                r = dict()
+                r['testype'] = 'scarborough-bailey'
+                r['name1'] = 'scarborough_' + contrast + '_' + str(i)
+                r['name2'] = 'bailey_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'scarborough-self'
+                r['name1'] = 'scarborough_' + contrast + '_' + str(i)
+                r['name2'] = 'scarborough_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'bailey-self'
+                r['name1'] = 'bailey_' + contrast + '_' + str(i)
+                r['name2'] = 'bailey_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+def sf19ctofantasy19c():
+    '''
+    This function assumes that you've already trained the models of scarborough
+    and bailey using different random contrast sets, and now just need to compare them.
+    '''
+
+    outcomparisons = '../results/sf19ctofantasy19c_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ceiling1', 'floor1', 'ceiling2', 'floor2', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    for contrast in ['random', 'randomB']:
+        if contrast == 'random':
+            othercontrast = 'randomB'
+        else:
+            othercontrast = 'random'
+
+        for i in range(3):
+            for j in range(3):
+
+                r = dict()
+                r['testype'] = 'sf-fantasy'
+                r['name1'] = '19cSF_' + contrast + '_' + str(i)
+                r['name2'] = '19c_fantasy_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'fantasy-self'
+                r['name1'] = '19c_fantasy_' + contrast + '_' + str(i)
+                r['name2'] = '19c_fantasy_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'sf-self'
+                r['name1'] = '19cSF_' + contrast + '_' + str(i)
+                r['name2'] = '19cSF_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+def baileytofantasy19c():
+    '''
+    This function assumes that you've already trained the models of scarborough
+    and bailey using different random contrast sets, and now just need to compare them.
+    '''
+
+    outcomparisons = '../results/baileytofantasy19c_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ceiling1', 'floor1', 'ceiling2', 'floor2', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    for contrast in ['random', 'randomB']:
+        if contrast == 'random':
+            othercontrast = 'randomB'
+        else:
+            othercontrast = 'random'
+
+        for i in range(3):
+            for j in range(3):
+
+                r = dict()
+                r['testype'] = 'bailey-fantasy'
+                r['name1'] = 'bailey_' + contrast + '_' + str(i)
+                r['name2'] = '19c_fantasy_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'fantasy-self'
+                r['name1'] = '19c_fantasy_' + contrast + '_' + str(i)
+                r['name2'] = '19c_fantasy_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'bailey-self'
+                r['name1'] = 'bailey_' + contrast + '_' + str(i)
+                r['name2'] = 'bailey_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+def scarborough_to_19cSF():
+    '''
+    This function assumes that you've already trained the models of scarborough
+    and bailey using different random contrast sets, and now just need to compare them.
+    '''
+
+    outcomparisons = '../results/scarborough2sf_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ceiling1', 'floor1', 'ceiling2', 'floor2', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    for contrast in ['random', 'randomB']:
+        if contrast == 'random':
+            othercontrast = 'randomB'
+        else:
+            othercontrast = 'random'
+
+        for i in range(3):
+            for j in range(3):
+
+                r = dict()
+                r['testype'] = 'scarborough-19cSF'
+                r['name1'] = 'scarborough_' + contrast + '_' + str(i)
+                r['name2'] = '19cSF_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'scarborough-self'
+                r['name1'] = 'scarborough_' + contrast + '_' + str(i)
+                r['name2'] = 'scarborough_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'sf-self'
+                r['name1'] = '19cSF_' + contrast + '_' + str(i)
+                r['name2'] = '19cSF_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
 def just_maximize_SF():
 
     sourcefolder = '../data/'
@@ -1218,10 +1569,10 @@ def get_divergence(sampleA, sampleB):
 
     return spearman, loss, spearman1on2, spearman2on1, loss1on2, loss2on1, acc1, acc2, alienacc1, alienacc2, meandate1, meandate2
 
-def scarborough_to_postwar_fantasy():
-    outmodels = '../results/scarborough2postwar_models.tsv'
-    outcomparisons = '../results/scarborough2postwar_fcomparisons.tsv'
-    columns = ['testype', 'name1', 'name2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'meandate1', 'meandate2']
+def scarborough_to_detective():
+    outmodels = '../results/scarborough2detective_models.tsv'
+    outcomparisons = '../results/scarborough2detective_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ceiling1', 'floor1', 'ceiling2', 'floor2', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
 
     if not os.path.isfile(outcomparisons):
         with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
@@ -1234,98 +1585,196 @@ def scarborough_to_postwar_fantasy():
             f.write(outline)
 
     sourcefolder = '../data/'
-    sizecap = 74
+    sizecap = 70
 
     c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
     featurestart = 1500
-    featureend = 7000
+    featureend = 6500
     featurestep = 300
     modelparams = 'logistic', 15, featurestart, featureend, featurestep, c_range
     metadatapath = '../metadata/mastermetadata.csv'
 
-    for i in range(3):
+    for contrast in ['random', 'randomB']:
+        for i in range(3):
 
-        name = 'scarborough_' + str(i)
-        vocabpath = '../lexica/' + name + '.txt'
-        tags4positive = {'supernat'}
-        tags4negative = {'random'}
-        floor = 1800
-        ceiling = 1930
+            name = 'scarborough_' + contrast + '_' + str(i)
+            vocabpath = '../lexica/' + name + '.txt'
+            tags4positive = {'supernat'}
+            tags4negative = {contrast}
+            floor = 1800
+            ceiling = 1922
 
-        metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 7000)
+            checkpath = '../modeloutput/' + name + '.csv'
+            if not os.path.isfile(checkpath):
 
-        matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+                metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 6500, forbid4positive = {'juv'}, forbid4negative = {'juv'})
 
-        meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+                # notice that I am excluding children's lit this time!
 
-        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
-            outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
-            f.write(outline)
+                matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
 
-        os.remove(vocabpath)
+                meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
 
-        name = 'postwar_fantasy_' + str(i)
-        vocabpath = '../lexica/' + name + '.txt'
-        tags4positive = {'fantasy_oclc', 'fantasy_loc'}
-        tags4negative = {'random'}
-        floor = 1945
-        ceiling = 2010
+                with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+                    outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+                    f.write(outline)
 
-        metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 7000)
+                os.remove(vocabpath)
 
-        matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+            name = 'detective_' + contrast + '_' + str(i)
+            vocabpath = '../lexica/' + name + '.txt'
+            tags4positive = {'detective'}
+            tags4negative = {contrast}
+            floor = 1800
+            ceiling = 1922
 
-        meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+            metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 6500, forbid4positive = {'juv'}, forbid4negative = {'juv'})
 
-        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
-            outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
-            f.write(outline)
+            # notice, not excluding children's lit
 
-        os.remove(vocabpath)
+            matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
 
-    for i in range(3):
-        for j in range(3):
+            meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
 
-            r = dict()
-            r['testype'] = 'scarborough-postwar'
-            r['name1'] = 'scarborough_' + str(i)
-            r['name2'] = 'postwar_fantasy_' + str(j)
-            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+            with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+                outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+                f.write(outline)
 
-            write_a_row(r, outcomparisons, columns)
+            os.remove(vocabpath)
 
-def scarborough_to_detective():
-    outmodels = '../results/scarborough2detective_models.tsv'
-    outcomparisons = '../results/scarborough2detective_comparisons.tsv'
-    columns = ['testype', 'name1', 'name2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'meandate1', 'meandate2']
+    for contrast in ['random', 'randomB']:
+        if contrast == 'random':
+            othercontrast = 'randomB'
+        else:
+            othercontrast = 'random'
+
+        for i in range(3):
+            for j in range(3):
+
+                r = dict()
+                r['testype'] = 'scarborough-detective'
+                r['name1'] = 'scarborough_' + contrast + '_' + str(i)
+                r['name2'] = 'detective_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'scarborough-self'
+                r['name1'] = 'scarborough_' + contrast + '_' + str(i)
+                r['name2'] = 'scarborough_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'detective-self'
+                r['name1'] = 'detective_' + contrast + '_' + str(i)
+                r['name2'] = 'detective_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+def genrespace():
+
+    outcomparisons = '../results/genrespace.tsv'
+    columns = ['testype', 'name1', 'name2', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
 
     if not os.path.isfile(outcomparisons):
         with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
             scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
             scribe.writeheader()
 
-    if not os.path.isfile(outmodels):
-        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
-            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
-            f.write(outline)
+    periods = ['1800to1899', '1900to1919', '1920to1949', '1950to1969', '1970to1979', '1980to1989', '1990to1999', '2000to2010']
 
-    for i in range(3):
-        for j in range(3):
+    groups = dict()
+    keys = []
 
-            r = dict()
-            r['testype'] = 'scar-detective'
-            r['name1'] = 'scarborough_' + str(i)
-            r['name2'] = 'detective' + str(j)
-            r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+    for genre in ['sfnojuv', 'fantasynojuv']:
+        for p in periods:
+            group = []
+            for i in range(5):
+                name = genre + p + 'v' + str(i)
 
-            write_a_row(r, outcomparisons, columns)
+                if not os.path.isfile('../modeloutput/' + name + '.pkl'):
+                    print('error, missing ' + name)
+                    sys.exit(0)
+                else:
+                    group.append(name)
+
+            key = genre + p
+            groups[key] = group
+            keys.append(key)
+
+
+    for genre in ['scarborough_random', 'bailey_random']:
+        group = []
+        for backdrop in ['_', '_B']:
+            for i in range(3):
+                if not os.path.isfile('../modeloutput/' + name + '.pkl'):
+                    print('error, missing ' + name)
+                    sys.exit(0)
+                else:
+                    group.append(name)
+
+        key = genre
+        groups[key] = group
+        keys.append(key)
+
+    for k1 in keys:
+        for k2 in keys:
+
+            for name1 in groups[k1]:
+                for name2 in groups[k2]:
+
+                    r = dict()
+                    if k1 == k2:
+                        r['testype'] = k1 + '|self'
+                    else:
+                        r['testype'] = k1 + '|' + k2
+
+                    r['name1'] = name1
+                    r['name2'] = name2
+
+                    r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                    write_a_row(r, outcomparisons, columns)
+
 
 ## MAIN
 
 command = sys.argv[1]
 
-if command == "scarborough_19c":
+if command == "scar_19c":
     scarborough_to_19c_fantasy()
-if command == "bailey_19c":
+elif command == "bailey_19c":
     bailey_to_19cSF()
+elif command == "scar_detective":
+    scarborough_to_detective()
+elif command == "sfsurprise":
+    date = int(sys.argv[2])
+    get_rcc_surprise(date)
+elif command == "fantasysurprise":
+    date = int(sys.argv[2])
+    get_fantasy_surprise(date)
+elif command == 'genrespace':
+    genrespace()
+elif command == 'scarborough_bailey':
+    scarborough_to_bailey()
+elif command == '19csf_fantasy':
+    sf19ctofantasy19c()
+elif command == 'bailey_fantasy':
+    baileytofantasy19c()
+elif command == 'scarborough_sf':
+    scarborough_to_19cSF()
+elif command == "fantasy_periods":
+    fantasy_periods()
+elif command == "sf_periods":
+    sf_periods()
+elif command == 'reliable_genre':
+    reliable_genre_comparisons()
+elif command == 'reliable_change':
+    reliable_change_comparisons()
+
+
 
