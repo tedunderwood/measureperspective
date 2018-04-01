@@ -1,6 +1,8 @@
 A Measured Perspective
 =========================
 
+[![DOI](https://zenodo.org/badge/114384746.svg)](https://zenodo.org/badge/latestdoi/114384746)
+
 Code and data to support Ted Underwood, "A Measured Perspective."
 
 There are four different sections of the article, but the first two draw on data from previous experiments; they will be lightly documented here, with links pointing out to other repositories.
