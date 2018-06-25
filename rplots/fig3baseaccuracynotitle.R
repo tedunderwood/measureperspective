@@ -14,15 +14,14 @@ p <- ggplot(all, aes(color = genre)) +
   geom_segment(data = all, aes(x = floor, y = accuracy, xend = ceiling, yend = accuracy), size = 1.8) +
   scale_color_manual(values = c('black', 'gray65'),
                      guide = guide_legend(reverse = TRUE)) +
-  scale_y_continuous('', labels = percent) +
+  scale_y_continuous('accuracy', labels = percent) +
   scale_x_continuous('') + theme_bw() + 
-  ggtitle('Accuracy of models distinguishing\neach genre from a random background') +
   theme(text = element_text(size = 16, family = "Avenir Next Medium"), 
         panel.border = element_blank(),
         axis.line = element_line(color = 'black'),
         plot.title = element_text(margin = margin(b = 14), size = 16, lineheight = 1.1))
 
-tiff("~/Dropbox/python/pmla/images/Fig3wTitle.tiff", height = 6, width = 8, units = 'in', res=400)
+tiff("~/Dropbox/python/pmla/images/Fig3NoTitle.tiff", height = 6, width = 8, units = 'in', res=400)
 plot(p)
 dev.off()
 plot(p)
