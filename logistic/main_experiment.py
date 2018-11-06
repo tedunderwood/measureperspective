@@ -1765,6 +1765,244 @@ def genrespace():
 
                     write_a_row(r, outcomparisons, columns)
 
+def just_maximize_mudies():
+    sourcefolder = '../data/'
+    sizecap = 700
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1000
+    featureend = 5000
+    featurestep = 100
+    modelparams = 'logistic', 12, featurestart, featureend, featurestep, c_range
+    metadatapath = '../metadata/mastermetadata.csv'
+
+    name = 'maxaccuracy_mudies'
+    vocabpath = '../lexica/' + name + '.txt'
+    tags4positive = {'mudiesoccult'}
+    tags4negative = {'random'}
+    floor = 1800
+    ceiling = 2011
+
+    metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 7500)
+
+    matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+def just_maximize_bailey():
+    sourcefolder = '../data/'
+    sizecap = 700
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1000
+    featureend = 5000
+    featurestep = 200
+    modelparams = 'logistic', 12, featurestart, featureend, featurestep, c_range
+    metadatapath = '../metadata/mastermetadata.csv'
+
+    name = 'maxaccuracy_bailey'
+    vocabpath = '../lexica/' + name + '.txt'
+    tags4positive = {'sf_bailey'}
+    tags4negative = {'random'}
+    floor = 1800
+    ceiling = 2011
+
+    metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 7500)
+
+    matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+def bailey_to_20cSF():
+    outmodels = '../results/baileyto20SF_models.tsv'
+    outcomparisons = '../results/baileyto20SF_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ceiling1', 'floor1', 'ceiling2', 'floor2', 'meandate1', 'meandate2', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    if not os.path.isfile(outmodels):
+        with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
+            f.write(outline)
+
+    sourcefolder = '../data/'
+    sizecap = 70
+
+    c_range = [.00001, .0001, .001, .01, 0.1, 1, 10, 100]
+    featurestart = 1000
+    featureend = 6000
+    featurestep = 300
+    modelparams = 'logistic', 12, featurestart, featureend, featurestep, c_range
+    metadatapath = '../metadata/mastermetadata.csv'
+
+    for contrast in ['random', 'randomB']:
+        for i in range(3):
+
+            name = 'sf_baileyonly_' + contrast + '_' + str(i)
+            vocabpath = '../lexica/' + name + '.txt'
+            tags4positive = {'sf_bailey'}
+            tags4negative = {contrast}
+            floor = 1800
+            ceiling = 1922
+
+            checkpath = '../modeloutput/' + name + '.csv'
+            if not os.path.isfile(checkpath):
+
+                metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 6500, forbid4positive = {'juv'}, forbid4negative = {'juv'})
+
+                # notice that I am excluding children's lit this time!
+
+                matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+                meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+                with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+                    outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+                    f.write(outline)
+
+                os.remove(vocabpath)
+
+            name = '20cSFonly_' + contrast + '_' + str(i)
+            vocabpath = '../lexica/' + name + '.txt'
+            tags4positive = {'sf_loc', 'sf_oclc'}
+            tags4negative = {contrast}
+            floor = 1915
+            ceiling = 2015
+
+            metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = floor, excludeabove = ceiling, force_even_distribution = False, negative_strategy = 'closely match', numfeatures = 6500, forbid4positive = {'juv'}, forbid4negative = {'juv'})
+
+            # notice, not excluding children's lit
+
+            matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+            meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+            with open(outmodels, mode = 'a', encoding = 'utf-8') as f:
+                outline = name + '\t' + str(sizecap) + '\t' + str(floor) + '\t' + str(ceiling) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+                f.write(outline)
+
+            os.remove(vocabpath)
+
+    for contrast in ['random', 'randomB']:
+        if contrast == 'random':
+            othercontrast = 'randomB'
+        else:
+            othercontrast = 'random'
+
+        for i in range(3):
+            for j in range(3):
+
+                r = dict()
+                r['testype'] = 'bailey-SF'
+                r['name1'] = 'sf_baileyonly_' + contrast + '_' + str(i)
+                r['name2'] = '20cSFonly_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = 'bailey-self'
+                r['name1'] = 'sf_baileyonly_' + contrast + '_' + str(i)
+                r['name2'] = 'sf_baileyonly_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+                r = dict()
+                r['testype'] = '20cSF-self'
+                r['name1'] = '20cSFonly_' + contrast + '_' + str(i)
+                r['name2'] = '20cSFonly_' + othercontrast + '_' + str(j)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'])
+
+                write_a_row(r, outcomparisons, columns)
+
+def fantasy_periods_2():
+    '''
+    Assesses the accuracy of models that distinguish fantasy from a random contrast set,
+    in a series of periods defined by "periods". For the meaning of the parameters,
+    consult versatiletrainer2.
+    '''
+
+    if not os.path.isfile('../results/fantasy_periods2.tsv'):
+        with open('../results/fantasy_periods2.tsv', mode = 'w', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
+            f.write(outline)
+
+    sourcefolder = '../data/'
+    metadatapath = '../metadata/mastermetadata.csv'
+    tags4positive = {'fantasy_loc', 'fantasy_oclc'}
+    tags4negative = {'random'}
+    sizecap = 75
+
+    periods = [(1800, 1899), (1850, 1909), (1900, 1919), (1910, 1945), (1920, 1949), (1930, 1965), (1950, 1969), (1960, 1975), (1970, 1979), (1974, 1986), (1980, 1989), (1984, 1996), (1990, 1999), (1994, 2006), (2000, 2010)]
+
+    for excludebelow, excludeabove in periods:
+        print(excludebelow, excludeabove)
+        for i in range (3):
+
+            name = 'fantasynojuv' + str(excludebelow) + 'to' + str(excludeabove) + 'v' + str(i)
+
+            vocabpath = '../lexica/' + name + '.txt'
+            metadatapath = ''
+
+            metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = excludebelow, excludeabove = excludeabove, forbid4positive = {'juv'}, forbid4negative = {'juv'}, force_even_distribution = False)
+
+            c_range = [.0003, .001, .006, .02, 0.1, 0.7, 3, 12]
+            featurestart = 1000
+            featureend = 6100
+            featurestep = 200
+            modelparams = 'logistic', 12, featurestart, featureend, featurestep, c_range
+
+            matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+            meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+            with open('../results/fantasy_nojuv_periods.tsv', mode = 'a', encoding = 'utf-8') as f:
+                outline = name + '\t' + str(sizecap) + '\t' + str(excludebelow) + '\t' + str(excludeabove) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+                f.write(outline)
+
+def sf_periods_2():
+
+    '''
+    Assesses the accuracy of models that distinguish SF from a random contrast set,
+    in a series of periods defined by "periods". For the meaning of the parameters,
+    consult versatiletrainer2.
+    '''
+
+    if not os.path.isfile('../results/sf_periods2.tsv'):
+        with open('../results/sf_periods2.tsv', mode = 'w', encoding = 'utf-8') as f:
+            outline = 'name\tsize\tfloor\tceiling\tmeandate\taccuracy\tfeatures\tregularization\ti\n'
+            f.write(outline)
+
+    sourcefolder = '../data/'
+    metadatapath = '../metadata/mastermetadata.csv'
+    tags4positive = {'sf_loc', 'sf_oclc'}
+    tags4negative = {'random'}
+    sizecap = 75
+
+    periods = [(1800, 1899), (1850, 1909), (1900, 1919), (1910, 1945), (1920, 1949), (1930, 1965), (1950, 1969), (1960, 1975), (1970, 1979), (1974, 1986), (1980, 1989), (1984, 1996), (1990, 1999), (1994, 2006), (2000, 2010)]
+
+    for excludebelow, excludeabove in periods:
+        for i in range(3):
+
+            name = 'sfperiods2' + str(excludebelow) + 'to' + str(excludeabove) + 'v' + str(i)
+
+            vocabpath = '../lexica/' + name + '.txt'
+
+            metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist = versatiletrainer2.get_simple_data(sourcefolder, metadatapath, vocabpath, tags4positive, tags4negative, sizecap, excludebelow = excludebelow, excludeabove = excludeabove, forbid4positive = {'juv'}, forbid4negative = {'juv'})
+
+            c_range = [.0003, .001, .006, .02, 0.1, 0.7, 3, 12]
+            featurestart = 1000
+            featureend = 6100
+            featurestep = 200
+            modelparams = 'logistic', 12, featurestart, featureend, featurestep, c_range
+
+            matrix, maxaccuracy, metadata, coefficientuples, features4max, best_regularization_coef = versatiletrainer2.tune_a_model(metadata, masterdata, classvector, classdictionary, orderedIDs, authormatches, vocablist, tags4positive, tags4negative, modelparams, name, '../modeloutput/' + name + '.csv')
+
+            meandate = int(round(np.sum(metadata.firstpub) / len(metadata.firstpub)))
+
+            with open('../results/sf_periods2.tsv', mode = 'a', encoding = 'utf-8') as f:
+                outline = name + '\t' + str(sizecap) + '\t' + str(excludebelow) + '\t' + str(excludeabove) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
+                f.write(outline)
 
 ## MAIN
 
@@ -1793,13 +2031,19 @@ elif command == 'bailey_fantasy':
 elif command == 'scarborough_sf':
     scarborough_to_19cSF()
 elif command == "fantasy_periods":
-    fantasy_periods()
+    fantasy_periods_2()
 elif command == "sf_periods":
-    sf_periods()
+    sf_periods_2()
 elif command == 'reliable_genre':
     reliable_genre_comparisons()
 elif command == 'reliable_change':
     reliable_change_comparisons()
+elif command == 'maximize_mudies':
+    just_maximize_mudies()
+elif command == 'maximize_bailey':
+    just_maximize_bailey()
+elif command == 'bailey-20cSF':
+    bailey_to_20cSF()
 
 
 
