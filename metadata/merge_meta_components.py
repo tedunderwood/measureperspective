@@ -41,13 +41,13 @@ for p in parsing_paths:
             # that's a kloodge
             htid = row['htid']
             if htid not in htid2docs:
-                htid2docs[htid] = []
-            htid2docs[htid].append(docid)
+                htid2docs[htid] = set()
+            htid2docs[htid].add(docid)
             doc2tokens[docid] = row['totaltokens']
 
 # Load all the dataframes holding metadata.
 
-component_paths = ['random.csv', 'loc_oclc.csv', 'supernatural.csv', 'oslerbailey.csv', 'thedetectives.csv', 'randomB.csv']
+component_paths = ['random.csv', 'loc_oclc.csv', 'supernatural.csv', 'oslerbailey.csv', 'thedetectives.csv', 'randomB.csv', 'mudies.csv']
 components = []
 
 for p in component_paths:
