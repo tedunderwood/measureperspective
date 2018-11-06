@@ -1960,6 +1960,8 @@ def fantasy_periods_2():
                 outline = name + '\t' + str(sizecap) + '\t' + str(excludebelow) + '\t' + str(excludeabove) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
                 f.write(outline)
 
+            os.remove(vocabpath)
+
 def sf_periods_2():
 
     '''
@@ -2003,6 +2005,8 @@ def sf_periods_2():
             with open('../results/sf_periods2.tsv', mode = 'a', encoding = 'utf-8') as f:
                 outline = name + '\t' + str(sizecap) + '\t' + str(excludebelow) + '\t' + str(excludeabove) + '\t' + str(meandate) + '\t' + str(maxaccuracy) + '\t' + str(features4max) + '\t' + str(best_regularization_coef) + '\t' + str(i) + '\n'
                 f.write(outline)
+
+            os.remove(vocabpath)
 
 ## MAIN
 
