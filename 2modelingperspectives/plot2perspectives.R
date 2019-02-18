@@ -20,7 +20,7 @@ p <- ggplot(persp, aes(m, f)) +
         panel.border = element_blank(),
         axis.line = element_line(color = 'black'),
         plot.title = element_text(margin = margin(b = 14), size = 16, lineheight = 1.1)) +
-  annotate('text', x = -2.5 , y = -13.5, label = "Overrepresentation measured as\nthe signed log of Dunning's log-likelihood", 
+  annotate('text', x = -2.5 , y = -14.5, label = "Overrepresentation measured as\nthe signed log of Dunning's log-likelihood", 
            hjust = 0, family = 'Avenir Next Medium', size = 3.9)
 
 tiff("fig2plot2perspectives.tiff", height = 8, width = 8, units = 'in', res=400)
