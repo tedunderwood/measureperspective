@@ -571,7 +571,7 @@ def accuracy_loss(df):
 
     return accuracy(df, 'probability') - accuracy(df, 'alien_model')
 
-def get_divergence(sampleA, sampleB, datafolder):
+def get_divergence(sampleA, sampleB, twodatafolder = '../data/', onedatafolder = '../data/'):
     '''
     This function applies model a to b, and vice versa, and returns
     a couple of measures of divergence: notably lost accuracy and
@@ -596,8 +596,8 @@ def get_divergence(sampleA, sampleB, datafolder):
     model2 = '../measuredivergence/newmodeloutput/' + sampleB + '.pkl'
     meta2 = '../measuredivergence/newmodeloutput/' + sampleB + '.csv'
 
-    model1on2 = versatiletrainer2.apply_pickled_model(model1, datafolder, '.tsv', meta2)
-    model2on1 = versatiletrainer2.apply_pickled_model(model2, '../data/', '.tsv', meta1)
+    model1on2 = versatiletrainer2.apply_pickled_model(model1, twodatafolder, '.tsv', meta2)
+    model2on1 = versatiletrainer2.apply_pickled_model(model2, onedatafolder, '.tsv', meta1)
 
     spearman1on2 = np.arctanh(stats.spearmanr(model1on2.probability, model1on2.alien_model)[0])
     spearman2on1 = np.arctanh(stats.spearmanr(model2on1.probability, model2on1.alien_model)[0])
@@ -646,7 +646,7 @@ def new_divergences():
                 r['testype'] = 'fantasy2mixed'
                 r['name1'] = 'goldfantasy_' + str(i)
                 r['name2'] = 'mixeddata_' + str(j) + '_' + str(ratio)
-                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'], '../measuredivergence/mix/' + str(ratio) + '/')
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'], twodatafolder = '../measuredivergence/mix/' + str(ratio) + '/')
                 r['ratio'] = ratio
 
                 write_a_row(r, outcomparisons, columns)
@@ -655,14 +655,37 @@ def new_divergences():
                 r['testype'] = 'detective2mixed'
                 r['name1'] = 'golddetective_' + str(i)
                 r['name2'] = 'mixeddata_' + str(j) + '_' + str(ratio)
-                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'], '../measuredivergence/mix/' + str(ratio) + '/')
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'], twodatafolder = '../measuredivergence/mix/' + str(ratio) + '/')
                 r['ratio'] = 100 - ratio
                 # note that distance from detective is the complement
                 # of distance from fantasy
 
                 write_a_row(r, outcomparisons, columns)
 
-new_divergences()
+def new_self_comparisons ():
+
+    outcomparisons = '../measuredivergence/results/self_comparisons.tsv'
+    columns = ['testype', 'name1', 'name2', 'ratio', 'spearman', 'spear1on2', 'spear2on1', 'loss', 'loss1on2', 'loss2on1', 'acc1', 'acc2', 'alienacc1', 'alienacc2', 'meandate1', 'meandate2']
+
+    if not os.path.isfile(outcomparisons):
+        with open(outcomparisons, mode = 'a', encoding = 'utf-8') as f:
+            scribe = csv.DictWriter(f, delimiter = '\t', fieldnames = columns)
+            scribe.writeheader()
+
+    for i in range(0, 3):
+        for j in range(3, 6):
+            for ratio in [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100]:
+
+                r = dict()
+                r['testype'] = 'selfmixed'
+                r['name1'] = 'mixeddata_' + str(i) + '_' + str(ratio)
+                r['name2'] = 'mixeddata_' + str(j) + '_' + str(ratio)
+                r['spearman'], r['loss'], r['spear1on2'], r['spear2on1'], r['loss1on2'], r['loss2on1'], r['acc1'], r['acc2'], r['alienacc1'], r['alienacc2'], r['meandate1'], r['meandate2'] = get_divergence(r['name1'], r['name2'], twodatafolder = '../measuredivergence/mix/' + str(ratio) + '/', onedatafolder = '../measuredivergence/altmix/' + str(ratio) + '/')
+                r['ratio'] = ratio
+
+                write_a_row(r, outcomparisons, columns)
+
+new_self_comparisons()
 
 
 
