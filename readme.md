@@ -5,17 +5,19 @@ Machine Learning and Human Perspective
 
 Code and data to support Ted Underwood, "Machine Learning and Human Perspective," accepted for publication in PMLA.
 
-The repository has been organized to document particular figures and assertions in the article. This readme file proceeds through the article and points to supporting code in each instance.
+The repository has been organized to document particular figures and assertions in the article.
 
-[Section 1: From measurement to modeling](https://github.com/tedunderwood/measureperspective/tree/master/modelingperspectives)
+[Section 1: From measurement to modeling](https://github.com/tedunderwood/measureperspective/tree/master/genderedperspectives)
 =======================================
 
-The subdirectory [**modelingperspectives**](https://github.com/tedunderwood/measureperspective/tree/master/modelingperspectives) contains code, and intermediate stages of data, used to produce figure 1. The raw data is contained in another repository (it runs to several gigabytes).
+The subdirectory [**genderedperspectives**](https://github.com/tedunderwood/measureperspective/tree/master/modelingperspectives) contains code, and intermediate stages of data, used to produce figure 1. The raw data is contained in another repository (it runs to several gigabytes).
 
-Sections 3 and 4: Comparing multiple perspectives, Measuring parallax
-=====================================================================
+Section 2: Multiplying perspectives and 3: Measuring parallax
+=============================================================
 
-These sections involve completely new samples of data and metadata. Instead of creating a separate folder for each section, I have spread the various components of the workflow across different folders (**/data**, **/metadata**, and so on) documented below.
+These two sections of the article use shared sources of data and some shared code.
+
+So instead of creating a separate folder for each section, I have spread the various components of the workflow across different folders (**/data**, **/metadata**, and so on) documented below.
 
 The core question posed in section 3 was, "Can we measure the differentiation of fictional genres?""
  I asked, in particular, whether fantasy and science fiction become more clearly distinct from mainstream fiction (and from each other) as we move down a timeline from the nineteenth century to the early twenty-first. (I owe the impulse to compare fantasy and science fiction to a suggestion from Alan Liu.)

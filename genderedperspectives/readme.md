@@ -13,6 +13,6 @@ The full sequence of steps is as follows:
 
 2. Run **create_character_table.py**, which will use those files along with the lexicon present in this directory, and the **filtered_fiction_metadata** present in the sibling **/metadata** directory. This will generate **chartable.tsv**. (Or you can just unzip the zipped version of **chartable.tsv**, and start with the next step, 3.)
 
-3. Run **gendered_perspectives.ipynb**. This does all the interesting work of comparing word frequencies using Funnimng's log likelihood, plotting two perspectives against each other, etc. It uses **chartable.tsv** as raw data, and produces **data4r.csv** as output. (Or, you can skip this step, if you're really only interested in visualization, and start with the next step, 4.)
+3. Run **gendered_perspectives.ipynb**. This does all the interesting work of comparing word frequencies using Dunning's log likelihood, plotting two perspectives against each other, etc. It uses **chartable.tsv** as raw data, and produces **data4r.csv** as output. (Or, you can skip this step, if you're really only interested in visualization, and start with the next step, 4.)
 
 4. Run **plot2perspectives.R**. It uses the data produced in step 2, and produces figure 2 as output: **fig2plot2perspectives.tiff**.
