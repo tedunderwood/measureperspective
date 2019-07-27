@@ -1,25 +1,16 @@
-A Measured Perspective
-=========================
+Machine Learning and Human Perspective
+======================================
 
 [![DOI](https://zenodo.org/badge/114384746.svg)](https://zenodo.org/badge/latestdoi/114384746)
 
-Code and data to support Ted Underwood, "A Measured Perspective."
+Code and data to support Ted Underwood, "Machine Learning and Human Perspective," accepted for publication in PMLA.
 
-There are four different sections of the article, but the first two draw on data from previous experiments; they will be lightly documented here, with links pointing out to other repositories.
+The repository has been organized to document particular figures and assertions in the article. This readme file proceeds through the article and points to supporting code in each instance.
 
-The final two sections draw on new data, and will be completely documented in this repository.
+[Section 1: From measurement to modeling](https://github.com/tedunderwood/measureperspective/tree/master/modelingperspectives)
+=======================================
 
-[Section 1: Counting things](https://github.com/tedunderwood/measureperspective/tree/master/1counting)
-==========================
-
-Explains how figure 1 was produced. The raw data used for this figure is documented in [Chapter 4 of *Distant Horizons*](https://github.com/tedunderwood/horizon/tree/master/chapter4).
-
-But intermediate stages of data, and the script that uses them to produce figure 1, are contained in the subfolder **1counting**.
-
-[Section 2: Modeling perspectives](https://github.com/tedunderwood/measureperspective/tree/master/2modelingperspectives)
-=================================
-
-Contains code, and intermediate stages of data, used to produce figure 2. Again, the raw data is contained in another repository (it runs to several gigabytes). But intermediate stages of data and code are contained in the subfolder **2modelingperspectives**.
+The subdirectory [**modelingperspectives**](https://github.com/tedunderwood/measureperspective/tree/master/modelingperspectives) contains code, and intermediate stages of data, used to produce figure 1. The raw data is contained in another repository (it runs to several gigabytes).
 
 Sections 3 and 4: Comparing multiple perspectives, Measuring parallax
 =====================================================================
