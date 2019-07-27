@@ -1,11 +1,15 @@
 measuring the divergence between models
 =====================================
 
-When models are trained on the same data, we can compare "accuracy" or "recall." The goal here is to come up with a metric of similarity between models trained on different data, aimed especially at the case where the positive set changes although the negative (contrast) set remains the same. 
+This subfolder documents some experiments that undergird the argument in "Machine Learning and Human Perspective" but aren't very directly reflected in the text--basically because the generic demands of a PMLA article are different from the generic structure of a "hypothesis-driven experiment." In fact, the most accurate measures of generic divergence developed in this experiment are not used in the PMLA article, because it would have taken too much space to explain them.
+
+When models are trained on the same data, we can compare "accuracy" or "recall." The goal here is to come up with a metric of similarity between models trained on different data, aimed especially at the case where the positive set changes although the negative (contrast) set remains the same.
 
 This will allow us to meaningfully say "fantasy and science fiction are different from the mainstream *in similar ways*, whereas detective fiction diverges *in a different direction.*" I don't think you can defend a conclusion like that just with raw linguistic distances; you need to measure the divergence between predictive models that reflect human categories.
 
 But how can we prove that a measure of difference between two models accurately reflects differences in the underlying data? The relationship between those quantities could be very fuzzy, or curved. To test this, I created a series of artificial datasets that blend data from two genres in fixed proportions. That allows us to calibrate a metric of similarity between models, and know that it corresponds to degrees of similarity in the underlying data.
+
+Early in the project a [plan of research was pre-registered, Dec 24, 2017.](https://osf.io/5b72w/register/5771ca429ad5a1020de2872e)
 
 current state of conclusions
 ----------------------------
@@ -22,10 +26,10 @@ history of experiments
 
 I had a hard time figuring out how to design this experiment; a history of different attempts is recorded in labnotebook.md.
 
-All of the experiments did produce a fairly strong correlation between 
+All of the experiments did produce a fairly strong correlation between
 
-* the known distance between datasets A and B, and 
-* the accuracy lost when models of A are applied to B (and vice-versa). 
+* the known distance between datasets A and B, and
+* the accuracy lost when models of A are applied to B (and vice-versa).
 
 We would expect those things to correlate strongly, and they always do. But I wanted to know exactly how strongly, and I wanted to know whether I could expect the linear relationship to be roughly the same for different genres.
 
