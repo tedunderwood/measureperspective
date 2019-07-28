@@ -1,7 +1,7 @@
 this.dir <- dirname(parent.frame(2)$ofile)
 setwd(this.dir)
 
-persp <- read.csv('../2modelingperspectives/data4r.csv')
+persp <- read.csv('../genderedperspectives/data4r.csv')
 library(ggplot2)
 library(dplyr)
 library(ggrepel)
@@ -20,7 +20,7 @@ p <- ggplot(persp, aes(m, f)) +
         axis.line = element_line(color = 'black'),
         plot.title = element_text(margin = margin(b = 14), size = 16, lineheight = 1.1))
 
-tiff("../images/fig2plot2perspectives.tiff", height = 8, width = 8, units = 'in', res=400)
+tiff("../images/figure1.tiff", height = 8, width = 8, units = 'in', res=400)
 plot(p)
 dev.off()
 plot(p)

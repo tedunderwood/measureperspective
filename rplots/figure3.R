@@ -1,6 +1,9 @@
+this.dir <- dirname(parent.frame(2)$ofile)
+setwd(this.dir)
+
 library(scales)
 library(ggplot2)
-l <- read.csv('~/Dropbox/python/pmla/interpretations/1940plotarrows.tsv', sep = '\t')
+l <- read.csv('../interpretations/1940plotarrows.tsv', sep = '\t')
 lsubset = l[l$title == 'Player piano.',  ]
 title = paste('Probability of being science fiction, as seen from\nvantage points in 1910-39      1940-69')
 legend = data.frame(

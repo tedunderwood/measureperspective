@@ -1,8 +1,11 @@
+this.dir <- dirname(parent.frame(2)$ofile)
+setwd(this.dir)
+
 library(ggplot2)
 library(scales)
 
-sf <- read.csv('~/Dropbox/python/pmla/results/sf_periods2.tsv', sep = '\t')
-fantasy <- read.csv('~/Dropbox/python/pmla/results/fantasy_periods2.tsv', sep = '\t')
+sf <- read.csv('../results/sf_periods2.tsv', sep = '\t')
+fantasy <- read.csv('../results/fantasy_periods2.tsv', sep = '\t')
 sf$genre <- rep('sf', length(sf$name))
 fantasy$genre <- rep('fantasy', length(fantasy$name))
 all <-rbind(sf, fantasy)
