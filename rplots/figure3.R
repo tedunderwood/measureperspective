@@ -34,7 +34,7 @@ p <- ggplot() +
         panel.grid.minor = element_line(colour = "white"),
         plot.title = element_text(margin = margin(b = 14), size = 16, lineheight = 1.1),
         plot.margin = margin(1, 1, 0.5, 0.5, "cm"))
-tiff("~/Dropbox/python/pmla/images/NewerFig3.tiff", height = 6, width = 8, units = 'in', res=400)
+tiff("~/Dropbox/python/pmla/images/figure3.tiff", height = 6, width = 8, units = 'in', res=400)
 plot(p)
 dev.off()
 plot(p)

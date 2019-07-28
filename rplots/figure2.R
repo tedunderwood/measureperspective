@@ -26,7 +26,7 @@ p <- ggplot(all, aes(color = genre, shape = genre)) +
         plot.title = element_text(margin = margin(b = 14), size = 16, lineheight = 1.1),
         legend.title = element_blank())
 
-tiff("~/Dropbox/python/pmla/images/Fig3NoTitleLines.tiff", height = 6, width = 8, units = 'in', res=400)
+tiff("~/Dropbox/python/pmla/images/figure2.tiff", height = 6, width = 8, units = 'in', res=400)
 plot(p)
 dev.off()
 plot(p)
