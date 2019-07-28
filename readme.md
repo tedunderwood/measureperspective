@@ -19,21 +19,16 @@ These two sections of the article use shared sources of data and some shared cod
 
 So instead of creating a separate folder for each section, I have spread the various components of the workflow across different folders (**/data**, **/metadata**, and so on) documented below.
 
-The core question posed in section 3 was, "Can we measure the differentiation of fictional genres?""
- I asked, in particular, whether fantasy and science fiction become more clearly distinct from mainstream fiction (and from each other) as we move down a timeline from the nineteenth century to the early twenty-first. (I owe the impulse to compare fantasy and science fiction to a suggestion from Alan Liu.)
-
-Early in the project a [plan of research was pre-registered, Dec 24, 2017.](https://osf.io/5b72w/register/5771ca429ad5a1020de2872e)
-
-If you're interested in reproducing the research process from the beginning, I would recommend starting with [**/rawdata**,](https://github.com/tedunderwood/measureperspective/tree/master/rawdata) where I document the process of selecting the sample of books I used.
-
 If you're interested in understanding the immediate sources of evidence for a particular figure in the article, I would start with [**/rplots**,](https://github.com/tedunderwood/measureperspective/tree/master/rplots) which contains the R scripts actually used for visualization.
 
 To reproduce the predictive modeling in the article, you will need word counts for volume parts. I store these in a folder called simply **data**, but that folder is a little large for a github repo, so I am instead providing a link that allows download: [**DataForMeasuredPerspective.zip**](https://www.ideals.illinois.edu/handle/2142/99573).
 
+If you want to replicate the research process from the beginning--and perhaps develop your own independent sample--I would recommend starting with [**/rawdata**,](https://github.com/tedunderwood/measureperspective/tree/master/rawdata) where I document the process of selecting the sample of books I used.
+
 [rplots](https://github.com/tedunderwood/measureperspective/tree/master/rplots)
 -------------------
 
-Scripts that actually produce the figures in the article. If you're interested in retracing the process that produced a particular figure, it can be a good idea to start here; each figure is associated with a brief pointer to sources of data.
+Scripts that actually produce the figures in the article. Each script is associated with a brief pointer to sources of data.
 
 [getdata](https://github.com/tedunderwood/measureperspective/tree/master/getdata)
 -------
