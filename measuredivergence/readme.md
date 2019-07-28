@@ -1,7 +1,12 @@
 measuring the divergence between models
 =====================================
 
-This subfolder documents some experiments that undergird the argument in "Machine Learning and Human Perspective" but aren't very directly reflected in the text--basically because the generic demands of a PMLA article are different from the generic structure of a "hypothesis-driven experiment." In fact, the most accurate measures of generic divergence developed in this experiment are not used in the PMLA article, because it would have taken too much space to explain them.
+This subfolder documents some experiments that undergird the argument in "Machine Learning and Human Perspective" but aren't very directly reflected in the text--basically because the generic demands of a PMLA article are different from the generic structure of a hypothesis-driven experiment. In fact, the most accurate measures of generic divergence developed in this experiment are not used in the PMLA article, because it would have taken too much space to explain them.
+
+For a better (and published!) demonstration of the value of the metric developed here, see ["The Historical Significance of Textual Distances."](https://aclweb.org/anthology/papers/W/W18/W18-4507/) In this repo, you're looking at a first tinkery effort to develop the metric I end up using there.
+
+plan of experiment
+------------------
 
 When models are trained on the same data, we can compare "accuracy" or "recall." The goal here is to come up with a metric of similarity between models trained on different data, aimed especially at the case where the positive set changes although the negative (contrast) set remains the same.
 
