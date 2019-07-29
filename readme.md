@@ -10,7 +10,7 @@ The repository has been organized to document particular figures and assertions 
 [Section 1: From measurement to modeling](https://github.com/tedunderwood/measureperspective/tree/master/genderedperspectives)
 =======================================
 
-The subdirectory [**genderedperspectives**](https://github.com/tedunderwood/measureperspective/tree/master/modelingperspectives) contains code, and intermediate stages of data, used to produce figure 1. The raw data is contained in another repository (it runs to several gigabytes).
+The subdirectory [**genderedperspectives**](https://github.com/tedunderwood/genderedperspectives/tree/master/modelingperspectives) contains code, and intermediate stages of data, used to produce figure 1. The raw data is contained in another repository (it runs to several gigabytes).
 
 Section 2: Multiplying perspectives and 3: Measuring parallax
 =============================================================
