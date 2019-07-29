@@ -20,6 +20,6 @@ The "periods2" suffix marks that these functions were run in AY 2018-19 as part 
 figure3.R
 ----------
 
-This draws immediately on **../interpretations/1940plotarrows.tsv**. The data was produced ultimately by the function ```get_rcc_surprise()``` in **../logistic/main_experiment.py**.
+This draws immediately on **../interpretations/1940plotarrows.tsv**. The data was produced ultimately by the function ```get_sf_surprise()``` in **../logistic/main_experiment.py**.
 
 That function produces a number of files recording comparisons between two adjacent 30-year periods. The file **../results/sf1940_forward_surprises.tsv** is then filtered and arranged for visualization by **../interpretations/parallax.ipynb,** which writes the results out as **1940plotarrows.tsv.**

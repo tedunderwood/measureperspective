@@ -2,22 +2,45 @@
 
 # main_experiment.py
 
+# Runs versatiletrainer2 to produce predictive models
+# of genre, and/or compares the resulting models.
+
 # USAGE syntax:
 
 # python3 main_experiment.py *command*
 
-# Where *command* is one of the following codes.
-# I have tried to start with functions that are
-# relatively important to the argument of the article.
+# Where *command* is one of the following codes:
 
-# sf_periods
-# Runs sf_periods(), which simply assesses the ease
+# I have tried to document functions that are
+# relatively important to the argument of the article,
+# but I'm afraid there's a *lot* of stuff in this script;
+# I tried lots of different things and didn't delete old
+# trials.
+
+# sf_periods_2
+# Runs sf_periods_2(), which simply assesses the ease
 # of distinguishing science fiction from a random
 # background in different periods.
+# Produced data used in figure 2.
 
-# fantasy_periods
-# Runs fantasy_periods(), which likewise assesses the
+# fantasy_periods_2
+# Runs fantasy_periods_2(), which likewise assesses the
 # ease of distinguishing fantasy from a random background.
+# Produced data used in figure 2.
+
+# get_sf_surprise()
+# Compares adjacent periods, applying models of period A
+# to the texts in period B, and vice versa, to support
+# inferences about parallax. This function was based on an
+# earlier, more general, function, get_rcc_surprise().
+
+# I changed it by hard-coding the date, which had been
+# a flexible parameter, and by increasing the number of
+# models compared to each other. Note that this function
+# assumes the existence of a series of
+
+# Produced data used in figure 3, though it required
+# summarization in parallax.ipynb first.
 
 # reliable_change
 # Runs reliable_change_comparisons(), which supports a casual
@@ -35,19 +58,9 @@
 # bibliography to models based on 19c works tagged as science
 # fiction by postwar librarians.
 
-# sfsurprise + *date*
-#
-# The syntax for this command differs from the general syntax
-# above in requiring an additional argument, a date that will
-# be the midpoint between the two periods, or strictly speaking
-# the floor of the upper period. For instance, if you wanted to
-# compare 1900-29 to 1930-59 you would say
-#
-# python3 main_experiment.py sfsurprise 1930
-#
-# The function runs get_rcc_surprise(date).
-# This the function that produced the data
-# ultimately used in figure 5.
+# There are also a wide variety of functions that maximize
+# predictive accuracy on a single genre; these are mostly
+# self-explanatory.
 
 # Note that not all of the functions below are directly
 # used in the article. This script includes relics
@@ -976,7 +989,7 @@ def sfsurprise_models():
 
 def get_sf_surprise():
     '''
-    This function really produces figure 5.
+    This function really produces the data in figure 3.
     '''
 
 
@@ -2181,6 +2194,9 @@ def fantasy_periods_2():
     Assesses the accuracy of models that distinguish fantasy from a random contrast set,
     in a series of periods defined by "periods". For the meaning of the parameters,
     consult versatiletrainer2.
+
+    The primary difference from the older function fantasy_periods is that I've created a longer
+    list of periods, including overlapping timespans.
     '''
 
     if not os.path.isfile('../results/fantasy_periods2.tsv'):
@@ -2228,6 +2244,10 @@ def sf_periods_2():
     Assesses the accuracy of models that distinguish SF from a random contrast set,
     in a series of periods defined by "periods". For the meaning of the parameters,
     consult versatiletrainer2.
+
+    The primary difference from the older function sf_periods is that I've created a longer
+    list of periods, including overlapping timespans. Note that in the actual run range(2) below
+    was set higher, I believe to range(4).
     '''
 
     if not os.path.isfile('../results/sf_periods2.tsv'):
