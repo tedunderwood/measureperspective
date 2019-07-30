@@ -17,18 +17,18 @@
 # I tried lots of different things and didn't delete old
 # trials.
 
-# sf_periods_2
+# sf_periods
 # Runs sf_periods_2(), which simply assesses the ease
 # of distinguishing science fiction from a random
 # background in different periods.
 # Produced data used in figure 2.
 
-# fantasy_periods_2
+# fantasy_periods
 # Runs fantasy_periods_2(), which likewise assesses the
 # ease of distinguishing fantasy from a random background.
 # Produced data used in figure 2.
 
-# get_sf_surprise()
+# sfsurprise
 # Compares adjacent periods, applying models of period A
 # to the texts in period B, and vice versa, to support
 # inferences about parallax. This function was based on an
@@ -60,7 +60,8 @@
 
 # There are also a wide variety of functions that maximize
 # predictive accuracy on a single genre; these are mostly
-# self-explanatory.
+# self-explanatory; see the if statement at the end of this
+# script for the range of options.
 
 # Note that not all of the functions below are directly
 # used in the article. This script includes relics
