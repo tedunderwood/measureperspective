@@ -7,6 +7,8 @@ These notebooks document many passing assertions in the article.
 
 In particular:
 
+**confirm_accuracy.ipynb** is a very simple notebook that can test the accuracy of models recorded in the **../modeloutput** folder. It's less rigorous than re-running the whole modeling process, but it's dead simple.
+
 Questions about the strength of the boundary between fantasy and science fiction are answered in **interpretFSFcomparison.ipynb**. E.g., the figures 9-11% and 6% at the end of section 2, "Multiplying Perspectives." This notebook uses a file (../results/reliable_comparisons.tsv) that was produced by the function ```reliable_genre_comparisons()``` in ../logistic/main_experiment.py. *Note that the simplified section at the end of the notebook is the only part actually used in the article;* everything else is a more rigorous and complicated analysis that leads to roughly the same conclusion.
 
 **interpretgenrecomparisons.ipynb** poses questions about loss of accuracy between Scarborough, Bailey, etc; it supports assertions made in passing in section 2 of the article.
